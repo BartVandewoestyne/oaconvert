@@ -1,0 +1,16 @@
+Other similar software with source code available:
+--------------------------------------------------
+oa2gm:
+
+  http://buteo.szm.com/oa2gm/ 
+
+Scripts from ondrap@penguin.cz :
+
+  http://www.penguin.cz/~ondrap/paragliding.php
+
+
+Other software that supports Polish Format:
+-------------------------------------------
+GPSMapEdit:
+
+  http://www.geopainting.com/en/

@@ -1,0 +1,6 @@
+oa2pm should become an Open Source command-line tool to convert airspace files
+in OpenAir format [1] to files in Polish format [2].  It is currently not
+working yet.
+
+[1] http://www.winpilot.com/usersguide/userairspace.asp
+[2] http://www.cgpsmapper.com/

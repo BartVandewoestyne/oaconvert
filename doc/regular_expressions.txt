@@ -1,0 +1,18 @@
+We can try to use a regular expression C++ software library to parse the
+OpenAir commands.
+
+The C++0x standard update had added regex support to the C++ standard library.
+-> It is based on the Boost RegEx library:
+   http://www.boost.org/doc/libs/1_36_0/libs/regex/doc/html/index.html
+   http://onlamp.com/pub/a/onlamp/2006/04/06/boostregex.html
+   Look for functions like match_results and regex_replace.
+
+Other search terms could be 'regex capturing'.
+
+Perl Compatible Regular Expressions:
+  http://www.pcre.org/
+
+Qt also has support for regular expressions.
+
+See also
+http://softwareramblings.com/2008/07/regular-expressions-in-c.html
