@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <unistd.h>
 #include "latitude.h"
 #include "header.h"
 #include "stringutils.h"
@@ -8,6 +9,34 @@ using namespace std;
 
 int main (int argc, char* argv[])
 {
+
+  if (argc < 2)
+  {
+    printf("Usage:\n");
+    printf("%s [-o polish_file.mp] open_air_file.txt\n", argv[0]);
+    exit(1);
+  }
+
+  int index;
+  int opt;
+
+  while ( (opt = getopt(argc, argv, "o:")) != -1 ) {
+    switch (opt) {
+      case 'o':
+        printf("Option argument: %s\n", optarg);
+        break;
+      default: /* '?' */
+        fprintf(stderr, "Usage: %s [-o file.txt] file.air\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+  }
+  if (optind >= argc) {
+    fprintf(stderr, "Expected argument after options\n");
+    exit(EXIT_FAILURE);
+  }
+  for (index = optind; index < argc; index++)
+    printf ("Non-option argument %s\n", argv[index]);
+  return 0;
 
   ifstream inStream;
   string line;
