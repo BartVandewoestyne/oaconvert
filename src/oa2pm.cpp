@@ -50,6 +50,7 @@ int main (int argc, char* argv[])
 
   ifstream inStream;
   string line;
+  Parser p;
 
   //Latitude l(50, 46, 43);
   //cout << "l = " << l.getAngle() << "\n";
@@ -65,7 +66,6 @@ int main (int argc, char* argv[])
       //StringUtils s;
       getline(inStream, line);
 
-      Parser p;
       p.handleLine(line);
 
 //      s.trim(line);

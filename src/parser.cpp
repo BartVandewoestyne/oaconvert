@@ -1,7 +1,26 @@
 #include <iostream>
 #include <boost/regex.hpp>
 #include "parser.h"
+#include "airspace.h"
 using namespace boost;
+
+Parser::Parser():currentAirSpace()
+{
+  cout << "Parser default constructor" << endl;
+  //currentAirSpace = AirSpace(); // not necessary???
+  //currentAirSpace.setName("TestName");
+  //cout << "Parser default constructor (end)" << endl;
+}
+
+void Parser::setCurrentAirspace(AirSpace s)
+{
+  currentAirSpace = s;
+}
+
+AirSpace Parser::getCurrentAirSpace()
+{
+  return currentAirSpace;
+}
 
 Coordinate Parser::getCoordinate(std::string s)
 {
@@ -62,29 +81,69 @@ void Parser::handleLine(std::string line)
   expression = "\\s*\\*.*";
   if ( regex_match(line, matches, expression) )
   {
-    cout << "COMMENT LINE MATCH" << endl;
+    // do nothing.
   }
 
   expression = "\\s*AC\\s+(.*)";
   if ( regex_match(line, matches, expression) )
   {
-    cout << "AC LINE MATCH" << endl;
+
+    cout << getCurrentAirSpace() << endl;
+    cout << "\nAC found" << endl;
+    getCurrentAirSpace().clear();
+
+    string airspace_class;
     for (unsigned int i = 1; i < matches.size(); i++)
     {
-      string airspace_class(matches[i].first, matches[i].second);
-      cout << "\tAirspace class: " << airspace_class << endl;
+      airspace_class.assign(matches[i].first, matches[i].second);
     }
+    getCurrentAirSpace().setClass(airspace_class);
+
   }
 
   expression = "\\s*AN\\s+(.*)";
   if ( regex_match(line, matches, expression) )
   {
-    cout << "AN LINE MATCH" << endl;
+    string airspace_name;
     for (unsigned int i = 1; i < matches.size(); i++)
     {
-      string airspace_name(matches[i].first, matches[i].second);
-      cout << "\tAirspace name: " << airspace_name << endl;
+      airspace_name.assign(matches[i].first, matches[i].second);
     }
+    getCurrentAirSpace().setName(airspace_name);
+    // BUG: Why doesn't this work???
+  }
+
+  expression = "\\s*AH\\s+(.*)";
+  if ( regex_match(line, matches, expression) )
+  {
+    string airspace_ceiling;
+    for (unsigned int i = 1; i < matches.size(); i++)
+    {
+      airspace_ceiling.assign(matches[i].first, matches[i].second);
+    }
+    getCurrentAirSpace().setCeiling(airspace_ceiling);
+  }
+
+  expression = "\\s*AL\\s+(.*)";
+  if ( regex_match(line, matches, expression) )
+  {
+    string airspace_floor;
+    for (unsigned int i = 1; i < matches.size(); i++)
+    {
+      airspace_floor.assign(matches[i].first, matches[i].second);
+    }
+    getCurrentAirSpace().setFloor(airspace_floor);
+  }
+
+  expression = "\\s*AT\\s+(.*)";
+  if ( regex_match(line, matches, expression) )
+  {
+    string airspace_coordinate;
+    for (unsigned int i = 1; i < matches.size(); i++)
+    {
+      airspace_coordinate.assign(matches[i].first, matches[i].second);
+    }
+    //getCurrentAirSpace().addPoint(airspace_coordinate);
   }
 
 }

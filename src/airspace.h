@@ -19,8 +19,9 @@ class AirSpace {
     std::vector<Point> points;
 
   public:
+
     AirSpace();
-    AirSpace(string clss);
+
     void setName(string);
     string getName();
     void setCeiling(string);
@@ -32,8 +33,9 @@ class AirSpace {
     void setCeiling(int);
     void setFloor(int);
     void handleLine(string);
-    void print();
     void addPoint(Point);
+    void clear();
+    friend ostream& operator <<(ostream& outputStream, const AirSpace& l);
 
 };
 

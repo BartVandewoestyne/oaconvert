@@ -1,17 +1,13 @@
-#include "airspace.h"
-#include "stringutils.h"
 #include <iostream>
 #include <string>
+#include "airspace.h"
+#include "stringutils.h"
 #include "parser.h"
 using namespace std;
 
 AirSpace::AirSpace()
 {
-}
-
-AirSpace::AirSpace(string clss)
-{
-  this->clss = clss;
+  cout << "Airspace default constructor: " << this << endl;
 }
 
 void AirSpace::setCeiling(string ceiling) {
@@ -98,12 +94,22 @@ void AirSpace::handleLine(string line) {
   
 }
 
-void AirSpace::print() {
+ostream& operator <<(ostream& outputStream, const AirSpace& s)
+{
+  outputStream << "Name:    " << s.name << endl;
+  outputStream << "Class:   " << s.clss << endl;
+  outputStream << "Ceiling: " << s.ceiling << endl;
+  outputStream << "Floor:   " << s.floor << endl;
+  return outputStream;
+}
 
-  cout << "Class:   " << clss << endl;
-  cout << "Name:    " << name << endl;
-  cout << "Ceiling: " << ceiling << endl;
-  cout << "Floor:   " << floor << endl;
-  cout << endl;
+void AirSpace::clear() {
+
+    name = "";
+    clss = "";
+    ceiling = "";
+    floor = "";
+    //Coordinate *coordPtr;
+    points.clear();
 
 }
