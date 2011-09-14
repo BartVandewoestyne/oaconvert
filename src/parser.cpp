@@ -1,5 +1,7 @@
 #include <iostream>
+#include <boost/regex.hpp>
 #include "parser.h"
+using namespace boost;
 
 Coordinate Parser::getCoordinate(std::string s)
 {
@@ -47,5 +49,42 @@ Coordinate Parser::getCoordinate(std::string s)
   Longitude lon(deg, min, sec, direction);
 
   return Coordinate(lat, lon);
+
+}
+
+
+void Parser::handleLine(std::string line)
+{
+
+  smatch matches;
+  regex expression;
+
+  expression = "\\s*\\*.*";
+  if ( regex_match(line, matches, expression) )
+  {
+    cout << "COMMENT LINE MATCH" << endl;
+  }
+
+  expression = "\\s*AC\\s+(.*)";
+  if ( regex_match(line, matches, expression) )
+  {
+    cout << "AC LINE MATCH" << endl;
+    for (unsigned int i = 1; i < matches.size(); i++)
+    {
+      string airspace_class(matches[i].first, matches[i].second);
+      cout << "\tAirspace class: " << airspace_class << endl;
+    }
+  }
+
+  expression = "\\s*AN\\s+(.*)";
+  if ( regex_match(line, matches, expression) )
+  {
+    cout << "AN LINE MATCH" << endl;
+    for (unsigned int i = 1; i < matches.size(); i++)
+    {
+      string airspace_name(matches[i].first, matches[i].second);
+      cout << "\tAirspace name: " << airspace_name << endl;
+    }
+  }
 
 }

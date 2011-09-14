@@ -1,11 +1,14 @@
 #include <iostream>
 #include <fstream>
 #include <unistd.h>
+#include <boost/regex.hpp> 
 #include "latitude.h"
 #include "header.h"
 #include "stringutils.h"
+#include "parser.h"
 #include "airspace.h"
 using namespace std;
+using namespace boost;
 
 int main (int argc, char* argv[])
 {
@@ -21,22 +24,29 @@ int main (int argc, char* argv[])
   int opt;
 
   while ( (opt = getopt(argc, argv, "o:")) != -1 ) {
+
     switch (opt) {
+
       case 'o':
         printf("Option argument: %s\n", optarg);
         break;
+
       default: /* '?' */
         fprintf(stderr, "Usage: %s [-o file.txt] file.air\n", argv[0]);
         exit(EXIT_FAILURE);
+
     }
+
   }
+
   if (optind >= argc) {
     fprintf(stderr, "Expected argument after options\n");
     exit(EXIT_FAILURE);
   }
-  for (index = optind; index < argc; index++)
+
+  for (index = optind; index < argc; index++) {
     printf ("Non-option argument %s\n", argv[index]);
-  return 0;
+  }
 
   ifstream inStream;
   string line;
@@ -52,25 +62,28 @@ int main (int argc, char* argv[])
   {
     while ( inStream.good() )
     {
-      StringUtils s;
-
+      //StringUtils s;
       getline(inStream, line);
-      s.trim(line);
 
-      string token="AC";
-      if ( s.startsWith(line, token) )
-      {
-        AirSpace currentSpace(token);
+      Parser p;
+      p.handleLine(line);
 
-        getline(inStream, line);
-        while ( !s.startsWith(line, token) ) {
-          currentSpace.handleLine(line);
-          getline(inStream, line);
-        }
-
-        currentSpace.print();
-
-      }
+//      s.trim(line);
+//
+//      string token="AC";
+//      if ( s.startsWith(line, token) )
+//      {
+//        AirSpace currentSpace(token);
+//
+//        getline(inStream, line);
+//        while ( !s.startsWith(line, token) ) {
+//          currentSpace.handleLine(line);
+//          getline(inStream, line);
+//        }
+//
+//        currentSpace.print();
+//
+//      }
 
     }
     inStream.close();

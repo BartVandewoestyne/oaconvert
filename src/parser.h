@@ -10,6 +10,7 @@ class Parser {
 
   public:
     Coordinate getCoordinate(std::string s);
+    void handleLine(string s);
 
 };
 
