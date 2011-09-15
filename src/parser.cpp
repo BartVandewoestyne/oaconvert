@@ -21,49 +21,37 @@ AirSpace& Parser::getCurrentAirSpace()
 
 Coordinate Parser::getCoordinate(std::string s)
 {
+  smatch matches;
+  regex expression;
 
-  int pos1, pos2, pos3;
-  int deg, min, sec;
-  char direction;
-  string deg_string, min_string, sec_string;
+  expression = "[^0-9]*(\\d+):(\\d\\d):(\\d\\d)\\s*([NZOWSEnzowse])\\s+(\\d+):(\\d\\d):(\\d\\d)\\s([NZOWSEnzowse])*.*";
+  if ( regex_match(s, matches, expression) )
+  {
+    string degreesLat, minutesLat, secondsLat;
+    string degreesLon, minutesLon, secondsLon;
+    string directionLat, directionLon;
 
-  pos1 = s.find_first_of(":");
-  deg_string = s.substr(0, pos1);
-  deg = atoi(deg_string.c_str());
+    degreesLat.assign(   matches[1].first, matches[1].second );
+    minutesLat.assign(   matches[2].first, matches[2].second );
+    secondsLat.assign(   matches[3].first, matches[3].second );
+    directionLat.assign( matches[4].first, matches[4].second );
+    degreesLon.assign(   matches[5].first, matches[5].second );
+    minutesLon.assign(   matches[6].first, matches[6].second );
+    secondsLon.assign(   matches[7].first, matches[7].second );
+    directionLon.assign( matches[8].first, matches[8].second );
 
-  pos2 = s.find_first_of(":", pos1+1);
-  min_string = s.substr(pos1+1, 2);
-  min = atoi(min_string.c_str());
+    Latitude lat(atoi(degreesLat.c_str()),
+                 atoi(minutesLat.c_str()),
+                 atoi(secondsLat.c_str()), directionLat[0]);
+    Longitude lon(atoi(degreesLon.c_str()),
+                  atoi(minutesLon.c_str()),
+                  atoi(secondsLon.c_str()), directionLon[0]);
+    return Coordinate(lat, lon);
+  }
 
-  pos3 = s.find_first_of(" ", pos2+1);
-  sec_string = s.substr(pos2+1, 2);
-  sec = atoi(sec_string.c_str());
-
-  direction = s[pos3+1];
-
-  Latitude lat(deg, min, sec, direction);
-
-
-  pos1 = pos3+3;
-  pos2 = s.find_first_of(":", pos1+1);
-  deg_string = s.substr(pos1, pos2-pos1);
-  deg = atoi(deg_string.c_str());
-
-  pos3 = s.find_first_of(":", pos2+1);
-  min_string = s.substr(pos2+1, 2);
-  min = atoi(min_string.c_str());
-
-  sec_string = s.substr(pos2+4, 2);
-  sec = atoi(sec_string.c_str());
-
-  direction = s[pos2+7];
-
-  Longitude lon(deg, min, sec, direction);
-
-  return Coordinate(lat, lon);
-
+  cout << "\nNo valid coordinate definition found!!" << endl;
+  exit(1);
 }
-
 
 void Parser::handleLine(std::string line)
 {

@@ -4,15 +4,16 @@
 #include "longitude.h"
 
 Coordinate::Coordinate()
-{
-}
+{/* Body intentionally empty. */}
 
-Coordinate::Coordinate(Latitude lat, Longitude lon) {
+Coordinate::Coordinate(Latitude lat, Longitude lon)
+{
   this->lat = lat;
   this->lon = lon;
 }
 
-Latitude Coordinate::getLatitude() {
+Latitude Coordinate::getLatitude()
+{
   return lat;
 }
 
@@ -21,7 +22,8 @@ void Coordinate::setLatitude(Latitude lat)
   this->lat = lat;
 }
 
-Longitude Coordinate::getLongitude() {
+Longitude Coordinate::getLongitude()
+{
   return lon;
 }
 
@@ -41,7 +43,7 @@ ostream& operator <<(ostream& outputStream, const Coordinate& c)
   outputStream << c.lat;
   outputStream << ", ";
   outputStream << c.lon;
-  outputStream << ")\n";
+  outputStream << ")";
 
   return outputStream;
 }

@@ -1,4 +1,5 @@
 #include "latlon.h"
+#include <string>
 
 LatLon::LatLon()
 {
@@ -10,10 +11,14 @@ LatLon::LatLon(double degrees) {
 
 LatLon::LatLon(int degrees, int minutes, int seconds, char direction) {
   angle = degrees + minutes/60.0 + seconds/3600.0;
-  if ( (direction == 's') || (direction == 'S') || (direction == 'W') || (direction == 'w') )
+  if ( (direction == 's')
+      || (direction == 'S')
+      || (direction == 'W')
+      || (direction == 'w') )
   {
     angle = -angle;
   }
+  this->direction = direction;
 }
 
 double LatLon::getAngle() {
@@ -35,9 +40,11 @@ bool LatLon::operator ==(const LatLon& other) const
 
 ostream& operator <<(ostream& outputStream, const LatLon& l)
 {
+  string dirstring(1,l.direction);
+
   outputStream << l.angle;
   outputStream << " ";
-  outputStream << l.direction;
+  outputStream << dirstring;
 
   return outputStream;
 }
