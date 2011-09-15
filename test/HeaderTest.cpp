@@ -18,5 +18,4 @@ HeaderTest::testWriteHeader()
 {
   Header h;
   h.writeHeader();
-  //CPPUNIT_FAIL( "not implemented" );
 }

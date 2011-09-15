@@ -6,10 +6,7 @@ using namespace boost;
 
 Parser::Parser():currentAirSpace()
 {
-  cout << "Parser default constructor" << endl;
   //currentAirSpace = AirSpace(); // not necessary???
-  //currentAirSpace.setName("TestName");
-  //cout << "Parser default constructor (end)" << endl;
 }
 
 void Parser::setCurrentAirspace(AirSpace s)
@@ -50,20 +47,16 @@ Coordinate Parser::getCoordinate(std::string s)
   pos1 = pos3+3;
   pos2 = s.find_first_of(":", pos1+1);
   deg_string = s.substr(pos1, pos2-pos1);
-  cout << deg_string << endl;
   deg = atoi(deg_string.c_str());
 
   pos3 = s.find_first_of(":", pos2+1);
   min_string = s.substr(pos2+1, 2);
-  cout << min_string << endl;
   min = atoi(min_string.c_str());
 
   sec_string = s.substr(pos2+4, 2);
-  cout << sec_string << endl;
   sec = atoi(sec_string.c_str());
 
   direction = s[pos2+7];
-  cout << direction << endl;
 
   Longitude lon(deg, min, sec, direction);
 
@@ -88,8 +81,6 @@ void Parser::handleLine(std::string line)
   if ( regex_match(line, matches, expression) )
   {
 
-    cout << getCurrentAirSpace() << endl;
-    cout << "\nAC found" << endl;
     getCurrentAirSpace().clear();
 
     string airspace_class;

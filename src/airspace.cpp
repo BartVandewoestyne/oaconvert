@@ -7,7 +7,6 @@ using namespace std;
 
 AirSpace::AirSpace()
 {
-  cout << "Airspace default constructor: " << this << endl;
 }
 
 void AirSpace::setCeiling(string ceiling) {

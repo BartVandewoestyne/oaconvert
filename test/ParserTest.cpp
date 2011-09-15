@@ -23,6 +23,15 @@ ParserTest::testGetCoordinate()
 
   Parser p;
   Coordinate c2 = p.getCoordinate("12:34:56 N 56:34:12 W    c34");
-  cout << c2 << endl;
-  CPPUNIT_ASSERT( c1 == c2);
+  CPPUNIT_ASSERT_EQUAL(c1, c2);
+}
+
+// WHY DOES THIS TEST FAIL???
+void
+ParserTest::testSetGetCurrentAirSpace()
+{
+  Parser p;
+  p.getCurrentAirSpace().setName("TestName1");
+  cout << "NAME = " << p.getCurrentAirSpace().getName() << endl; // WHY DOES THIS NOT RETURN THE NAME!???
+  CPPUNIT_ASSERT_EQUAL(string("TestName1"), p.getCurrentAirSpace().getName());
 }

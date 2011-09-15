@@ -5,3 +5,4 @@ project(oa2pm)
 add_definitions(-Wall)
 
 add_subdirectory(src)
+add_subdirectory(test)
