@@ -14,7 +14,7 @@ void Parser::setCurrentAirspace(AirSpace s)
   currentAirSpace = s;
 }
 
-AirSpace Parser::getCurrentAirSpace()
+AirSpace& Parser::getCurrentAirSpace()
 {
   return currentAirSpace;
 }
@@ -81,6 +81,7 @@ void Parser::handleLine(std::string line)
   if ( regex_match(line, matches, expression) )
   {
 
+    cout << getCurrentAirSpace() << endl;
     getCurrentAirSpace().clear();
 
     string airspace_class;

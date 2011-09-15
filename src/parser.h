@@ -16,7 +16,7 @@ class Parser {
     Parser();
     Coordinate getCoordinate(std::string s);
     void handleLine(string s);
-    AirSpace getCurrentAirSpace();
+    AirSpace& getCurrentAirSpace();
     void setCurrentAirspace(AirSpace s);
 
 };
