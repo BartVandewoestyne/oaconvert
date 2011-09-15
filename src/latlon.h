@@ -10,6 +10,7 @@ class LatLon {
     LatLon();
     LatLon(double degrees);
     LatLon(int degrees, int minutes, int seconds, char direction);
+    LatLon(int degrees, double minutes, char direction);
     double getAngle();
     char getDirection();
     int getDegrees();

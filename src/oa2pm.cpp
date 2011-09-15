@@ -20,7 +20,6 @@ int main (int argc, char* argv[])
     exit(1);
   }
 
-  int index;
   int opt;
 
   while ( (opt = getopt(argc, argv, "o:")) != -1 ) {
@@ -44,16 +43,14 @@ int main (int argc, char* argv[])
     exit(EXIT_FAILURE);
   }
 
-  for (index = optind; index < argc; index++) {
-    printf ("Non-option argument %s\n", argv[index]);
-  }
+  //int index;
+  //for (index = optind; index < argc; index++) {
+  //  printf ("Non-option argument %s\n", argv[index]);
+  //}
 
   ifstream inStream;
   string line;
   Parser p;
-
-  //Latitude l(50, 46, 43);
-  //cout << "l = " << l.getAngle() << "\n";
 
   Header h;
   h.writeHeader();
@@ -63,28 +60,8 @@ int main (int argc, char* argv[])
   {
     while ( inStream.good() )
     {
-      //StringUtils s;
       getline(inStream, line);
-
       p.handleLine(line);
-
-//      s.trim(line);
-//
-//      string token="AC";
-//      if ( s.startsWith(line, token) )
-//      {
-//        AirSpace currentSpace(token);
-//
-//        getline(inStream, line);
-//        while ( !s.startsWith(line, token) ) {
-//          currentSpace.handleLine(line);
-//          getline(inStream, line);
-//        }
-//
-//        currentSpace.print();
-//
-//      }
-
     }
     inStream.close();
   }

@@ -17,6 +17,7 @@ class AirSpace {
     string floor;
     //Coordinate *coordPtr;
     std::vector<Point> points;
+    std::vector<Coordinate> labelCoordinates;
 
   public:
 
@@ -32,7 +33,8 @@ class AirSpace {
     string getClass();
     void setCeiling(int);
     void setFloor(int);
-    void handleLine(string);
+//    void handleLine(string);
+    void addLabelCoordinate(Coordinate);
     void addPoint(Point);
     void clear();
     friend ostream& operator <<(ostream& outputStream, const AirSpace& l);

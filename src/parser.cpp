@@ -23,8 +23,11 @@ Coordinate Parser::getCoordinate(std::string s)
 {
   smatch matches;
   regex expression;
+  Latitude lat;
+  Longitude lon;
 
-  expression = "[^0-9]*(\\d+):(\\d\\d):(\\d\\d)\\s*([NZOWSEnzowse])\\s+(\\d+):(\\d\\d):(\\d\\d)\\s([NZOWSEnzowse])*.*";
+  // Example: 101:20:32 S 102:32:12 W
+  expression = "[^0-9]*(\\d+):(\\d\\d):(\\d\\d)\\s*([NZSnzs])[\\s,]+(\\d+):(\\d\\d):(\\d\\d)\\s*([OWEowe])*.*";
   if ( regex_match(s, matches, expression) )
   {
     string degreesLat, minutesLat, secondsLat;
@@ -40,16 +43,40 @@ Coordinate Parser::getCoordinate(std::string s)
     secondsLon.assign(   matches[7].first, matches[7].second );
     directionLon.assign( matches[8].first, matches[8].second );
 
-    Latitude lat(atoi(degreesLat.c_str()),
-                 atoi(minutesLat.c_str()),
-                 atoi(secondsLat.c_str()), directionLat[0]);
-    Longitude lon(atoi(degreesLon.c_str()),
-                  atoi(minutesLon.c_str()),
-                  atoi(secondsLon.c_str()), directionLon[0]);
+    lat = Latitude(atoi(degreesLat.c_str()),
+                   atoi(minutesLat.c_str()),
+                   atoi(secondsLat.c_str()), directionLat[0]);
+    lon = Longitude(atoi(degreesLon.c_str()),
+                    atoi(minutesLon.c_str()),
+                    atoi(secondsLon.c_str()), directionLon[0]);
     return Coordinate(lat, lon);
   }
 
-  cout << "\nNo valid coordinate definition found!!" << endl;
+  // Example: 101:20.32 N 102:32.12 E
+  expression = "[^0-9]*(\\d+):(\\d+.\\d+)\\s*([NZSnzs])[\\s,]+(\\d+):(\\d+.\\d+)\\s*([OWEowe])*.*";
+  if ( regex_match(s, matches, expression) )
+  {
+    string degreesLat, minutesLat;
+    string degreesLon, minutesLon;
+    string directionLat, directionLon;
+
+    degreesLat.assign(   matches[1].first, matches[1].second );
+    minutesLat.assign(   matches[2].first, matches[2].second );
+    directionLat.assign( matches[3].first, matches[3].second );
+    degreesLon.assign(   matches[4].first, matches[4].second );
+    minutesLon.assign(   matches[5].first, matches[5].second );
+    directionLon.assign( matches[6].first, matches[6].second );
+
+    Latitude lat(atoi(degreesLat.c_str()),
+                 atof(minutesLat.c_str()),
+                 directionLat[0]);
+    Longitude lon(atoi(degreesLon.c_str()),
+                  atof(minutesLon.c_str()),
+                  directionLon[0]);
+    return Coordinate(lat, lon);
+  }
+
+  cout << "\nERROR: invalid coordinate string: " << s << endl;
   exit(1);
 }
 
@@ -65,10 +92,9 @@ void Parser::handleLine(std::string line)
     // do nothing.
   }
 
-  expression = "\\s*AC\\s+(.*)";
+  expression = "\\s*AC\\s+([RQPABCDW]|GP|CTR)\\s*";
   if ( regex_match(line, matches, expression) )
   {
-
     cout << getCurrentAirSpace() << endl;
     getCurrentAirSpace().clear();
 
@@ -78,7 +104,6 @@ void Parser::handleLine(std::string line)
       airspace_class.assign(matches[i].first, matches[i].second);
     }
     getCurrentAirSpace().setClass(airspace_class);
-
   }
 
   expression = "\\s*AN\\s+(.*)";
@@ -90,7 +115,6 @@ void Parser::handleLine(std::string line)
       airspace_name.assign(matches[i].first, matches[i].second);
     }
     getCurrentAirSpace().setName(airspace_name);
-    // BUG: Why doesn't this work???
   }
 
   expression = "\\s*AH\\s+(.*)";
@@ -115,7 +139,7 @@ void Parser::handleLine(std::string line)
     getCurrentAirSpace().setFloor(airspace_floor);
   }
 
-  expression = "\\s*AT\\s+(.*)";
+  expression = "\\s*AT\\s+(.*)"; // This one is optional.
   if ( regex_match(line, matches, expression) )
   {
     string airspace_coordinate;
@@ -123,7 +147,7 @@ void Parser::handleLine(std::string line)
     {
       airspace_coordinate.assign(matches[i].first, matches[i].second);
     }
-    //getCurrentAirSpace().addPoint(airspace_coordinate);
+    getCurrentAirSpace().addLabelCoordinate(getCoordinate(airspace_coordinate));
   }
 
 }

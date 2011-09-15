@@ -9,6 +9,7 @@ class Longitude : public LatLon {
     Longitude();
     Longitude(double degrees);
     Longitude(int degrees, int minutes, int seconds, char direction);
+    Longitude(int degrees, double minutes, char direction);
 
 };
 

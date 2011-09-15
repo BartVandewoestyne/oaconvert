@@ -2,15 +2,29 @@
 #include <string>
 
 LatLon::LatLon()
-{
-}
+{/* Body intentionally empty. */}
 
-LatLon::LatLon(double degrees) {
+LatLon::LatLon(double degrees)
+{
   angle = degrees;
 }
 
-LatLon::LatLon(int degrees, int minutes, int seconds, char direction) {
+LatLon::LatLon(int degrees, int minutes, int seconds, char direction)
+{
   angle = degrees + minutes/60.0 + seconds/3600.0;
+  if ( (direction == 's')
+      || (direction == 'S')
+      || (direction == 'W')
+      || (direction == 'w') )
+  {
+    angle = -angle;
+  }
+  this->direction = direction;
+}
+
+LatLon::LatLon(int degrees, double minutes, char direction)
+{
+  angle = degrees + minutes/60.0;
   if ( (direction == 's')
       || (direction == 'S')
       || (direction == 'W')

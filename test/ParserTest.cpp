@@ -17,12 +17,27 @@ ParserTest::tearDown()
 void
 ParserTest::testGetCoordinate()
 {
-  Latitude lat = Latitude(12, 34, 56, 'N');
-  Longitude lon = Longitude(56, 34, 12, 'W');
-  Coordinate c1 = Coordinate(lat, lon);
-
+  Latitude lat;
+  Longitude lon;
   Parser p;
-  Coordinate c2 = p.getCoordinate("12:34:56 N 56:34:12 W    c34");
+  Coordinate c1, c2;
+
+  lat = Latitude(12, 34, 56, 'N');
+  lon = Longitude(56, 34, 12, 'W');
+  c1 = Coordinate(lat, lon);
+  c2 = p.getCoordinate("12:34:56 N 56:34:12 W    c34");
+  CPPUNIT_ASSERT_EQUAL(c1, c2);
+
+  lat = Latitude(39, 36.8, 'N');
+  lon = Longitude(119, 46.1, 'W');
+  c1 = Coordinate(lat, lon);
+  c2 = p.getCoordinate("39:36.8 N 119:46.1W");
+  CPPUNIT_ASSERT_EQUAL(c1, c2);
+
+  lat = Latitude(39, 24.0, 'N');
+  lon = Longitude(6, 8.0, 'E');
+  c1 = Coordinate(lat, lon);
+  c2 = p.getCoordinate("49:24.000N,006:08.000E");
   CPPUNIT_ASSERT_EQUAL(c1, c2);
 }
 
