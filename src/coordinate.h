@@ -19,6 +19,7 @@ class Coordinate {
     Coordinate();
     Coordinate(std::string);
     Coordinate(Latitude lat, Longitude lon);
+    Coordinate(double degrees_lat, double degrees_lon);
     Latitude getLatitude();
     void setLatitude(Latitude lat);
     Longitude getLongitude();

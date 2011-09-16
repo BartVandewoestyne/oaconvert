@@ -12,6 +12,12 @@ Coordinate::Coordinate(Latitude lat, Longitude lon)
   this->lon = lon;
 }
 
+Coordinate::Coordinate(double degrees_lat, double degrees_lon)
+{
+  lat = Latitude(degrees_lat);
+  lon = Longitude(degrees_lon);
+}
+
 Latitude Coordinate::getLatitude()
 {
   return lat;
