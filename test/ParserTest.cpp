@@ -34,7 +34,7 @@ ParserTest::testGetCoordinate()
   c2 = p.getCoordinate("39:36.8 N 119:46.1W");
   CPPUNIT_ASSERT_EQUAL(c1, c2);
 
-  lat = Latitude(39, 24.0, 'N');
+  lat = Latitude(49, 24.0, 'N');
   lon = Longitude(6, 8.0, 'E');
   c1 = Coordinate(lat, lon);
   c2 = p.getCoordinate("49:24.000N,006:08.000E");
