@@ -11,10 +11,11 @@ class Polygon {
     std::vector<Coordinate> coords;
 
   public:
+    Polygon();
     void add(Coordinate c);
-    void draw();
+    void toPolish();
     void clear();
-    int getNbPoints();
+    int getNbPoints() const;
     friend ostream& operator <<(ostream& outputStream, const Polygon& c);
 
 };

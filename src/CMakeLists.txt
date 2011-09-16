@@ -8,6 +8,8 @@ set(airspace_SRCS
     parser.cpp
     point.cpp
     polygon.cpp
+    circle.cpp
+    regularconvexpolygon.cpp
     restricted.cpp
     stringutils.cpp
 )

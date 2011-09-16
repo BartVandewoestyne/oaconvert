@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include "polygon.h"
+#include "circle.h"
 #include "coordinate.h"
 
 using namespace std;
@@ -16,6 +17,7 @@ class AirSpace {
     string ceiling;
     string floor;
     Polygon polygon;
+    Circle circle;
     std::vector<Coordinate> labelCoordinates;
 
   public:
@@ -23,14 +25,15 @@ class AirSpace {
     AirSpace();
 
     void setName(string);
-    string getName();
+    string getName() const;
     void setCeiling(string);
-    string getCeiling();
+    string getCeiling() const;
     Polygon& getPolygon();
+    Circle& getCircle();
     void setFloor(string);
-    string getFloor();
+    string getFloor() const;
     void setClass(string);
-    string getClass();
+    string getClass() const;
     void setCeiling(int);
     void setFloor(int);
     void addLabelCoordinate(Coordinate);

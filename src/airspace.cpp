@@ -13,7 +13,7 @@ void AirSpace::setCeiling(string ceiling)
   this->ceiling = ceiling;
 }
 
-string AirSpace::getCeiling()
+string AirSpace::getCeiling() const
 {
   return ceiling;
 }
@@ -23,7 +23,7 @@ void AirSpace::setFloor(string floor)
   this->floor = floor;
 }
 
-string AirSpace::getFloor()
+string AirSpace::getFloor() const
 {
   return floor;
 }
@@ -33,12 +33,17 @@ Polygon& AirSpace::getPolygon()
   return polygon;
 }
 
+Circle& AirSpace::getCircle()
+{
+  return circle;
+}
+
 void AirSpace::setName(string mystring)
 {
   name = mystring;
 }
 
-string AirSpace::getName()
+string AirSpace::getName() const
 {
   return name;
 }
@@ -48,7 +53,7 @@ void AirSpace::setClass(string clss)
   this->clss = clss;
 }
 
-string AirSpace::getClass()
+string AirSpace::getClass() const
 {
   return clss;
 }
@@ -73,6 +78,7 @@ ostream& operator <<(ostream& outputStream, const AirSpace& s)
     }
   }
   outputStream << s.polygon << endl;
+  outputStream << s.circle << endl;
   return outputStream;
 }
 

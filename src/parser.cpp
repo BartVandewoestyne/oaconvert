@@ -2,6 +2,7 @@
 #include <boost/regex.hpp>
 #include "parser.h"
 #include "airspace.h"
+#include "coordinate.h"
 using namespace boost;
 
 Parser::Parser():currentAirSpace()
@@ -17,6 +18,21 @@ void Parser::setCurrentAirspace(AirSpace s)
 AirSpace& Parser::getCurrentAirSpace()
 {
   return currentAirSpace;
+}
+
+void Parser::setCurrentCoordinate(Coordinate c)
+{
+  currentCoordinate = c;
+}
+
+Coordinate& Parser::getCurrentCoordinate()
+{
+  return currentCoordinate;
+}
+
+int Parser::getCurrentDirection()
+{
+  return currentDirection;
 }
 
 Coordinate Parser::getCoordinate(std::string s)
@@ -150,7 +166,18 @@ void Parser::handleLine(std::string line)
     getCurrentAirSpace().addLabelCoordinate(getCoordinate(airspace_coordinate));
   }
 
-  expression = "\\s*DP\\s+(.*)"; // This one is optional.
+  expression = "\\s*V\\s+X\\s*=\\s*(.*)";
+  if ( regex_match(line, matches, expression) )
+  {
+    string coordinate;
+    for (unsigned int i = 1; i < matches.size(); i++)
+    {
+      coordinate.assign(matches[i].first, matches[i].second);
+    }
+    setCurrentCoordinate(getCoordinate(coordinate));
+  }
+
+  expression = "\\s*DP\\s+(.*)";
   if ( regex_match(line, matches, expression) )
   {
     string point_coordinate;
@@ -159,6 +186,23 @@ void Parser::handleLine(std::string line)
       point_coordinate.assign(matches[i].first, matches[i].second);
     }
     getCurrentAirSpace().getPolygon().add(getCoordinate(point_coordinate));
+  }
+
+  expression = "\\s*DC\\s+(.*)";
+  if ( regex_match(line, matches, expression) )
+  {
+
+    // Set circle center from stored state of the parser.
+    getCurrentAirSpace().getCircle().setCenter(getCurrentCoordinate());
+
+    // Set circle radius (in Nautical Miles) from what we've just read.
+    string radiusNM;
+    for (unsigned int i = 1; i < matches.size(); i++)
+    {
+      radiusNM.assign(matches[i].first, matches[i].second);
+    }
+
+    getCurrentAirSpace().getCircle().setRadiusNM(atof(radiusNM.c_str()));
   }
 
 }
