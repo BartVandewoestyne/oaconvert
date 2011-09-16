@@ -28,6 +28,11 @@ string AirSpace::getFloor()
   return floor;
 }
 
+Polygon& AirSpace::getPolygon()
+{
+  return polygon;
+}
+
 void AirSpace::setName(string mystring)
 {
   name = mystring;
@@ -53,11 +58,6 @@ void AirSpace::addLabelCoordinate(Coordinate c)
   labelCoordinates.push_back(c);
 }
 
-void AirSpace::addPoint(Point p)
-{
-  points.push_back(p);
-}
-
 ostream& operator <<(ostream& outputStream, const AirSpace& s)
 {
   outputStream << "Name:    " << s.name << endl;
@@ -72,6 +72,7 @@ ostream& operator <<(ostream& outputStream, const AirSpace& s)
       outputStream << "  " << s.labelCoordinates[i] << endl;
     }
   }
+  outputStream << s.polygon << endl;
   return outputStream;
 }
 
@@ -81,6 +82,6 @@ void AirSpace::clear()
     clss = "";
     ceiling = "";
     floor = "";
-    points.clear();
+    polygon.clear();
     labelCoordinates.clear();
 }

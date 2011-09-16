@@ -150,4 +150,15 @@ void Parser::handleLine(std::string line)
     getCurrentAirSpace().addLabelCoordinate(getCoordinate(airspace_coordinate));
   }
 
+  expression = "\\s*DP\\s+(.*)"; // This one is optional.
+  if ( regex_match(line, matches, expression) )
+  {
+    string point_coordinate;
+    for (unsigned int i = 1; i < matches.size(); i++)
+    {
+      point_coordinate.assign(matches[i].first, matches[i].second);
+    }
+    getCurrentAirSpace().getPolygon().add(getCoordinate(point_coordinate));
+  }
+
 }

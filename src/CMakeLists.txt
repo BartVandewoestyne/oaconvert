@@ -7,6 +7,7 @@ set(airspace_SRCS
     longitude.cpp
     parser.cpp
     point.cpp
+    polygon.cpp
     restricted.cpp
     stringutils.cpp
 )

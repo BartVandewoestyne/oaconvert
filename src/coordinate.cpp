@@ -39,7 +39,7 @@ bool Coordinate::operator ==(const Coordinate& other) const
 
 ostream& operator <<(ostream& outputStream, const Coordinate& c)
 {
-  outputStream << "Coordinate: ( ";
+  outputStream << "Coordinate: (";
   outputStream << c.lat;
   outputStream << ", ";
   outputStream << c.lon;

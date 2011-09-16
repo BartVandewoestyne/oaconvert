@@ -2,15 +2,20 @@
 #define POLYGON_H 
 
 #include <stdlib.h>
+#include <vector>
 #include "point.h"
 
 class Polygon {
 
   private:
-    Point p;
+    std::vector<Coordinate> coords;
 
   public:
-    Point getPoint(int);
+    void add(Coordinate c);
+    void draw();
+    void clear();
+    int getNbPoints();
+    friend ostream& operator <<(ostream& outputStream, const Polygon& c);
 
 };
 
