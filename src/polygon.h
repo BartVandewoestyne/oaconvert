@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 #include <vector>
+
 #include "point.h"
 
 class Polygon {
@@ -12,11 +13,13 @@ class Polygon {
 
   public:
     Polygon();
-    void add(Coordinate c);
-    void toPolish();
+
+    void add(const Coordinate &c);
+    void toPolish(std::ostream& outputStream) const;
     void clear();
     int getNbPoints() const;
-    friend ostream& operator <<(ostream& outputStream, const Polygon& c);
+
+    friend std::ostream& operator <<(std::ostream& outputStream, const Polygon& c);
 
 };
 

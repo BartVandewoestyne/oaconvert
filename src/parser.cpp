@@ -21,7 +21,7 @@ Parser::Parser(ostream& stream)
 {
 }
 
-void Parser::setCurrentAirspace(AirSpace s)
+void Parser::setCurrentAirspace(const AirSpace& s)
 {
   currentAirSpace = s;
 }
@@ -31,22 +31,22 @@ AirSpace& Parser::getCurrentAirSpace()
   return currentAirSpace;
 }
 
-void Parser::setCurrentCoordinate(Coordinate c)
+void Parser::setCurrentCoordinate(const Coordinate& c)
 {
   currentCoordinate = c;
 }
 
-Coordinate& Parser::getCurrentCoordinate()
+const Coordinate& Parser::getCurrentCoordinate() const
 {
   return currentCoordinate;
 }
 
-int Parser::getCurrentDirection()
+int Parser::getCurrentDirection() const
 {
   return currentDirection;
 }
 
-Coordinate Parser::getCoordinate(std::string s)
+Coordinate Parser::getCoordinate(const std::string& s) const
 {
   smatch matches;
   regex expression;
@@ -107,7 +107,7 @@ Coordinate Parser::getCoordinate(std::string s)
   exit(1);
 }
 
-void Parser::handleLine(std::string line)
+void Parser::handleLine(const std::string& line)
 {
 
   smatch matches;

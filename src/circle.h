@@ -14,13 +14,15 @@ class Circle {
     Circle();
     /* Create a circle around given coordinate, with radius in nautical miles */
     Circle(Coordinate c1, double radius);
+
     void setRadiusNM(double radius);
     void setCenter(Coordinate c);
-    Coordinate& getCenter();
-    double getRadiusNM();
-    double getRadiusM();
-    void toPolish();
-    friend ostream& operator <<(ostream& outputStream, const Circle& c);
+    const Coordinate& getCenter() const;
+    double getRadiusNM() const;
+    double getRadiusM() const;
+    void toPolish( std::ostream& outputStream ) const;
+
+    friend std::ostream& operator <<(std::ostream& outputStream, const Circle& c);
 
 };
 

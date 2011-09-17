@@ -1,6 +1,8 @@
 #include "latlon.h"
 #include <string>
 
+using namespace std;
+
 LatLon::LatLon()
 {/* Body intentionally empty. */}
 
@@ -35,16 +37,16 @@ LatLon::LatLon(int degrees, double minutes, char direction)
   this->direction = direction;
 }
 
-double LatLon::getAngle() {
+double LatLon::getAngle() const {
   return angle;
 }
 
-char LatLon::getDirection() {
+char LatLon::getDirection() const {
   return direction;
 }
 
-int LatLon::getDegrees() {
-  return (int) angle;
+int LatLon::getDegrees() const {
+  return (int) angle; // ? What is difference between getangles and getdegrees?
 }
 
 bool LatLon::operator ==(const LatLon& other) const

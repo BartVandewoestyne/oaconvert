@@ -2,7 +2,6 @@
 #define LATLON_H 
 
 #include <iostream>
-using namespace std;
 
 class LatLon {
 
@@ -11,11 +10,13 @@ class LatLon {
     LatLon(double degrees);
     LatLon(int degrees, int minutes, int seconds, char direction);
     LatLon(int degrees, double minutes, char direction);
-    double getAngle();
-    char getDirection();
-    int getDegrees();
+
+    double getAngle() const;
+    char getDirection() const;
+    int getDegrees() const;
+
     bool operator ==(const LatLon& other) const;
-    friend ostream& operator <<(ostream& outputStream, const LatLon& l);
+    friend std::ostream& operator <<(std::ostream& outputStream, const LatLon& l);
 
   private:
     double angle;   /* South pole = 0 <= angle <= 90 = North pole */

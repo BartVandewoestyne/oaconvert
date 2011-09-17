@@ -19,13 +19,13 @@ class Parser {
     Parser();
     Parser(std::ostream& stream);
 
-    Coordinate getCoordinate(std::string s);
-    void handleLine(string s);
-    int getCurrentDirection();
+    Coordinate getCoordinate(const std::string& s) const;
+    void handleLine(const std::string& s);
+    int getCurrentDirection() const;
     AirSpace& getCurrentAirSpace();
-    Coordinate& getCurrentCoordinate();
-    void setCurrentAirspace(AirSpace s);
-    void setCurrentCoordinate(Coordinate c);
+    const Coordinate& getCurrentCoordinate() const;
+    void setCurrentAirspace(const AirSpace &s);
+    void setCurrentCoordinate(const Coordinate &c);
 
 };
 

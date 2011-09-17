@@ -79,7 +79,7 @@ ostream& operator <<(ostream& outputStream, const AirSpace& s)
   }
   outputStream << s.polygon << endl;
   outputStream << s.circle << endl;
-  s.circle.toPolish();
+  s.circle.toPolish( outputStream );
   return outputStream;
 }
 

@@ -1,16 +1,20 @@
 #include <cmath>
 #include "circle.h"
 
+using namespace std;
+
 Circle::Circle()
 {}
 
 Circle::Circle(Coordinate c1, double radius)
-{}
+{
+	// TODO?
+}
 
 /*
  * Return the radius in nautical miles.
  */
-double Circle::getRadiusNM()
+double Circle::getRadiusNM() const
 {
   return radius;
 }
@@ -18,7 +22,7 @@ double Circle::getRadiusNM()
 /*
  * Return the radius in metres.
  */
-double Circle::getRadiusM()
+double Circle::getRadiusM() const
 {
   return radius*1852.0;
 }
@@ -33,12 +37,12 @@ void Circle::setCenter(Coordinate c)
   center = c;
 }
 
-Coordinate& Circle::getCenter()
+const Coordinate& Circle::getCenter() const
 {
   return center;
 }
 
-void Circle::toPolish() const
+void Circle::toPolish( ostream& outputStream ) const
 {
   int steps = 100; /* Same resolution as oa2gm */
   double globeR = 6371e3;
@@ -61,9 +65,8 @@ void Circle::toPolish() const
     deg_x = angle_lon + getRadiusM()*cos(pi*angle/180)/x_res;
     deg_y = angle_lat + getRadiusM()*sin(pi*angle/180)/y_res;
     Coordinate c(deg_x, deg_y);
-    cout << c << endl;
+    outputStream << c << endl;
   }
-
 
 }
 
