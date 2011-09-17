@@ -4,7 +4,16 @@ Latitude::Latitude() : LatLon()
 {}
 
 Latitude::Latitude(double degrees) : LatLon(degrees)
-{}
+{
+  if (getAngle() < 0)
+  {
+    setDirection('S');
+  }
+  else
+  {
+    setDirection('N');
+  }
+}
 
 Latitude::Latitude(int degrees, int minutes, int seconds, char direction)
   : LatLon(degrees, minutes, seconds, direction)

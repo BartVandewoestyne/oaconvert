@@ -11,10 +11,7 @@ Coordinate::Coordinate()
 {/* Body intentionally empty. */}
 
 Coordinate::Coordinate(const Latitude& lat, const Longitude& lon)
-: lat( lat ) // use initializer list! If not, first the default
-                   // constructor is called, then, in the implementation of the
-                   // constructor, the assignments operator is called. This is
-                   // double the amount of work that should be necessary ;)
+: lat( lat )
 , lon( lon )
 {
 }

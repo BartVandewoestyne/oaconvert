@@ -13,14 +13,16 @@ class LatLon {
 
     double getAngle() const;
     char getDirection() const;
+    void setDirection(char c);
     int getDegrees() const;
 
     bool operator ==(const LatLon& other) const;
-    friend std::ostream& operator <<(std::ostream& outputStream, const LatLon& l);
+    friend std::ostream& operator <<(std::ostream& outputStream,
+                                     const LatLon& l);
 
   private:
-    double angle;   /* South pole = 0 <= angle <= 90 = North pole */
-    char direction; /* N, S */
+    double angle;
+    char direction;
 
 };
 

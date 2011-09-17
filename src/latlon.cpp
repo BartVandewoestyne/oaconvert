@@ -45,6 +45,11 @@ char LatLon::getDirection() const {
   return direction;
 }
 
+void LatLon::setDirection(char c)
+{
+  direction = c;
+}
+
 int LatLon::getDegrees() const {
   return (int) angle; // ? What is difference between getangles and getdegrees?
 }
