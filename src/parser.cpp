@@ -1,13 +1,24 @@
+// vim: expandtab
 #include <iostream>
 #include <boost/regex.hpp>
-#include "parser.h"
+
 #include "airspace.h"
 #include "coordinate.h"
-using namespace boost;
+#include "parser.h"
 
-Parser::Parser():currentAirSpace()
+using namespace boost;
+using namespace std;
+
+Parser::Parser()
+// :currentAirSpace() --> not necessary!
+: out( cout.rdbuf() )
 {
-  //currentAirSpace = AirSpace(); // not necessary???
+  //currentAirSpace = AirSpace(); // not necessary??? --> nope, default constructor is called!
+}
+
+Parser::Parser(ostream& stream)
+: out( stream.rdbuf() )
+{
 }
 
 void Parser::setCurrentAirspace(AirSpace s)
