@@ -1,8 +1,8 @@
+// vim: expandtab
 #ifndef PARSER_H
 #define PARSER_H 
 
 #include <string>
-using namespace std;
 
 #include "coordinate.h"
 #include "airspace.h"
@@ -13,16 +13,19 @@ class Parser {
     AirSpace currentAirSpace;
     Coordinate currentCoordinate;
     int currentDirection;
+    std::ostream out;
 
   public:
     Parser();
-    Coordinate getCoordinate(std::string s);
-    void handleLine(string s);
-    int getCurrentDirection();
+    Parser(std::ostream& stream);
+
+    Coordinate getCoordinate(const std::string& s) const;
+    void handleLine(const std::string& s);
+    int getCurrentDirection() const;
     AirSpace& getCurrentAirSpace();
-    Coordinate& getCurrentCoordinate();
-    void setCurrentAirspace(AirSpace s);
-    void setCurrentCoordinate(Coordinate c);
+    const Coordinate& getCurrentCoordinate() const;
+    void setCurrentAirspace(const AirSpace &s);
+    void setCurrentCoordinate(const Coordinate &c);
 
 };
 

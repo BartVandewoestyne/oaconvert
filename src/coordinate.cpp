@@ -1,39 +1,46 @@
+// vim: expandtab 
 #include <iostream>
+
 #include "coordinate.h"
 #include "latitude.h"
 #include "longitude.h"
 
+using namespace std;
+
 Coordinate::Coordinate()
 {/* Body intentionally empty. */}
 
-Coordinate::Coordinate(Latitude lat, Longitude lon)
+Coordinate::Coordinate(const Latitude& lat, const Longitude& lon)
+: lat( lat ) // use initializer list! If not, first the default
+                   // constructor is called, then, in the implementation of the
+                   // constructor, the assignments operator is called. This is
+                   // double the amount of work that should be necessary ;)
+, lon( lon )
 {
-  this->lat = lat;
-  this->lon = lon;
 }
 
 Coordinate::Coordinate(double degrees_lat, double degrees_lon)
+: lat( degrees_lat )
+, lon( degrees_lon )
 {
-  lat = Latitude(degrees_lat);
-  lon = Longitude(degrees_lon);
 }
 
-Latitude Coordinate::getLatitude()
+const Latitude& Coordinate::getLatitude() const
 {
   return lat;
 }
 
-void Coordinate::setLatitude(Latitude lat)
+void Coordinate::setLatitude(const Latitude& lat)
 {
   this->lat = lat;
 }
 
-Longitude Coordinate::getLongitude()
+const Longitude& Coordinate::getLongitude() const
 {
   return lon;
 }
 
-void Coordinate::setLongitude(Longitude lon)
+void Coordinate::setLongitude(const Longitude& lon)
 {
   this->lon = lon;
 }

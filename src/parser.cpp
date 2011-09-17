@@ -1,16 +1,27 @@
+// vim: expandtab
 #include <iostream>
 #include <boost/regex.hpp>
-#include "parser.h"
+
 #include "airspace.h"
 #include "coordinate.h"
-using namespace boost;
+#include "parser.h"
 
-Parser::Parser():currentAirSpace()
+using namespace boost;
+using namespace std;
+
+Parser::Parser()
+// :currentAirSpace() --> not necessary!
+: out( cout.rdbuf() )
 {
-  //currentAirSpace = AirSpace(); // not necessary???
+  //currentAirSpace = AirSpace(); // not necessary??? --> nope, default constructor is called!
 }
 
-void Parser::setCurrentAirspace(AirSpace s)
+Parser::Parser(ostream& stream)
+: out( stream.rdbuf() )
+{
+}
+
+void Parser::setCurrentAirspace(const AirSpace& s)
 {
   currentAirSpace = s;
 }
@@ -20,22 +31,22 @@ AirSpace& Parser::getCurrentAirSpace()
   return currentAirSpace;
 }
 
-void Parser::setCurrentCoordinate(Coordinate c)
+void Parser::setCurrentCoordinate(const Coordinate& c)
 {
   currentCoordinate = c;
 }
 
-Coordinate& Parser::getCurrentCoordinate()
+const Coordinate& Parser::getCurrentCoordinate() const
 {
   return currentCoordinate;
 }
 
-int Parser::getCurrentDirection()
+int Parser::getCurrentDirection() const
 {
   return currentDirection;
 }
 
-Coordinate Parser::getCoordinate(std::string s)
+Coordinate Parser::getCoordinate(const std::string& s) const
 {
   smatch matches;
   regex expression;
@@ -96,7 +107,7 @@ Coordinate Parser::getCoordinate(std::string s)
   exit(1);
 }
 
-void Parser::handleLine(std::string line)
+void Parser::handleLine(const std::string& line)
 {
 
   smatch matches;
@@ -115,7 +126,7 @@ void Parser::handleLine(std::string line)
     getCurrentAirSpace().clear();
 
     string airspace_class;
-    for (unsigned int i = 1; i < matches.size(); i++)
+    for (unsigned int i = 1; i < matches.size(); ++i)
     {
       airspace_class.assign(matches[i].first, matches[i].second);
     }
@@ -126,7 +137,7 @@ void Parser::handleLine(std::string line)
   if ( regex_match(line, matches, expression) )
   {
     string airspace_name;
-    for (unsigned int i = 1; i < matches.size(); i++)
+    for (unsigned int i = 1; i < matches.size(); ++i)
     {
       airspace_name.assign(matches[i].first, matches[i].second);
     }
@@ -137,7 +148,7 @@ void Parser::handleLine(std::string line)
   if ( regex_match(line, matches, expression) )
   {
     string airspace_ceiling;
-    for (unsigned int i = 1; i < matches.size(); i++)
+    for (unsigned int i = 1; i < matches.size(); ++i)
     {
       airspace_ceiling.assign(matches[i].first, matches[i].second);
     }
@@ -148,7 +159,7 @@ void Parser::handleLine(std::string line)
   if ( regex_match(line, matches, expression) )
   {
     string airspace_floor;
-    for (unsigned int i = 1; i < matches.size(); i++)
+    for (unsigned int i = 1; i < matches.size(); ++i)
     {
       airspace_floor.assign(matches[i].first, matches[i].second);
     }
@@ -159,7 +170,7 @@ void Parser::handleLine(std::string line)
   if ( regex_match(line, matches, expression) )
   {
     string airspace_coordinate;
-    for (unsigned int i = 1; i < matches.size(); i++)
+    for (unsigned int i = 1; i < matches.size(); ++i)
     {
       airspace_coordinate.assign(matches[i].first, matches[i].second);
     }
@@ -170,7 +181,7 @@ void Parser::handleLine(std::string line)
   if ( regex_match(line, matches, expression) )
   {
     string coordinate;
-    for (unsigned int i = 1; i < matches.size(); i++)
+    for (unsigned int i = 1; i < matches.size(); ++i)
     {
       coordinate.assign(matches[i].first, matches[i].second);
     }
@@ -181,7 +192,7 @@ void Parser::handleLine(std::string line)
   if ( regex_match(line, matches, expression) )
   {
     string point_coordinate;
-    for (unsigned int i = 1; i < matches.size(); i++)
+    for (unsigned int i = 1; i < matches.size(); ++i)
     {
       point_coordinate.assign(matches[i].first, matches[i].second);
     }
@@ -197,7 +208,7 @@ void Parser::handleLine(std::string line)
 
     // Set circle radius (in Nautical Miles) from what we've just read.
     string radiusNM;
-    for (unsigned int i = 1; i < matches.size(); i++)
+    for (unsigned int i = 1; i < matches.size(); ++i)
     {
       radiusNM.assign(matches[i].first, matches[i].second);
     }

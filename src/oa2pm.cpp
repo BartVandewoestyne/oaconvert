@@ -7,6 +7,7 @@
 #include "stringutils.h"
 #include "parser.h"
 #include "airspace.h"
+
 using namespace std;
 using namespace boost;
 
@@ -48,13 +49,31 @@ int main (int argc, char* argv[])
   //  printf ("Non-option argument %s\n", argv[index]);
   //}
 
-  ifstream inStream;
-  string line;
-  Parser p;
+	// Make output to file or to stdout controllable.
+	streambuf *buf;
+	ofstream of;
+	bool write_to_file = false;
+	string outfilename( "myoutfile.txt" );
+	if( write_to_file )
+	{
+		of.open( outfilename.c_str() );
+		buf = of.rdbuf();
+	}
+	else
+	{
+		buf = cout.rdbuf();
+	}
+	ostream out( buf );
 
+	// Setup 
+  string line;
+  Parser p( out );
+
+	// Start processing.
   Header h;
   h.writeHeader();
 
+  ifstream inStream;
   inStream.open(argv[1]);
   if (inStream.is_open())
   {

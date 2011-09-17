@@ -1,9 +1,11 @@
 #include "polygon.h"
+ 
+using namespace std;
 
 Polygon::Polygon()
 {}
 
-void Polygon::add(Coordinate c)
+void Polygon::add(const Coordinate &c)
 {
   coords.push_back(c);
 }
@@ -13,7 +15,7 @@ void Polygon::clear()
   coords.clear();
 }
 
-void Polygon::toPolish()
+void Polygon::toPolish(ostream& outputStream) const
 {}
 
 int Polygon::getNbPoints() const
@@ -25,7 +27,7 @@ ostream& operator <<(ostream& outputStream, const Polygon& p)
 {
   if (p.getNbPoints() > 0) {
     outputStream << "Polygon:" << endl;
-    for (unsigned int i = 0; i< p.coords.size(); i++)
+    for (unsigned int i = 0; i< p.coords.size(); ++i)
     {
       outputStream << "  " << p.coords[i] << endl;
     }

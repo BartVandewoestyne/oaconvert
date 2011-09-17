@@ -4,7 +4,6 @@
 #include <iostream>
 #include <stdlib.h>
 #include <string>
-using namespace std;
 
 #include "latitude.h"
 #include "longitude.h"
@@ -18,14 +17,17 @@ class Coordinate {
   public:
     Coordinate();
     Coordinate(std::string);
-    Coordinate(Latitude lat, Longitude lon);
+    Coordinate(const Latitude& lat, const Longitude& lon);
     Coordinate(double degrees_lat, double degrees_lon);
-    Latitude getLatitude();
-    void setLatitude(Latitude lat);
-    Longitude getLongitude();
-    void setLongitude(Longitude lon);
+
+    const Latitude& getLatitude() const;
+    void setLatitude(const Latitude& lat);
+
+    const Longitude& getLongitude() const;
+    void setLongitude(const Longitude& lon);
+
     bool operator ==(const Coordinate& other) const;
-    friend ostream& operator <<(ostream& outputStream, const Coordinate& c);
+    friend std::ostream& operator <<(std::ostream& outputStream, const Coordinate& c);
 
 };
 
