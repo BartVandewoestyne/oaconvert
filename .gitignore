@@ -2,3 +2,5 @@ CMakeCache.txt
 CMakeFiles
 cmake_install.cmake
 Makefile
+src/*.so
+src/oa2pm
