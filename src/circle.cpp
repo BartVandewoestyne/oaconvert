@@ -54,7 +54,7 @@ void Circle::toPolish() const
   double y_res = 2*pi*globeR/360;
 
 
-  for (int i = 0; i < steps; i++)
+  for (int i = 0; i < steps; ++i)
   {
     angle = i*360.0/steps;
 

@@ -25,7 +25,7 @@ ostream& operator <<(ostream& outputStream, const Polygon& p)
 {
   if (p.getNbPoints() > 0) {
     outputStream << "Polygon:" << endl;
-    for (unsigned int i = 0; i< p.coords.size(); i++)
+    for (unsigned int i = 0; i< p.coords.size(); ++i)
     {
       outputStream << "  " << p.coords[i] << endl;
     }

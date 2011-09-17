@@ -72,7 +72,7 @@ ostream& operator <<(ostream& outputStream, const AirSpace& s)
   if (s.labelCoordinates.size() > 0)
   {
     outputStream << "Label coordinates:" << endl;
-    for (unsigned int i=0; i<s.labelCoordinates.size(); i++)
+    for (unsigned int i=0; i<s.labelCoordinates.size(); ++i)
     {
       outputStream << "  " << s.labelCoordinates[i] << endl;
     }
