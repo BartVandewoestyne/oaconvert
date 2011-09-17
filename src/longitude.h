@@ -10,6 +10,8 @@ class Longitude : public LatLon {
     Longitude(double degrees);
     Longitude(int degrees, int minutes, int seconds, char direction);
     Longitude(int degrees, double minutes, char direction);
+    double getArcDegree();
+    double getN();
 
 };
 

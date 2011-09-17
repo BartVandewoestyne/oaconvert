@@ -13,7 +13,7 @@ class Circle {
   public:
     Circle();
     /* Create a circle around given coordinate, with radius in nautical miles */
-    Circle(Coordinate c1, double radius);
+    Circle(Coordinate center, double radius);
 
     void setRadiusNM(double radius);
     void setCenter(Coordinate c);

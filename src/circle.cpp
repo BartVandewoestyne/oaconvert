@@ -6,9 +6,10 @@ using namespace std;
 Circle::Circle()
 {}
 
-Circle::Circle(Coordinate c1, double radius)
+Circle::Circle(Coordinate center, double radius)
 {
-	// TODO?
+  setCenter(center);
+  setRadiusNM(radius);
 }
 
 /*
@@ -42,29 +43,46 @@ const Coordinate& Circle::getCenter() const
   return center;
 }
 
+/*
+ * See http://en.wikipedia.org/wiki/Latitude#Degree_length
+ *
+ * TODO: check if these calculatiosn (based on the oa2gm source code) are
+ *       correct.  I guess not, because they both use 6371e3 for computing
+ *       new latitudinal and longitudinal points.  This is not 100% correct.
+ *       We should probably follow WGS84 or IERS 2003 ellipsoids.
+ */
 void Circle::toPolish( ostream& outputStream ) const
 {
-  int steps = 100; /* Same resolution as oa2gm */
-  double globeR = 6371e3;
+  // Resolution of the circle.  Currently, we use the same value as the
+  // oa2gm program, but in the future we might make this configurable via
+  // a configuration file.
+  int steps = 100;
+
   const double pi = 3.14159265;
-  double deg_x, deg_y;
+  double deg_lat, deg_lon;
   double angle;
 
-  double angle_lat = getCenter().getLatitude().getAngle();
-  double angle_lon = getCenter().getLongitude().getAngle();
+  Latitude lat = getCenter().getLatitude();
+  Longitude lon = getCenter().getLongitude();
 
-  // Calculate how many meters 1 degree lat and long are.
-  double x_res = 2*pi*( globeR*cos(pi*angle_lat/180) )/360;
-  double y_res = 2*pi*globeR/360;
-
+  // Compute arcdegree of latitude respectively longitude difference.
+  // Note here that we assume latitudinal and longitudinal radius of the
+  // earth to be the same.  It would be more precise to assume different
+  // values.  See M and N-values at
+  //
+  //   http://en.wikipedia.org/wiki/Latitude#Degree_length
+  //
+  double phi = pi*lat.getAngle()/180.0;
+  double arcdegree_lat = pi*lat.getM()/180;
+  double arcdegree_lon = pi*cos(phi)*lon.getN()/180;
 
   for (int i = 0; i < steps; ++i)
   {
     angle = i*360.0/steps;
 
-    deg_x = angle_lon + getRadiusM()*cos(pi*angle/180)/x_res;
-    deg_y = angle_lat + getRadiusM()*sin(pi*angle/180)/y_res;
-    Coordinate c(deg_x, deg_y);
+    deg_lon = lon.getAngle() + getRadiusM()*cos(pi*angle/180)/arcdegree_lon;
+    deg_lat = lat.getAngle() + getRadiusM()*sin(pi*angle/180)/arcdegree_lat;
+    Coordinate c(deg_lat, deg_lon);
     outputStream << c << endl;
   }
 
