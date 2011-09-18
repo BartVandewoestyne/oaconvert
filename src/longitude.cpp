@@ -29,9 +29,7 @@ Longitude::Longitude(int degrees, double minutes, char direction)
  */
 double Longitude::getArcDegree()
 {
-  const double pi = 3.14159265;
-
-  return pi*cos(pi*getAngle()/180)*getN()/180.0;
+  return M_PI*cos(M_PI*getAngle()/180)*getN()/180.0;
 }
 
 /**
