@@ -1,7 +1,11 @@
-#include <cmath>
 #include "circle.h"
 
+#include <cmath>
+
+#include "constants.h"
+
 using namespace std;
+using Constants::pi;
 
 Circle::Circle()
 {}
@@ -58,7 +62,6 @@ void Circle::toPolish( ostream& outputStream ) const
   // a configuration file.
   int steps = 100;
 
-  const double pi = 3.14159265;
   double deg_lat, deg_lon;
   double angle;
 
