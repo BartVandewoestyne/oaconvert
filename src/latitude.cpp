@@ -30,8 +30,6 @@ Latitude::Latitude(int degrees, double minutes, char direction)
 /**
  * Return the value for an arcdegree of north-south latitude difference.
  * See http://en.wikipedia.org/wiki/Latitude#Degree_length
- *
- * TODO: get rid of pi's definition here.
  */
 double Latitude::getArcDegree()
 {
