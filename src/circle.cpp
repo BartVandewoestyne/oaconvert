@@ -1,7 +1,11 @@
-#include <cmath>
 #include "circle.h"
 
+#include <cmath>
+
+#include "constants.h"
+
 using namespace std;
+using Constants::pi;
 
 Circle::Circle()
 {}

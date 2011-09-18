@@ -1,5 +1,10 @@
-#include <cmath>
 #include "longitude.h"
+
+#include <cmath>
+
+#include "constants.h"
+
+using Constants::pi;
 
 Longitude::Longitude() : LatLon()
 {}
@@ -29,7 +34,7 @@ Longitude::Longitude(int degrees, double minutes, char direction)
  */
 double Longitude::getArcDegree()
 {
-  return M_PI*cos(M_PI*getAngle()/180)*getN()/180.0;
+  return pi*cos(pi*getAngle()/180)*getN()/180.0;
 }
 
 /**

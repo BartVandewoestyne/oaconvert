@@ -1,6 +1,8 @@
 #include "latitude.h"
 
-#include <cmath>
+#include "constants.h"
+
+using Constants::pi;
 
 Latitude::Latitude() : LatLon()
 {}
@@ -33,7 +35,7 @@ Latitude::Latitude(int degrees, double minutes, char direction)
  */
 double Latitude::getArcDegree()
 {
-  return M_PI*getM()/180.0;
+  return pi*getM()/180.0;
 }
 
 /**
