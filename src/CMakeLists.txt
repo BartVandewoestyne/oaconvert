@@ -12,6 +12,9 @@ set(airspace_SRCS
     regularconvexpolygon.cpp
     restricted.cpp
     stringutils.cpp
+    OutputState.cpp
+    PolishState.cpp
+    OutputWriter.cpp
 )
 
 add_library(airspace SHARED ${airspace_SRCS})
