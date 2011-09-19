@@ -8,6 +8,13 @@ LatLon::LatLon()
 
 LatLon::LatLon(double degrees)
 {
+  // TODO:
+  // Since for latitudes we have that -90 <= angle <= 90 and for longitudes
+  // we have that -180 <= angle <= 180, we could check here if
+  //
+  //   -180 <= angle <= 180
+  //
+  // and throw an exception if this condition is not satisfied?
   angle = degrees;
 }
 
