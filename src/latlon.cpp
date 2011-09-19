@@ -8,6 +8,13 @@ LatLon::LatLon()
 
 LatLon::LatLon(double degrees)
 {
+  // TODO:
+  // Since for latitudes we have that -90 <= angle <= 90 and for longitudes
+  // we have that -180 <= angle <= 180, we could check here if
+  //
+  //   -180 <= angle <= 180
+  //
+  // and throw an exception if this condition is not satisfied?
   angle = degrees;
 }
 
@@ -37,6 +44,9 @@ LatLon::LatLon(int degrees, double minutes, char direction)
   this->direction = direction;
 }
 
+/**
+ * Return the complete angle as a floating point number.
+ */
 double LatLon::getAngle() const {
   return angle;
 }
@@ -50,7 +60,12 @@ void LatLon::setDirection(char c)
   direction = c;
 }
 
-int LatLon::getDegrees() const {
+/**
+ * Return the integer value for the degrees (the DD in DD:MM:SS, which is
+ * equal to getAngle() minus its fractional part).
+ */
+int LatLon::getDegrees() const
+{
   return (int) angle; // ? What is difference between getangles and getdegrees?
 }
 

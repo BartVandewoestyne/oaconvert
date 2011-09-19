@@ -16,7 +16,14 @@ void Polygon::clear()
 }
 
 void Polygon::toPolish(ostream& outputStream) const
-{}
+{
+  // See section 4.2.4.2 in http://cgpsmapper.com/download/cGPSmapper-UsrMan-v02.1.pdf
+  cout << "[POLYGON]" << endl;
+  cout << "Type=0x0a" << endl; // use same as oa2gm source code, figure out later why...
+  cout << "Data0=" << endl;
+  // TODO: loop over p.coords and plot all coordinates in this polygon.
+  cout << "[END]" << endl;
+}
 
 int Polygon::getNbPoints() const
 {

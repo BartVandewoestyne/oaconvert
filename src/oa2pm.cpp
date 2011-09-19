@@ -71,7 +71,7 @@ int main (int argc, char* argv[])
 
 	// Start processing.
   Header h;
-  h.writeHeader();
+  h.write();
 
   ifstream inStream;
   inStream.open(argv[1]);

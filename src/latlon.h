@@ -3,11 +3,29 @@
 
 #include <iostream>
 
+/**
+ * Class offering common functionality to Latitude and Longitude classes.
+ */
 class LatLon {
 
   public:
+
+    /**
+     * Construct a LatLon object without angle nor direction.
+     *
+     * TODO: we shouldn't be able to construct these kind of objects.  How
+     *       to enforce this?  In Java-terminology: how to make this an
+     *       'abstract' class?
+     */
     LatLon();
+
+    /**
+     * Construct a LatLon object with the specified angle in decimal degrees.
+     *
+     * @param degrees Angle in degrees.
+     */
     LatLon(double degrees);
+
     LatLon(int degrees, int minutes, int seconds, char direction);
     LatLon(int degrees, double minutes, char direction);
 

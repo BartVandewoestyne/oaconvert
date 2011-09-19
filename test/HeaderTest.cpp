@@ -17,5 +17,5 @@ void
 HeaderTest::testWriteHeader()
 {
   Header h;
-  h.writeHeader();
+  h.write();
 }
