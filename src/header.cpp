@@ -2,7 +2,7 @@
 #include <fstream>
 using namespace std;
 
-void Header::writeHeader() {
+void Header::write() {
 
   ofstream outStream;
 

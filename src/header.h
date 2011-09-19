@@ -6,7 +6,7 @@
 class Header {
 
   public:
-    void writeHeader();
+    void write();
 
 };
 
