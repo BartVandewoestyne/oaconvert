@@ -1,4 +1,4 @@
-#include "outputwriter.h"
+#include "OutputWriter.h"
 #include "PolishState.h"
 #include "airspace.h"
 
@@ -9,7 +9,7 @@ OutputWriter::OutputWriter()
 }
 
 
-OutputWriter::write(AirSpace s)
+void OutputWriter::write(AirSpace s)
 {
   _state->write(s);
 }

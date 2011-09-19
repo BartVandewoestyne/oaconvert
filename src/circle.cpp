@@ -55,15 +55,12 @@ const Coordinate& Circle::getCenter() const
  *       new latitudinal and longitudinal points.  This is not 100% correct.
  *       We should probably follow WGS84 or IERS 2003 ellipsoids.
  */
-void Circle::toPolish( ostream& outputStream ) const
+Polygon Circle::getPolyRepresentation(int nbPoints) const
 {
-  // Resolution of the circle.  Currently, we use the same value as the
-  // oa2gm program, but in the future we might make this configurable via
-  // a configuration file.
-  int steps = 100;
 
   double deg_lat, deg_lon;
   double angle;
+  Polygon p;
 
   Latitude lat = getCenter().getLatitude();
   Longitude lon = getCenter().getLongitude();
@@ -79,15 +76,17 @@ void Circle::toPolish( ostream& outputStream ) const
   double arcdegree_lat = pi*lat.getM()/180;
   double arcdegree_lon = pi*cos(phi)*lon.getN()/180;
 
-  for (int i = 0; i < steps; ++i)
+  for (int i = 0; i < nbPoints; ++i)
   {
-    angle = i*360.0/steps;
+    angle = i*360.0/nbPoints;
 
     deg_lon = lon.getAngle() + getRadiusM()*cos(pi*angle/180)/arcdegree_lon;
     deg_lat = lat.getAngle() + getRadiusM()*sin(pi*angle/180)/arcdegree_lat;
     Coordinate c(deg_lat, deg_lon);
-    outputStream << c << endl;
+    p.add(c);
   }
+
+  return p;
 
 }
 

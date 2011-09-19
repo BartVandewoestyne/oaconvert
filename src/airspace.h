@@ -35,7 +35,6 @@ class AirSpace {
     void setClass(string);
     string getClass() const;
     void setCeiling(int);
-    void toPolish();
     void setFloor(int);
     void addLabelCoordinate(Coordinate);
     void clear();

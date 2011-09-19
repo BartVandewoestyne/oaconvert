@@ -63,12 +63,6 @@ void AirSpace::addLabelCoordinate(Coordinate c)
   labelCoordinates.push_back(c);
 }
 
-void AirSpace::toPolish()
-{
-  polygon.toPolish();
-  circle.toPolish();
-}
-
 ostream& operator <<(ostream& outputStream, const AirSpace& s)
 {
   outputStream << "Name:    " << s.name << endl;

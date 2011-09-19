@@ -2,6 +2,7 @@
 #define CIRCLE_H 
 
 #include "coordinate.h"
+#include "polygon.h"
 
 class Circle {
 
@@ -20,7 +21,7 @@ class Circle {
     const Coordinate& getCenter() const;
     double getRadiusNM() const;
     double getRadiusM() const;
-    void toPolish( std::ostream& outputStream ) const;
+    Polygon getPolyRepresentation(int nbPoints) const;
 
     friend std::ostream& operator <<(std::ostream& outputStream, const Circle& c);
 

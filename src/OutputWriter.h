@@ -1,6 +1,9 @@
 #ifndef OUTPUTWRITER_H 
 #define OUTPUTWRITER_H 
 
+#include "airspace.h"
+#include "OutputState.h"
+
 class OutputWriter {
 
   public:

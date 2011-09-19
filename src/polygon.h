@@ -15,7 +15,6 @@ class Polygon {
     Polygon();
 
     void add(const Coordinate &c);
-    void toPolish(std::ostream& outputStream) const;
     void clear();
     int getNbPoints() const;
 
