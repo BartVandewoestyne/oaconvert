@@ -2,14 +2,15 @@
 #include "PolishState.h"
 #include "airspace.h"
 
-OutputWriter::OutputWriter()
+OutputWriter::OutputWriter():_state(PolishState::getInstance())
 {
   // By default, use Polish Format.
-  _state = PolishState::getInstance();
+  cout << "OutputWriter::OutputWriter()" << endl;
 }
 
 
 void OutputWriter::write(AirSpace s)
 {
+  cout << "OutputWriter::write(AirSpace s)" << endl;
   _state->write(s);
 }

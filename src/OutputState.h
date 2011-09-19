@@ -6,6 +6,7 @@
 class OutputState {
 
   public:
+    //OutputState();
     virtual void write(AirSpace s);
 
 };

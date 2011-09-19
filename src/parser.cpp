@@ -122,7 +122,8 @@ void Parser::handleLine(const std::string& line)
   expression = "\\s*AC\\s+([RQPABCDW]|GP|CTR)\\s*";
   if ( regex_match(line, matches, expression) )
   {
-    cout << getCurrentAirSpace() << endl;
+    //cout << getCurrentAirSpace() << endl;
+    _writer.write(getCurrentAirSpace());
     getCurrentAirSpace().clear();
 
     string airspace_class;

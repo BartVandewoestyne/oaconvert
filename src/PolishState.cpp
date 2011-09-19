@@ -2,12 +2,30 @@
 #include "airspace.h"
 using Constants::pi;
 
+
+PolishState* PolishState::_instance = 0;
+
+PolishState::PolishState()
+{
+  cout << "PolishState()" << endl;
+}
+
+
 void PolishState::write(AirSpace s) const
 {
+  cout << "PolishState::write(AirSpace s)" << endl;
   write(s.getPolygon());
   write(s.getCircle());;
 }
 
+PolishState* PolishState::getInstance()
+{
+  if (_instance == 0)
+  {
+    _instance = new PolishState;
+  }
+  return _instance;
+}
 
 void PolishState::write(Polygon p) const
 {
