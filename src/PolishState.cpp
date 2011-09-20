@@ -56,11 +56,6 @@ void PolishState::writeHeader() const
   // Kind of pre-processing.  We're setting it to the default here...
   cout << "PreProcess=F\n";
 
-  // Number of levels (layers) in the map (at least 2, not more than 10)
-  // (mandatory) and level and zoomlevels.
-  // Note: the last layer must always be empty, e.g. Levels=3
-  //       means that two layers only are available for map objects.
-  // See section 4.4 (on page 40) of cgpsmapper manual (mandatory).
 
   // This is what oa2gm uses, but it didn't work with GPSMapEdit 1.0.70.0.
   //cout << "Levels=5\n";
@@ -75,14 +70,36 @@ void PolishState::writeHeader() const
   //cout << "Zoom3=3\n";
   //cout << "Zoom4=4\n";
 
-  // This is what GPSMapEdit 1.0.69.1 outputs, and it seems to work in
+
+  // Below is what GPSMapEdit 1.0.69.1 outputs, and it seems to work in
   // GPSMapEdit... so we use this.  Note that this might not work as fluently
   // on actual GPS units like the Garmin 60CSX.
+
+  // Note 1: the last layer must always be empty, e.g. Levels=3
+  //         means that two layers only are available for map objects.
+  // Note 2: GPS unit map detail must be set to 'Normal'!!!!!
+  // See section 4.4 (on page 40) of cgpsmapper manual (mandatory).
+
+  // Number of map zoom levels (layers) in the map (mandatory, at least 2,
+  // not more than 10, numbered starting at 0).
   cout << "Levels=2\n";
+
+  // Map zoom level 0 corresponds to hardware zoom level 24 ('Up to 120m')
+  // This means that map objects and coordinates defined as map level 0, will
+  // be used at hardware zoom levels 24 and above.  So they will be visible
+  // if the scale is 120m or more detailed.
   cout << "Level0=24\n";
+
+  // Last level is a special one that dictates when our map replaces the
+  // base map.  It means the following: from hardware level
+  // 14 ('80km to 120 km') or higher, we will see our map.  At hardware
+  // zoom levels 13 and below, we will see the base map.
+  // We are not allowed to define map objects and coordinates at this level.
   cout << "Level1=14\n";
+
   cout << "Zoom0=0\n";
   cout << "Zoom1=1\n";
+
 
   // Section terminator (mandatory)
   cout << "[END-IMG ID]\n" << endl;
