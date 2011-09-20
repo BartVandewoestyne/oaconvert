@@ -6,8 +6,8 @@
 class OutputState {
 
   public:
-    //OutputState();
-    virtual void write(AirSpace s);
+    OutputState();
+    virtual void write(AirSpace s) const;
 
 };
 

@@ -1,11 +1,10 @@
 #include "OutputState.h"
 #include "airspace.h"
 
-//OutputState::OutputState()
-//{
-//}
+OutputState::OutputState()
+{}
 
-void OutputState::write(AirSpace s)
+void OutputState::write(AirSpace s) const
 {
   cout << "OutputState::write(Airspace s)" << endl;
 }
