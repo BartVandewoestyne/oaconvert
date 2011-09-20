@@ -3,7 +3,9 @@
 using namespace std;
 
 Polygon::Polygon()
-{}
+{
+  //cout << "Polygon()" << endl;
+}
 
 void Polygon::add(const Coordinate &c)
 {
@@ -18,6 +20,11 @@ void Polygon::clear()
 int Polygon::getNbPoints() const
 {
   return coords.size();
+}
+
+Coordinate Polygon::getCoordinate(int i)
+{
+  return coords[i-1];
 }
 
 ostream& operator <<(ostream& outputStream, const Polygon& p)

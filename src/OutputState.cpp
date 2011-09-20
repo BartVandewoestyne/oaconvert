@@ -1,5 +1,13 @@
 #include "OutputState.h"
 #include "airspace.h"
 
-void OutputState::write(AirSpace s)
+OutputState::OutputState()
+{
+  outStream.open("output.mp");
+}
+
+void OutputState::write(AirSpace s) const
+{}
+
+void OutputState::writeHeader() const
 {}

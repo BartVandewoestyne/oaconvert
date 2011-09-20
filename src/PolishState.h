@@ -7,11 +7,18 @@
 class PolishState : public OutputState {
 
   public:
-    static OutputState* getInstance();
+    static PolishState* getInstance();
 
+    virtual void writeHeader() const;
     virtual void write(AirSpace s) const;
-    virtual void write(Polygon p) const;
-    virtual void write(Circle c) const;
+    virtual void write(Polygon p, std::string label) const;
+    virtual void write(Coordinate c) const;
+
+  protected:
+    PolishState();
+
+  private:
+    static PolishState* _instance;
 
 };
 

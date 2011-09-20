@@ -1,0 +1,7 @@
+; This one is not working yet...
+AC P
+AN P02
+AL SFC
+AH UNLD
+V X=50:09:58 N 5:06:20 E
+DC 0.8

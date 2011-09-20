@@ -8,7 +8,9 @@ using namespace std;
 using Constants::pi;
 
 Circle::Circle()
-{}
+{
+  //cout << "Circle()" << endl;
+}
 
 Circle::Circle(Coordinate center, double radius)
 {

@@ -5,14 +5,15 @@
 
 #include "coordinate.h"
 #include "airspace.h"
+#include "OutputWriter.h"
 
 class Parser {
 
   private:
+    OutputWriter _writer;
     AirSpace currentAirSpace;
     Coordinate currentCoordinate;
     int currentDirection;
-    std::ostream out;
 
   public:
     Parser();

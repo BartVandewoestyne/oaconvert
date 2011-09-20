@@ -6,7 +6,9 @@
 using namespace std;
 
 AirSpace::AirSpace()
-{/* Body intentionally empty. */}
+{
+  //cout << "AirSpace()" << endl;
+}
 
 void AirSpace::setCeiling(string ceiling)
 {
@@ -31,6 +33,33 @@ string AirSpace::getFloor() const
 Polygon& AirSpace::getPolygon()
 {
   return polygon;
+}
+
+bool AirSpace::hasPolygon() const
+{
+  if (polygon.getNbPoints() > 0)
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
+
+bool AirSpace::hasCircle() const
+{
+  // TODO: THIS IS NOT CLEAN!!!
+  if (circle.getRadiusM() > 0.01)
+  {
+    //cout << "DEBUG: airspace has a circle" << endl;
+    return true;
+  }
+  else
+  {
+    //cout << "DEBUG: airspace doesn't have a circle" << endl;
+    return false;
+  }
 }
 
 Circle& AirSpace::getCircle()

@@ -2,14 +2,18 @@
 #include "PolishState.h"
 #include "airspace.h"
 
-OutputWriter::OutputWriter()
-{
-  // By default, use Polish Format.
-  _state = PolishState::getInstance();
-}
+// By default, use Polish Format.
+OutputWriter::OutputWriter(ostream& stream)
+:_state(PolishState::getInstance())
+, out(stream.rdbuf())
+{}
 
-
-void OutputWriter::write(AirSpace s)
+void OutputWriter::write(AirSpace s) const
 {
   _state->write(s);
+}
+
+void OutputWriter::writeHeader() const
+{
+  _state->writeHeader();
 }

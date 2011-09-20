@@ -1,4 +1,3 @@
-// vim: expandtab
 #include <iostream>
 #include <boost/regex.hpp>
 
@@ -10,16 +9,12 @@ using namespace boost;
 using namespace std;
 
 Parser::Parser()
-// :currentAirSpace() --> not necessary!
-: out( cout.rdbuf() )
-{
-  //currentAirSpace = AirSpace(); // not necessary??? --> nope, default constructor is called!
-}
+: _writer(cout)
+{}
 
 Parser::Parser(ostream& stream)
-: out( stream.rdbuf() )
-{
-}
+: _writer( stream )
+{}
 
 void Parser::setCurrentAirspace(const AirSpace& s)
 {
@@ -107,6 +102,7 @@ Coordinate Parser::getCoordinate(const std::string& s) const
   exit(1);
 }
 
+
 void Parser::handleLine(const std::string& line)
 {
 
@@ -122,7 +118,7 @@ void Parser::handleLine(const std::string& line)
   expression = "\\s*AC\\s+([RQPABCDW]|GP|CTR)\\s*";
   if ( regex_match(line, matches, expression) )
   {
-    cout << getCurrentAirSpace() << endl;
+    _writer.write(getCurrentAirSpace());
     getCurrentAirSpace().clear();
 
     string airspace_class;
@@ -203,6 +199,7 @@ void Parser::handleLine(const std::string& line)
   if ( regex_match(line, matches, expression) )
   {
 
+    //cout << "DEBUG: found DC record!" << endl;
     // Set circle center from stored state of the parser.
     getCurrentAirSpace().getCircle().setCenter(getCurrentCoordinate());
 

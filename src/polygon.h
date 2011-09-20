@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <vector>
 
+#include "coordinate.h"
 #include "point.h"
 
 class Polygon {
@@ -17,6 +18,7 @@ class Polygon {
     void add(const Coordinate &c);
     void clear();
     int getNbPoints() const;
+    Coordinate getCoordinate(int i);
 
     friend std::ostream& operator <<(std::ostream& outputStream, const Polygon& c);
 
