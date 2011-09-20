@@ -3,7 +3,9 @@
 using namespace std;
 
 Polygon::Polygon()
-{}
+{
+  //cout << "Polygon()" << endl;
+}
 
 void Polygon::add(const Coordinate &c)
 {

@@ -38,6 +38,8 @@ class AirSpace {
     void setFloor(int);
     void addLabelCoordinate(Coordinate);
     void clear();
+    bool hasPolygon() const;
+    bool hasCircle() const;
     friend ostream& operator <<(ostream& outputStream, const AirSpace& l);
 
 };

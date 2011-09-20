@@ -80,6 +80,10 @@ int main (int argc, char* argv[])
       getline(inStream, line);
       p.handleLine(line);
     }
+
+    // Make sure we also write the last airspace in the file...
+    w.write(p.getCurrentAirSpace());
+
     inStream.close();
   }
   else cout << "Unable to open file!\n";

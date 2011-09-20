@@ -1,4 +1,3 @@
-// vim: expandtab
 #include <iostream>
 #include <boost/regex.hpp>
 
@@ -200,6 +199,7 @@ void Parser::handleLine(const std::string& line)
   if ( regex_match(line, matches, expression) )
   {
 
+    //cout << "DEBUG: found DC record!" << endl;
     // Set circle center from stored state of the parser.
     getCurrentAirSpace().getCircle().setCenter(getCurrentCoordinate());
 

@@ -92,8 +92,16 @@ void PolishState::writeHeader() const
 
 void PolishState::write(AirSpace s) const
 {
-  //write(s.getPolygon());
-  write(s.getCircle().getPolyRepresentation(100));;
+  if ( s.hasPolygon() )
+  {
+    //cout << "DEBUG: Airspace has a polygon" << endl;
+    write(s.getPolygon(), s.getName());
+  }
+  if ( s.hasCircle() )
+  {
+    //cout << "DEBUG: Airspace has a circle" << endl;
+    write(s.getCircle().getPolyRepresentation(100), s.getName());;
+  }
 }
 
 PolishState* PolishState::getInstance()
@@ -105,7 +113,7 @@ PolishState* PolishState::getInstance()
   return _instance;
 }
 
-void PolishState::write(Polygon p) const
+void PolishState::write(Polygon p, std::string label) const
 {
   // See section 4.2.4.2 in http://cgpsmapper.com/download/cGPSmapper-UsrMan-v02.1.pdf
 
@@ -121,16 +129,21 @@ void PolishState::write(Polygon p) const
   // is for [POLYLINE], not [POLYGON]...
   cout << "Type=0x07" << endl;
 
-  cout << "Label=Dummy Label" << endl;
+  cout << "Label=" << label << endl;
 
-  cout << "Data0=";
-  for (int i = 1; i< p.getNbPoints(); ++i)
+  if (p.getNbPoints() > 0)
   {
-    write(p.getCoordinate(i));
-    cout << ",";
+    cout << "Data0=";
+    for (int i = 1; i< p.getNbPoints(); ++i)
+    {
+      write(p.getCoordinate(i));
+      cout << ",";
+    }
+    {
+      write(p.getCoordinate(p.getNbPoints()));
+    }
+    cout << endl;
   }
-  write(p.getCoordinate(p.getNbPoints()));
-  cout << endl;
   cout << "[END]\n" << endl;
 }
 

@@ -11,7 +11,7 @@ class PolishState : public OutputState {
 
     virtual void writeHeader() const;
     virtual void write(AirSpace s) const;
-    virtual void write(Polygon p) const;
+    virtual void write(Polygon p, std::string label) const;
     virtual void write(Coordinate c) const;
 
   protected:
