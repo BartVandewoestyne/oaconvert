@@ -14,7 +14,6 @@ class Parser {
     AirSpace currentAirSpace;
     Coordinate currentCoordinate;
     int currentDirection;
-    std::ostream out;
 
   public:
     Parser();

@@ -2,9 +2,12 @@
 #include "airspace.h"
 
 OutputState::OutputState()
-{}
+{
+  outStream.open("output.mp");
+}
 
 void OutputState::write(AirSpace s) const
-{
-  cout << "OutputState::write(Airspace s)" << endl;
-}
+{}
+
+void OutputState::writeHeader() const
+{}

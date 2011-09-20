@@ -53,7 +53,7 @@ int main (int argc, char* argv[])
 	streambuf *buf;
 	ofstream of;
 	bool write_to_file = false;
-	string outfilename( "myoutfile.txt" );
+	string outfilename( "output.mp" );
 	if( write_to_file )
 	{
 		of.open( outfilename.c_str() );
@@ -66,13 +66,11 @@ int main (int argc, char* argv[])
 	ostream out( buf );
 
 	// Setup 
-  string line;
   Parser p( out );
+  OutputWriter w(out);
+  w.writeHeader();
 
-	// Start processing.
-  Header h;
-  h.write();
-
+  string line;
   ifstream inStream;
   inStream.open(argv[1]);
   if (inStream.is_open())

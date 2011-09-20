@@ -7,15 +7,17 @@
 class OutputWriter {
 
   public:
-    OutputWriter();
+    OutputWriter(std::ostream& stream);
 
-    void write(AirSpace s);
+    void write(AirSpace s) const;
+    void writeHeader() const;
 
   private:
     void changeState(OutputState*);
 
   private:
     OutputState* _state;
+    std::ostream out;
 
 };
 
