@@ -16,6 +16,8 @@ class Circle {
     /* Create a circle around given coordinate, with radius in nautical miles */
     Circle(Coordinate center, double radius);
 
+    bool isValid() const;
+    void invalidate();
     void setRadiusNM(double radius);
     void setCenter(Coordinate c);
     const Coordinate& getCenter() const;

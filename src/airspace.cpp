@@ -54,8 +54,7 @@ bool AirSpace::hasPolygon() const
 
 bool AirSpace::hasCircle() const
 {
-  // TODO: THIS IS NOT CLEAN!!!
-  if (circle.getRadiusM() > 0.01)
+  if ( circle.isValid() )
   {
     //cout << "DEBUG: airspace has a circle" << endl;
     return true;
@@ -129,5 +128,6 @@ void AirSpace::clear()
     ceiling = "";
     floor = "";
     polygon.clear();
+    circle.invalidate();
     labelCoordinates.clear();
 }

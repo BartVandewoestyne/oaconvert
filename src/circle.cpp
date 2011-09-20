@@ -10,6 +10,7 @@ using Constants::pi;
 Circle::Circle()
 {
   //cout << "Circle()" << endl;
+  setRadiusNM(-1);
 }
 
 Circle::Circle(Coordinate center, double radius)
@@ -18,7 +19,24 @@ Circle::Circle(Coordinate center, double radius)
   setRadiusNM(radius);
 }
 
-/*
+bool Circle::isValid() const
+{
+  if (getRadiusNM() > 0)
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
+
+void Circle::invalidate()
+{
+  setRadiusNM(-1);
+}
+
+/**
  * Return the radius in nautical miles.
  */
 double Circle::getRadiusNM() const
@@ -26,14 +44,17 @@ double Circle::getRadiusNM() const
   return radius;
 }
 
-/*
- * Return the radius in metres.
+/**
+ * Return the radius in metres (1 NM = 1852 m).
  */
 double Circle::getRadiusM() const
 {
   return radius*1852.0;
 }
 
+/**
+ * Set the radius to the specified value in Nautical Miles.
+ */
 void Circle::setRadiusNM(double r)
 {
   radius = r;
