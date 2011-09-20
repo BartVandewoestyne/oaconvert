@@ -47,9 +47,9 @@ bool Coordinate::operator ==(const Coordinate& other) const
   return ( (lat == other.lat) && (lon == other.lon) );
 }
 
-void Coordinate::toPolish() const
+void Coordinate::toPolish(ostream& outputStream) const
 {
-  cout << "(" << lat.getAngle() << "," << lon.getAngle() << ")";
+  outputStream << "(" << lat.getAngle() << "," << lon.getAngle() << ")" << endl;
 }
 
 ostream& operator <<(ostream& outputStream, const Coordinate& c)

@@ -10,24 +10,29 @@ AirSpace::AirSpace()
   //cout << "AirSpace()" << endl;
 }
 
-void AirSpace::setCeiling(string ceiling)
+void AirSpace::setCeiling(const string& ceiling)
 {
   this->ceiling = ceiling;
 }
 
-string AirSpace::getCeiling() const
+const string& AirSpace::getCeiling() const
 {
   return ceiling;
 }
 
-void AirSpace::setFloor(string floor)
+void AirSpace::setFloor(const string& floor)
 {
   this->floor = floor;
 }
 
-string AirSpace::getFloor() const
+const string& AirSpace::getFloor() const
 {
   return floor;
+}
+
+const Polygon& AirSpace::getPolygon() const
+{
+  return polygon;
 }
 
 Polygon& AirSpace::getPolygon()
@@ -62,32 +67,37 @@ bool AirSpace::hasCircle() const
   }
 }
 
+const Circle& AirSpace::getCircle() const
+{
+  return circle;
+}
+
 Circle& AirSpace::getCircle()
 {
   return circle;
 }
 
-void AirSpace::setName(string mystring)
+void AirSpace::setName(const string& mystring)
 {
   name = mystring;
 }
 
-string AirSpace::getName() const
+const string& AirSpace::getName() const
 {
   return name;
 }
 
-void AirSpace::setClass(string clss)
+void AirSpace::setClass(const string& clss)
 {
   this->clss = clss;
 }
 
-string AirSpace::getClass() const
+const string& AirSpace::getClass() const
 {
   return clss;
 }
 
-void AirSpace::addLabelCoordinate(Coordinate c)
+void AirSpace::addLabelCoordinate(const Coordinate& c)
 {
   labelCoordinates.push_back(c);
 }

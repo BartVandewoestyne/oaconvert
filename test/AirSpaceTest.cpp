@@ -1,6 +1,8 @@
 #include "AirSpaceTest.h"
 #include "airspace.h"
 
+using namespace std;
+
 CPPUNIT_TEST_SUITE_REGISTRATION( AirSpaceTest );
 
 void
