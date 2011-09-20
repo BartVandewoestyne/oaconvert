@@ -57,24 +57,32 @@ void PolishState::writeHeader() const
   cout << "PreProcess=F\n";
 
   // Number of levels (layers) in the map (at least 2, not more than 10)
-  // (mandatory).
+  // (mandatory) and level and zoomlevels.
   // Note: the last layer must always be empty, e.g. Levels=3
   //       means that two layers only are available for map objects.
-  cout << "Levels=5\n";
-
   // See section 4.4 (on page 40) of cgpsmapper manual (mandatory).
-  cout << "Level0=21\n";
-  cout << "Level1=19\n";
-  cout << "Level2=17\n";
-  cout << "Level3=15\n";
-  cout << "Level4=14\n";
 
-  // See section 4.4 (on page 40) of cgpsmapper manual (mandatory)
+  // This is what oa2gm uses, but it didn't work with GPSMapEdit 1.0.70.0.
+  //cout << "Levels=5\n";
+  //cout << "Level0=21\n";
+  //cout << "Level1=19\n";
+  //cout << "Level2=17\n";
+  //cout << "Level3=15\n";
+  //cout << "Level4=14\n";
+  //cout << "Zoom0=0\n";
+  //cout << "Zoom1=1\n";
+  //cout << "Zoom2=2\n";
+  //cout << "Zoom3=3\n";
+  //cout << "Zoom4=4\n";
+
+  // This is what GPSMapEdit 1.0.69.1 outputs, and it seems to work in
+  // GPSMapEdit... so we use this.  Note that this might not work as fluently
+  // on actual GPS units like the Garmin 60CSX.
+  cout << "Levels=2\n";
+  cout << "Level0=24\n";
+  cout << "Level1=14\n";
   cout << "Zoom0=0\n";
   cout << "Zoom1=1\n";
-  cout << "Zoom2=2\n";
-  cout << "Zoom3=3\n";
-  cout << "Zoom4=4\n";
 
   // Section terminator (mandatory)
   cout << "[END-IMG ID]\n" << endl;
