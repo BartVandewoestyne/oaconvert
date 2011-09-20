@@ -115,7 +115,10 @@ void Parser::handleLine(const std::string& line)
     // do nothing.
   }
 
-  expression = "\\s*AC\\s+([RQPABCDW]|GP|CTR)\\s*";
+  // Although not specified in the OpenAir specs at
+  //    http://www.winpilot.com/usersguide/userairspace.asp
+  // we *do* accept ICAO airspace classes E, F and G as valid input.
+  expression = "\\s*AC\\s+([RQPABCDEFGW]|GP|CTR)\\s*";
   if ( regex_match(line, matches, expression) )
   {
     _writer.write(getCurrentAirSpace());
@@ -137,6 +140,7 @@ void Parser::handleLine(const std::string& line)
     {
       airspace_name.assign(matches[i].first, matches[i].second);
     }
+    //cout << "DEBUG: " << airspace_name << endl;
     getCurrentAirSpace().setName(airspace_name);
   }
 
@@ -148,6 +152,7 @@ void Parser::handleLine(const std::string& line)
     {
       airspace_ceiling.assign(matches[i].first, matches[i].second);
     }
+    //cout << "DEBUG: " << airspace_ceiling << endl;
     getCurrentAirSpace().setCeiling(airspace_ceiling);
   }
 
@@ -159,6 +164,7 @@ void Parser::handleLine(const std::string& line)
     {
       airspace_floor.assign(matches[i].first, matches[i].second);
     }
+    //cout << "DEBUG: " << airspace_floor << endl;
     getCurrentAirSpace().setFloor(airspace_floor);
   }
 
@@ -193,6 +199,7 @@ void Parser::handleLine(const std::string& line)
       point_coordinate.assign(matches[i].first, matches[i].second);
     }
     getCurrentAirSpace().getPolygon().add(getCoordinate(point_coordinate));
+    //cout << "DEBUG: " << getCurrentAirSpace() << endl;
   }
 
   expression = "\\s*DC\\s+(.*)";
