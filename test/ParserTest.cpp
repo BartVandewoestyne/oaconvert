@@ -2,6 +2,8 @@
 #include "ParserTest.h"
 #include "parser.h"
 
+using namespace std;
+
 CPPUNIT_TEST_SUITE_REGISTRATION( ParserTest );
 
 void
