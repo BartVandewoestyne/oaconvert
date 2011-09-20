@@ -1,7 +1,8 @@
 #include "PolishState.h"
 #include "airspace.h"
-using Constants::pi;
 
+using namespace std;
+using Constants::pi;
 
 PolishState* PolishState::_instance = 0;
 
@@ -90,7 +91,7 @@ void PolishState::writeHeader() const
 }
 
 
-void PolishState::write(AirSpace s) const
+void PolishState::write(const AirSpace& s) const
 {
   if ( s.hasPolygon() )
   {
@@ -113,14 +114,13 @@ PolishState* PolishState::getInstance()
   return _instance;
 }
 
-void PolishState::write(Polygon p, std::string label) const
+void PolishState::write(const Polygon& p, const std::string& label) const
 {
   // See section 4.2.4.2 in http://cgpsmapper.com/download/cGPSmapper-UsrMan-v02.1.pdf
 
   // oa2gm used [RGN40] here, which is a [POLYLINE]... I think one could also
   // use [RGN80] here, which is a [POLYGON].
   cout << "[POLYGON]" << endl;
-
   // Type of [POLYGON] element: 'Airport'
   // We should probably change this to something which is more appropriate
   // for each earspace separately.
@@ -147,7 +147,7 @@ void PolishState::write(Polygon p, std::string label) const
   cout << "[END]\n" << endl;
 }
 
-void PolishState::write(Coordinate c) const
+void PolishState::write(const Coordinate& c) const
 {
   cout << "(" << c.getLatitude().getAngle() << "," << c.getLongitude().getAngle() << ")";
 }

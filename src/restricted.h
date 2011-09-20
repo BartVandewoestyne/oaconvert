@@ -3,7 +3,6 @@
 
 #include <string>
 #include "airspace.h"
-using namespace std;
 
 class Restricted : public AirSpace {
 

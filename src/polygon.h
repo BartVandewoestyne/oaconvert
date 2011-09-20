@@ -15,10 +15,10 @@ class Polygon {
   public:
     Polygon();
 
-    void add(const Coordinate &c);
+    void add(const Coordinate& c);
     void clear();
     int getNbPoints() const;
-    Coordinate getCoordinate(int i);
+    const Coordinate& getCoordinate(int i) const;
 
     friend std::ostream& operator <<(std::ostream& outputStream, const Polygon& c);
 
