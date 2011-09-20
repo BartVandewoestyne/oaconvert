@@ -118,7 +118,7 @@ void PolishState::write(const AirSpace& s) const
   if ( s.hasCircle() )
   {
     //cout << "DEBUG: Airspace has a circle" << endl;
-    write(s.getCircle().getPolyRepresentation(100), s.getName());;
+    write(s.getCircle().toPolygon(100), s.getName());;
   }
 }
 
