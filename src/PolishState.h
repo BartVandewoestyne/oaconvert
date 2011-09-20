@@ -10,9 +10,9 @@ class PolishState : public OutputState {
     static PolishState* getInstance();
 
     virtual void writeHeader() const;
-    virtual void write(AirSpace s) const;
-    virtual void write(Polygon p, std::string label) const;
-    virtual void write(Coordinate c) const;
+    virtual void write(const AirSpace& s) const;
+    virtual void write(const Polygon& p, const std::string &label) const;
+    virtual void write(const Coordinate& c) const;
 
   protected:
     PolishState();

@@ -8,11 +8,11 @@ class OutputState {
 
   public:
     OutputState();
-    virtual void write(AirSpace s) const;
-    virtual void writeHeader() const;
+    virtual void write(const AirSpace& s) const = 0;
+    virtual void writeHeader() const = 0;
 
   protected:
-    ofstream outStream;
+    std::ofstream outStream;
 
 };
 

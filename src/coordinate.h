@@ -25,7 +25,7 @@ class Coordinate {
 
     const Longitude& getLongitude() const;
     void setLongitude(const Longitude& lon);
-    void toPolish() const;
+    void toPolish(std::ostream& outputStream) const;
 
     bool operator ==(const Coordinate& other) const;
     friend std::ostream& operator <<(std::ostream& outputStream, const Coordinate& c);

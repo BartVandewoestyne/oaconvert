@@ -1,4 +1,5 @@
 #include "polygon.h"
+#include <algorithm>
  
 using namespace std;
 
@@ -22,7 +23,7 @@ int Polygon::getNbPoints() const
   return coords.size();
 }
 
-Coordinate Polygon::getCoordinate(int i)
+const Coordinate& Polygon::getCoordinate(int i) const
 {
   return coords[i-1];
 }

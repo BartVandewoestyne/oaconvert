@@ -9,7 +9,7 @@ class OutputWriter {
   public:
     OutputWriter(std::ostream& stream);
 
-    void write(AirSpace s) const;
+    void write(const AirSpace& s) const;
     void writeHeader() const;
 
   private:

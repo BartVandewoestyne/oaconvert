@@ -1,7 +1,9 @@
 #include <iostream>
 #include "stringutils.h"
 
-bool StringUtils::startsWith(std::string& src, std::string& token)
+using namespace std;
+
+bool StringUtils::startsWith(const string& src, const string& token) const
 {
   return ( src.substr(0, token.length()) == token );
 

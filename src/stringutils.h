@@ -3,12 +3,11 @@
 
 #include <stdlib.h>
 #include <string>
-using namespace std;
 
 class StringUtils {
 
   public:
-    bool startsWith(std::string& src, std::string& token);
+    bool startsWith(const std::string& src, const std::string& token) const;
     void trim(std::string& str);
 
 };

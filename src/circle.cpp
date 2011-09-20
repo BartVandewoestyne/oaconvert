@@ -74,16 +74,16 @@ Polygon Circle::getPolyRepresentation(int nbPoints) const
   //
   //   http://en.wikipedia.org/wiki/Latitude#Degree_length
   //
-  double phi = pi*lat.getAngle()/180.0;
-  double arcdegree_lat = pi*lat.getM()/180;
-  double arcdegree_lon = pi*cos(phi)*lon.getN()/180;
+  double phi = M_PI*lat.getAngle()/180.0;
+  double arcdegree_lat = M_PI*lat.getM()/180;
+  double arcdegree_lon = M_PI*cos(phi)*lon.getN()/180;
 
   for (int i = 0; i < nbPoints; ++i)
   {
     angle = i*360.0/nbPoints;
 
-    deg_lon = lon.getAngle() + getRadiusM()*cos(pi*angle/180)/arcdegree_lon;
-    deg_lat = lat.getAngle() + getRadiusM()*sin(pi*angle/180)/arcdegree_lat;
+    deg_lon = lon.getAngle() + getRadiusM()*cos(M_PI*angle/180)/arcdegree_lon;
+    deg_lat = lat.getAngle() + getRadiusM()*sin(M_PI*angle/180)/arcdegree_lat;
     Coordinate c(deg_lat, deg_lon);
     p.add(c);
   }
