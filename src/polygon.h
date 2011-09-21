@@ -16,6 +16,7 @@ class Polygon {
     Polygon();
 
     void add(const Coordinate& c);
+    void add(const Polygon& p);
     void clear();
     int getNbPoints() const;
     const Coordinate& getCoordinate(int i) const;

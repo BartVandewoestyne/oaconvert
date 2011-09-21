@@ -76,6 +76,16 @@ Circle& AirSpace::getCircle()
   return circle;
 }
 
+const Arc& AirSpace::getArc() const
+{
+  return arc;
+}
+
+Arc& AirSpace::getArc()
+{
+  return arc;
+}
+
 void AirSpace::setName(const string& mystring)
 {
   name = mystring;
@@ -129,5 +139,6 @@ void AirSpace::clear()
     floor = "";
     polygon.clear();
     circle.invalidate();
+    arc.invalidate();
     labelCoordinates.clear();
 }

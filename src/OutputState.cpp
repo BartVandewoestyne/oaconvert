@@ -4,7 +4,7 @@
 OutputState::OutputState()
 {
   // TODO: this is fishy...
-  outStream.open("output.mp");
+  //outStream.open("output.mp");
 }
 
 //void OutputState::write(AirSpace s) const

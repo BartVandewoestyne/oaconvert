@@ -1,0 +1,9 @@
+*airspace class C
+AC CTR
+AN Charleroi
+AL GND
+AH 2000 AMSL
+V X=50:28:17 N 4:33:35 E
+DA 5.5,340,160
+V X=50:25:32 N 4:15:25 E
+DA 5.5,160,340

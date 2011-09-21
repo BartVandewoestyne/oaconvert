@@ -9,6 +9,7 @@ set(airspace_SRCS
     point.cpp
     polygon.cpp
     circle.cpp
+    arc.cpp
     regularconvexpolygon.cpp
     restricted.cpp
     stringutils.cpp

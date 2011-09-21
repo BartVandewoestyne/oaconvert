@@ -202,6 +202,30 @@ void Parser::handleLine(const std::string& line)
     //cout << "DEBUG: " << getCurrentAirSpace() << endl;
   }
 
+  expression = "\\s*DA\\s+(\\d+\\.*\\d*)[\\s,]+(\\d+)[\\s,]+(\\d+)";
+  if ( regex_match(line, matches, expression) )
+  {
+    // Set coordinate and direction that we have just parsed.
+    getCurrentAirSpace().getArc().setCenter(getCurrentCoordinate());
+    getCurrentAirSpace().getArc().setDirection(getCurrentDirection());
+
+    // Read the matched values and create our Arc.
+    string radiusNM;
+    string angleStart;
+    string angleEnd;
+    radiusNM.assign(   matches[1].first, matches[1].second );
+    angleStart.assign( matches[2].first, matches[2].second );
+    angleEnd.assign(   matches[3].first, matches[3].second );
+    getCurrentAirSpace().getArc().setRadiusNM(atof(radiusNM.c_str()));
+    getCurrentAirSpace().getArc().setStartAngle(atof(angleStart.c_str()));
+    getCurrentAirSpace().getArc().setEndAngle(atof(angleEnd.c_str()));
+
+    // Add the arc points to this space's Polygon.
+    // TODO: don't use *hardcoded* 100 points for the discretization!
+    getCurrentAirSpace().getPolygon().add(getCurrentAirSpace().getArc().toPolygon(100));
+
+  }
+
   expression = "\\s*DC\\s+(.*)";
   if ( regex_match(line, matches, expression) )
   {
