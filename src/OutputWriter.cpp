@@ -7,6 +7,9 @@
 
 using namespace std;
 
+//////////////////////////////////////////////////////////////////////////////////////////
+// Implementation OutputWriter
+//////////////////////////////////////////////////////////////////////////////////////////
 
 OutputWriter::OutputWriter()
 :_state(PolishState::getInstance())
@@ -15,6 +18,7 @@ OutputWriter::OutputWriter()
   {
   }
 
+//----------------------------------------------------------------------------------------
 OutputWriter::OutputWriter(const std::string& filename)
 :_state(PolishState::getInstance())
 , outfile(new std::ofstream(filename.c_str()))
@@ -22,6 +26,7 @@ OutputWriter::OutputWriter(const std::string& filename)
   {
   }
 
+//----------------------------------------------------------------------------------------
 OutputWriter::OutputWriter(std::ostream& stream)
 :_state(PolishState::getInstance())
 , outfile(0)
@@ -29,6 +34,7 @@ OutputWriter::OutputWriter(std::ostream& stream)
 {
 }
 
+//----------------------------------------------------------------------------------------
 OutputWriter::~OutputWriter()
   {
   if( outfile )
@@ -38,16 +44,19 @@ OutputWriter::~OutputWriter()
   delete outfile;
   }
 
+//----------------------------------------------------------------------------------------
 void OutputWriter::changeState(OutputState* state)
   {
   _state = state;
   }
 
+//----------------------------------------------------------------------------------------
 void OutputWriter::write(const AirSpace &s)
 {
   _state->write(out, s);
 }
 
+//----------------------------------------------------------------------------------------
 void OutputWriter::writeHeader()
 {
   _state->writeHeader(out);
