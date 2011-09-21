@@ -1,19 +1,21 @@
 #ifndef OUTPUTSTATE_H 
 #define OUTPUTSTATE_H 
 
-#include <fstream>
-#include "airspace.h"
+#include <iostream>
+
+class AirSpace;
+class Coordinate;
+class Polygon;
 
 class OutputState {
 
   public:
-    OutputState();
-    virtual void write(const AirSpace& s) const = 0;
-    virtual void writeHeader() const = 0;
+    OutputState(){};
+    virtual void writeHeader(std::ostream &out) const = 0;
 
-  protected:
-    std::ofstream outStream;
-
+    virtual void write(std::ostream &out, const AirSpace& s) const = 0;
+    virtual void write(std::ostream &out, const Coordinate& c) const = 0;
+    virtual void write(std::ostream &out, const Polygon& p, const std::string &label) const = 0;
 };
 
 #endif /* OUTPUTSTATE_H */

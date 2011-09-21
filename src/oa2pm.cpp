@@ -50,26 +50,15 @@ int main (int argc, char* argv[])
   //}
 
 	// Make output to file or to stdout controllable.
-	streambuf *buf;
+//	streambuf *buf;
 	ofstream of;
-	bool write_to_file = false;
+//	bool write_to_file = false;
 	string outfilename( "output.mp" );
-	if( write_to_file )
-	{
-		of.open( outfilename.c_str() );
-		buf = of.rdbuf();
-	}
-	else
-	{
-		buf = cout.rdbuf();
-	}
-	ostream out( buf );
 
-	// Setup 
-  Parser p( out );
-  OutputWriter w(out);
-  w.writeHeader();
+	// Setup the parser
+  Parser p;
 
+  // Start reading the input file.
   string line;
   ifstream inStream;
   inStream.open(argv[1]);
@@ -82,7 +71,7 @@ int main (int argc, char* argv[])
     }
 
     // Make sure we also write the last airspace in the file...
-    w.write(p.getCurrentAirSpace());
+    p.finalize();
 
     inStream.close();
   }

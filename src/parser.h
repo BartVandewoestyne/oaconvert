@@ -17,16 +17,20 @@ class Parser {
 
   public:
     Parser();
-    Parser(std::ostream& stream);
+    Parser(const std::string& outfile);
 
     Coordinate getCoordinate(const std::string& s) const;
-    void handleLine(const std::string& s);
+    void handleLine(const std::string& line);
     int getCurrentDirection() const;
     AirSpace& getCurrentAirSpace();
     const Coordinate& getCurrentCoordinate() const;
     void setCurrentAirspace(const AirSpace &s);
     void setCurrentCoordinate(const Coordinate &c);
 
+    void finalize();
+
+  private:
+    void init();
 };
 
 #endif /* PARSER_H */

@@ -9,11 +9,11 @@ using namespace boost;
 using namespace std;
 
 Parser::Parser()
-: _writer(cout)
+: _writer()
 {}
 
-Parser::Parser(ostream& stream)
-: _writer( stream )
+Parser::Parser(const std::string& outfile)
+: _writer( outfile )
 {}
 
 void Parser::setCurrentAirspace(const AirSpace& s)
@@ -105,7 +105,6 @@ Coordinate Parser::getCoordinate(const std::string& s) const
 
 void Parser::handleLine(const std::string& line)
 {
-
   smatch matches;
   regex expression;
 
@@ -245,3 +244,15 @@ void Parser::handleLine(const std::string& line)
   }
 
 }
+
+void Parser::finalize()
+  {
+  _writer.write(currentAirSpace);
+  }
+
+void Parser::init()
+  {
+  _writer.writeHeader();
+  }
+
+
