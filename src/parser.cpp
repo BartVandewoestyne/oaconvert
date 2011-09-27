@@ -4,6 +4,7 @@
 #include "airspace.h"
 #include "coordinate.h"
 #include "parser.h"
+#include "polygon.h"
 
 using namespace boost;
 using namespace std;
@@ -198,7 +199,8 @@ void Parser::handleLine(const std::string& line)
     {
       point_coordinate.assign(matches[i].first, matches[i].second);
     }
-    getCurrentAirSpace().getPolygon().add(getCoordinate(point_coordinate));
+    Polygon p = getCurrentAirSpace().getPolygon();
+    p.add(getCoordinate(point_coordinate));
     //cout << "DEBUG: " << getCurrentAirSpace() << endl;
   }
 
@@ -222,8 +224,8 @@ void Parser::handleLine(const std::string& line)
 
     // Add the arc points to this space's Polygon.
     // TODO: don't use *hardcoded* 100 points for the discretization!
-    getCurrentAirSpace().getPolygon().add(getCurrentAirSpace().getArc().toPolygon(100));
-
+    Polygon p = getCurrentAirSpace().getPolygon();
+    p.add(getCurrentAirSpace().getArc().toPolygon(100));
   }
 
   expression = "\\s*DC\\s+(.*)";

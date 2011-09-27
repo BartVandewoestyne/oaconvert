@@ -30,7 +30,7 @@ class AirSpace {
     const std::string& getCeiling() const;
 
     const Polygon& getPolygon() const;
-    Polygon& getPolygon();
+    //Polygon& getPolygon();
     const Circle& getCircle() const;
     Circle& getCircle();
     const Arc& getArc() const;
