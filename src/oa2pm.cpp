@@ -51,11 +51,11 @@ int main (int argc, char* argv[])
 
 	// Make output to file or to stdout controllable.
 	streambuf *buf;
-	ofstream of;
 	bool write_to_file = false;
-	string outfilename( "output.mp" );
 	if( write_to_file )
 	{
+	  string outfilename( "output.mp" );
+	  ofstream of;
 		of.open( outfilename.c_str() );
 		buf = of.rdbuf();
 	}

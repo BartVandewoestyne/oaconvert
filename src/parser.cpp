@@ -131,6 +131,7 @@ void Parser::handleLine(const std::string& line)
     {
       airspace_class.assign(matches[i].first, matches[i].second);
     }
+    //cout << "DEBUG: " << airspace_class << endl;
     getCurrentAirSpace().setClass(airspace_class);
   }
 

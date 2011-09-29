@@ -119,10 +119,25 @@ Polygon Arc::toPolygon(int nbPoints) const
 
   Latitude lat = getCenter().getLatitude();
   Longitude lon = getCenter().getLongitude();
-  double interval = getEndAngle() - getStartAngle();
-  if (getDirection() == '-')
+
+  // Reduce angles so that they are in [0, 360[.
+  double startAngle = getStartAngle() % 360;
+  double endAngle = getEndAngle() % 360;
+
+  // Make sure that start angle is smaller than end angle.
+  if (startAngle > endAngle)
   {
-    interval *= -1;
+    startAngle = startAngle - 360;
+  }
+
+  double interval;
+  if (getDirection() == '+')
+  {
+    interval = endAngle - startAngle;
+  }
+  else
+  {
+    interval = -( 360-(endAngle-startAngle) );
   }
 
   // Compute arcdegree of latitude respectively longitude difference.
@@ -158,13 +173,14 @@ Polygon Arc::toPolygon(int nbPoints) const
     // and then mirroring along the vertical axis by switching the signs.
     //
     // TODO: I'M NOT SURE IF THIS IS CORRECT!
-    // Generate points in standard coordinate frame.
-    angle = getStartAngle() + interval*i/nbPoints;
+    // Generate points in airspace coordinate frame.
+    angle = startAngle + interval*i/nbPoints;
     deg_lon = lon.getAngle() + getRadiusM()*cos(pi*angle/180)/arcdegree_lon;
     deg_lat = lat.getAngle() + getRadiusM()*sin(pi*angle/180)/arcdegree_lat;
-    // Transform points to airspace coordinate frame: rotate by 90 degrees and then mirror around Y-axis.
-    deg_lon = -deg_lat;
-    deg_lat = -deg_lon;
+    // Transform points to standard coordinate frame: mirror around Y-axis
+    // and then rotate by 90 degrees.
+    deg_lon = deg_lat;
+    deg_lat = deg_lon;
     Coordinate c(deg_lat, deg_lon);
     p.add(c);
   }
