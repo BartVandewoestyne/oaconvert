@@ -1,4 +1,5 @@
-*airspace class C
+* Use this file to test the arc implementation.
+* It contains two arcs which are connected by straight lines.
 AC CTR
 AN Charleroi
 AL GND

@@ -158,10 +158,13 @@ Polygon Arc::toPolygon(int nbPoints) const
     // and then mirroring along the vertical axis by switching the signs.
     //
     // TODO: I'M NOT SURE IF THIS IS CORRECT!
-    angle = 90 + getStartAngle() + interval*i/nbPoints;
+    // Generate points in standard coordinate frame.
+    angle = getStartAngle() + interval*i/nbPoints;
     deg_lon = lon.getAngle() + getRadiusM()*cos(pi*angle/180)/arcdegree_lon;
-    deg_lon = -deg_lon;
     deg_lat = lat.getAngle() + getRadiusM()*sin(pi*angle/180)/arcdegree_lat;
+    // Transform points to airspace coordinate frame: rotate by 90 degrees and then mirror around Y-axis.
+    deg_lon = -deg_lat;
+    deg_lat = -deg_lon;
     Coordinate c(deg_lat, deg_lon);
     p.add(c);
   }

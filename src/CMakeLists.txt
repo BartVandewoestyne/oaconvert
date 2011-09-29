@@ -25,4 +25,5 @@ set(oa2pm_SRCS
 )
 add_executable(oa2pm ${oa2pm_SRCS})
 target_link_libraries(oa2pm airspace)
-target_link_libraries(oa2pm boost_regex )
+#target_link_libraries(oa2pm boost_regex)
+target_link_libraries(oa2pm boost_regex-mt)
