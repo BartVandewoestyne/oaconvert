@@ -21,7 +21,7 @@ class AirSpace {
     // TODO: change this to the class structure I discussed with Yves.
     //   Region
     //     Circle
-    //     RoundedPolygon
+    //     CurvedPolygon
     //        Segment
     //          Arc Point
     Polygon polygon;
