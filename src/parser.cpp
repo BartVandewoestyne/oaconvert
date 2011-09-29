@@ -5,6 +5,7 @@
 #include "coordinate.h"
 #include "parser.h"
 #include "polygon.h"
+#include "circle.h"
 
 using namespace boost;
 using namespace std;
@@ -208,8 +209,9 @@ void Parser::handleLine(const std::string& line)
   if ( regex_match(line, matches, expression) )
   {
     // Set coordinate and direction that we have just parsed.
-    getCurrentAirSpace().getArc().setCenter(getCurrentCoordinate());
-    getCurrentAirSpace().getArc().setDirection(getCurrentDirection());
+    Arc myArc = getCurrentAirSpace().getArc();
+    myArc.setCenter(getCurrentCoordinate());
+    myArc.setDirection(getCurrentDirection());
 
     // Read the matched values and create our Arc.
     string radiusNM;
@@ -218,9 +220,9 @@ void Parser::handleLine(const std::string& line)
     radiusNM.assign(   matches[1].first, matches[1].second );
     angleStart.assign( matches[2].first, matches[2].second );
     angleEnd.assign(   matches[3].first, matches[3].second );
-    getCurrentAirSpace().getArc().setRadiusNM(atof(radiusNM.c_str()));
-    getCurrentAirSpace().getArc().setStartAngle(atof(angleStart.c_str()));
-    getCurrentAirSpace().getArc().setEndAngle(atof(angleEnd.c_str()));
+    myArc.setRadiusNM(atof(radiusNM.c_str()));
+    myArc.setStartAngle(atof(angleStart.c_str()));
+    myArc.setEndAngle(atof(angleEnd.c_str()));
 
     // Add the arc points to this space's Polygon.
     // TODO: don't use *hardcoded* 100 points for the discretization!
@@ -231,10 +233,10 @@ void Parser::handleLine(const std::string& line)
   expression = "\\s*DC\\s+(.*)";
   if ( regex_match(line, matches, expression) )
   {
-
     //cout << "DEBUG: found DC record!" << endl;
     // Set circle center from stored state of the parser.
-    getCurrentAirSpace().getCircle().setCenter(getCurrentCoordinate());
+    Circle c = getCurrentAirSpace().getCircle();
+    c.setCenter(getCurrentCoordinate());
 
     // Set circle radius (in Nautical Miles) from what we've just read.
     string radiusNM;
@@ -242,8 +244,7 @@ void Parser::handleLine(const std::string& line)
     {
       radiusNM.assign(matches[i].first, matches[i].second);
     }
-
-    getCurrentAirSpace().getCircle().setRadiusNM(atof(radiusNM.c_str()));
+    c.setRadiusNM(atof(radiusNM.c_str()));
   }
 
 }
