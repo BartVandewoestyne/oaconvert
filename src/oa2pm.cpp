@@ -20,22 +20,47 @@ int main (int argc, char* argv[])
     exit(1);
   }
 
-  int opt;
+  int write_to_stdout = 0;
+  std::string filename;
 
-  while ( (opt = getopt(argc, argv, "o:")) != -1 ) {
+  static struct option long_options[] =
+  {
+  /* These options set a flag. */
+    { "stdout", no_argument, &write_to_stdout, 1},
+    { "out", required_argument, 0, 'o' }
+    { 0, 0, 0, 0 }
+  }
+
+
+  int opt;
+  int option_idx;
+
+
+  while ( (opt = getopt_long(argc, argv, "o:", long_options, &option_idx)) != -1 ) {
 
     switch (opt) {
+      case 0:
+        if (long_options[option_index].flag != 0)
+          break;
+        printf ("option %s", long_options[option_index].name);
+        if (optarg)
+          printf (" with arg %s", optarg);
+        printf ("\n");
+        if( long_options[option_index] == "out" )
+          {
+          filename = optarg;
+          }
+        break;
 
       case 'o':
         printf("Option argument: %s\n", optarg);
+        filename = optarg;
         break;
 
       default: /* '?' */
-        fprintf(stderr, "Usage: %s [-o file.txt] file.air\n", argv[0]);
+        fprintf(stderr, "Usage: %s [-o|--out file.txt] [--stdout] file.air\n", argv[0]);
         exit(EXIT_FAILURE);
-
     }
-
   }
 
   if (optind >= argc) {
@@ -48,14 +73,21 @@ int main (int argc, char* argv[])
   //  printf ("Non-option argument %s\n", argv[index]);
   //}
 
-	// Make output to file or to stdout controllable.
-//	streambuf *buf;
-	ofstream of;
-//	bool write_to_file = false;
-	string outfilename( "output.mp" );
-
 	// Setup the parser
-  Parser p;
+  Parser *p;
+
+  if( ! write_to_stdout )
+  {
+    if( filename == "" )
+    {
+      filename = "output.mp";
+    }
+    p = new Parser( "output.mp" );
+  }
+  else
+  {
+    p = new Parser();
+  }
 
   // Start reading the input file.
   string line;

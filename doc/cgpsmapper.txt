@@ -1,0 +1,24 @@
+De CGPSMapper manual vermeldt GPSMapEdit (of MapEdit ???) als tool om
+polish files te visualiseren (pagina 8 en 83).
+
+The standard file extension for compiled maps is .img
+The resulting compiled map in .img can be uploaded to your GPS with
+the sendmap program our MapSource.
+
+Ik denk dat de .TYP files specifieren hoe een lijn en zo eruit ziet.
+cgpsmapper kan .TYP files genereren als je de typ optie gebruikt.
+TYP file editor en decompiler:
+  http://ati.land.cz/gps/typdecomp/
+Custom TYP definitions specifieer je in een .TXT file die je dan compileert
+met cgpsmapper en de TYP switch:
+  cgpsmapper typ CustomTypesDemo.txt
+Daarna gebruik je sendmap 2.0 v3.3 om de .img en .typ file samen te brengen
+in een enkele GMAPSUPP.IMG
+
+Ik denk dat de installers voor maps van MapSource gemaakt worden met Inno Setup.
+Bij cgpsmapper zou er een sample installation script voor 'Gdansk Routable map' moeten zitten dat met Inno Setup werkt.
+
+Er is een open versie van cgpsmapper in de maak:
+
+http://sourceforge.net/projects/cgpsmapper/
+http://sourceforge.net/projects/cgpsmapper2/

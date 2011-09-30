@@ -1,0 +1,95 @@
+Mapsource arranges its map sets as 'products'.  Each product, such as
+'Metroguide Europe' or 'U.S. Topo' has a top-level 'preview' map, and
+several/many 'detail' maps.  The detail maps can be graphically selected with
+the program, for upload to the GPS.
+
+Internally, these map sets are configured using data in the Windows registry.
+Each product requires three registry entries:
+
+  1. one entry points at the preview map
+  2. one entry points at a 'tdb' file
+  3. one entry points at the location of the detail maps
+
+Om dus een custom map set in MapSource te gebruiken, moet je dus
+
+  a) preview map en tdb file maken
+  b) registry entries aanmaken om MapSource te vertellen waar de files staan
+
+Meer recente producten zoals 'Metrouguide' zijn in een ietsje andere manier
+geregistreerd.
+
+
+Preview map files en TDB file maken
+------------------------------------
+Vanaf cGPSmapper 0.98 kan dit niet meer met cGPSmapper, maar moet het met
+het cpreview programma:
+
+  C:\mymaps> cpreview my_preview_control_file.mp
+  -> hierna heb je minstens een .TDB file en een .MP file (exacte naam hangt af van wat je in de preview control file zet)
+
+Vanaf cGPSMapper 0.99 kan cpreview ook 'empty preview' files maken.  Alle
+gedetailleerde IMG files worden dan geprocessed zonder de details te lezen en
+er wordt geen index file gemaakt.  De optie '-x' zal hiervoor zorgen:
+
+  C:\mymaps> cpreview my_preview_control_file.mp -x
+
+Dit maakt een .mp preview file die met cgpsmapper moet omgezet worden naar
+een IMG file:
+
+  C:\mymaps> cgpsmapper my_preview_map.mp
+
+De preview control file ziet er als volgt uit (zie pag. 87 cgpsmapper):
+
+[MAP] -> definieert algemene attributen van de map-set, en de
+FileName=..
+MapsourceName=..
+MapSetName=..
+CodePage=nnn -> MOET ZELFDE ZIJN ALS IN ANDERE FILES!
+LblCoding=nnn -> MOET CONSISTENT ZIJN!
+ProductCode=..
+ID=00000001 -> BEST ALTIJD 1 NEMEN
+Levels=1   -> RECOMMENDED TO USE ONLY 2 LAYERS MAPS
+Level0=14
+Level1=13
+[END-MAP]
+
+[FILES] -> lijst van IMG files om de map-set te maken (minstens 1)
+        -> kan absolute of relatieve paden aan.
+        -> de filename 00000008.img mag je niet gebruiken!!!
+IMG=.\..\img\00000021.img
+IMG=00000022.img
+IMG=00000023.img
+[END-FILES]
+-> Detail IMG-files mogen slechts met DIGITS genoemd worden en moeten de
+   extensie .IMG hebben.
+-> indien beschikbaar, zal cpreview file een complete globale index voor al
+de geinclude IMG files builden.
+
+
+Registry entries aanmaken
+-------------------------
+Kan op 2 manieren:
+  1) via windows registry editor (Start/Run/Regedit)
+  2) registry file aanmaken en erop dubbelklikken
+     -> vermoedelijk best als je mappen aan anderen meegeeft
+  3) Gebruik een GUI zoals MapManager:
+     http://vip.hyperusa.com/~dougs/GPSSM/index.html#GPSMM
+De entries worden in de registry opgeslaan onder:
+
+  HKEY_LOCAL_MACHINE\SOFTWARE\Garmin\MapSource\Products\##
+
+waar ## de unieke product ID is die moet overeenkomen met wat je in
+ProductCode=##  specifieerde in je cpreview control file.
+
+Bijvoorbeeld:
+
+REGEDIT4
+[HKEY_LOCAL_MACHINE\SOFTWARE\Garmin\MapSource\Products\667]
+"Loc"="D:\\maps\\garmin\\NZ Topo\\"
+"Bmap"="D:\\maps\\garmin\\NZ Topo\\NZTopo.img"
+"Tdb"="D:\\maps\\garmin\\NZ Topo\\NZTopo.tdb"
+
+Nuttige URLS
+------------
+http://www.gps-info.nl/custom_maps.php
+http://www.gps-info.nl/pics/maps/11.pdf

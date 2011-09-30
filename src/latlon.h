@@ -25,14 +25,15 @@ class LatLon {
      * @param degrees Angle in degrees.
      */
     LatLon(double degrees);
-
-    LatLon(int degrees, int minutes, int seconds, char direction);
     LatLon(int degrees, double minutes, char direction);
+    LatLon(int degrees, int minutes, int seconds, char direction);
 
     double getAngle() const;
     char getDirection() const;
-    void setDirection(char c);
     int getDegrees() const;
+    const double toRadians() const;
+
+    void setDirection(char c);
 
     bool operator ==(const LatLon& other) const;
     friend std::ostream& operator <<(std::ostream& outputStream,
