@@ -1,7 +1,9 @@
-#include "latlon.h"
 #include <string>
+#include "latlon.h"
+#include "constants.h"
 
 using namespace std;
+using Constants::pi;
 
 LatLon::LatLon()
 {/* Body intentionally empty. */}
@@ -67,6 +69,14 @@ void LatLon::setDirection(char c)
 int LatLon::getDegrees() const
 {
   return (int) angle; // ? What is difference between getangles and getdegrees?
+}
+
+/**
+ * Return the angle in radians.
+ */
+const double LatLon::toRadians() const
+{
+  return pi*angle/180.0;
 }
 
 bool LatLon::operator ==(const LatLon& other) const

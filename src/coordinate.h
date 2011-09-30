@@ -21,11 +21,13 @@ class Coordinate {
     Coordinate(double degrees_lat, double degrees_lon);
 
     const Latitude& getLatitude() const;
-    void setLatitude(const Latitude& lat);
-
     const Longitude& getLongitude() const;
+
+    void setLatitude(const Latitude& lat);
     void setLongitude(const Longitude& lon);
+
     void toPolish(std::ostream& outputStream) const;
+    double getDistance(const Coordinate& c) const;
 
     bool operator ==(const Coordinate& other) const;
     friend std::ostream& operator <<(std::ostream& outputStream, const Coordinate& c);
