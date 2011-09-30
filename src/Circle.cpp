@@ -13,27 +13,10 @@ Circle::Circle()
   setRadiusNM(-1);
 }
 
-Circle::Circle(Coordinate center, double radius)
+Circle::Circle(const Coordinate& center, double radius)
 {
   setCenter(center);
   setRadiusNM(radius);
-}
-
-bool Circle::isValid() const
-{
-  if (getRadiusNM() > 0)
-  {
-    return true;
-  }
-  else
-  {
-    return false;
-  }
-}
-
-void Circle::invalidate()
-{
-  setRadiusNM(-1);
 }
 
 /**
@@ -60,7 +43,7 @@ void Circle::setRadiusNM(double r)
   radius = r;
 }
 
-void Circle::setCenter(Coordinate c)
+void Circle::setCenter(const Coordinate& c)
 {
   center = c;
 }
@@ -70,48 +53,48 @@ const Coordinate& Circle::getCenter() const
   return center;
 }
 
-/*
- * See http://en.wikipedia.org/wiki/Latitude#Degree_length
- *
- * TODO: check if these calculatiosn (based on the oa2gm source code) are
- *       correct.  I guess not, because they both use 6371e3 for computing
- *       new latitudinal and longitudinal points.  This is not 100% correct.
- *       We should probably follow WGS84 or IERS 2003 ellipsoids.
- */
-Polygon Circle::toPolygon(int nbPoints) const
-{
-
-  double deg_lat, deg_lon;
-  double angle;
-  Polygon p;
-
-  Latitude lat = getCenter().getLatitude();
-  Longitude lon = getCenter().getLongitude();
-
-  // Compute arcdegree of latitude respectively longitude difference.
-  // Note here that we assume latitudinal and longitudinal radius of the
-  // earth to be the same.  It would be more precise to assume different
-  // values.  See M and N-values at
-  //
-  //   http://en.wikipedia.org/wiki/Latitude#Degree_length
-  //
-  double phi = pi*lat.getAngle()/180.0;
-  double arcdegree_lat = pi*lat.getM()/180;
-  double arcdegree_lon = pi*cos(phi)*lon.getN()/180;
-
-  for (int i = 0; i < nbPoints; ++i)
-  {
-    angle = i*360.0/nbPoints;
-
-    deg_lon = lon.getAngle() + getRadiusM()*cos(pi*angle/180)/arcdegree_lon;
-    deg_lat = lat.getAngle() + getRadiusM()*sin(pi*angle/180)/arcdegree_lat;
-    Coordinate c(deg_lat, deg_lon);
-    p.add(c);
-  }
-
-  return p;
-
-}
+///*
+// * See http://en.wikipedia.org/wiki/Latitude#Degree_length
+// *
+// * TODO: check if these calculatiosn (based on the oa2gm source code) are
+// *       correct.  I guess not, because they both use 6371e3 for computing
+// *       new latitudinal and longitudinal points.  This is not 100% correct.
+// *       We should probably follow WGS84 or IERS 2003 ellipsoids.
+// */
+//Polygon Circle::toPolygon(int nbPoints) const
+//{
+//
+//  double deg_lat, deg_lon;
+//  double angle;
+//  Polygon p;
+//
+//  Latitude lat = getCenter().getLatitude();
+//  Longitude lon = getCenter().getLongitude();
+//
+//  // Compute arcdegree of latitude respectively longitude difference.
+//  // Note here that we assume latitudinal and longitudinal radius of the
+//  // earth to be the same.  It would be more precise to assume different
+//  // values.  See M and N-values at
+//  //
+//  //   http://en.wikipedia.org/wiki/Latitude#Degree_length
+//  //
+//  double phi = pi*lat.getAngle()/180.0;
+//  double arcdegree_lat = pi*lat.getM()/180;
+//  double arcdegree_lon = pi*cos(phi)*lon.getN()/180;
+//
+//  for (int i = 0; i < nbPoints; ++i)
+//  {
+//    angle = i*360.0/nbPoints;
+//
+//    deg_lon = lon.getAngle() + getRadiusM()*cos(pi*angle/180)/arcdegree_lon;
+//    deg_lat = lat.getAngle() + getRadiusM()*sin(pi*angle/180)/arcdegree_lat;
+//    Coordinate c(deg_lat, deg_lon);
+//    p.add(c);
+//  }
+//
+//  return p;
+//
+//}
 
 ostream& operator <<(ostream& outputStream, const Circle& c)
 {
