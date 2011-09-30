@@ -36,12 +36,27 @@ const Polygon& AirSpace::getPolygon() const
   return polygon;
 }
 
+Polygon& AirSpace::getPolygon()
+{
+  return polygon;
+}
+
 const Circle& AirSpace::getCircle() const
 {
   return circle;
 }
 
+Circle& AirSpace::getCircle()
+{
+  return circle;
+}
+
 const Arc& AirSpace::getArc() const
+{
+  return arc;
+}
+
+Arc& AirSpace::getArc()
 {
   return arc;
 }

@@ -41,8 +41,11 @@ class AirSpace {
     const std::string& getCeiling() const;
     const std::string& getFloor() const;
     const Polygon& getPolygon() const;
+    Polygon& getPolygon();
     const Circle& getCircle() const;
+    Circle& getCircle();
     const Arc& getArc() const;
+    Arc& getArc();
 
     void setName(const std::string& mystring);
     void setClass(const std::string& clss);
