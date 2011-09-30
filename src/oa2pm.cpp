@@ -3,7 +3,6 @@
 #include <unistd.h>
 #include <boost/regex.hpp> 
 #include "latitude.h"
-#include "header.h"
 #include "stringutils.h"
 #include "parser.h"
 #include "airspace.h"

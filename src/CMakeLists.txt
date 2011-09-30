@@ -1,7 +1,6 @@
 set(airspace_SRCS
     airspace.cpp
     coordinate.cpp
-    header.cpp
     latlon.cpp
     latitude.cpp
     longitude.cpp
