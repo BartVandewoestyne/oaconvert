@@ -36,6 +36,7 @@ bool Arc::isValid() const
 void Arc::invalidate()
 {
   setRadiusNM(-1);
+  setDirection('+');
 }
 
 /**
@@ -123,21 +124,26 @@ Polygon Arc::toPolygon(int nbPoints) const
   // Reduce angles so that they are in [0, 360[.
   double startAngle = getStartAngle() % 360;
   double endAngle = getEndAngle() % 360;
+  //cout << "startAngle = " << startAngle << endl;
+  //cout << "endAngle= " << endAngle << endl;
 
   // Make sure that start angle is smaller than end angle.
   if (startAngle > endAngle)
   {
     startAngle = startAngle - 360;
+    //cout << "Changing startAngle to " << startAngle << endl;
   }
 
   double interval;
   if (getDirection() == '+')
   {
     interval = endAngle - startAngle;
+    //cout << "Direction positive, interval = " << interval << endl;
   }
   else
   {
     interval = -( 360-(endAngle-startAngle) );
+    //cout << "Direction not positive, interval = " << interval << endl;
   }
 
   // Compute arcdegree of latitude respectively longitude difference.
@@ -151,6 +157,7 @@ Polygon Arc::toPolygon(int nbPoints) const
   double arcdegree_lat = pi*lat.getM()/180;
   double arcdegree_lon = pi*cos(phi)*lon.getN()/180;
 
+  // Generate all points of the arc.
   for (int i = 0; i < nbPoints; ++i)
   {
     // 'Normal' geometric angles are COUNTERCLOCKWISE as follows:
@@ -160,27 +167,46 @@ Polygon Arc::toPolygon(int nbPoints) const
     //   180 degrees = West
     //   270 degrees = South
     //
-    // I *think* that the convention in the DA records is CLOCKWISE and
-    // as follows:
+    // The convention in the DA-records is CLOCKWISE and as follows:
     //
     //   0 degrees = 360 degrees = North
     //   90 degrees = East
     //   180 degrees = South
     //   270 degrees = West
     //
-    // So we somehow have to transform the coordinates from the DA-records
-    // to 'normal' geometric angles.  We do this by first adding 90 degrees
-    // and then mirroring along the vertical axis by switching the signs.
-    //
-    // TODO: I'M NOT SURE IF THIS IS CORRECT!
-    // Generate points in airspace coordinate frame.
+    // So we have to transform the coordinates from the DA-records
+    // to 'normal' geometric angles.  We do this by first mirroring along
+    // the vertical axis and then rotating -90 degrees.
+
+    // Generate arc-points in airspace (DA-record) coordinate frame, centered
+    // around the origin.
     angle = startAngle + interval*i/nbPoints;
-    deg_lon = lon.getAngle() + getRadiusM()*cos(pi*angle/180)/arcdegree_lon;
-    deg_lat = lat.getAngle() + getRadiusM()*sin(pi*angle/180)/arcdegree_lat;
-    // Transform points to standard coordinate frame: mirror around Y-axis
-    // and then rotate by 90 degrees.
-    deg_lon = deg_lat;
-    deg_lat = deg_lon;
+    double delta_lon = getRadiusM()*cos(pi*angle/180)/arcdegree_lat;
+    double delta_lat = getRadiusM()*sin(pi*angle/180)/arcdegree_lon;
+
+    // Transform points to standard coordinate frame:
+    //
+    //   Step 1: mirror around Y-axis
+    //           -> transformation matrix = [-1 0; 0 1]
+    //
+    //   Step 2: rotate -90 degrees
+    //           -> transformation matrix = [0 1; -1 0]
+    //
+    // The total transformation matrix is:
+    //
+    //    [0 1; -1 0]*[-1 0; 0 1] = [0 1; 1 0]
+    // 
+    // so what we actually do is simply swap x and y coordinates of the arc.
+    double temp;
+    temp = delta_lon;
+    delta_lon = delta_lat;
+    delta_lat = temp;
+
+    // Now add the coordinates of the generated circle to the location of the centerpoint
+    // (= translate the generated circle from the origin to the correct location).
+    deg_lon = lon.getAngle() + delta_lon;
+    deg_lat = lat.getAngle() + delta_lat;
+
     Coordinate c(deg_lat, deg_lon);
     p.add(c);
   }

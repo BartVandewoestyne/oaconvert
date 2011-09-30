@@ -13,19 +13,22 @@ class Parser {
     OutputWriter _writer;
     AirSpace currentAirSpace;
     Coordinate currentCoordinate;
-    int currentDirection;
+    char currentDirection;
 
   public:
     Parser();
     Parser(std::ostream& stream);
 
-    Coordinate getCoordinate(const std::string& s) const;
     void handleLine(const std::string& s);
-    int getCurrentDirection() const;
+
     AirSpace& getCurrentAirSpace();
     const Coordinate& getCurrentCoordinate() const;
+    char getCurrentDirection() const;
+    Coordinate getCoordinate(const std::string& s) const;
+
     void setCurrentAirspace(const AirSpace &s);
     void setCurrentCoordinate(const Coordinate &c);
+    void setCurrentDirection(const char d);
 
 };
 

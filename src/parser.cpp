@@ -12,25 +12,17 @@ using namespace std;
 
 Parser::Parser()
 : _writer(cout)
+, currentDirection('+')
 {}
 
 Parser::Parser(ostream& stream)
 : _writer( stream )
+, currentDirection('+')
 {}
-
-void Parser::setCurrentAirspace(const AirSpace& s)
-{
-  currentAirSpace = s;
-}
 
 AirSpace& Parser::getCurrentAirSpace()
 {
   return currentAirSpace;
-}
-
-void Parser::setCurrentCoordinate(const Coordinate& c)
-{
-  currentCoordinate = c;
 }
 
 const Coordinate& Parser::getCurrentCoordinate() const
@@ -38,9 +30,24 @@ const Coordinate& Parser::getCurrentCoordinate() const
   return currentCoordinate;
 }
 
-int Parser::getCurrentDirection() const
+char Parser::getCurrentDirection() const
 {
   return currentDirection;
+}
+
+void Parser::setCurrentAirspace(const AirSpace& s)
+{
+  currentAirSpace = s;
+}
+
+void Parser::setCurrentCoordinate(const Coordinate& c)
+{
+  currentCoordinate = c;
+}
+
+void Parser::setCurrentDirection(char d)
+{
+  currentDirection = d;
 }
 
 Coordinate Parser::getCoordinate(const std::string& s) const
@@ -191,6 +198,17 @@ void Parser::handleLine(const std::string& line)
       coordinate.assign(matches[i].first, matches[i].second);
     }
     setCurrentCoordinate(getCoordinate(coordinate));
+  }
+
+  expression = "\\s*V\\s+D\\s*=\\s*(.*)";
+  if ( regex_match(line, matches, expression) )
+  {
+    string direction_string;
+    for (unsigned int i = 1; i < matches.size(); ++i)
+    {
+      direction_string.assign(matches[i].first, matches[i].second);
+    }
+    setCurrentDirection(direction_string[0]);
   }
 
   expression = "\\s*DP\\s+(.*)";
