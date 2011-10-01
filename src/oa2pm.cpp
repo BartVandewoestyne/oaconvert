@@ -101,15 +101,18 @@ int main (int argc, char* argv[])
     while ( inStream.good() )
     {
       getline(inStream, line);
-      p.handleLine(line);
+      p->handleLine(line);
     }
 
     // Make sure we also write the last airspace in the file...
-    p.finalize();
+    p->finalize();
 
     inStream.close();
   }
   else cout << "Unable to open file!\n";
+
+  // cleanup
+  delete p;
 
   return 0;
 }
