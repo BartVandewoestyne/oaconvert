@@ -1,10 +1,15 @@
 #ifndef ARC_H 
 #define ARC_H 
 
-#include "coordinate.h"
-#include "polygon.h"
+#include "Coordinate.h"
+#include "Segment.h"
 
-class Arc {
+//////////////////////////////////////////////////////////////////////////////////////////
+// Class Arc
+//////////////////////////////////////////////////////////////////////////////////////////
+
+class Arc : public Segment 
+  {
 
   private:
     /* Radius in Nautical Miles */
@@ -26,6 +31,8 @@ class Arc {
     /* Create an (invalid) arc. */
     Arc();
 
+    virtual ~Arc() {};
+
     /* Create an arc around a given coordinate, with radius in nautical miles */
     // Note that for now, we assume angleStart and angleEnd to be integers.  I haven't seen
     // OpenAir files with floating-point values for these values yet...
@@ -33,21 +40,27 @@ class Arc {
 
     bool isValid() const;
     void invalidate();
+
     void setRadiusNM(double radius);
-    void setCenter(Coordinate c);
-    void setDirection(char d);
-    char getDirection() const;
-    const Coordinate& getCenter() const;
     double getRadiusNM() const;
     double getRadiusM() const;
+
+    void setCenter(Coordinate c);
+    const Coordinate& getCenter() const;
+
+    void setDirection(char d);
+    char getDirection() const;
+
     void setStartAngle(int angle);
     int getStartAngle() const;
+
     void setEndAngle(int angle);
     int getEndAngle() const;
-    Polygon toPolygon(int nbPoints) const;
+
+//    Polygon toPolygon(int nbPoints) const;
 
     friend std::ostream& operator <<(std::ostream& outputStream, const Arc& c);
 
-};
+  };
 
 #endif /* ARC_H */
