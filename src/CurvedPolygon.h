@@ -31,6 +31,10 @@ class CurvedPolygon : public Region
     virtual std::ostream& print( std::ostream &stream );
 
   private:
+    // copy-constructor is private and not implemented (yet...)!!!
+    CurvedPolygon( const CurvedPolygon& i_other );
+
+  private:
     std::vector<Segment*> m_segments;
 
   };

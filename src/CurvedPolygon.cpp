@@ -33,4 +33,3 @@ std::ostream& CurvedPolygon::print( std::ostream &stream )
   {
   return ( stream << "TODO" << std::endl );
   }
-
