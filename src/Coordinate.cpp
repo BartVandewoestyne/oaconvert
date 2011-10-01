@@ -1,8 +1,7 @@
-// vim: expandtab 
 #include <iostream>
 #include <math.h>
 
-#include "coordinate.h"
+#include "Coordinate.h"
 #include "latitude.h"
 #include "longitude.h"
 
