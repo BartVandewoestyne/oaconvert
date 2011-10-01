@@ -10,6 +10,11 @@ using namespace std;
 AirSpace::AirSpace()
 {}
 
+AirSpace::~AirSpace()
+{
+  delete region;
+}
+
 const string& AirSpace::getName() const
 {
   return name;
@@ -30,37 +35,9 @@ const string& AirSpace::getFloor() const
   return floor;
 }
 
-/**
- * Return the Polygon that contains all Coordinates defining this airspace.
- */
-const Polygon& AirSpace::getPolygon() const
+const Region* AirSpace::GetRegion() const
 {
-  return polygon;
-}
-
-Polygon& AirSpace::getPolygon()
-{
-  return polygon;
-}
-
-const Circle& AirSpace::getCircle() const
-{
-  return circle;
-}
-
-Circle& AirSpace::getCircle()
-{
-  return circle;
-}
-
-const Arc& AirSpace::getArc() const
-{
-  return arc;
-}
-
-Arc& AirSpace::getArc()
-{
-  return arc;
+  return region;
 }
 
 void AirSpace::setName(const string& mystring)
@@ -83,47 +60,14 @@ void AirSpace::setFloor(const string& floor)
   this->floor = floor;
 }
 
-/**
- * Return true if the airspace is defined by a Polygon (some airspaces are
- * only defined by a circle and don't have Polygon points).
- */
-bool AirSpace::hasPolygon() const
+void AirSpace::add( Region* region )
 {
-  if (polygon.getNbPoints() > 0)
-  {
-    return true;
-  }
-  else
-  {
-    return false;
-  }
+  this->region = region;
 }
 
-/**
- * Return true if the airspace is defined by a Circle (and airspace can be
- * defined by a circle or a polygon).
- */
-bool AirSpace::hasCircle() const
+void AirSpace::addLabelCoordinate(const std::string& label, const Coordinate& c)
 {
-  if ( circle.isValid() )
-  {
-    //cout << "DEBUG: airspace has a circle" << endl;
-    return true;
-  }
-  else
-  {
-    //cout << "DEBUG: airspace doesn't have a circle" << endl;
-    return false;
-  }
-}
-
-/**
- * Each airspace can have multiple name-labels that each have their location
- * on a map.  With this method, you can add locations for these labels.
- */
-void AirSpace::addLabelCoordinate(const Coordinate& c)
-{
-  labelCoordinates.push_back(c);
+  labelCoordinates.push_back( label_type( label, c ) );
 }
 
 void AirSpace::clear()
@@ -132,9 +76,6 @@ void AirSpace::clear()
   clss = "";
   ceiling = "";
   floor = "";
-  polygon.clear();
-  circle.invalidate();
-  arc.invalidate();
   labelCoordinates.clear();
 }
 
@@ -147,12 +88,12 @@ ostream& operator <<(ostream& outputStream, const AirSpace& s)
   if (s.labelCoordinates.size() > 0)
   {
     outputStream << "Label coordinates:" << endl;
-    for (unsigned int i=0; i<s.labelCoordinates.size(); ++i)
+    for (size_t i=0; i<s.labelCoordinates.size(); ++i)
     {
-      outputStream << "  " << s.labelCoordinates[i] << endl;
+      const AirSpace::label_type &label = s.labelCoordinates[i];
+      outputStream << "  " << label.first << " -- " << label.second << endl;
     }
   }
-  outputStream << s.polygon << endl;
-  outputStream << s.circle << endl;
+  s.region->print( outputStream );
   return outputStream;
 }
