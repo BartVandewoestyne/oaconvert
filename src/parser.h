@@ -11,9 +11,7 @@
 //////////////////////////////////////////////////////////////////////////////////////////
 // Forward declarations
 //////////////////////////////////////////////////////////////////////////////////////////
-class Circle;
 class CurvedPolygon;
-class Region;
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // Class Parser
@@ -22,15 +20,13 @@ class Parser {
 
   private:
     OutputWriter _writer;
-    Coordinate currentCoordinate;
-    char currentDirection;
 
     std::list<AirSpace*> airspaces;
 
     // Helper variables
-    Circle* circle;
-    CurvedPolygon* curved_polygon;
-    Region* current_region; // Points to one of above circle of curved_polygon.
+    Coordinate currentCoordinate;
+    char currentDirection;
+    CurvedPolygon *curved_polygon;
 
   public:
     Parser();

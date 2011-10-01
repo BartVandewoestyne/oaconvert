@@ -4,6 +4,7 @@
 #include <boost/regex.hpp>
 
 #include "airspace.h"
+#include "Arc.h"
 #include "Coordinate.h"
 #include "Circle.h"
 #include "CurvedPolygon.h"
@@ -13,12 +14,12 @@ using namespace std;
 
 Parser::Parser()
 : _writer()
-, current_region(0)
+, curved_polygon(0)
 {}
 
 Parser::Parser(const std::string& outfile)
 : _writer( outfile )
-, current_region(0)
+, curved_polygon(0)
 {}
 
 Parser::~Parser()
@@ -129,17 +130,11 @@ void Parser::handleLine(const std::string& line)
   expression = "\\s*AC\\s+([RQPABCDEFGW]|GP|CTR)\\s*";
   if ( regex_match(line, matches, expression) )
   {
-    // Found a new airspace, flush the region to the current one.
-    getCurrentAirSpace().add( current_region );
- 
     // Write the current airspace but do not delete it just yet...
     _writer.write(getCurrentAirSpace());
 
-    // Create a new airspace and reset the region (as we do not know yet what it will look
-    // like...)
+    // Create a new airspace and reset the helper curved_polygon.
     airspaces.push_back(new AirSpace);
-    current_region = 0;
-    circle = 0;
     curved_polygon = 0;
 
     string airspace_class;
@@ -236,10 +231,9 @@ void Parser::handleLine(const std::string& line)
     {
       point_coordinate.assign(matches[i].first, matches[i].second);
     }
-    if( ! current_region )
+    if( ! curved_polygon )
     {
-      curved_polygon = new CurvedPolygon;
-      current_region = curved_polygon;
+      curved_polygon = getCurrentAirSpace().addCurvedPolygon();
     }
     curved_polygon->addLinearSegment(getCoordinate(point_coordinate));
     //cout << "DEBUG: " << getCurrentAirSpace() << endl;
@@ -264,10 +258,9 @@ void Parser::handleLine(const std::string& line)
 
     // Add the arc points to this space's Polygon.
     // TODO: don't use *hardcoded* 100 points for the discretization!
-    if( ! current_region )
+    if( ! curved_polygon )
     {
-      curved_polygon = new CurvedPolygon;
-      current_region = curved_polygon;
+      curved_polygon = getCurrentAirSpace().addCurvedPolygon();
     }
     curved_polygon->addArc(arc);
     return;
@@ -284,14 +277,13 @@ void Parser::handleLine(const std::string& line)
       radiusNM.assign(matches[i].first, matches[i].second);
     }
 
-    if( ! current_region )
+    if( ! curved_polygon )
     {
-      circle = new Circle(getCurrentCoordinate(), atof(radiusNM.c_str()));
-      current_region = circle;
+      getCurrentAirSpace().addCircle(getCurrentCoordinate(), atof(radiusNM.c_str()));
     }
     else
     {
-      cout << "ERROR: found a circle, but also arcs and points??" << endl;
+      cout << "ERROR: we already have part of a curved polygon, but the input file gives info for a circle??" << endl;
     }
     return;
   }
@@ -300,6 +292,7 @@ void Parser::handleLine(const std::string& line)
 void Parser::finalize()
   {
   _writer.write(getCurrentAirSpace());
+  curved_polygon = 0;
   }
 
 void Parser::init()
