@@ -11,9 +11,9 @@ class PolishState : public OutputState {
 
     virtual void writeHeader(std::ostream &out) const;
 
-    virtual void write(std::ostream &out, const AirSpace& s) const;
-    virtual void write(std::ostream &out, const Coordinate& c) const;
-    virtual void write(std::ostream &out, const Polygon& p, const std::string &label) const;
+//    virtual void write(std::ostream &out, const AirSpace& s) const;
+//    virtual void write(std::ostream &out, const Coordinate& c) const;
+//    virtual void write(std::ostream &out, const Polygon& p, const std::string &label) const;
 
   protected:
     PolishState();
