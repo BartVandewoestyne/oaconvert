@@ -1,9 +1,12 @@
 #include <iostream>
 #include <fstream>
-#include <unistd.h>
+//#include <unistd.h>
+#include <getopt.h>
 #include <boost/regex.hpp> 
+
 #include "latitude.h"
 #include "stringutils.h"
+
 #include "parser.h"
 #include "airspace.h"
 
@@ -27,16 +30,16 @@ int main (int argc, char* argv[])
   {
   /* These options set a flag. */
     { "stdout", no_argument, &write_to_stdout, 1},
-    { "out", required_argument, 0, 'o' }
+    { "out", required_argument, 0, 'o' },
     { 0, 0, 0, 0 }
-  }
+  };
 
 
   int opt;
-  int option_idx;
+  int option_index;
 
 
-  while ( (opt = getopt_long(argc, argv, "o:", long_options, &option_idx)) != -1 ) {
+  while ( (opt = getopt_long(argc, argv, "o:", long_options, &option_index)) != -1 ) {
 
     switch (opt) {
       case 0:
@@ -46,7 +49,7 @@ int main (int argc, char* argv[])
         if (optarg)
           printf (" with arg %s", optarg);
         printf ("\n");
-        if( long_options[option_index] == "out" )
+        if( long_options[option_index].name == "out" )
           {
           filename = optarg;
           }
