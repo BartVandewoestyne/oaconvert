@@ -9,7 +9,6 @@ set(airspace_SRCS
     Arc.cpp
     CurvedPolygon.cpp
     LinearSegment.cpp
-    restricted.cpp
     stringutils.cpp
     OutputState.cpp
     PolishState.cpp
