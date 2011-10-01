@@ -1,5 +1,6 @@
 #include "OutputWriter.h"
 
+#include <cassert>
 #include <fstream>
 
 #include "airspace.h"
@@ -53,7 +54,9 @@ void OutputWriter::changeState(OutputState* state)
 //----------------------------------------------------------------------------------------
 void OutputWriter::write(const AirSpace &s)
 {
-  _state->write(out, s);
+  // TODO
+  assert( ! "TODO" );
+//  _state->write(out, s);
 }
 
 //----------------------------------------------------------------------------------------
