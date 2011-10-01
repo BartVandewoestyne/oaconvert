@@ -5,10 +5,18 @@
 #include <utility>
 #include <vector>
 
-#include "Arc.h"
-#include "Circle.h"
 #include "Coordinate.h"
 
+//////////////////////////////////////////////////////////////////////////////////////////
+// Forward declarations
+//////////////////////////////////////////////////////////////////////////////////////////
+class Circle;
+class CurvedPolygon;
+class Region;
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Class AirSpace
+//////////////////////////////////////////////////////////////////////////////////////////
 class AirSpace {
   public:
     typedef std::pair<std::string,Coordinate> label_type;
@@ -43,10 +51,23 @@ class AirSpace {
     void setCeiling(const std::string& ceiling);
     void setFloor(const std::string& floor);
 
+//    /**
+//     * Add the region to this airspace (and pass ownership of the pointer).
+//     */
+//    void add( Region* region );
+    
+
     /**
-     * Add the region to this airspace (and pass ownership of the pointer).
+     * Add a circle region to this airspace and return a pointer to the newly created
+     * object. The ownership remains with this airspace.
      */
-    void add( Region* region );
+    Circle* addCircle(const Coordinate& coordinate, double radius);
+
+    /**
+     * Add a circle region to this airspace and return a pointer to the newly created
+     * object. The ownership remains with this airspace.
+     */
+    CurvedPolygon* addCurvedPolygon();
 
     /**
      * Each airspace can have multiple name-labels that each have their location

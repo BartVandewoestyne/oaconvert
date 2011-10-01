@@ -1,7 +1,11 @@
+#include <cassert>
 #include <iostream>
 #include <string>
 
 #include "airspace.h"
+#include "Circle.h"
+#include "CurvedPolygon.h"
+#include "Region.h"
 #include "parser.h"
 #include "stringutils.h"
 
@@ -60,9 +64,26 @@ void AirSpace::setFloor(const string& floor)
   this->floor = floor;
 }
 
-void AirSpace::add( Region* region )
+//void AirSpace::add( Region* region )
+//{
+//  this->region = region;
+//}
+
+
+Circle* AirSpace::addCircle(const Coordinate& coordinate, double radius)
 {
-  this->region = region;
+  assert(!region); // not initialized yet
+  Circle *result = new Circle(coordinate, radius);
+  region = result;
+  return result;
+}
+
+CurvedPolygon* AirSpace::addCurvedPolygon()
+{
+  assert(!region); // not initialized yet
+  CurvedPolygon *result = new CurvedPolygon();
+  region = result;
+  return result;
 }
 
 void AirSpace::addLabelCoordinate(const std::string& label, const Coordinate& c)
