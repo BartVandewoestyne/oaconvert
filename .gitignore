@@ -5,3 +5,4 @@ Makefile
 src/*.so
 src/oa2pm
 test/MainTest
+tags
