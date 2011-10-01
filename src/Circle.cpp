@@ -1,22 +1,21 @@
-#include "circle.h"
+#include "Circle.h"
+
 
 #include <cmath>
-
 #include "constants.h"
 
 using namespace std;
 using Constants::pi;
 
-Circle::Circle()
-{
-  //cout << "Circle()" << endl;
-  setRadiusNM(-1);
-}
+//Circle::Circle()
+//: radius( -1.0 )
+//{
+//}
 
 Circle::Circle(const Coordinate& center, double radius)
+: center( center )
+, radius( radius )
 {
-  setCenter(center);
-  setRadiusNM(radius);
 }
 
 /**
@@ -35,22 +34,14 @@ double Circle::getRadiusM() const
   return radius*1852.0;
 }
 
-/**
- * Set the radius to the specified value in Nautical Miles.
- */
-void Circle::setRadiusNM(double r)
-{
-  radius = r;
-}
-
-void Circle::setCenter(const Coordinate& c)
-{
-  center = c;
-}
-
 const Coordinate& Circle::getCenter() const
 {
   return center;
+}
+
+std::ostream& Circle::print( std::ostream &stream )
+{
+  return ( stream << *this );
 }
 
 ///*
