@@ -1,23 +1,41 @@
 #ifndef PARSER_H
 #define PARSER_H 
 
+#include <list>
 #include <string>
 
-#include "coordinate.h"
 #include "airspace.h"
+#include "Coordinate.h"
 #include "OutputWriter.h"
 
+//////////////////////////////////////////////////////////////////////////////////////////
+// Forward declarations
+//////////////////////////////////////////////////////////////////////////////////////////
+class Circle;
+class CurvedPolygon;
+class Region;
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Class Parser
+//////////////////////////////////////////////////////////////////////////////////////////
 class Parser {
 
   private:
     OutputWriter _writer;
-    AirSpace currentAirSpace;
     Coordinate currentCoordinate;
     char currentDirection;
+
+    std::list<AirSpace*> airspaces;
+
+    // Helper variables
+    Circle* circle;
+    CurvedPolygon* curved_polygon;
+    Region* current_region; // Points to one of above circle of curved_polygon.
 
   public:
     Parser();
     Parser(const std::string& outfile);
+    ~Parser();
 
     void handleLine(const std::string& s);
 
@@ -35,5 +53,14 @@ class Parser {
   private:
     void init();
 };
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Inline functions
+//////////////////////////////////////////////////////////////////////////////////////////
+
+inline AirSpace& Parser::getCurrentAirSpace()
+{
+  return *(airspaces.back());
+}
 
 #endif /* PARSER_H */
