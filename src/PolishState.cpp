@@ -118,6 +118,11 @@ void PolishState::writeHeader(std::ostream &out) const
   out << "[END-IMG ID]" << endl;
   }
 
+void PolishState::writeFooter(std::ostream &out) const
+  {
+  // TODO
+  }
+
 
 // void PolishState::write(ostream& out, const AirSpace& s) const
 // {

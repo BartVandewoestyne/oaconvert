@@ -10,6 +10,8 @@ class PolishState : public OutputState {
     static PolishState* getInstance();
 
     virtual void writeHeader(std::ostream &out) const;
+    virtual void writeFooter(std::ostream &out) const;
+
     virtual void write(std::ostream& stream, const Circle* circle) const;
     virtual void write(std::ostream& stream, const CurvedPolygon* curved_polygon) const;
 
