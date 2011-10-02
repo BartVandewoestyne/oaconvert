@@ -85,7 +85,7 @@ int main (int argc, char* argv[])
     {
       filename = "output.mp";
     }
-    p = new Parser( "output.mp" );
+    p = new Parser( filename );
   }
   else
   {
@@ -93,18 +93,23 @@ int main (int argc, char* argv[])
   }
 
   // Start reading the input file.
+  std::string infile(argv[1]);
+  cout << "Processing file: " << infile << endl;
   string line;
   ifstream inStream;
-  inStream.open(argv[1]);
+  inStream.open(infile.c_str());
   if (inStream.is_open())
   {
+    // Writer the header.
+    p->initialize();
+
     while ( inStream.good() )
     {
       getline(inStream, line);
       p->handleLine(line);
     }
 
-    // Make sure we also write the last airspace in the file...
+    // Make sure we also write the last airspace in the file + included the footer.
     p->finalize();
 
     inStream.close();
