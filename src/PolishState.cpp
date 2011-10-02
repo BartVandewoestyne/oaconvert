@@ -1,5 +1,6 @@
-#include "PolishState.h"
 #include "airspace.h"
+#include "assert.h"
+#include "PolishState.h"
 
 using namespace std;
 using Constants::pi;
@@ -7,7 +8,17 @@ using Constants::pi;
 PolishState* PolishState::_instance = 0;
 
 PolishState::PolishState()
-{}
+{
+}
+
+PolishState* PolishState::getInstance()
+{
+  if (_instance == 0)
+  {
+    _instance = new PolishState;
+  }
+  return _instance;
+}
 
 void PolishState::writeHeader(ostream& out) const
 {
@@ -104,9 +115,7 @@ void PolishState::writeHeader(ostream& out) const
 
   // Section terminator (mandatory)
   cout << "[END-IMG ID]\n" << endl;
-
 }
-
 
 // void PolishState::write(ostream& out, const AirSpace& s) const
 // {
@@ -124,14 +133,17 @@ void PolishState::writeHeader(ostream& out) const
 //   */
 // }
 
-PolishState* PolishState::getInstance()
-{
-  if (_instance == 0)
+void PolishState::write(std::ostream& stream, const Circle* circle) const
   {
-    _instance = new PolishState;
+  cout << "PolishState::write(Circle)" << endl;
+//  ASSERT( ! "TODO" );
   }
-  return _instance;
-}
+
+void PolishState::write(std::ostream& stream, const CurvedPolygon* curved_polygon) const
+  {
+  cout << "PolishState::write(CurvedPolygon)" << endl;
+//  ASSERT( ! "TODO" );
+  }
 
 // void PolishState::write(ostream& out, const Polygon& p, const std::string& label) const
 // {
