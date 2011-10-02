@@ -31,6 +31,8 @@ class LatLon {
     double getAngle() const;
     char getDirection() const;
     int getDegrees() const;
+    int getMinutes() const;
+    double getSeconds() const;
     const double toRadians() const;
 
     void setDirection(char c);

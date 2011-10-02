@@ -106,7 +106,15 @@ ostream& operator <<(ostream& outputStream, const Coordinate& c)
   outputStream << c.lat;
   outputStream << ", ";
   outputStream << c.lon;
-  outputStream << ")";
+  outputStream << ") = (";
+  outputStream << c.getLatitude().getDegrees() << ":";
+  outputStream << c.getLatitude().getMinutes() << ":";
+  outputStream << c.getLatitude().getSeconds() << " ";
+  outputStream << c.getLatitude().getDirection() << ", ";
+  outputStream << c.getLongitude().getDegrees() << ":";
+  outputStream << c.getLongitude().getMinutes() << ":";
+  outputStream << c.getLongitude().getSeconds() << " ";
+  outputStream << c.getLongitude().getDirection() << ")";
 
   return outputStream;
 }
