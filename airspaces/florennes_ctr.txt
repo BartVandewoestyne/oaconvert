@@ -1,0 +1,32 @@
+* See:
+*   AIP Part 2 EN-ROUTE (ENR)
+*   ENR 2 AIR TRAFFIC SERVICES AIRSPACE
+*    ENR 2.1 FIR, UIR, TMA
+*
+* Notes:
+*   -> both arcs should be 5 NM.
+*   -> we currently duplicate start and end points of the arcs to be able to
+*      check the drawing of the DB-arcs...  In theory, duplicating should not
+*      be necessary.
+*
+* Last update by Bart Vandewoestyne on 2 October 2011.
+
+AC D
+AN Florennes CTR
+AH 3500 ft AMSL
+AL GND
+DP 50:18:16 N 004:44:04 E
+DP 50:19:18 N 004:53:28 E
+DP 50:13:20 N 004:55:27 E
+DP 50:12:18 N 004:45:40 E
+V D=+
+V X=50:14:36 N 004:38:45 E
+DB 50:12:18 N 004:45:40 E,50:10:59 N 004:33:22 E
+DP 50:10:59 N 004:33:22 E
+DP 50:09:57 N 004:23:55 E
+DP 50:15:47 N 004:22:10 E
+DP 50:16:53 N 004:31:49 E
+V D=+
+V X=50:14:36 N 004:38:45 E
+DB 50:16:53 N 004:31:49 E,50:18:16 N 004:44:04 E
+DP 50:18:16 N 004:44:04 E
