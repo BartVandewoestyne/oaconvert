@@ -35,7 +35,7 @@ class Parser {
 
     void handleLine(const std::string& s);
 
-    AirSpace& getCurrentAirSpace();
+    AirSpace* getCurrentAirSpace();
     const Coordinate& getCurrentCoordinate() const;
     char getCurrentDirection() const;
     Coordinate getCoordinate(const std::string& s) const;
@@ -60,9 +60,9 @@ class Parser {
 // Inline functions
 //////////////////////////////////////////////////////////////////////////////////////////
 
-inline AirSpace& Parser::getCurrentAirSpace()
+inline AirSpace* Parser::getCurrentAirSpace()
 {
-  return *(airspaces.back());
+  return airspaces.size() > 0 ? airspaces.back() : 0;
 }
 
 #endif /* PARSER_H */

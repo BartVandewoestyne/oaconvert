@@ -14,16 +14,18 @@ using namespace std;
 
 Parser::Parser()
 : _writer()
+, airspaces(1, new AirSpace) // at least 1 airspace
 , curved_polygon(0)
 {
-  std::cout << "Parser::Parser()" << std::endl;
+//  std::cout << "Parser::Parser()" << std::endl;
 }
 
 Parser::Parser(const std::string& outfile)
 : _writer( outfile )
+, airspaces(1, new AirSpace) // at least 1 airspace
 , curved_polygon(0)
 {
-  std::cout << "Parser::Parser(outfile)" << std::endl;
+//  std::cout << "Parser::Parser(outfile)" << std::endl;
 }
 
 Parser::~Parser()
@@ -138,7 +140,11 @@ void Parser::handleLine(const std::string& line)
   if ( regex_match(line, matches, expression) )
   {
     // Write the current airspace but do not delete it just yet...
-    _writer.write(getCurrentAirSpace());
+    AirSpace* airspace = getCurrentAirSpace();
+    if (airspace)
+    {
+      _writer.write(*airspace);
+    }
 
     // Create a new airspace and reset the helper curved_polygon.
     airspaces.push_back(new AirSpace);
@@ -150,7 +156,7 @@ void Parser::handleLine(const std::string& line)
       airspace_class.assign(matches[i].first, matches[i].second);
     }
     //cout << "DEBUG: " << airspace_class << endl;
-    getCurrentAirSpace().setClass(airspace_class);
+    getCurrentAirSpace()->setClass(airspace_class);
     return;
   }
 
@@ -163,7 +169,7 @@ void Parser::handleLine(const std::string& line)
       airspace_name.assign(matches[i].first, matches[i].second);
     }
     //cout << "DEBUG: " << airspace_name << endl;
-    getCurrentAirSpace().setName(airspace_name);
+    getCurrentAirSpace()->setName(airspace_name);
     return;
   }
 
@@ -176,7 +182,7 @@ void Parser::handleLine(const std::string& line)
       airspace_ceiling.assign(matches[i].first, matches[i].second);
     }
     //cout << "DEBUG: " << airspace_ceiling << endl;
-    getCurrentAirSpace().setCeiling(airspace_ceiling);
+    getCurrentAirSpace()->setCeiling(airspace_ceiling);
     return;
   }
 
@@ -189,7 +195,7 @@ void Parser::handleLine(const std::string& line)
       airspace_floor.assign(matches[i].first, matches[i].second);
     }
     //cout << "DEBUG: " << airspace_floor << endl;
-    getCurrentAirSpace().setFloor(airspace_floor);
+    getCurrentAirSpace()->setFloor(airspace_floor);
     return;
   }
 
@@ -202,7 +208,7 @@ void Parser::handleLine(const std::string& line)
     {
       airspace_coordinate.assign(matches[i].first, matches[i].second);
     }
-    getCurrentAirSpace().addLabelCoordinate("TODO_DUMMY", getCoordinate(airspace_coordinate));
+    getCurrentAirSpace()->addLabelCoordinate("TODO_DUMMY", getCoordinate(airspace_coordinate));
     return;
   }
 
@@ -240,7 +246,7 @@ void Parser::handleLine(const std::string& line)
     }
     if( ! curved_polygon )
     {
-      curved_polygon = getCurrentAirSpace().addCurvedPolygon();
+      curved_polygon = getCurrentAirSpace()->addCurvedPolygon();
     }
     curved_polygon->addLinearSegment(getCoordinate(point_coordinate));
     //cout << "DEBUG: " << getCurrentAirSpace() << endl;
@@ -267,7 +273,7 @@ void Parser::handleLine(const std::string& line)
     // TODO: don't use *hardcoded* 100 points for the discretization!
     if( ! curved_polygon )
     {
-      curved_polygon = getCurrentAirSpace().addCurvedPolygon();
+      curved_polygon = getCurrentAirSpace()->addCurvedPolygon();
     }
     curved_polygon->addArc(arc);
     return;
@@ -286,7 +292,7 @@ void Parser::handleLine(const std::string& line)
 
     if( ! curved_polygon )
     {
-      getCurrentAirSpace().addCircle(getCurrentCoordinate(), atof(radiusNM.c_str()));
+      getCurrentAirSpace()->addCircle(getCurrentCoordinate(), atof(radiusNM.c_str()));
     }
     else
     {
@@ -303,6 +309,6 @@ void Parser::initialize()
 
 void Parser::finalize()
   {
-  _writer.write(getCurrentAirSpace());
+  _writer.write(*getCurrentAirSpace());
   curved_polygon = 0;
   }
