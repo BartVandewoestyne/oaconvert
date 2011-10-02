@@ -44,10 +44,16 @@ class Parser {
     void setCurrentCoordinate(const Coordinate &c);
     void setCurrentDirection(const char d);
 
+    /** Initialize this parser to start parsing the contents of the input file.
+     *  In practice, this includes the writing of the header to the desired output stream.
+     */
+    void initialize();
+
+    /** Initialize this parser to start parsing the contents of the input file.
+     *  In practice, this includes the writing of the footer to the desired output stream.
+     */
     void finalize();
 
-  private:
-    void init();
 };
 
 //////////////////////////////////////////////////////////////////////////////////////////

@@ -15,12 +15,16 @@ using namespace std;
 Parser::Parser()
 : _writer()
 , curved_polygon(0)
-{}
+{
+  std::cout << "Parser::Parser()" << std::endl;
+}
 
 Parser::Parser(const std::string& outfile)
 : _writer( outfile )
 , curved_polygon(0)
-{}
+{
+  std::cout << "Parser::Parser(outfile)" << std::endl;
+}
 
 Parser::~Parser()
 {
@@ -115,6 +119,8 @@ Coordinate Parser::getCoordinate(const std::string& s) const
 
 void Parser::handleLine(const std::string& line)
 {
+  cout << "Read line: '" << line << "'" << endl;
+
   smatch matches;
   regex expression;
 
@@ -122,6 +128,7 @@ void Parser::handleLine(const std::string& line)
   if ( regex_match(line, matches, expression) )
   {
     // do nothing.
+    return;
   }
 
   // Although not specified in the OpenAir specs at
@@ -289,15 +296,13 @@ void Parser::handleLine(const std::string& line)
   }
 }
 
+void Parser::initialize()
+  {
+  _writer.writeHeader();
+  }
+
 void Parser::finalize()
   {
   _writer.write(getCurrentAirSpace());
   curved_polygon = 0;
   }
-
-void Parser::init()
-  {
-  _writer.writeHeader();
-  }
-
-
