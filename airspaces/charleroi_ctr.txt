@@ -3,14 +3,6 @@
 *  AD 2.17 EBCI ATS AIRSPACE
 *
 * Last update by Bart Vandewoestyne on 2 October 2011.
-*
-* Questions:
-*   1) How did one find the angles 340 and 160 for the arcs???
-*
-* Notes:
-*   1) we currently duplicate start and end points of the arcs to be able to
-*      check the drawing of the DA-records...  In theory, duplicating should not
-*      be necessary.
 
 AC C
 AN Charleroi CTR
@@ -19,10 +11,12 @@ AL GND
 DP 50:33:39 N 004:31:36 E
 V D=+
 V X=50:28:17 N 004:33:35 E
-DA 5.5,340,160
+* Radius 5.5 NM
+DB 50:33:39 N 004:31:36 E,50:22:55 N 004:35:33 E
 DP 50:22:55 N 004:35:33 E
 DP 50:20:10 N 004:17:25 E
 V D=+
 V X=50:25:32 N 004:15:25 E
-DA 5.5,160,340
+* Radius 5.5 NM
+DB 50:20:10 N 004:17:25 E,50:30:54 N 004:13:24 E
 DP 50:30:54 N 004:13:24 E

@@ -3,8 +3,6 @@
 *  AD 2.17 EBLG ATS AIRSPACE
 *
 * Last update by Bart Vandewoestyne on 2 October 2011.
-* QUESTIONS:
-*   1) How did one find the angles 320 and 140 for the arcs???
 
 AC C
 AN Liège CTR
@@ -13,11 +11,13 @@ AL GND
 DP 50:45:12 N 005:26:33 E
 V D=+
 V X=50:41:37 N 005:32:05 E
-DA 5,320,140
+* Radius 5 NM
+DB 50:45:12 N 005:26:33 E,50:38:02 N 005:37:36 E
 DP 50:38:02 N 005:37:36 E
 DP 50:31:13 N 005:26:41 E
 V D=+
 V X=50:34:47 N 005:21:10 E
-DA 5,140,320
+* Radius 5 NM
+DB 50:31:13 N 005:26:41 E,50:38:21 N 005:15:38 E
 DP 50:38:21 N 005:15:38 E
 DP 50:45:12 N 005:26:33 E

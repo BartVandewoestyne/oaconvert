@@ -1,0 +1,39 @@
+Please always duplicate the begin and end point of an arc.  This way of
+specifying the DA and DB records helps us visually checking the implementation.
+
+For example:
+
+
+DB-records
+----------
+If the AIP specifies something like:
+
+  <coordinate1> - an arc of circle, 5 NM radius, centred on <coordinateX> and
+  traced clockwise to <coordinate2>
+
+then this should be translated into
+
+  ...
+  <coordinate1>
+  V D=+
+  V X=<coordinateX>
+  * Radius: 5 NM
+  DB <coordinate1>,<coordinate2>
+  <coordinate2>
+  ...
+
+
+DA-records
+----------
+If the AIP specifies something like:
+
+  TODO (haven't seen arcs with angles yet in the Belgian AIP...)
+
+then this should be translated into
+
+  ...
+  <coordinate1>
+  V D=+
+  V X=<coordinateX>
+  DA 5,120,340
+  <coordinate2>
