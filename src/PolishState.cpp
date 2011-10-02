@@ -1,6 +1,7 @@
-#include "airspace.h"
-#include "assert.h"
 #include "PolishState.h"
+
+#include <cassert>
+#include "airspace.h"
 
 using namespace std;
 using Constants::pi;
@@ -136,13 +137,13 @@ void PolishState::writeHeader(ostream& out) const
 void PolishState::write(std::ostream& stream, const Circle* circle) const
   {
   cout << "PolishState::write(Circle)" << endl;
-//  ASSERT( ! "TODO" );
+//  assert( ! "TODO" );
   }
 
 void PolishState::write(std::ostream& stream, const CurvedPolygon* curved_polygon) const
   {
   cout << "PolishState::write(CurvedPolygon)" << endl;
-//  ASSERT( ! "TODO" );
+//  assert( ! "TODO" );
   }
 
 // void PolishState::write(ostream& out, const Polygon& p, const std::string& label) const

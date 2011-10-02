@@ -1,9 +1,9 @@
 #include "OutputWriter.h"
 
+#include <cassert>
 #include <fstream>
 
 #include "airspace.h"
-#include "assert.h"
 #include "PolishState.h"
 
 using namespace std;
@@ -62,7 +62,7 @@ void OutputWriter::writeHeader()
 void OutputWriter::write(const AirSpace &s)
 {
   // TODO
-//  ASSERT( ! "TODO" );
+//  assert( ! "TODO" );
   _state->write(out, s.getRegion());
 }
 
@@ -70,6 +70,6 @@ void OutputWriter::write(const AirSpace &s)
 void OutputWriter::writeFooter()
   {
   // TODO
-//  ASSERT( ! "TODO" );
+//  assert( ! "TODO" );
   }
 

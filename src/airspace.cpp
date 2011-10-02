@@ -72,7 +72,7 @@ void AirSpace::setFloor(const string& floor)
 
 Circle* AirSpace::addCircle(const Coordinate& coordinate, double radius)
 {
-  assert(!region); // not initialized yet
+//  assert(!region); // not initialized yet
   Circle *result = new Circle(coordinate, radius);
   region = result;
   return result;
@@ -80,7 +80,7 @@ Circle* AirSpace::addCircle(const Coordinate& coordinate, double radius)
 
 CurvedPolygon* AirSpace::addCurvedPolygon()
 {
-  assert(!region); // not initialized yet
+//  assert(!region); // not initialized yet
   CurvedPolygon *result = new CurvedPolygon();
   region = result;
   return result;
