@@ -180,7 +180,7 @@ Polygon Arc::toPolygon(int nbPoints) const
 
     // Generate arc-points in airspace (DA-record) coordinate frame, centered
     // around the origin.
-    angle = startAngle + interval*i/nbPoints;
+    angle = startAngle + (interval*i)/nbPoints;
     double delta_lon = getRadiusM()*cos(pi*angle/180)/arcdegree_lat;
     double delta_lat = getRadiusM()*sin(pi*angle/180)/arcdegree_lon;
 

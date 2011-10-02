@@ -68,7 +68,23 @@ void LatLon::setDirection(char c)
  */
 int LatLon::getDegrees() const
 {
-  return (int) angle; // ? What is difference between getangles and getdegrees?
+  return (int) angle;
+}
+
+/**
+ * Return the integer value for the minutes (the MM in DD:MM:SS).
+ */
+int LatLon::getMinutes() const
+{
+  return (int) ((getAngle()-getDegrees())*60.0);
+}
+
+/**
+ * Return the floating point value for the seconds (the SS in DD:MM:SS).
+ */
+double LatLon::getSeconds() const
+{
+  return (getAngle()-getDegrees()-getMinutes()/60.0)*3600;
 }
 
 /**

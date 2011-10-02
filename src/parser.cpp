@@ -262,6 +262,8 @@ void Parser::handleLine(const std::string& line)
     coord2.assign(matches[2].first, matches[2].second);
     Coordinate c1 = getCoordinate(coord1);
     Coordinate c2 = getCoordinate(coord2);
+    //cout << c1 << endl;
+    //cout << c2 << endl;
 
     // Compute start and end angle (in standard coordinate frame!)
     // TODO: it looks like these are not computed 100% exactly... check why!
@@ -269,8 +271,8 @@ void Parser::handleLine(const std::string& line)
     double dLon1 = c1.getLongitude().getAngle() - getCurrentCoordinate().getLongitude().getAngle();
     double dLat2 = c2.getLatitude().getAngle()  - getCurrentCoordinate().getLatitude().getAngle();
     double dLon2 = c2.getLongitude().getAngle() - getCurrentCoordinate().getLongitude().getAngle();
-    double startAngle = 180*atan2(dLat1, dLon1)/pi;
-    double endAngle   = 180*atan2(dLat2, dLon2)/pi;
+    double startAngle = 180.0*atan2(dLat1, dLon1)/pi;
+    double endAngle   = 180.0*atan2(dLat2, dLon2)/pi;
 
     // Convert start and end angle to airspace coordinate frame.
     startAngle = 90 - startAngle;
