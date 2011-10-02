@@ -6,3 +6,5 @@ src/*.so
 src/oa2pm
 test/MainTest
 tags
+.*.swp
+.*.swo
