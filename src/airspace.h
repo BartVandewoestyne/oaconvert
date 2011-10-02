@@ -44,7 +44,7 @@ class AirSpace {
     const std::string& getClass() const;
     const std::string& getCeiling() const;
     const std::string& getFloor() const;
-    const Region* GetRegion() const;
+    const Region* getRegion() const;
 
     void setName(const std::string& mystring);
     void setClass(const std::string& clss);

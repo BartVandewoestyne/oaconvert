@@ -12,6 +12,7 @@
 using namespace std;
 
 AirSpace::AirSpace()
+: region(0)
 {}
 
 AirSpace::~AirSpace()
@@ -39,7 +40,7 @@ const string& AirSpace::getFloor() const
   return floor;
 }
 
-const Region* AirSpace::GetRegion() const
+const Region* AirSpace::getRegion() const
 {
   return region;
 }
