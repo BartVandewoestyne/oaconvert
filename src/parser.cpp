@@ -258,9 +258,6 @@ void Parser::handleLine(const std::string& line)
   expression = "\\s*DA\\s+(\\d+\\.*\\d*)[\\s,]+(\\d+)[\\s,]+(\\d+)";
   if ( regex_match(line, matches, expression) )
   {
-    // Set center-coordinate and direction that we have just parsed.
-    getCurrentAirSpace().getArc().setCenter(getCurrentCoordinate());
-    getCurrentAirSpace().getArc().setDirection(getCurrentDirection());
     // Read the matched values and create our Arc.
     string radiusNM;
     radiusNM.assign(   matches[1].first, matches[1].second );
