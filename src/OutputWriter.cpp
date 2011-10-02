@@ -25,7 +25,7 @@ OutputWriter::OutputWriter(const std::string& filename)
 , outfile(new std::ofstream(filename.c_str()))
 , out(outfile->rdbuf())
   {
-  std::cout << "OutputWriter::OutputWriter(filename=" << filename << ")" << std::endl;
+//  std::cout << "OutputWriter::OutputWriter(filename=" << filename << ")" << std::endl;
   }
 
 //----------------------------------------------------------------------------------------
@@ -63,6 +63,7 @@ void OutputWriter::write(const AirSpace &s)
 {
   // TODO
 //  assert( ! "TODO" );
+//  std::cout << "OutputWriter::write" << std::endl;
   _state->write(out, s.getRegion());
 }
 
