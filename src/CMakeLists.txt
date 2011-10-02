@@ -10,7 +10,6 @@ set(airspace_SRCS
     CurvedPolygon.cpp
     LinearSegment.cpp
     stringutils.cpp
-    OutputState.cpp
     PolishState.cpp
     OutputWriter.cpp
 )
