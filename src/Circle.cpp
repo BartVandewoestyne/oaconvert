@@ -1,16 +1,16 @@
 #include "Circle.h"
 
-
 #include <cmath>
+
 #include "constants.h"
+#include "OutputState.h"
 
 using namespace std;
 using Constants::pi;
 
-//Circle::Circle()
-//: radius( -1.0 )
-//{
-//}
+//////////////////////////////////////////////////////////////////////////////////////////
+// Implementation Circle
+//////////////////////////////////////////////////////////////////////////////////////////
 
 Circle::Circle(const Coordinate& center, double radius)
 : center( center )
@@ -22,27 +22,33 @@ Circle::Circle(const Coordinate& center, double radius)
  * Return the radius in nautical miles.
  */
 double Circle::getRadiusNM() const
-{
+  {
   return radius;
-}
+  }
 
 /**
  * Return the radius in metres (1 NM = 1852 m).
  */
 double Circle::getRadiusM() const
-{
+  {
   return radius*1852.0;
-}
+  }
 
 const Coordinate& Circle::getCenter() const
-{
+  {
   return center;
-}
+  }
 
 std::ostream& Circle::print( std::ostream &stream )
-{
+  {
   return ( stream << *this );
-}
+  }
+
+void Circle::write( std::ostream& stream, const OutputState* outputstate ) const
+  {
+  outputstate->write( stream, this );
+  }
+
 
 ///*
 // * See http://en.wikipedia.org/wiki/Latitude#Degree_length
@@ -88,9 +94,9 @@ std::ostream& Circle::print( std::ostream &stream )
 //}
 
 ostream& operator <<(ostream& outputStream, const Circle& c)
-{
+  {
   outputStream << "Circle:" << endl;
   outputStream << "  " << c.center << endl;
   outputStream << "  Radius in NM: " << c.radius;
   return outputStream;
-}
+  }

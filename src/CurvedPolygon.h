@@ -29,6 +29,7 @@ class CurvedPolygon : public Region
     //////////////////////////////////////////////////
     // Interface Region
     virtual std::ostream& print( std::ostream &stream );
+    virtual void write( std::ostream& stream, const OutputState* outputstate ) const;
 
   private:
     // copy-constructor is private and not implemented (yet...)!!!

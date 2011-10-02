@@ -3,6 +3,7 @@
 #include "Arc.h"
 #include "Coordinate.h"
 #include "LinearSegment.h"
+#include "OutputState.h"
 
 //////////////////////////////////////////////////////////////////////////////////////////
 
@@ -29,7 +30,12 @@ void CurvedPolygon::addLinearSegment( const Coordinate& point )
   m_segments.push_back( new LinearSegment( point ) );
   }
 
-std::ostream& CurvedPolygon::print( std::ostream &stream )
+std::ostream& CurvedPolygon::print( std::ostream& stream )
   {
   return ( stream << "TODO" << std::endl );
+  }
+
+void CurvedPolygon::write( std::ostream& stream, const OutputState* outputstate ) const
+  {
+  outputstate->write( stream, this );
   }
