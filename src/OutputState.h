@@ -20,6 +20,7 @@ class OutputState {
   public:
     OutputState(){};
     virtual void writeHeader(std::ostream &out) const = 0;
+    virtual void writeFooter(std::ostream &out) const = 0;
 
     void write(std::ostream& stream, const Region* region) const;
     virtual void write(std::ostream& stream, const Circle* circle) const = 0;
