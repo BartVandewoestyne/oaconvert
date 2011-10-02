@@ -13,8 +13,9 @@ class OutputWriter {
 
     ~OutputWriter();
 
-    void write(const AirSpace& s);
     void writeHeader();
+    void write(const AirSpace& s);
+    void writeFooter();
 
   private:
     //! \param[in] state The new state. This output writer does \e not own the

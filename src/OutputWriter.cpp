@@ -1,9 +1,9 @@
 #include "OutputWriter.h"
 
-#include <cassert>
 #include <fstream>
 
 #include "airspace.h"
+#include "assert.h"
 #include "PolishState.h"
 
 using namespace std;
@@ -25,6 +25,7 @@ OutputWriter::OutputWriter(const std::string& filename)
 , outfile(new std::ofstream(filename.c_str()))
 , out(outfile->rdbuf())
   {
+  std::cout << "OutputWriter::OutputWriter(filename=" << filename << ")" << std::endl;
   }
 
 //----------------------------------------------------------------------------------------
@@ -52,15 +53,23 @@ void OutputWriter::changeState(OutputState* state)
   }
 
 //----------------------------------------------------------------------------------------
-void OutputWriter::write(const AirSpace &s)
-{
-  // TODO
-  assert( ! "TODO" );
-//  _state->write(out, s);
-}
-
-//----------------------------------------------------------------------------------------
 void OutputWriter::writeHeader()
 {
   _state->writeHeader(out);
 }
+
+//----------------------------------------------------------------------------------------
+void OutputWriter::write(const AirSpace &s)
+{
+  // TODO
+//  ASSERT( ! "TODO" );
+  _state->write(out, s.getRegion());
+}
+
+//----------------------------------------------------------------------------------------
+void OutputWriter::writeFooter()
+  {
+  // TODO
+//  ASSERT( ! "TODO" );
+  }
+
