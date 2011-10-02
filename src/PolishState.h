@@ -17,8 +17,11 @@ class PolishState : public OutputState {
 
 
 //    virtual void write(std::ostream &out, const AirSpace& s) const;
-//    virtual void write(std::ostream &out, const Coordinate& c) const;
 //    virtual void write(std::ostream &out, const Polygon& p, const std::string &label) const;
+  
+  private:
+    void write(std::ostream &out, const Coordinate& c) const;
+    void write(std::ostream& stream, const std::vector<Coordinate>& coords) const;
 
   protected:
     PolishState();
