@@ -1,0 +1,17 @@
+* See:
+*   AIP Part 2 EN-ROUTE (ENR)
+*   ENR 2 AIR TRAFFIC SERVICES AIRSPACE
+*    ENR 2.1 FIR, UIR, TMA
+*     2. LOWER AIRSPACE
+*      2.3 Terminal Control Areas
+*
+* Last update by Bart Vandewoestyne on 3 October 2011.
+
+AC C
+AN Brussels TMA 8
+AH 4500 ft AMSL
+AL 3500 ft AMSL
+DP 50:40:48 N 004:38:01 E
+DP 50:53:45 N 004:54:25 E
+DP 50:51:07 N 005:07:12 E
+DP 50:40:48 N 004:38:01 E
