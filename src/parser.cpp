@@ -285,10 +285,6 @@ void Parser::handleLine(const std::string& line)
   expression = "\\s*DB\\s+(.*)\\s*,\\s*(.*)";
   if ( regex_match(line, matches, expression) )
   {
-    // Set the center-coordinate and direction that we have just parsed.
-    getCurrentAirSpace().getArc().setCenter(getCurrentCoordinate());
-    getCurrentAirSpace().getArc().setDirection(getCurrentDirection());
-
     // Fetch the start and end coordinate for this arc.
     string coord1, coord2;
     coord1.assign(matches[1].first, matches[1].second);
@@ -318,61 +314,13 @@ void Parser::handleLine(const std::string& line)
     // Use average of the two radii.
     double radius = ( c1.getDistance(getCurrentCoordinate()) + c2.getDistance(getCurrentCoordinate()) )*0.5;
 
-    // Set start and end angle, together with the chosen radius.
-    getCurrentAirSpace().getArc().setRadiusNM(radius/1852.0);
-    getCurrentAirSpace().getArc().setStartAngle(startAngle);
-    getCurrentAirSpace().getArc().setEndAngle(endAngle);
+    // Create the arc
+    Arc arc( getCurrentCoordinate(), radius/1852.0, startAngle, endAngle, getCurrentDirection());
 
     // Add the arc points to this space's Polygon.
     // TODO: don't use *hardcoded* 100 points for the discretization!
-    getCurrentAirSpace().getPolygon().add(getCurrentAirSpace().getArc().toPolygon(100));
-  }
+    curved_polygon->addArc( arc );
 
-  // TODO: check this matching pattern
-  expression = "\\s*DB\\s+(.*)\\s*,\\s*(.*)";
-  if ( regex_match(line, matches, expression) )
-  {
-    // Set the center-coordinate and direction that we have just parsed.
-    getCurrentAirSpace().getArc().setCenter(getCurrentCoordinate());
-    getCurrentAirSpace().getArc().setDirection(getCurrentDirection());
-
-    // Fetch the start and end coordinate for this arc.
-    string coord1, coord2;
-    coord1.assign(matches[1].first, matches[1].second);
-    coord2.assign(matches[2].first, matches[2].second);
-    Coordinate c1 = getCoordinate(coord1);
-    Coordinate c2 = getCoordinate(coord2);
-    //cout << c1 << endl;
-    //cout << c2 << endl;
-
-    // Compute start and end angle (in standard coordinate frame!)
-    // TODO: it looks like these are not computed 100% exactly... check why!
-    double dLat1 = c1.getLatitude().getAngle()  - getCurrentCoordinate().getLatitude().getAngle();
-    double dLon1 = c1.getLongitude().getAngle() - getCurrentCoordinate().getLongitude().getAngle();
-    double dLat2 = c2.getLatitude().getAngle()  - getCurrentCoordinate().getLatitude().getAngle();
-    double dLon2 = c2.getLongitude().getAngle() - getCurrentCoordinate().getLongitude().getAngle();
-    double startAngle = 180.0*atan2(dLat1, dLon1)/pi;
-    double endAngle   = 180.0*atan2(dLat2, dLon2)/pi;
-
-    // Convert start and end angle to airspace coordinate frame.
-    startAngle = 90 - startAngle;
-    endAngle   = 90 - endAngle;
-
-    // Use maximum of the two radii (for safety reasons).
-    //double radius = max( c1.getDistance(getCurrentCoordinate()), c2.getDistance(getCurrentCoordinate()) );
-    // Use minimum of the two radii.
-    //double radius = min( c1.getDistance(getCurrentCoordinate()), c2.getDistance(getCurrentCoordinate()) );
-    // Use average of the two radii.
-    double radius = ( c1.getDistance(getCurrentCoordinate()) + c2.getDistance(getCurrentCoordinate()) )*0.5;
-
-    // Set start and end angle, together with the chosen radius.
-    getCurrentAirSpace().getArc().setRadiusNM(radius/1852.0);
-    getCurrentAirSpace().getArc().setStartAngle(startAngle);
-    getCurrentAirSpace().getArc().setEndAngle(endAngle);
-
-    // Add the arc points to this space's Polygon.
-    // TODO: don't use *hardcoded* 100 points for the discretization!
-    getCurrentAirSpace().getPolygon().add(getCurrentAirSpace().getArc().toPolygon(100));
   }
 
   expression = "\\s*DC\\s+(.*)";
