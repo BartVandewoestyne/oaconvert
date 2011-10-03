@@ -140,6 +140,25 @@ void PolishState::writeFooter(std::ostream &out) const
 //   */
 // }
 
+void PolishState::write(std::ostream& stream, const AirSpace& airspace) const
+  {
+  // See section 4.2.4.2 in http://cgpsmapper.com/download/cGPSmapper-UsrMan-v02.1.pdf
+
+  // oa2gm used [RGN40] here, which is a [POLYLINE]... I think one could also
+  // use [RGN80] here, which is a [POLYGON].
+  stream << "[POLYGON]" << endl;
+  // Type of [POLYGON] element: 'Airport'
+  // We should probably change this to something which is more appropriate
+  // for each earspace separately.
+  // See section 12.3.3 in the cgpsmapper manual.
+  // Note that oa2gm used Type=0x0a which is an 'Unpaved Road-thin', but this
+  // is for [POLYLINE], not [POLYGON]...
+  stream << "Type=0x07" << endl;
+
+  stream << "Label=" << airspace.getName() << endl;
+  OutputState::write(stream, airspace.getRegion());
+  }
+
 void PolishState::write(std::ostream& stream, const Circle* circle) const
   {
   cout << "PolishState::write(Circle)" << endl;
@@ -159,33 +178,18 @@ void PolishState::write(ostream& out, const Coordinate& c) const
 }
 
 
-void PolishState::write(std::ostream& stream, const std::vector<Coordinate>& coords) const
+void PolishState::write(std::ostream& out, const std::vector<Coordinate>& coords) const
 {
-  // See section 4.2.4.2 in http://cgpsmapper.com/download/cGPSmapper-UsrMan-v02.1.pdf
-
-  // oa2gm used [RGN40] here, which is a [POLYLINE]... I think one could also
-  // use [RGN80] here, which is a [POLYGON].
-  out << "[POLYGON]" << endl;
-  // Type of [POLYGON] element: 'Airport'
-  // We should probably change this to something which is more appropriate
-  // for each earspace separately.
-  // See section 12.3.3 in the cgpsmapper manual.
-  // Note that oa2gm used Type=0x0a which is an 'Unpaved Road-thin', but this
-  // is for [POLYLINE], not [POLYGON]...
-  out << "Type=0x07" << endl;
-
-  out << "Label=" << label << endl;
-
-  if (p.getNbPoints() > 0)
+  if (coords.size() > 0)
   {
     out << "Data0=";
-    for (int i = 1; i< p.getNbPoints(); ++i)
+    for (size_t i = 1; i< coords.size(); ++i)
     {
-      write(out, p.getCoordinate(i));
+      write(out, coords[i]);
       out << ",";
     }
     {
-      write(out, p.getCoordinate(p.getNbPoints()));
+      write(out, coords.back());
     }
     out << endl;
   }
