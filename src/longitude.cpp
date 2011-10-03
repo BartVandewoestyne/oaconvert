@@ -1,10 +1,12 @@
 #include "longitude.h"
 
 #include <cmath>
+#include  <iostream>
 
 #include "constants.h"
 
 using Constants::pi;
+using namespace std;
 
 Longitude::Longitude() : LatLon()
 {}
@@ -31,10 +33,12 @@ Longitude::Longitude(int degrees, double minutes, char direction)
 
 /**
  * See http://en.wikipedia.org/wiki/Latitude#Degree_length
+ *
+ * TODO: check the theory if we really nead lat.getAngle() or lon.getAngle().
  */
-double Longitude::getArcDegree()
+double Longitude::getArcDegree(const Latitude& lat)
 {
-  return pi*cos(pi*getAngle()/180)*getN()/180.0;
+  return pi*cos(pi*lat.getAngle()/180.0)*getN()/180.0;
 }
 
 /**

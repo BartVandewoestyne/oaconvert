@@ -77,6 +77,9 @@ const Coordinate& Circle::getCenter() const
  *       correct.  I guess not, because they both use 6371e3 for computing
  *       new latitudinal and longitudinal points.  This is not 100% correct.
  *       We should probably follow WGS84 or IERS 2003 ellipsoids.
+ *
+ * TODO: check if we should somehow take into account the difference
+ *       between airspace coordinate frame and standard coordinate frame.
  */
 Polygon Circle::toPolygon(int nbPoints) const
 {
@@ -88,16 +91,9 @@ Polygon Circle::toPolygon(int nbPoints) const
   Latitude lat = getCenter().getLatitude();
   Longitude lon = getCenter().getLongitude();
 
-  // Compute arcdegree of latitude respectively longitude difference.
-  // Note here that we assume latitudinal and longitudinal radius of the
-  // earth to be the same.  It would be more precise to assume different
-  // values.  See M and N-values at
-  //
-  //   http://en.wikipedia.org/wiki/Latitude#Degree_length
-  //
-  double phi = pi*lat.getAngle()/180.0;
-  double arcdegree_lat = pi*lat.getM()/180;
-  double arcdegree_lon = pi*cos(phi)*lon.getN()/180;
+  // Compute arcdegree of latitude respectively longitude difference of the center.
+  double arcdegree_lat = lat.getArcDegree();
+  double arcdegree_lon = lon.getArcDegree(lat);
 
   for (int i = 0; i < nbPoints; ++i)
   {

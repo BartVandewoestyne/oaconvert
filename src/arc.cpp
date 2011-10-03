@@ -12,10 +12,10 @@ Arc::Arc()
   setRadiusNM(-1);
 }
 
-Arc::Arc(Coordinate center, double radius, double angleStart, double angleEnd, char direction)
+Arc::Arc(Coordinate center, double radiusNM, double angleStart, double angleEnd, char direction)
 {
   setCenter(center);
-  setRadiusNM(radius);
+  setRadiusNM(radiusNM);
   setStartAngle(angleStart);
   setEndAngle(angleEnd);
   setDirection(direction);
@@ -44,7 +44,7 @@ void Arc::invalidate()
  */
 double Arc::getRadiusNM() const
 {
-  return radius;
+  return radiusNM;
 }
 
 /**
@@ -52,7 +52,7 @@ double Arc::getRadiusNM() const
  */
 double Arc::getRadiusM() const
 {
-  return radius*1852.0;
+  return radiusNM*1852.0;
 }
 
 /**
@@ -60,7 +60,7 @@ double Arc::getRadiusM() const
  */
 void Arc::setRadiusNM(double r)
 {
-  radius = r;
+  radiusNM = r;
 }
 
 void Arc::setCenter(Coordinate c)
@@ -147,19 +147,12 @@ Polygon Arc::toPolygon(int nbPoints) const
   else
   {
     interval = -( 360-(endAngle-startAngle) );
-    //cout << "Direction not positive, interval = " << interval << endl;
+    cout << "Direction not positive, interval = " << interval << endl;
   }
 
-  // Compute arcdegree of latitude respectively longitude difference.
-  // Note here that we assume latitudinal and longitudinal radius of the
-  // earth to be the same.  It would be more precise to assume different
-  // values.  See M and N-values at
-  //
-  //   http://en.wikipedia.org/wiki/Latitude#Degree_length
-  //
-  double phi = pi*lat.getAngle()/180.0;
-  double arcdegree_lat = pi*lat.getM()/180;
-  double arcdegree_lon = pi*cos(phi)*lon.getN()/180;
+  // Compute arcdegree of latitude respectively longitude difference of the center.
+  double arcdegree_lat = lat.getArcDegree();
+  double arcdegree_lon = lon.getArcDegree(lat);/
 
   // Generate all points of the arc.
   for (int i = 0; i < nbPoints; ++i)
@@ -184,9 +177,11 @@ Polygon Arc::toPolygon(int nbPoints) const
 
     // Generate arc-points in airspace (DA-record) coordinate frame, centered
     // around the origin.
-    angle = startAngle + (interval*i)/nbPoints;
-    double delta_lon = getRadiusM()*cos(pi*angle/180)/arcdegree_lat;
-    double delta_lat = getRadiusM()*sin(pi*angle/180)/arcdegree_lon;
+    // TODO: note that delta_lon uses arcdegree_lat and delta_lat uses arcdegree_lon... this
+    //       is strange, but it seems to work... check out why!/
+    angle = startAngle + (interval*i)/(nbPoints-1);
+    double delta_lon = getRadiusM()*cos(pi*angle/180.0)/arcdegree_lat; // TODO: why arcdegree_lat here???
+    double delta_lat = getRadiusM()*sin(pi*angle/180.0)/arcdegree_lon; // TODO: why arcdegree_lon here???
 
     // Transform points to standard coordinate frame:
     //
@@ -201,8 +196,7 @@ Polygon Arc::toPolygon(int nbPoints) const
     //    [0 1; -1 0]*[-1 0; 0 1] = [0 1; 1 0]
     // 
     // so what we actually do is simply swap x and y coordinates of the arc.
-    double temp;
-    temp = delta_lon;
+    double temp = delta_lon;
     delta_lon = delta_lat;
     delta_lat = temp;
 
@@ -223,6 +217,6 @@ ostream& operator <<(ostream& outputStream, const Arc& c)
 {
   outputStream << "Arc:" << endl;
   outputStream << "  " << c.center << endl;
-  outputStream << "  Radius in NM: " << c.radius;
+  outputStream << "  Radius in NM: " << c.radiusNM;
   return outputStream;
 }

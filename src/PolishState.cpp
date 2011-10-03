@@ -2,7 +2,7 @@
 #include "airspace.h"
 
 using namespace std;
-using Constants::pi;
+using namespace Constants;
 
 PolishState* PolishState::_instance = 0;
 
@@ -118,7 +118,7 @@ void PolishState::write(const AirSpace& s) const
   if ( s.hasCircle() )
   {
     //cout << "DEBUG: Airspace has a circle" << endl;
-    write(s.getCircle().toPolygon(100), s.getName());;
+    write(s.getCircle().toPolygon(NBPOINTS), s.getName());;
   }
 }
 

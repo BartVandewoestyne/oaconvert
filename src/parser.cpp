@@ -10,7 +10,7 @@
 
 using namespace boost;
 using namespace std;
-using Constants::pi;
+using namespace Constants;
 
 Parser::Parser()
 : _writer(cout)
@@ -244,8 +244,7 @@ void Parser::handleLine(const std::string& line)
     getCurrentAirSpace().getArc().setEndAngle(atof(angleEnd.c_str()));
 
     // Add the arc points to this space's Polygon.
-    // TODO: don't use *hardcoded* 100 points for the discretization!
-    getCurrentAirSpace().getPolygon().add(getCurrentAirSpace().getArc().toPolygon(100));
+    getCurrentAirSpace().getPolygon().add(getCurrentAirSpace().getArc().toPolygon(NBPOINTS));
   }
 
   // TODO: check this matching pattern
@@ -262,15 +261,21 @@ void Parser::handleLine(const std::string& line)
     coord2.assign(matches[2].first, matches[2].second);
     Coordinate c1 = getCoordinate(coord1);
     Coordinate c2 = getCoordinate(coord2);
-    //cout << c1 << endl;
-    //cout << c2 << endl;
+
+    // Retrieve latitude and longitude of the arc-center.
+    Latitude lat = getCurrentCoordinate().getLatitude();
+    Longitude lon = getCurrentCoordinate().getLongitude();
+
+    // Compute arcdegree of latitude respectively longitude, based on the center's coordinates.
+    double arcdegree_lat = lat.getArcDegree();
+    double arcdegree_lon = lon.getArcDegree(lat);
 
     // Compute start and end angle (in standard coordinate frame!)
-    // TODO: it looks like these are not computed 100% exactly... check why!
-    double dLat1 = c1.getLatitude().getAngle()  - getCurrentCoordinate().getLatitude().getAngle();
-    double dLon1 = c1.getLongitude().getAngle() - getCurrentCoordinate().getLongitude().getAngle();
-    double dLat2 = c2.getLatitude().getAngle()  - getCurrentCoordinate().getLatitude().getAngle();
-    double dLon2 = c2.getLongitude().getAngle() - getCurrentCoordinate().getLongitude().getAngle();
+    // Note that we have to take into account the arcdegrees here!!!
+    double dLat1 = ( c1.getLatitude().getAngle()  - getCurrentCoordinate().getLatitude().getAngle()  )*arcdegree_lat;
+    double dLon1 = ( c1.getLongitude().getAngle() - getCurrentCoordinate().getLongitude().getAngle() )*arcdegree_lon;
+    double dLat2 = ( c2.getLatitude().getAngle()  - getCurrentCoordinate().getLatitude().getAngle()  )*arcdegree_lat;
+    double dLon2 = ( c2.getLongitude().getAngle() - getCurrentCoordinate().getLongitude().getAngle() )*arcdegree_lon;
     double startAngle = 180.0*atan2(dLat1, dLon1)/pi;
     double endAngle   = 180.0*atan2(dLat2, dLon2)/pi;
 
@@ -291,8 +296,7 @@ void Parser::handleLine(const std::string& line)
     getCurrentAirSpace().getArc().setEndAngle(endAngle);
 
     // Add the arc points to this space's Polygon.
-    // TODO: don't use *hardcoded* 100 points for the discretization!
-    getCurrentAirSpace().getPolygon().add(getCurrentAirSpace().getArc().toPolygon(100));
+    getCurrentAirSpace().getPolygon().add(getCurrentAirSpace().getArc().toPolygon(NBPOINTS));
   }
 
   expression = "\\s*DC\\s+(.*)";
