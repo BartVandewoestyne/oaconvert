@@ -12,7 +12,7 @@ Arc::Arc()
   setRadiusNM(-1);
 }
 
-Arc::Arc(Coordinate center, double radius, int angleStart, int angleEnd, char direction)
+Arc::Arc(Coordinate center, double radius, double angleStart, double angleEnd, char direction)
 {
   setCenter(center);
   setRadiusNM(radius);
@@ -78,22 +78,22 @@ char Arc::getDirection() const
   return direction;
 }
 
-void Arc::setStartAngle(int angle)
+void Arc::setStartAngle(double angle)
 {
   angleStart = angle;
 }
 
-void Arc::setEndAngle(int angle)
+void Arc::setEndAngle(double angle)
 {
   angleEnd = angle;
 }
 
-int Arc::getStartAngle() const
+double Arc::getStartAngle() const
 {
   return angleStart;
 }
 
-int Arc::getEndAngle() const
+double Arc::getEndAngle() const
 {
   return angleEnd;
 }
@@ -122,8 +122,12 @@ Polygon Arc::toPolygon(int nbPoints) const
   Longitude lon = getCenter().getLongitude();
 
   // Reduce angles so that they are in [0, 360[.
-  double startAngle = getStartAngle() % 360;
-  double endAngle = getEndAngle() % 360;
+  // TODO: this worked for integer angles, but not for floating point values...
+  // So for now, we assume that all start and end angles are in [0, 360[.
+  //double startAngle = getStartAngle() % 360;
+  //double endAngle = getEndAngle() % 360;
+  double startAngle = getStartAngle();
+  double endAngle = getEndAngle();
   //cout << "startAngle = " << startAngle << endl;
   //cout << "endAngle= " << endAngle << endl;
 

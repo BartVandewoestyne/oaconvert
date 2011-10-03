@@ -29,7 +29,7 @@ class Arc {
     /* Create an arc around a given coordinate, with radius in nautical miles */
     // Note that for now, we assume angleStart and angleEnd to be integers.  I haven't seen
     // OpenAir files with floating-point values for these values yet...
-    Arc(Coordinate center, double radius, int angleStart, int angleEnd, char direction);
+    Arc(Coordinate center, double radius, double angleStart, double angleEnd, char direction);
 
     bool isValid() const;
     void invalidate();
@@ -40,10 +40,10 @@ class Arc {
     const Coordinate& getCenter() const;
     double getRadiusNM() const;
     double getRadiusM() const;
-    void setStartAngle(int angle);
-    int getStartAngle() const;
-    void setEndAngle(int angle);
-    int getEndAngle() const;
+    void setStartAngle(double angle);
+    double getStartAngle() const;
+    void setEndAngle(double angle);
+    double getEndAngle() const;
     Polygon toPolygon(int nbPoints) const;
 
     friend std::ostream& operator <<(std::ostream& outputStream, const Arc& c);
