@@ -49,7 +49,7 @@ int main (int argc, char* argv[])
         if (optarg)
           printf (" with arg %s", optarg);
         printf ("\n");
-        if( long_options[option_index].name == "out" )
+        if( strcmp(long_options[option_index].name, "out") == 0 )
           {
           filename = optarg;
           }
