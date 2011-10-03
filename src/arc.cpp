@@ -152,7 +152,7 @@ Polygon Arc::toPolygon(int nbPoints) const
 
   // Compute arcdegree of latitude respectively longitude difference of the center.
   double arcdegree_lat = lat.getArcDegree();
-  double arcdegree_lon = lon.getArcDegree(lat);/
+  double arcdegree_lon = lon.getArcDegree(lat);
 
   // Generate all points of the arc.
   for (int i = 0; i < nbPoints; ++i)

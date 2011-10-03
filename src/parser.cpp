@@ -132,8 +132,11 @@ void Parser::handleLine(const std::string& line)
   expression = "\\s*AC\\s+([RQPABCDEFGW]|GP|CTR)\\s*";
   if ( regex_match(line, matches, expression) )
   {
+    // write out the current airspace and reset the state of the parser.
+    // Direction should be positive again.
     _writer.write(getCurrentAirSpace());
     getCurrentAirSpace().clear();
+    setCurrentDirection('+');
 
     string airspace_class;
     for (unsigned int i = 1; i < matches.size(); ++i)
