@@ -4,7 +4,7 @@
 #include "airspace.h"
 
 using namespace std;
-using Constants::pi;
+using namespace Constants;
 
 PolishState* PolishState::_instance = 0;
 
@@ -115,7 +115,7 @@ void PolishState::writeHeader(std::ostream &out) const
 
 
   // Section terminator (mandatory)
-  out << "[END-IMG ID]" << endl;
+  out << "[END-IMG ID]\n" << endl;
   }
 
 void PolishState::writeFooter(std::ostream &out) const
@@ -162,6 +162,7 @@ void PolishState::write(std::ostream& stream, const AirSpace& airspace) const
 void PolishState::write(std::ostream& stream, const Circle* circle) const
   {
   cout << "PolishState::write(Circle)" << endl;
+//    write(s.getCircle().toPolygon(NBPOINTS), s.getName());;
 //  assert( ! "TODO" );
   }
 

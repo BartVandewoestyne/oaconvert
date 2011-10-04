@@ -112,6 +112,7 @@ const Coordinate& Arc::getCenter() const
 //  */
 // Polygon Arc::toPolygon(int nbPoints) const
 // {
+//  TODO: copy the current version from git!
 // 
 //   double deg_lat, deg_lon;
 //   double angle;

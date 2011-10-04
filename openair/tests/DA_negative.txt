@@ -1,0 +1,7 @@
+AC CTR
+AN Charleroi
+AL GND
+AH 2000 AMSL
+V D=-
+V X=50:28:17 N 4:33:35 E
+DA 2,340,160

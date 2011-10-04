@@ -2,6 +2,8 @@ include_directories("../src")
 
 set(MainTest_SRCS
     LatLonTest.cpp
+    LatitudeTest.cpp
+    LongitudeTest.cpp
     CoordinateTest.cpp
     MainTester.cpp
     ParserTest.cpp
