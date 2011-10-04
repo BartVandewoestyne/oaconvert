@@ -46,7 +46,9 @@ void Circle::write( std::ostream& stream, const OutputState* outputstate ) const
 
 void Circle::discretize( std::vector<Coordinate>& coords, double resolution ) const
   {
-  size_t nbPoints = (size_t) ( 360.0 / resolution );
+  size_t nbPoints = (size_t) ( 2 * pi * radius / resolution );
+  std::cout << "Circle -- nbPoints: " << nbPoints << std::endl;
+
   coords.clear();
   coords.reserve(nbPoints);
 
