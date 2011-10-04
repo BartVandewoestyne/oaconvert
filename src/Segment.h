@@ -1,6 +1,11 @@
 #ifndef SEGMENT_H
 #define SEGMENT_H
 
+#include <vector>
+
+#include "Coordinate.h"
+
+
 //////////////////////////////////////////////////////////////////////////////////////////
 // Class Segment
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -9,6 +14,9 @@ class Segment
   {
 public:
   virtual ~Segment() {};
+
+  virtual void discretize( std::vector<Coordinate>& coords, double resolution ) const = 0;
+
   };
 
 
