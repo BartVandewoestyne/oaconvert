@@ -13,7 +13,7 @@ cat ../openair/belgium/*.txt > ../openair/belgium/belgium.TXT
 echo " done."
 
 echo -n "Converting third party OpenAir files..."
-for file in `ls ../openair/third_party/*.txt`
+for file in `ls ../openair/third_party/winpilot/*.txt ../openair/third_party/*.txt ../openair/third_party/lvzc/*.txt`
 do
   ../src/oa2pm $file > ${file%%.txt}.mp;
 done

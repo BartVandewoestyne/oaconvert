@@ -41,6 +41,14 @@ ParserTest::testGetCoordinate()
   c1 = Coordinate(lat, lon);
   c2 = p.getCoordinate("49:24.000N,006:08.000E");
   CPPUNIT_ASSERT_EQUAL(c1, c2);
+
+  /* We currently not allow this... but since there's no ambiguity, we
+     could as well allow it... */
+  //lat = Latitude(12, 34, 56, 'N');
+  //lon = Longitude(56, 34, 12, 'W');
+  //c1 = Coordinate(lat, lon);
+  //c2 = p.getCoordinate("12:34:56N56:34:12W    c34");
+  //CPPUNIT_ASSERT_EQUAL(c1, c2);
 }
 
 void
