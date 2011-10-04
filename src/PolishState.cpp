@@ -2,6 +2,8 @@
 
 #include <cassert>
 #include "airspace.h"
+#include "Circle.h"
+#include "CurvedPolygon.h"
 
 using namespace std;
 using namespace Constants;
@@ -162,6 +164,10 @@ void PolishState::write(std::ostream& stream, const AirSpace& airspace) const
 void PolishState::write(std::ostream& stream, const Circle* circle) const
   {
   cout << "PolishState::write(Circle)" << endl;
+  std::vector<Coordinate> coords;
+  // TODO: check what resolution to use!
+  circle->discretize( coords, 1 );
+  write( stream, coords );
 //    write(s.getCircle().toPolygon(NBPOINTS), s.getName());;
 //  assert( ! "TODO" );
   }
@@ -169,6 +175,10 @@ void PolishState::write(std::ostream& stream, const Circle* circle) const
 void PolishState::write(std::ostream& stream, const CurvedPolygon* curved_polygon) const
   {
   cout << "PolishState::write(CurvedPolygon)" << endl;
+  std::vector<Coordinate> coords;
+  // TODO: check what resolution to use!
+  curved_polygon->discretize( coords, 1 );
+  write( stream, coords );
 //  assert( ! "TODO" );
   }
 
