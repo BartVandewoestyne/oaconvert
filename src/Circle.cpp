@@ -39,16 +39,41 @@ const Coordinate& Circle::getCenter() const
   return center;
   }
 
-std::ostream& Circle::print( std::ostream &stream )
-  {
-  return ( stream << *this );
-  }
-
 void Circle::write( std::ostream& stream, const OutputState* outputstate ) const
   {
   outputstate->write( stream, this );
   }
 
+void Circle::discretize( std::vector<Coordinate>& coords, double resolution ) const
+  {
+  size_t nbPoints = (size_t) ( 360.0 / resolution );
+  coords.clear();
+  coords.reserve(nbPoints);
+
+  double deg_lat, deg_lon;
+  double angle;
+
+  Latitude lat = getCenter().getLatitude();
+  Longitude lon = getCenter().getLongitude();
+
+  // Compute arcdegree of latitude respectively longitude difference of the center.
+  double arcdegree_lat = lat.getArcDegree();
+  double arcdegree_lon = lon.getArcDegree(lat);
+
+  for (size_t i = 0; i < nbPoints; ++i)
+    {
+    angle = i*360.0/nbPoints;
+
+    deg_lon = lon.getAngle() + getRadiusM()*cos(pi*angle/180.0)/arcdegree_lon;
+    deg_lat = lat.getAngle() + getRadiusM()*sin(pi*angle/180.0)/arcdegree_lat;
+    coords.push_back( Coordinate( deg_lat, deg_lon ) );
+    }
+  }
+
+std::ostream& Circle::print( std::ostream &stream )
+  {
+  return ( stream << *this );
+  }
 
 ///*
 // * See http://en.wikipedia.org/wiki/Latitude#Degree_length

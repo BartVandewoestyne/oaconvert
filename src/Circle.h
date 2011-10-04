@@ -27,8 +27,14 @@ class Circle : public Region
 
     //////////////////////////////////////////////////
     // Interface Region
-    virtual std::ostream& print( std::ostream &stream );
+    //! @copydoc Region::write
     virtual void write( std::ostream& stream, const OutputState* outputstate ) const;
+
+    //! @copydoc Region::discretize
+    virtual void discretize( std::vector<Coordinate>& coords, double resolution ) const;
+
+    //! @copydoc Region::print
+    virtual std::ostream& print( std::ostream &stream );
 
     friend std::ostream& operator <<( std::ostream& outputStream, const Circle& c );
   };
