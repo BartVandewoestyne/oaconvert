@@ -143,7 +143,6 @@ void Parser::handleLine(const std::string& line)
     {
       airspace_class.assign(matches[i].first, matches[i].second);
     }
-    //cout << "DEBUG: " << airspace_class << endl;
     getCurrentAirSpace().setClass(airspace_class);
   }
 
@@ -155,7 +154,6 @@ void Parser::handleLine(const std::string& line)
     {
       airspace_name.assign(matches[i].first, matches[i].second);
     }
-    //cout << "DEBUG: " << airspace_name << endl;
     getCurrentAirSpace().setName(airspace_name);
   }
 
@@ -167,7 +165,6 @@ void Parser::handleLine(const std::string& line)
     {
       airspace_ceiling.assign(matches[i].first, matches[i].second);
     }
-    //cout << "DEBUG: " << airspace_ceiling << endl;
     getCurrentAirSpace().setCeiling(airspace_ceiling);
   }
 
@@ -179,7 +176,6 @@ void Parser::handleLine(const std::string& line)
     {
       airspace_floor.assign(matches[i].first, matches[i].second);
     }
-    //cout << "DEBUG: " << airspace_floor << endl;
     getCurrentAirSpace().setFloor(airspace_floor);
   }
 
@@ -225,7 +221,6 @@ void Parser::handleLine(const std::string& line)
       point_coordinate.assign(matches[i].first, matches[i].second);
     }
     getCurrentAirSpace().getPolygon().add(getCoordinate(point_coordinate));
-    //cout << "DEBUG: " << getCurrentAirSpace() << endl;
   }
 
   expression = "\\s*DA\\s+(\\d+\\.*\\d*)[\\s,]+(\\d+)[\\s,]+(\\d+)";
@@ -305,7 +300,6 @@ void Parser::handleLine(const std::string& line)
   expression = "\\s*DC\\s+(.*)";
   if ( regex_match(line, matches, expression) )
   {
-    //cout << "DEBUG: found DC record!" << endl;
     // Set circle center from stored state of the parser.
     getCurrentAirSpace().getCircle().setCenter(getCurrentCoordinate());
 

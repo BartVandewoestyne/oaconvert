@@ -142,12 +142,10 @@ Polygon Arc::toPolygon(int nbPoints) const
   if (getDirection() == '+')
   {
     interval = endAngle - startAngle;
-    //cout << "Direction positive, interval = " << interval << endl;
   }
   else
   {
     interval = -( 360-(endAngle-startAngle) );
-    cout << "Direction not positive, interval = " << interval << endl;
   }
 
   // Compute arcdegree of latitude respectively longitude difference of the center.
