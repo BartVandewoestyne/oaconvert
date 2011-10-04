@@ -35,7 +35,7 @@ class Arc : public Segment
     virtual ~Arc() {};
 
     /* Create an arc around a given coordinate, with radius in nautical miles */
-    Arc(Coordinate center, double radiusNM, double angleStart, double angleEnd, char direction);
+    Arc(const Coordinate& center, double radius, double angleStart, double angleEnd, char direction);
 
     double getRadiusNM() const;
     double getRadiusM() const;
@@ -52,9 +52,14 @@ class Arc : public Segment
 
     bool isValid() const;
     void invalidate();
-    Polygon toPolygon(int nbPoints) const;
 
     friend std::ostream& operator <<(std::ostream& outputStream, const Arc& c);
+
+    //////////////////////////////////////////////////
+    // Interface Segment
+
+    //! @copydoc Segment::discretize
+    virtual void discretize( std::vector<Coordinate>& coords, double resolution ) const;
 
   };
 
