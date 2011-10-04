@@ -5,3 +5,8 @@ LinearSegment::LinearSegment( const Coordinate& point )
   {
   }
 
+void LinearSegment::discretize( std::vector<Coordinate>& coords, double resolution ) const
+  {
+  coords.push_back( m_coordinate );
+  }
+

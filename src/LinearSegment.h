@@ -10,6 +10,8 @@ public:
   LinearSegment( const Coordinate& point );
   virtual ~LinearSegment() {};
 
+  //! @copydoc Segment::discretize
+  virtual void discretize( std::vector<Coordinate>& coords, double resolution ) const;
 
 private:
   Coordinate m_coordinate;
