@@ -24,7 +24,7 @@ int main (int argc, char* argv[])
   }
 
   int write_to_stdout = 0;
-  std::string filename;
+  std::string outfilename;
 
   static struct option long_options[] =
   {
@@ -44,20 +44,23 @@ int main (int argc, char* argv[])
     switch (opt) {
       case 0:
         if (long_options[option_index].flag != 0)
+          {
           break;
+          }
         printf ("option %s", long_options[option_index].name);
         if (optarg)
           printf (" with arg %s", optarg);
         printf ("\n");
+
         if( strcmp(long_options[option_index].name, "out") == 0 )
           {
-          filename = optarg;
+          outfilename = optarg;
           }
         break;
 
       case 'o':
         printf("Option argument: %s\n", optarg);
-        filename = optarg;
+        outfilename = optarg;
         break;
 
       default: /* '?' */
@@ -66,26 +69,27 @@ int main (int argc, char* argv[])
     }
   }
 
+  // At least one non-option argument, i.e., the input file.
   if (optind >= argc) {
     fprintf(stderr, "Expected argument after options\n");
     exit(EXIT_FAILURE);
   }
 
-  //int index;
-  //for (index = optind; index < argc; index++) {
-  //  printf ("Non-option argument %s\n", argv[index]);
-  //}
+  // Read filename of the input file.
+  std::string infilename( argv[optind] );
 
+
+  //////////////////////////////////////////////////
 	// Setup the parser
   Parser *p;
 
   if( ! write_to_stdout )
   {
-    if( filename == "" )
+    if( outfilename == "" )
     {
-      filename = "output.mp";
+      outfilename = "output.mp";
     }
-    p = new Parser( filename );
+    p = new Parser( outfilename );
   }
   else
   {
@@ -93,8 +97,9 @@ int main (int argc, char* argv[])
   }
 
   // Start reading the input file.
-  std::string infile(argv[1]);
+  std::string infile(infilename);
   cout << "Processing file: " << infile << endl;
+  cout << " +-> outputfile: " << ( strcmp(outfilename.c_str(),"") ? outfilename : "stdout" ) << endl;
   string line;
   ifstream inStream;
   inStream.open(infile.c_str());
