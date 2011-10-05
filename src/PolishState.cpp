@@ -86,17 +86,17 @@ void PolishState::writeHeader(std::ostream &out) const
   //out << "Zoom4=4\n";
 
   // This is from http://vjet.f2s.com/gmap/cgpsmapper.html
-  cout << "Levels=5\n";
-  cout << "Level0=24\n";
-  cout << "Level1=22\n";
-  cout << "Level2=20\n";
-  cout << "Level3=19\n";
-  cout << "Level4=18\n";
-  cout << "Zoom0=0\n";
-  cout << "Zoom1=1\n";
-  cout << "Zoom2=2\n";
-  cout << "Zoom3=3\n";
-  cout << "Zoom4=4\n";
+  out << "Levels=5\n";
+  out << "Level0=24\n";
+  out << "Level1=22\n";
+  out << "Level2=20\n";
+  out << "Level3=19\n";
+  out << "Level4=18\n";
+  out << "Zoom0=0\n";
+  out << "Zoom1=1\n";
+  out << "Zoom2=2\n";
+  out << "Zoom3=3\n";
+  out << "Zoom4=4\n";
 
   //// Below is what GPSMapEdit 1.0.69.1 outputs, and it seems to work in
   //// GPSMapEdit... so we use this.  Note that this might not work as fluently
@@ -129,7 +129,7 @@ void PolishState::writeHeader(std::ostream &out) const
 
 
   // Section terminator (mandatory)
-  cout << "[END-IMG ID]\n" << endl;
+  out << "[END-IMG ID]\n" << endl;
 
 }
 
