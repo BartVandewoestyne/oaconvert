@@ -1,0 +1,9 @@
+Loading a Garmin map that exists as a combination of a TDB, REG and IMG file
+----------------------------------------------------------------------------
+File
+  -> Load Map
+    -> Set map type 'Garmin' and choose 'MyFileName.TDB'
+      -> QLandkarte offers you to choose <some_number>.img or 'MyFileName.img'.
+         It is not clear to me what you should pick... both seem to work...
+
+If you don't see the map, it can help to select 'Map -> Center Map'.
