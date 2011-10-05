@@ -1,18 +1,15 @@
 set(airspace_SRCS
     airspace.cpp
-    coordinate.cpp
+    Coordinate.cpp
     latlon.cpp
     latitude.cpp
     longitude.cpp
     parser.cpp
-    point.cpp
-    polygon.cpp
-    circle.cpp
-    arc.cpp
-    regularconvexpolygon.cpp
-    restricted.cpp
+    Circle.cpp
+    Arc.cpp
+    CurvedPolygon.cpp
+    LinearSegment.cpp
     stringutils.cpp
-    OutputState.cpp
     PolishState.cpp
     OutputWriter.cpp
 )

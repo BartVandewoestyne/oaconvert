@@ -1,30 +1,42 @@
+#include "parser.h"
+
 #include <iostream>
 #include <boost/regex.hpp>
 
 #include "airspace.h"
-#include "coordinate.h"
-#include "parser.h"
-#include "polygon.h"
-#include "circle.h"
+#include "Arc.h"
 #include "constants.h"
+#include "Coordinate.h"
+#include "Circle.h"
+#include "CurvedPolygon.h"
 
 using namespace boost;
 using namespace std;
 using namespace Constants;
 
 Parser::Parser()
-: _writer(cout)
-, currentDirection('+')
-{}
-
-Parser::Parser(ostream& stream)
-: _writer( stream )
-, currentDirection('+')
-{}
-
-AirSpace& Parser::getCurrentAirSpace()
+: _writer()
+, airspaces(1, new AirSpace) // at least 1 airspace
+, curved_polygon(0)
 {
-  return currentAirSpace;
+//  std::cout << "Parser::Parser()" << std::endl;
+}
+
+Parser::Parser(const std::string& outfile)
+: _writer( outfile )
+, airspaces(1, new AirSpace) // at least 1 airspace
+, curved_polygon(0)
+{
+//  std::cout << "Parser::Parser(outfile)" << std::endl;
+}
+
+Parser::~Parser()
+{
+  for( std::list<AirSpace*>::iterator it = airspaces.begin(); it != airspaces.end(); ++it )
+  {
+    delete *it;
+  }
+  airspaces.clear();
 }
 
 const Coordinate& Parser::getCurrentCoordinate() const
@@ -35,11 +47,6 @@ const Coordinate& Parser::getCurrentCoordinate() const
 char Parser::getCurrentDirection() const
 {
   return currentDirection;
-}
-
-void Parser::setCurrentAirspace(const AirSpace& s)
-{
-  currentAirSpace = s;
 }
 
 void Parser::setCurrentCoordinate(const Coordinate& c)
@@ -116,6 +123,7 @@ Coordinate Parser::getCoordinate(const std::string& s) const
 
 void Parser::handleLine(const std::string& line)
 {
+  cout << "Read line: '" << line << "'" << endl;
 
   smatch matches;
   regex expression;
@@ -124,6 +132,7 @@ void Parser::handleLine(const std::string& line)
   if ( regex_match(line, matches, expression) )
   {
     // do nothing.
+    return;
   }
 
   // Although not specified in the OpenAir specs at
@@ -132,10 +141,16 @@ void Parser::handleLine(const std::string& line)
   expression = "\\s*AC\\s+([RQPABCDEFGW]|GP|CTR)\\s*";
   if ( regex_match(line, matches, expression) )
   {
-    // write out the current airspace and reset the state of the parser.
-    // Direction should be positive again.
-    _writer.write(getCurrentAirSpace());
-    getCurrentAirSpace().clear();
+    // Write the current airspace but do not delete it just yet...
+    AirSpace* airspace = getCurrentAirSpace();
+    if (airspace)
+    {
+      _writer.write(*airspace);
+    }
+
+    // Create a new airspace and reset the helper curved_polygon and direction.
+    airspaces.push_back(new AirSpace);
+    curved_polygon = 0;
     setCurrentDirection('+');
 
     string airspace_class;
@@ -143,7 +158,9 @@ void Parser::handleLine(const std::string& line)
     {
       airspace_class.assign(matches[i].first, matches[i].second);
     }
-    getCurrentAirSpace().setClass(airspace_class);
+    //cout << "DEBUG: " << airspace_class << endl;
+    getCurrentAirSpace()->setClass(airspace_class);
+    return;
   }
 
   expression = "\\s*AN\\s+(.*)";
@@ -154,7 +171,9 @@ void Parser::handleLine(const std::string& line)
     {
       airspace_name.assign(matches[i].first, matches[i].second);
     }
-    getCurrentAirSpace().setName(airspace_name);
+    //cout << "DEBUG: " << airspace_name << endl;
+    getCurrentAirSpace()->setName(airspace_name);
+    return;
   }
 
   expression = "\\s*AH\\s+(.*)";
@@ -165,7 +184,9 @@ void Parser::handleLine(const std::string& line)
     {
       airspace_ceiling.assign(matches[i].first, matches[i].second);
     }
-    getCurrentAirSpace().setCeiling(airspace_ceiling);
+    //cout << "DEBUG: " << airspace_ceiling << endl;
+    getCurrentAirSpace()->setCeiling(airspace_ceiling);
+    return;
   }
 
   expression = "\\s*AL\\s+(.*)";
@@ -176,10 +197,13 @@ void Parser::handleLine(const std::string& line)
     {
       airspace_floor.assign(matches[i].first, matches[i].second);
     }
-    getCurrentAirSpace().setFloor(airspace_floor);
+    //cout << "DEBUG: " << airspace_floor << endl;
+    getCurrentAirSpace()->setFloor(airspace_floor);
+    return;
   }
 
   expression = "\\s*AT\\s+(.*)"; // This one is optional.
+  // TODO: fix this!! We need the string and the coordinates!
   if ( regex_match(line, matches, expression) )
   {
     string airspace_coordinate;
@@ -187,7 +211,8 @@ void Parser::handleLine(const std::string& line)
     {
       airspace_coordinate.assign(matches[i].first, matches[i].second);
     }
-    getCurrentAirSpace().addLabelCoordinate(getCoordinate(airspace_coordinate));
+    getCurrentAirSpace()->addLabelCoordinate("TODO_DUMMY", getCoordinate(airspace_coordinate));
+    return;
   }
 
   expression = "\\s*V\\s+X\\s*=\\s*(.*)";
@@ -199,6 +224,7 @@ void Parser::handleLine(const std::string& line)
       coordinate.assign(matches[i].first, matches[i].second);
     }
     setCurrentCoordinate(getCoordinate(coordinate));
+    return;
   }
 
   expression = "\\s*V\\s+D\\s*=\\s*(.*)";
@@ -210,6 +236,7 @@ void Parser::handleLine(const std::string& line)
       direction_string.assign(matches[i].first, matches[i].second);
     }
     setCurrentDirection(direction_string[0]);
+    return;
   }
 
   expression = "\\s*DP\\s+(.*)";
@@ -220,39 +247,45 @@ void Parser::handleLine(const std::string& line)
     {
       point_coordinate.assign(matches[i].first, matches[i].second);
     }
-    getCurrentAirSpace().getPolygon().add(getCoordinate(point_coordinate));
+    if( ! curved_polygon )
+    {
+      curved_polygon = getCurrentAirSpace()->addCurvedPolygon();
+    }
+    curved_polygon->addLinearSegment(getCoordinate(point_coordinate));
+    //cout << "DEBUG: " << getCurrentAirSpace() << endl;
+    return;
   }
 
   expression = "\\s*DA\\s+(\\d+\\.*\\d*)[\\s,]+(\\d+)[\\s,]+(\\d+)";
   if ( regex_match(line, matches, expression) )
   {
-    // Set center-coordinate and direction that we have just parsed.
-    getCurrentAirSpace().getArc().setCenter(getCurrentCoordinate());
-    getCurrentAirSpace().getArc().setDirection(getCurrentDirection());
-
     // Read the matched values and create our Arc.
     string radiusNM;
-    string angleStart;
-    string angleEnd;
     radiusNM.assign(   matches[1].first, matches[1].second );
+
+    string angleStart;
     angleStart.assign( matches[2].first, matches[2].second );
+
+    string angleEnd;
     angleEnd.assign(   matches[3].first, matches[3].second );
-    getCurrentAirSpace().getArc().setRadiusNM(atof(radiusNM.c_str()));
-    getCurrentAirSpace().getArc().setStartAngle(atof(angleStart.c_str()));
-    getCurrentAirSpace().getArc().setEndAngle(atof(angleEnd.c_str()));
+
+    Arc arc( getCurrentCoordinate(), atof(radiusNM.c_str()), 
+             atof(angleStart.c_str()), atof(angleEnd.c_str()), getCurrentDirection());
 
     // Add the arc points to this space's Polygon.
-    getCurrentAirSpace().getPolygon().add(getCurrentAirSpace().getArc().toPolygon(NBPOINTS));
+    // TODO: don't use *hardcoded* 100 points for the discretization!
+    if( ! curved_polygon )
+    {
+      curved_polygon = getCurrentAirSpace()->addCurvedPolygon();
+    }
+    curved_polygon->addArc(arc);
+    return;
   }
 
   // TODO: check this matching pattern
   expression = "\\s*DB\\s+(.*)\\s*,\\s*(.*)";
   if ( regex_match(line, matches, expression) )
   {
-    // Set the center-coordinate and direction that we have just parsed.
-    getCurrentAirSpace().getArc().setCenter(getCurrentCoordinate());
-    getCurrentAirSpace().getArc().setDirection(getCurrentDirection());
-
     // Fetch the start and end coordinate for this arc.
     string coord1, coord2;
     coord1.assign(matches[1].first, matches[1].second);
@@ -288,28 +321,45 @@ void Parser::handleLine(const std::string& line)
     // Use average of the two radii.
     double radius = ( c1.getDistance(getCurrentCoordinate()) + c2.getDistance(getCurrentCoordinate()) )*0.5;
 
-    // Set start and end angle, together with the chosen radius.
-    getCurrentAirSpace().getArc().setRadiusNM(radius/1852.0);
-    getCurrentAirSpace().getArc().setStartAngle(startAngle);
-    getCurrentAirSpace().getArc().setEndAngle(endAngle);
+    // Create the arc
+    Arc arc( getCurrentCoordinate(), radius/1852.0, startAngle, endAngle, getCurrentDirection());
 
     // Add the arc points to this space's Polygon.
-    getCurrentAirSpace().getPolygon().add(getCurrentAirSpace().getArc().toPolygon(NBPOINTS));
+    // TODO: don't use *hardcoded* 100 points for the discretization!
+    curved_polygon->addArc( arc );
+
   }
 
   expression = "\\s*DC\\s+(.*)";
   if ( regex_match(line, matches, expression) )
   {
-    // Set circle center from stored state of the parser.
-    getCurrentAirSpace().getCircle().setCenter(getCurrentCoordinate());
-
-    // Set circle radius (in Nautical Miles) from what we've just read.
+    //cout << "DEBUG: found DC record!" << endl;
+    // Get circle radius (in Nautical Miles) from what we've just read.
     string radiusNM;
     for (unsigned int i = 1; i < matches.size(); ++i)
     {
       radiusNM.assign(matches[i].first, matches[i].second);
     }
-    getCurrentAirSpace().getCircle().setRadiusNM(atof(radiusNM.c_str()));
+
+    if( ! curved_polygon )
+    {
+      getCurrentAirSpace()->addCircle(getCurrentCoordinate(), atof(radiusNM.c_str()));
+    }
+    else
+    {
+      cout << "ERROR: we already have part of a curved polygon, but the input file gives info for a circle??" << endl;
+    }
+    return;
+  }
+}
+
+void Parser::initialize()
+  {
+  _writer.writeHeader();
   }
 
-}
+void Parser::finalize()
+  {
+  _writer.write(*getCurrentAirSpace());
+  curved_polygon = 0;
+  }

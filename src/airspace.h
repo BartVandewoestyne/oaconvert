@@ -2,13 +2,24 @@
 #define AIRSPACE_H
 
 #include <string>
+#include <utility>
 #include <vector>
-#include "polygon.h"
-#include "circle.h"
-#include "arc.h"
-#include "coordinate.h"
 
+#include "Coordinate.h"
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Forward declarations
+//////////////////////////////////////////////////////////////////////////////////////////
+class Circle;
+class CurvedPolygon;
+class Region;
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Class AirSpace
+//////////////////////////////////////////////////////////////////////////////////////////
 class AirSpace {
+  public:
+    typedef std::pair<std::string,Coordinate> label_type;
 
   private:
     std::string name;
@@ -18,43 +29,52 @@ class AirSpace {
     std::string ceiling;
     std::string floor;
 
-    // TODO: change this to the class structure I discussed with Yves.
-    //   Region
-    //     Circle
-    //     CurvedPolygon
-    //        Segment
-    //          Arc Point
-    Polygon polygon;
-    Circle circle;
-    Arc arc;
+    //! Closed region defining the restricted airspace.
+    Region* region;
 
-    // TODO: change this to a vector with Labels.  Each label has a
-    // text and a coordinate.
-    std::vector<Coordinate> labelCoordinates;
+    //! Collection of string labels with associated position.
+    std::vector<label_type> labelCoordinates;
 
   public:
 
     AirSpace();
+    ~AirSpace();
 
     const std::string& getName() const;
     const std::string& getClass() const;
     const std::string& getCeiling() const;
     const std::string& getFloor() const;
-    const Polygon& getPolygon() const;
-    Polygon& getPolygon();
-    const Circle& getCircle() const;
-    Circle& getCircle();
-    const Arc& getArc() const;
-    Arc& getArc();
+    const Region* getRegion() const;
 
     void setName(const std::string& mystring);
     void setClass(const std::string& clss);
     void setCeiling(const std::string& ceiling);
     void setFloor(const std::string& floor);
 
-    bool hasPolygon() const;
-    bool hasCircle() const;
-    void addLabelCoordinate(const Coordinate& c);
+//    /**
+//     * Add the region to this airspace (and pass ownership of the pointer).
+//     */
+//    void add( Region* region );
+    
+
+    /**
+     * Add a circle region to this airspace and return a pointer to the newly created
+     * object. The ownership remains with this airspace.
+     */
+    Circle* addCircle(const Coordinate& coordinate, double radius);
+
+    /**
+     * Add a circle region to this airspace and return a pointer to the newly created
+     * object. The ownership remains with this airspace.
+     */
+    CurvedPolygon* addCurvedPolygon();
+
+    /**
+     * Each airspace can have multiple name-labels that each have their location
+     * on a map.  With this method, you can add locations for these labels.
+     */
+    void addLabelCoordinate(const std::string& label, const Coordinate& c);
+
     void clear();
 
     friend std::ostream& operator <<(std::ostream& outputStream, const AirSpace& l);

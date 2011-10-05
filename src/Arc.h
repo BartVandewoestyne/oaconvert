@@ -1,10 +1,15 @@
 #ifndef ARC_H 
 #define ARC_H 
 
-#include "coordinate.h"
-#include "polygon.h"
+#include "Coordinate.h"
+#include "Segment.h"
 
-class Arc {
+//////////////////////////////////////////////////////////////////////////////////////////
+// Class Arc
+//////////////////////////////////////////////////////////////////////////////////////////
+
+class Arc : public Segment 
+  {
 
   private:
 
@@ -27,8 +32,10 @@ class Arc {
     /* Create an (invalid) arc. */
     Arc();
 
+    virtual ~Arc() {};
+
     /* Create an arc around a given coordinate, with radius in nautical miles */
-    Arc(Coordinate center, double radiusNM, double angleStart, double angleEnd, char direction);
+    Arc(const Coordinate& center, double radius, double angleStart, double angleEnd, char direction);
 
     double getRadiusNM() const;
     double getRadiusM() const;
@@ -45,10 +52,15 @@ class Arc {
 
     bool isValid() const;
     void invalidate();
-    Polygon toPolygon(int nbPoints) const;
 
     friend std::ostream& operator <<(std::ostream& outputStream, const Arc& c);
 
-};
+    //////////////////////////////////////////////////
+    // Interface Segment
+
+    //! @copydoc Segment::discretize
+    virtual void discretize( std::vector<Coordinate>& coords, double resolution ) const;
+
+  };
 
 #endif /* ARC_H */

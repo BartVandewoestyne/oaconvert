@@ -1,23 +1,74 @@
 #include "OutputWriter.h"
-#include "PolishState.h"
+
+#include <fstream>
+
 #include "airspace.h"
+#include "assert.h"
+#include "PolishState.h"
 
 using namespace std;
 
-// By default, use Polish Format.
-OutputWriter::OutputWriter(ostream& stream)
+//////////////////////////////////////////////////////////////////////////////////////////
+// Implementation OutputWriter
+//////////////////////////////////////////////////////////////////////////////////////////
+
+OutputWriter::OutputWriter()
 :_state(PolishState::getInstance())
+, outfile(0)
+, out(cout.rdbuf())
+  {
+  }
+
+//----------------------------------------------------------------------------------------
+OutputWriter::OutputWriter(const std::string& filename)
+:_state(PolishState::getInstance())
+, outfile(new std::ofstream(filename.c_str()))
+, out(outfile->rdbuf())
+  {
+  }
+
+//----------------------------------------------------------------------------------------
+OutputWriter::OutputWriter(std::ostream& stream)
+:_state(PolishState::getInstance())
+, outfile(0)
 , out(stream.rdbuf())
 {
-  // By default, use Polish Format.
 }
 
-void OutputWriter::write(const AirSpace &s) const
+//----------------------------------------------------------------------------------------
+OutputWriter::~OutputWriter()
+  {
+  if( outfile )
+    {
+    outfile->close();
+    }
+  delete outfile;
+  }
+
+//----------------------------------------------------------------------------------------
+void OutputWriter::changeState(OutputState* state)
+  {
+  _state = state;
+  }
+
+//----------------------------------------------------------------------------------------
+void OutputWriter::writeHeader()
 {
-  _state->write(s);
+  _state->writeHeader(out);
 }
 
-void OutputWriter::writeHeader() const
+//----------------------------------------------------------------------------------------
+void OutputWriter::write(const AirSpace &s)
 {
-  _state->writeHeader();
+  // TODO
+//  ASSERT( ! "TODO" );
+  _state->write(out, s);
 }
+
+//----------------------------------------------------------------------------------------
+void OutputWriter::writeFooter()
+  {
+  // TODO
+//  ASSERT( ! "TODO" );
+  }
+
