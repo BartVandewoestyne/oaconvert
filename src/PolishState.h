@@ -40,6 +40,8 @@ class PolishState : public OutputState {
   private:
     static PolishState* _instance;
 
+    std::string getType(const std::string& airspaceClass) const;
+
 };
 
 #endif /* POLISHSTATE_H */
