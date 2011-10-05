@@ -3,10 +3,10 @@
 
 #include <cppunit/extensions/HelperMacros.h>
 
-class AirSpaceTest : public CppUnit::TestFixture
+class AirspaceTest : public CppUnit::TestFixture
 {
 
-  CPPUNIT_TEST_SUITE( AirSpaceTest );
+  CPPUNIT_TEST_SUITE( AirspaceTest );
   CPPUNIT_TEST( testSetGetName );
   CPPUNIT_TEST_SUITE_END();
 

@@ -37,3 +37,9 @@ then this should be translated into
   V X=<coordinateX>
   DA 5,120,340
   <coordinate2>
+
+
+Also, make sure that the first point of your airspace is the same as the last
+point of your airspace.  This will make sure that if certain software uses
+polylines instead of polygons to represent airspaces, they will be visualized
+as a closed region.

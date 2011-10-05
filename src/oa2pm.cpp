@@ -1,14 +1,12 @@
 #include <iostream>
 #include <fstream>
-//#include <unistd.h>
 #include <getopt.h>
 #include <boost/regex.hpp> 
 
+#include "Airspace.h"
 #include "latitude.h"
-#include "stringutils.h"
-
 #include "parser.h"
-#include "airspace.h"
+#include "stringutils.h"
 
 using namespace std;
 using namespace boost;
@@ -64,7 +62,7 @@ int main (int argc, char* argv[])
         break;
 
       default: /* '?' */
-        fprintf(stderr, "Usage: %s [-o|--out file.txt] [--stdout] file.air\n", argv[0]);
+        fprintf(stderr, "Usage: %s [-o|--out polish_file.mp] [--stdout] open_air_file.txt\n", argv[0]);
         exit(EXIT_FAILURE);
     }
   }
@@ -79,8 +77,7 @@ int main (int argc, char* argv[])
   std::string infilename( argv[optind] );
 
 
-  //////////////////////////////////////////////////
-	// Setup the parser
+  // Setup the parser
   Parser *p;
 
   if( ! write_to_stdout )

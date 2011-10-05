@@ -1,4 +1,4 @@
-TODO: THIS FILE IS NOT WORKING YET!!! WAS COPY PASTE FROM AirSpace.cpp!
+TODO: THIS FILE IS NOT WORKING YET!!! WAS COPY PASTE FROM Airspace.cpp!
 #include <iostream>
 #include <string>
 #include "coordinate.h"
@@ -9,22 +9,22 @@ Label::Label(string text, Coordinate c)
   this->text = text;
 }
 
-const string& AirSpace::getName() const
+const string& Airspace::getName() const
 {
   return name;
 }
 
-const string& AirSpace::getClass() const
+const string& Airspace::getClass() const
 {
   return clss;
 }
 
-const string& AirSpace::getCeiling() const
+const string& Airspace::getCeiling() const
 {
   return ceiling;
 }
 
-const string& AirSpace::getFloor() const
+const string& Airspace::getFloor() const
 {
   return floor;
 }
@@ -32,52 +32,52 @@ const string& AirSpace::getFloor() const
 /**
  * Return the Polygon that contains all Coordinates defining this airspace.
  */
-const Polygon& AirSpace::getPolygon() const
+const Polygon& Airspace::getPolygon() const
 {
   return polygon;
 }
 
-Polygon& AirSpace::getPolygon()
+Polygon& Airspace::getPolygon()
 {
   return polygon;
 }
 
-const Circle& AirSpace::getCircle() const
+const Circle& Airspace::getCircle() const
 {
   return circle;
 }
 
-Circle& AirSpace::getCircle()
+Circle& Airspace::getCircle()
 {
   return circle;
 }
 
-const Arc& AirSpace::getArc() const
+const Arc& Airspace::getArc() const
 {
   return arc;
 }
 
-Arc& AirSpace::getArc()
+Arc& Airspace::getArc()
 {
   return arc;
 }
 
-void AirSpace::setName(const string& mystring)
+void Airspace::setName(const string& mystring)
 {
   name = mystring;
 }
 
-void AirSpace::setClass(const string& clss)
+void Airspace::setClass(const string& clss)
 {
   this->clss = clss;
 }
 
-void AirSpace::setCeiling(const string& ceiling)
+void Airspace::setCeiling(const string& ceiling)
 {
   this->ceiling = ceiling;
 }
 
-void AirSpace::setFloor(const string& floor)
+void Airspace::setFloor(const string& floor)
 {
   this->floor = floor;
 }
@@ -86,7 +86,7 @@ void AirSpace::setFloor(const string& floor)
  * Return true if the airspace is defined by a Polygon (some airspaces are
  * only defined by a circle and don't have Polygon points).
  */
-bool AirSpace::hasPolygon() const
+bool Airspace::hasPolygon() const
 {
   if (polygon.getNbPoints() > 0)
   {
@@ -102,7 +102,7 @@ bool AirSpace::hasPolygon() const
  * Return true if the airspace is defined by a Circle (and airspace can be
  * defined by a circle or a polygon).
  */
-bool AirSpace::hasCircle() const
+bool Airspace::hasCircle() const
 {
   if ( circle.isValid() )
   {
@@ -120,12 +120,12 @@ bool AirSpace::hasCircle() const
  * Each airspace can have multiple name-labels that each have their location
  * on a map.  With this method, you can add locations for these labels.
  */
-void AirSpace::addLabelCoordinate(const Coordinate& c)
+void Airspace::addLabelCoordinate(const Coordinate& c)
 {
   labelCoordinates.push_back(c);
 }
 
-void AirSpace::clear()
+void Airspace::clear()
 {
   name = "";
   clss = "";
@@ -137,7 +137,7 @@ void AirSpace::clear()
   labelCoordinates.clear();
 }
 
-ostream& operator <<(ostream& outputStream, const AirSpace& s)
+ostream& operator <<(ostream& outputStream, const Airspace& s)
 {
   outputStream << "Name:    " << s.name << endl;
   outputStream << "Class:   " << s.clss << endl;

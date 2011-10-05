@@ -7,7 +7,7 @@ set(MainTest_SRCS
     CoordinateTest.cpp
     MainTester.cpp
     ParserTest.cpp
-    AirSpaceTest.cpp
+    AirspaceTest.cpp
 )
 
 add_executable(MainTest ${MainTest_SRCS})

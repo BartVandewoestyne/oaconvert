@@ -1,7 +1,8 @@
 #include "PolishState.h"
 
 #include <cassert>
-#include "airspace.h"
+
+#include "Airspace.h"
 #include "Circle.h"
 #include "CurvedPolygon.h"
 
@@ -140,7 +141,7 @@ void PolishState::writeFooter(std::ostream &out) const
   }
 
 
-// void PolishState::write(ostream& out, const AirSpace& s) const
+// void PolishState::write(ostream& out, const Airspace& s) const
 // {
 //   /* TODO
 //   if ( s.hasPolygon() )
@@ -156,10 +157,8 @@ void PolishState::writeFooter(std::ostream &out) const
 //   */
 // }
 
-void PolishState::write(std::ostream& stream, const AirSpace& airspace) const
+void PolishState::write(std::ostream& stream, const Airspace& airspace) const
   {
-  std::cout << "PolishState::write(AirSpace)" << std::endl;
-
   if( ! airspace.getRegion() )
     {
     std::cout << " WARNING: Not printing airspace with empty region." << std::endl;
@@ -184,6 +183,7 @@ void PolishState::write(std::ostream& stream, const AirSpace& airspace) const
   OutputState::write(stream, airspace.getRegion());
   }
 
+
 void PolishState::write(std::ostream& stream, const Circle* circle) const
   {
   cout << "PolishState::write(Circle)" << endl;
@@ -194,6 +194,7 @@ void PolishState::write(std::ostream& stream, const Circle* circle) const
 //    write(s.getCircle().toPolygon(NBPOINTS), s.getName());;
 //  assert( ! "TODO" );
   }
+
 
 void PolishState::write(std::ostream& stream, const CurvedPolygon* curved_polygon) const
   {
@@ -217,14 +218,12 @@ void PolishState::write(std::ostream& out, const std::vector<Coordinate>& coords
   if (coords.size() > 0)
   {
     out << "Data0=";
-    for (size_t i = 1; i< coords.size(); ++i)
+    for (size_t i = 0; i < coords.size()-1; ++i)
     {
       write(out, coords[i]);
       out << ",";
     }
-    {
-      write(out, coords.back());
-    }
+    write(out, coords.back());
     out << endl;
   }
   out << "[END]\n" << endl;

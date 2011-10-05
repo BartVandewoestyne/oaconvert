@@ -1,5 +1,5 @@
 #include "CoordinateTest.h"
-#include "coordinate.h"
+#include "Coordinate.h"
 
 using namespace std;
 

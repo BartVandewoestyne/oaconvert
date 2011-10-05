@@ -8,7 +8,7 @@ class ParserTest : public CppUnit::TestFixture
 
   CPPUNIT_TEST_SUITE( ParserTest );
   CPPUNIT_TEST( testGetCoordinate );
-  CPPUNIT_TEST( testSetGetCurrentAirSpace );
+  CPPUNIT_TEST( testSetGetCurrentAirspace );
   CPPUNIT_TEST_SUITE_END();
 
 public:
@@ -16,7 +16,7 @@ public:
   void tearDown();
 
   void testGetCoordinate();
-  void testSetGetCurrentAirSpace();
+  void testSetGetCurrentAirspace();
 
 };
 

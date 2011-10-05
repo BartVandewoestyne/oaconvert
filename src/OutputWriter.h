@@ -1,7 +1,7 @@
 #ifndef OUTPUTWRITER_H 
 #define OUTPUTWRITER_H 
 
-#include "airspace.h"
+#include "Airspace.h"
 #include "OutputState.h"
 
 class OutputWriter {
@@ -14,7 +14,7 @@ class OutputWriter {
     ~OutputWriter();
 
     void writeHeader();
-    void write(const AirSpace& s);
+    void write(const Airspace& s);
     void writeFooter();
 
   private:

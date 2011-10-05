@@ -3,7 +3,7 @@
 #include <iostream>
 #include <boost/regex.hpp>
 
-#include "airspace.h"
+#include "Airspace.h"
 #include "Arc.h"
 #include "constants.h"
 #include "Coordinate.h"
@@ -16,7 +16,7 @@ using namespace Constants;
 
 Parser::Parser()
 : _writer()
-, airspaces(1, new AirSpace) // at least 1 airspace
+, airspaces(1, new Airspace) // at least 1 airspace
 , curved_polygon(0)
 {
 //  std::cout << "Parser::Parser()" << std::endl;
@@ -24,7 +24,7 @@ Parser::Parser()
 
 Parser::Parser(const std::string& outfile)
 : _writer( outfile )
-, airspaces(1, new AirSpace) // at least 1 airspace
+, airspaces(1, new Airspace) // at least 1 airspace
 , curved_polygon(0)
 {
 //  std::cout << "Parser::Parser(outfile)" << std::endl;
@@ -32,7 +32,7 @@ Parser::Parser(const std::string& outfile)
 
 Parser::~Parser()
 {
-  for( std::list<AirSpace*>::iterator it = airspaces.begin(); it != airspaces.end(); ++it )
+  for( std::list<Airspace*>::iterator it = airspaces.begin(); it != airspaces.end(); ++it )
   {
     delete *it;
   }
@@ -142,14 +142,14 @@ void Parser::handleLine(const std::string& line)
   if ( regex_match(line, matches, expression) )
   {
     // Write the current airspace but do not delete it just yet...
-    AirSpace* airspace = getCurrentAirSpace();
+    Airspace* airspace = getCurrentAirspace();
     if (airspace)
     {
       _writer.write(*airspace);
     }
 
     // Create a new airspace and reset the helper curved_polygon and direction.
-    airspaces.push_back(new AirSpace);
+    airspaces.push_back(new Airspace);
     curved_polygon = 0;
     setCurrentDirection('+');
 
@@ -159,7 +159,7 @@ void Parser::handleLine(const std::string& line)
       airspace_class.assign(matches[i].first, matches[i].second);
     }
     //cout << "DEBUG: " << airspace_class << endl;
-    getCurrentAirSpace()->setClass(airspace_class);
+    getCurrentAirspace()->setClass(airspace_class);
     return;
   }
 
@@ -172,7 +172,7 @@ void Parser::handleLine(const std::string& line)
       airspace_name.assign(matches[i].first, matches[i].second);
     }
     //cout << "DEBUG: " << airspace_name << endl;
-    getCurrentAirSpace()->setName(airspace_name);
+    getCurrentAirspace()->setName(airspace_name);
     return;
   }
 
@@ -185,7 +185,7 @@ void Parser::handleLine(const std::string& line)
       airspace_ceiling.assign(matches[i].first, matches[i].second);
     }
     //cout << "DEBUG: " << airspace_ceiling << endl;
-    getCurrentAirSpace()->setCeiling(airspace_ceiling);
+    getCurrentAirspace()->setCeiling(airspace_ceiling);
     return;
   }
 
@@ -198,7 +198,7 @@ void Parser::handleLine(const std::string& line)
       airspace_floor.assign(matches[i].first, matches[i].second);
     }
     //cout << "DEBUG: " << airspace_floor << endl;
-    getCurrentAirSpace()->setFloor(airspace_floor);
+    getCurrentAirspace()->setFloor(airspace_floor);
     return;
   }
 
@@ -211,7 +211,7 @@ void Parser::handleLine(const std::string& line)
     {
       airspace_coordinate.assign(matches[i].first, matches[i].second);
     }
-    getCurrentAirSpace()->addLabelCoordinate("TODO_DUMMY", getCoordinate(airspace_coordinate));
+    getCurrentAirspace()->addLabelCoordinate("TODO_DUMMY", getCoordinate(airspace_coordinate));
     return;
   }
 
@@ -249,10 +249,10 @@ void Parser::handleLine(const std::string& line)
     }
     if( ! curved_polygon )
     {
-      curved_polygon = getCurrentAirSpace()->addCurvedPolygon();
+      curved_polygon = getCurrentAirspace()->addCurvedPolygon();
     }
     curved_polygon->addLinearSegment(getCoordinate(point_coordinate));
-    //cout << "DEBUG: " << getCurrentAirSpace() << endl;
+    //cout << "DEBUG: " << getCurrentAirspace() << endl;
     return;
   }
 
@@ -276,7 +276,7 @@ void Parser::handleLine(const std::string& line)
     // TODO: don't use *hardcoded* 100 points for the discretization!
     if( ! curved_polygon )
     {
-      curved_polygon = getCurrentAirSpace()->addCurvedPolygon();
+      curved_polygon = getCurrentAirspace()->addCurvedPolygon();
     }
     curved_polygon->addArc(arc);
     return;
@@ -343,7 +343,7 @@ void Parser::handleLine(const std::string& line)
 
     if( ! curved_polygon )
     {
-      getCurrentAirSpace()->addCircle(getCurrentCoordinate(), atof(radiusNM.c_str()));
+      getCurrentAirspace()->addCircle(getCurrentCoordinate(), atof(radiusNM.c_str()));
     }
     else
     {
@@ -360,6 +360,6 @@ void Parser::initialize()
 
 void Parser::finalize()
   {
-  _writer.write(*getCurrentAirSpace());
+  _writer.write(*getCurrentAirspace());
   curved_polygon = 0;
   }

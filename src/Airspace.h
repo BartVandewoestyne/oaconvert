@@ -7,21 +7,18 @@
 
 #include "Coordinate.h"
 
-//////////////////////////////////////////////////////////////////////////////////////////
-// Forward declarations
-//////////////////////////////////////////////////////////////////////////////////////////
 class Circle;
 class CurvedPolygon;
 class Region;
 
-//////////////////////////////////////////////////////////////////////////////////////////
-// Class AirSpace
-//////////////////////////////////////////////////////////////////////////////////////////
-class AirSpace {
+class Airspace {
+
   public:
+
     typedef std::pair<std::string,Coordinate> label_type;
 
   private:
+
     std::string name;
     std::string clss;
 
@@ -29,16 +26,16 @@ class AirSpace {
     std::string ceiling;
     std::string floor;
 
-    //! Closed region defining the restricted airspace.
+    //! Closed region defining the airspace.
     Region* region;
 
     //! Collection of string labels with associated position.
-    std::vector<label_type> labelCoordinates;
+    std::vector<label_type> labels;
 
   public:
 
-    AirSpace();
-    ~AirSpace();
+    Airspace();
+    ~Airspace();
 
     const std::string& getName() const;
     const std::string& getClass() const;
@@ -64,7 +61,7 @@ class AirSpace {
     Circle* addCircle(const Coordinate& coordinate, double radius);
 
     /**
-     * Add a circle region to this airspace and return a pointer to the newly created
+     * Add a curved polygon region to this airspace and return a pointer to the newly created
      * object. The ownership remains with this airspace.
      */
     CurvedPolygon* addCurvedPolygon();
@@ -77,7 +74,7 @@ class AirSpace {
 
     void clear();
 
-    friend std::ostream& operator <<(std::ostream& outputStream, const AirSpace& l);
+    friend std::ostream& operator <<(std::ostream& outputStream, const Airspace& l);
 
 };
 

@@ -3,25 +3,19 @@
 
 #include <list>
 #include <string>
-
-#include "airspace.h"
+#include "Airspace.h"
 #include "Coordinate.h"
 #include "OutputWriter.h"
 
-//////////////////////////////////////////////////////////////////////////////////////////
-// Forward declarations
-//////////////////////////////////////////////////////////////////////////////////////////
 class CurvedPolygon;
 
-//////////////////////////////////////////////////////////////////////////////////////////
-// Class Parser
-//////////////////////////////////////////////////////////////////////////////////////////
 class Parser {
 
   private:
+
     OutputWriter _writer;
 
-    std::list<AirSpace*> airspaces;
+    std::list<Airspace*> airspaces;
 
     // Helper variables
     Coordinate currentCoordinate;
@@ -29,18 +23,19 @@ class Parser {
     CurvedPolygon *curved_polygon;
 
   public:
+
     Parser();
     Parser(const std::string& outfile);
     ~Parser();
 
     void handleLine(const std::string& s);
 
-    AirSpace* getCurrentAirSpace();
+    Airspace* getCurrentAirspace();
     const Coordinate& getCurrentCoordinate() const;
     char getCurrentDirection() const;
     Coordinate getCoordinate(const std::string& s) const;
 
-    void setCurrentAirspace(const AirSpace &s);
+    void setCurrentAirspace(const Airspace &s);
     void setCurrentCoordinate(const Coordinate &c);
     void setCurrentDirection(const char d);
 
@@ -56,11 +51,8 @@ class Parser {
 
 };
 
-//////////////////////////////////////////////////////////////////////////////////////////
-// Inline functions
-//////////////////////////////////////////////////////////////////////////////////////////
 
-inline AirSpace* Parser::getCurrentAirSpace()
+inline Airspace* Parser::getCurrentAirspace()
 {
   return airspaces.size() > 0 ? airspaces.back() : 0;
 }

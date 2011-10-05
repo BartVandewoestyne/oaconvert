@@ -52,9 +52,9 @@ ParserTest::testGetCoordinate()
 }
 
 void
-ParserTest::testSetGetCurrentAirSpace()
+ParserTest::testSetGetCurrentAirspace()
 {
   Parser p;
-  p.getCurrentAirSpace().setName("TestName1");
-  CPPUNIT_ASSERT_EQUAL(string("TestName1"), p.getCurrentAirSpace().getName());
+  p.getCurrentAirspace()->setName("TestName1");
+  CPPUNIT_ASSERT_EQUAL(string("TestName1"), p.getCurrentAirspace()->getName());
 }

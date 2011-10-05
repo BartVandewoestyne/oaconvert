@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-#include "airspace.h"
+#include "Airspace.h"
 #include "Circle.h"
 #include "CurvedPolygon.h"
 #include "Region.h"
@@ -11,67 +11,67 @@
 
 using namespace std;
 
-AirSpace::AirSpace()
+Airspace::Airspace()
 : region(0)
 {}
 
-AirSpace::~AirSpace()
+Airspace::~Airspace()
 {
   delete region;
 }
 
-const string& AirSpace::getName() const
+const string& Airspace::getName() const
 {
   return name;
 }
 
-const string& AirSpace::getClass() const
+const string& Airspace::getClass() const
 {
   return clss;
 }
 
-const string& AirSpace::getCeiling() const
+const string& Airspace::getCeiling() const
 {
   return ceiling;
 }
 
-const string& AirSpace::getFloor() const
+const string& Airspace::getFloor() const
 {
   return floor;
 }
 
-const Region* AirSpace::getRegion() const
+const Region* Airspace::getRegion() const
 {
   return region;
 }
 
-void AirSpace::setName(const string& mystring)
+void Airspace::setName(const string& mystring)
 {
   name = mystring;
 }
 
-void AirSpace::setClass(const string& clss)
+void Airspace::setClass(const string& clss)
 {
   this->clss = clss;
 }
 
-void AirSpace::setCeiling(const string& ceiling)
+void Airspace::setCeiling(const string& ceiling)
 {
   this->ceiling = ceiling;
 }
 
-void AirSpace::setFloor(const string& floor)
+void Airspace::setFloor(const string& floor)
 {
   this->floor = floor;
 }
 
-//void AirSpace::add( Region* region )
+//void Airspace::add( Region* region )
 //{
 //  this->region = region;
 //}
 
 
-Circle* AirSpace::addCircle(const Coordinate& coordinate, double radius)
+Circle* Airspace::addCircle(const Coordinate& coordinate, double radius)
 {
 //  assert(!region); // not initialized yet
   Circle *result = new Circle(coordinate, radius);
@@ -79,7 +79,7 @@ Circle* AirSpace::addCircle(const Coordinate& coordinate, double radius)
   return result;
 }
 
-CurvedPolygon* AirSpace::addCurvedPolygon()
+CurvedPolygon* Airspace::addCurvedPolygon()
 {
 //  assert(!region); // not initialized yet
   CurvedPolygon *result = new CurvedPolygon();
@@ -87,32 +87,32 @@ CurvedPolygon* AirSpace::addCurvedPolygon()
   return result;
 }
 
-void AirSpace::addLabelCoordinate(const std::string& label, const Coordinate& c)
+void Airspace::addLabelCoordinate(const std::string& label, const Coordinate& c)
 {
-  labelCoordinates.push_back( label_type( label, c ) );
+  labels.push_back( label_type( label, c ) );
 }
 
-void AirSpace::clear()
+void Airspace::clear()
 {
   name = "";
   clss = "";
   ceiling = "";
   floor = "";
-  labelCoordinates.clear();
+  labels.clear();
 }
 
-ostream& operator <<(ostream& outputStream, const AirSpace& s)
+ostream& operator <<(ostream& outputStream, const Airspace& s)
 {
   outputStream << "Name:    " << s.name << endl;
   outputStream << "Class:   " << s.clss << endl;
   outputStream << "Ceiling: " << s.ceiling << endl;
   outputStream << "Floor:   " << s.floor << endl;
-  if (s.labelCoordinates.size() > 0)
+  if (s.labels.size() > 0)
   {
     outputStream << "Label coordinates:" << endl;
-    for (size_t i=0; i<s.labelCoordinates.size(); ++i)
+    for (size_t i=0; i<s.labels.size(); ++i)
     {
-      const AirSpace::label_type &label = s.labelCoordinates[i];
+      const Airspace::label_type &label = s.labels[i];
       outputStream << "  " << label.first << " -- " << label.second << endl;
     }
   }
