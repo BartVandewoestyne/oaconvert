@@ -71,35 +71,47 @@ void PolishState::writeHeader() const
   //cout << "Zoom3=3\n";
   //cout << "Zoom4=4\n";
 
-
-  // Below is what GPSMapEdit 1.0.69.1 outputs, and it seems to work in
-  // GPSMapEdit... so we use this.  Note that this might not work as fluently
-  // on actual GPS units like the Garmin 60CSX.
-
-  // Note 1: the last layer must always be empty, e.g. Levels=3
-  //         means that two layers only are available for map objects.
-  // Note 2: GPS unit map detail must be set to 'Normal'!!!!!
-  // See section 4.4 (on page 40) of cgpsmapper manual (mandatory).
-
-  // Number of map zoom levels (layers) in the map (mandatory, at least 2,
-  // not more than 10, numbered starting at 0).
-  cout << "Levels=2\n";
-
-  // Map zoom level 0 corresponds to hardware zoom level 24 ('Up to 120m')
-  // This means that map objects and coordinates defined as map level 0, will
-  // be used at hardware zoom levels 24 and above.  So they will be visible
-  // if the scale is 120m or more detailed.
+  // This is from http://vjet.f2s.com/gmap/cgpsmapper.html
+  cout << "Levels=5\n";
   cout << "Level0=24\n";
-
-  // Last level is a special one that dictates when our map replaces the
-  // base map.  It means the following: from hardware level
-  // 14 ('80km to 120 km') or higher, we will see our map.  At hardware
-  // zoom levels 13 and below, we will see the base map.
-  // We are not allowed to define map objects and coordinates at this level.
-  cout << "Level1=14\n";
-
+  cout << "Level1=22\n";
+  cout << "Level2=20\n";
+  cout << "Level3=19\n";
+  cout << "Level4=18\n";
   cout << "Zoom0=0\n";
   cout << "Zoom1=1\n";
+  cout << "Zoom2=2\n";
+  cout << "Zoom3=3\n";
+  cout << "Zoom4=4\n";
+
+  //// Below is what GPSMapEdit 1.0.69.1 outputs, and it seems to work in
+  //// GPSMapEdit... so we use this.  Note that this might not work as fluently
+  //// on actual GPS units like the Garmin 60CSX.
+
+  //// Note 1: the last layer must always be empty, e.g. Levels=3
+  ////         means that two layers only are available for map objects.
+  //// Note 2: GPS unit map detail must be set to 'Normal'!!!!!
+  //// See section 4.4 (on page 40) of cgpsmapper manual (mandatory).
+
+  //// Number of map zoom levels (layers) in the map (mandatory, at least 2,
+  //// not more than 10, numbered starting at 0).
+  //cout << "Levels=2\n";
+
+  //// Map zoom level 0 corresponds to hardware zoom level 24 ('Up to 120m')
+  //// This means that map objects and coordinates defined as map level 0, will
+  //// be used at hardware zoom levels 24 and above.  So they will be visible
+  //// if the scale is 120m or more detailed.
+  //cout << "Level0=24\n";
+
+  //// Last level is a special one that dictates when our map replaces the
+  //// base map.  It means the following: from hardware level
+  //// 14 ('80km to 120 km') or higher, we will see our map.  At hardware
+  //// zoom levels 13 and below, we will see the base map.
+  //// We are not allowed to define map objects and coordinates at this level.
+  //cout << "Level1=14\n";
+
+  //cout << "Zoom0=0\n";
+  //cout << "Zoom1=1\n";
 
 
   // Section terminator (mandatory)
@@ -113,12 +125,12 @@ void PolishState::write(const AirSpace& s) const
   if ( s.hasPolygon() )
   {
     //cout << "DEBUG: Airspace has a polygon" << endl;
-    write(s.getPolygon(), s.getName());
+    write(s.getPolygon(), s.getName(), getType(s.getClass()));
   }
   if ( s.hasCircle() )
   {
     //cout << "DEBUG: Airspace has a circle" << endl;
-    write(s.getCircle().toPolygon(NBPOINTS), s.getName());;
+    write(s.getCircle().toPolygon(NBPOINTS), s.getName(), getType(s.getClass()));;
   }
 }
 
@@ -131,22 +143,23 @@ PolishState* PolishState::getInstance()
   return _instance;
 }
 
-void PolishState::write(const Polygon& p, const std::string& label) const
+void PolishState::write(const Polygon& p, const std::string& label, const std::string& type) const
 {
   // See section 4.2.4.2 in http://cgpsmapper.com/download/cGPSmapper-UsrMan-v02.1.pdf
 
   // oa2gm used [RGN40] here, which is a [POLYLINE]... I think one could also
   // use [RGN80] here, which is a [POLYGON].
-  cout << "[POLYGON]" << endl;
+  cout << "[POLYLINE]" << endl;
   // Type of [POLYGON] element: 'Airport'
   // We should probably change this to something which is more appropriate
   // for each earspace separately.
   // See section 12.3.3 in the cgpsmapper manual.
   // Note that oa2gm used Type=0x0a which is an 'Unpaved Road-thin', but this
   // is for [POLYLINE], not [POLYGON]...
-  cout << "Type=0x07" << endl;
+  cout << "Type=" << type << endl;
 
   cout << "Label=" << label << endl;
+  cout << "EndLevel=4" << endl; // Number must not be higher than highest X in LevelX in header.
 
   if (p.getNbPoints() > 0)
   {
@@ -167,4 +180,43 @@ void PolishState::write(const Polygon& p, const std::string& label) const
 void PolishState::write(const Coordinate& c) const
 {
   cout << "(" << c.getLatitude().getAngle() << "," << c.getLongitude().getAngle() << ")";
+}
+
+/*
+ * Return the Polish File [POLYGON] type for the given airspace class.
+ * For the listing of the different possible types, see cgpsmapper manual, table 9.3.3 page 89.
+ */
+std::string PolishState::getType(const std::string& airspaceClass) const
+{
+  if (airspaceClass == "R")
+  {
+    // Restricted area.
+    return string("0x0702");
+    // Restriction area/line (invisible)
+    //return string("0x0500");
+  }
+  else if (airspaceClass == "Q")
+  {
+    // Danger line (invisible).
+    return string("0x0409");
+  }
+  else if (airspaceClass == "P")
+  {
+    // Prohibited area (invisible).
+    return string("0x0503");
+  }
+  else if (airspaceClass == "CTR")
+  {
+    // Airport.
+    return string("0x07");
+  }
+  else
+  {
+    // Defaults used by oa2gm:
+
+    // University.
+    return string("0x0a");
+    // Golf.
+    //return string("0x18");
+  }
 }
