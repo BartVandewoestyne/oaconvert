@@ -1,24 +1,70 @@
-De CGPSMapper manual vermeldt GPSMapEdit (of MapEdit ???) als tool om
-polish files te visualiseren (pagina 8 en 83).
+Some summary-info, extracted from the cgpsmapper manual
+-------------------------------------------------------
 
-The standard file extension for compiled maps is .img
-The resulting compiled map in .img can be uploaded to your GPS with
-the sendmap program our MapSource.
+De CGPSMapper manual vermeldt GPSMapEdit als tool om polish files te
+visualiseren (pagina 8 en 83).
 
-Ik denk dat de .TYP files specifieren hoe een lijn en zo eruit ziet.
-cgpsmapper kan .TYP files genereren als je de typ optie gebruikt.
-TYP file editor en decompiler:
+The standard file extension for compiled maps is .img.  The resulting compiled
+map in .img can be uploaded to your GPS with the sendmap program or MapSource.
+
+Custom Types for lines and polygons
+-----------------------------------
+Ik denk dat de .TYP files specifieren hoe een lijn en zo er uit ziet.
+cgpsmapper kan .TYP files genereren als je de typ optie gebruikt.  Een TYP file
+editor en decompiler vind je op
+
   http://ati.land.cz/gps/typdecomp/
+
 Custom TYP definitions specifieer je in een .TXT file die je dan compileert
 met cgpsmapper en de TYP switch:
+
   cgpsmapper typ CustomTypesDemo.txt
-Daarna gebruik je sendmap 2.0 v3.3 om de .img en .typ file samen te brengen
-in een enkele GMAPSUPP.IMG
 
-Ik denk dat de installers voor maps van MapSource gemaakt worden met Inno Setup.
-Bij cgpsmapper zou er een sample installation script voor 'Gdansk Routable map' moeten zitten dat met Inno Setup werkt.
+Daarna gebruik je sendmap 2.0 v3.3 om de .img en .typ file samen te brengen in
+een enkele GMAPSUPP.IMG
 
-Er is een open versie van cgpsmapper in de maak:
+
+Map-installers voor MapSource maken
+------------------------------------
+Ik denk dat de installers voor maps voor MapSource gemaakt worden met Inno
+Setup.  Bij cgpsmapper zou er een sample installation script voor 'Gdansk
+Routable map' moeten zitten dat met Inno Setup werkt.
+
+Open Source versie van cgpsmapper???
+------------------------------------
+Er lijkt een open versie van cgpsmapper in de maak:
 
 http://sourceforge.net/projects/cgpsmapper/
 http://sourceforge.net/projects/cgpsmapper2/
+
+
+How to compile a Polish file to a Garmin map (TDB/IMG/REG files)
+----------------------------------------------------------------
+
+Step 1:
+-> Make sure LevelX and ZoomX in the header of your_polish_file.mp are correct.
+-> Make sure your_polish_file.mp has EndLevel commands for each object.
+-> Compile with cgpsmapper on Linux with
+
+     cgpsmapper -l ac belgium.mp
+
+   which should result in an 12345678.img file, where 12345678 is the eight
+   digit number you specified in the 'ID=...' line in the header
+   of your_polish_file.mp.
+-> Create a preview control file mypreview.mp with appropriate ZoomX and
+   LevelX commands.  If the line
+
+     Level4=14
+
+   is the last one in your_polish_file.mp, then you should *probably* have
+
+     Level0=14
+
+   as the first level line your preview control file mypreview.mp.
+
+Step 2: compile the preview control file with
+
+  cgpsmapper -l pv mypreview.mp
+
+You should now have a .TDB, .IMG and .REG file which you can load in
+QLandkarteGT or MapSource.
