@@ -144,6 +144,14 @@ void PolishState::writeFooter(std::ostream &out) const
 
 void PolishState::write(std::ostream& stream, const AirSpace& airspace) const
   {
+  std::cout << "PolishState::write(AirSpace)" << std::endl;
+
+  if( ! airspace.getRegion() )
+    {
+    std::cout << " WARNING: Not printing airspace with empty region." << std::endl;
+    return;
+    }
+
   // See section 4.2.4.2 in http://cgpsmapper.com/download/cGPSmapper-UsrMan-v02.1.pdf
 
   // oa2gm used [RGN40] here, which is a [POLYLINE]... I think one could also
