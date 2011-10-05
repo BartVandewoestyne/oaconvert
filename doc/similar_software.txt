@@ -8,9 +8,23 @@ Scripts from ondrap@penguin.cz :
 
   http://www.penguin.cz/~ondrap/paragliding.php
 
+Airspace project
+  http://www.cloudbase.org.nz/airspace
+
 
 Other software that supports Polish Format:
 -------------------------------------------
 GPSMapEdit:
 
   http://www.geopainting.com/en/
+
+Mapwel: (untested)
+  http://www.mapwel.eu/
+
+Other projects/companies that provide airspace maps for Garmin
+--------------------------------------------------------------
+http://gmapair.com
+  screenshots:
+  http://gmapair.com/sample_E.htm
+  blijkbaar gemaakt met Mapwel
+  http://gmapair.com/install_E.htm
