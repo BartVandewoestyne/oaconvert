@@ -1,0 +1,2 @@
+http://en.wikibooks.org/wiki/C%2B%2B_Programming/Programming_Languages/C%2B%2B/Code/Style_Conventions
+http://google-styleguide.googlecode.com/svn/trunk/cppguide.xml

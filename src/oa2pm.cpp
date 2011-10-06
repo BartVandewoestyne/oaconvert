@@ -62,7 +62,7 @@ int main (int argc, char* argv[])
       case 0:
         if (long_options[option_index].flag != 0)
           {
-          break;
+            break;
           }
         printf ("option %s", long_options[option_index].name);
         if (optarg)

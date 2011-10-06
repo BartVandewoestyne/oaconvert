@@ -1,17 +1,17 @@
 set(airspace_SRCS
     Airspace.cpp
-    Coordinate.cpp
-    latlon.cpp
-    latitude.cpp
-    longitude.cpp
-    parser.cpp
-    Circle.cpp
     Arc.cpp
+    Circle.cpp
+    Coordinate.cpp
     CurvedPolygon.cpp
+    latitude.cpp
+    latlon.cpp
     LinearSegment.cpp
-    stringutils.cpp
-    PolishState.cpp
+    longitude.cpp
     OutputWriter.cpp
+    parser.cpp
+    PolishState.cpp
+    stringutils.cpp
 )
 
 add_library(airspace SHARED ${airspace_SRCS})
