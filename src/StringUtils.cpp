@@ -18,7 +18,7 @@
 */
 
 #include <iostream>
-#include "stringutils.h"
+#include "StringUtils.h"
 
 using namespace std;
 

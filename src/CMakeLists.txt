@@ -4,14 +4,14 @@ set(airspace_SRCS
     Circle.cpp
     Coordinate.cpp
     CurvedPolygon.cpp
-    latitude.cpp
-    latlon.cpp
+    Latitude.cpp
+    LatLon.cpp
     LinearSegment.cpp
-    longitude.cpp
+    Longitude.cpp
     OutputWriter.cpp
-    parser.cpp
+    Parser.cpp
     PolishState.cpp
-    stringutils.cpp
+    StringUtils.cpp
 )
 
 add_library(airspace SHARED ${airspace_SRCS})

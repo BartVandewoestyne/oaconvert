@@ -21,7 +21,7 @@
 
 #include <cmath>
 
-#include "constants.h"
+#include "Constants.h"
 #include "OutputState.h"
 
 using namespace std;

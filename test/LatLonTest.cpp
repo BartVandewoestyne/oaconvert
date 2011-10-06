@@ -18,7 +18,7 @@
 */
 
 #include "LatLonTest.h"
-#include "latlon.h"
+#include "LatLon.h"
 
 CPPUNIT_TEST_SUITE_REGISTRATION( LatLonTest );
 

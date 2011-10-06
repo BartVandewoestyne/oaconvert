@@ -23,9 +23,9 @@
 #include <boost/regex.hpp> 
 
 #include "Airspace.h"
-#include "latitude.h"
-#include "parser.h"
-#include "stringutils.h"
+#include "Latitude.h"
+#include "Parser.h"
+#include "StringUtils.h"
 
 using namespace std;
 using namespace boost;
@@ -45,20 +45,19 @@ int main (int argc, char* argv[])
 
   static struct option long_options[] =
   {
-  /* These options set a flag. */
-    { "stdout", no_argument, &write_to_stdout, 1},
-    { "out", required_argument, 0, 'o' },
-    { 0, 0, 0, 0 }
+    { "stdout",       no_argument, &write_to_stdout,  1 },
+    {    "out", required_argument,                0, 'o'},
+    {        0,                 0,                0,  0 }
   };
 
 
   int opt;
   int option_index;
 
-
   while ( (opt = getopt_long(argc, argv, "o:", long_options, &option_index)) != -1 ) {
 
     switch (opt) {
+
       case 0:
         if (long_options[option_index].flag != 0)
           {
@@ -69,7 +68,7 @@ int main (int argc, char* argv[])
           printf (" with arg %s", optarg);
         printf ("\n");
 
-        if( strcmp(long_options[option_index].name, "out") == 0 )
+        if ( strcmp(long_options[option_index].name, "out") == 0 )
           {
           outfilename = optarg;
           }

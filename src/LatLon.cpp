@@ -18,8 +18,8 @@
 */
 
 #include <string>
-#include "latlon.h"
-#include "constants.h"
+#include "LatLon.h"
+#include "Constants.h"
 
 using namespace std;
 using Constants::pi;

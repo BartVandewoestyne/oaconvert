@@ -24,8 +24,8 @@
 #include <stdlib.h>
 #include <string>
 
-#include "latitude.h"
-#include "longitude.h"
+#include "Latitude.h"
+#include "Longitude.h"
 
 class Coordinate {
 

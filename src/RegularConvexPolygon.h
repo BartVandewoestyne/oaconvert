@@ -17,20 +17,16 @@
   along with oaconvert.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef POINT_H
-#define POINT_H 
+#ifndef REGULAR_CONVEX_POLYGON_H
+#define REGULAR_CONVEX_POLYGON_H
 
-#include <stdlib.h>
-#include "coordinate.h"
+#include "Polygon.h"
 
-class Point {
-
-  private:
-    Coordinate coord;
+class RegularConvexPolygon : public Polygon {
 
   public:
-    Coordinate getCoordinate();
+    RegularConvexPolygon();
 
 };
 
-#endif /* POINT_H */
+#endif /* REGULAR_CONVEX_POLYGON */

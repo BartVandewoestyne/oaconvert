@@ -20,8 +20,8 @@
 #ifndef LONGITUDE 
 #define LONGITUDE
 
-#include "latlon.h"
-#include "latitude.h"
+#include "LatLon.h"
+#include "Latitude.h"
 
 class Longitude : public LatLon {
 

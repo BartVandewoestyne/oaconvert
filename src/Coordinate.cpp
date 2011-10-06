@@ -21,8 +21,8 @@
 #include <math.h>
 
 #include "Coordinate.h"
-#include "latitude.h"
-#include "longitude.h"
+#include "Latitude.h"
+#include "Longitude.h"
 
 using namespace std;
 

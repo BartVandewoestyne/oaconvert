@@ -17,54 +17,50 @@
   along with oaconvert.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "longitude.h"
+#include "Latitude.h"
 
-#include <cmath>
-#include  <iostream>
-
-#include "constants.h"
+#include "Constants.h"
 
 using Constants::pi;
-using namespace std;
 
-Longitude::Longitude() : LatLon()
+Latitude::Latitude() : LatLon()
 {}
 
-Longitude::Longitude(double degrees) : LatLon(degrees)
+Latitude::Latitude(double degrees) : LatLon(degrees)
 {
   if (getAngle() < 0)
   {
-    setDirection('W');
+    setDirection('S');
   }
   else
   {
-    setDirection('E');
+    setDirection('N');
   }
 }
 
-Longitude::Longitude(int degrees, int minutes, int seconds, char direction)
+Latitude::Latitude(int degrees, int minutes, int seconds, char direction)
   : LatLon(degrees, minutes, seconds, direction)
 {}
 
-Longitude::Longitude(int degrees, double minutes, char direction)
+Latitude::Latitude(int degrees, double minutes, char direction)
   : LatLon(degrees, minutes, direction)
 {}
 
 /**
+ * Return the value for an arcdegree of north-south latitude difference.
  * See http://en.wikipedia.org/wiki/Latitude#Degree_length
- *
- * TODO: check the theory if we really nead lat.getAngle() or lon.getAngle().
  */
-double Longitude::getArcDegree(const Latitude& lat)
+double Latitude::getArcDegree()
 {
-  return pi*cos(pi*lat.getAngle()/180.0)*getN()/180.0;
+  return pi*getM()/180.0;
 }
 
 /**
+ * Return the meridional radius of curvature.
  * See http://en.wikipedia.org/wiki/Latitude#Degree_length
- * TODO: find exact formula for N, the normal radius of curvature.
+ * TODO: use correct formula instead of 6371e3.
  */
-double Longitude::getN()
+double Latitude::getM()
 {
   // Th value 3671e3 is taken from the oa2gm program.  Note that
   // http://en.wikipedia.org/wiki/Latitude#Degree_length mentions
@@ -72,5 +68,8 @@ double Longitude::getN()
   // that more precise value?
   // According to http://solarsystem.nasa.gov/planets/profile.cfm?Object=Earth
   // the value 6371000 is just the mean radius...
+
+  // Currently, we use an approximation of 6371e3, but in reality this value
+  // depends on the angle.
   return 6371e3;
 }

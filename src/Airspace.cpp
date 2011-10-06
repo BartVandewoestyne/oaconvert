@@ -25,8 +25,8 @@
 #include "Circle.h"
 #include "CurvedPolygon.h"
 #include "Region.h"
-#include "parser.h"
-#include "stringutils.h"
+#include "Parser.h"
+#include "StringUtils.h"
 
 using namespace std;
 

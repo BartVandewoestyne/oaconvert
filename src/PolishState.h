@@ -22,7 +22,7 @@
 
 #include <vector>
 #include "OutputState.h"
-#include "constants.h"
+#include "Constants.h"
 #include "Coordinate.h"
 
 

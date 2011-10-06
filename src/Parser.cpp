@@ -17,14 +17,14 @@
   along with oaconvert.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "parser.h"
+#include "Parser.h"
 
 #include <iostream>
 #include <boost/regex.hpp>
 
 #include "Airspace.h"
 #include "Arc.h"
-#include "constants.h"
+#include "Constants.h"
 #include "Coordinate.h"
 #include "Circle.h"
 #include "CurvedPolygon.h"

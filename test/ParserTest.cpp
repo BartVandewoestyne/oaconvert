@@ -19,7 +19,7 @@
 
 #include <iostream>
 #include "ParserTest.h"
-#include "parser.h"
+#include "Parser.h"
 
 using namespace std;
 

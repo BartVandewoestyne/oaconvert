@@ -18,8 +18,8 @@
 */
 
 #include "LatitudeTest.h"
-#include "latitude.h"
-#include "longitude.h"
+#include "Latitude.h"
+#include "Longitude.h"
 
 CPPUNIT_TEST_SUITE_REGISTRATION( LatitudeTest );
 
