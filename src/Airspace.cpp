@@ -50,12 +50,18 @@ const string& Airspace::getClass() const
   return clss;
 }
 
-const string& Airspace::getCeiling() const
+/**
+  * Return the ceiling altitude in METER.
+  */
+const double Airspace::getCeiling() const
 {
   return ceiling;
 }
 
-const string& Airspace::getFloor() const
+/**
+  * Return the floor altitude in METER.
+  */
+const double Airspace::getFloor() const
 {
   return floor;
 }
@@ -75,12 +81,18 @@ void Airspace::setClass(const string& clss)
   this->clss = clss;
 }
 
-void Airspace::setCeiling(const string& ceiling)
+/**
+  * Set the ceiling altitude in METER.
+  */
+void Airspace::setCeiling(const double ceiling)
 {
   this->ceiling = ceiling;
 }
 
-void Airspace::setFloor(const string& floor)
+/**
+  * Set the floor altitude in METER.
+  */
+void Airspace::setFloor(const double floor)
 {
   this->floor = floor;
 }
@@ -116,8 +128,8 @@ void Airspace::clear()
 {
   name = "";
   clss = "";
-  ceiling = "";
-  floor = "";
+  ceiling = -1.0;
+  floor = -1.0;
   labels.clear();
 }
 

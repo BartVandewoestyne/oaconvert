@@ -50,8 +50,10 @@ class Parser {
 
     char getCurrentDirection() const;
     Airspace* getCurrentAirspace();
-    Coordinate getCoordinate(const std::string& s) const;
     const Coordinate& getCurrentCoordinate() const;
+
+    Coordinate getCoordinate(const std::string& s) const;
+    double parseAltitude(const std::string& s) const;
 
     void setCurrentDirection(const char d);
     void setCurrentAirspace(const Airspace &s);

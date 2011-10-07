@@ -25,6 +25,7 @@
 namespace Constants
 {
   const double pi = 4 * std::atan(1.0);
+  const double feet_in_meter = 0.3048;
   const int NBPOINTS = 100;
 
   /* Resolution in Nautical Miles */

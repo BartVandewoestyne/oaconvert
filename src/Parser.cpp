@@ -113,16 +113,12 @@ Coordinate Parser::getCoordinate(const std::string& s) const
   expression = "[^0-9]*(\\d+):(\\d+.\\d+)\\s*([NZSnzs])[\\s,]+(\\d+):(\\d+.\\d+)\\s*([OWEowe])*.*";
   if ( regex_match(s, matches, expression) )
   {
-    string degreesLat, minutesLat;
-    string degreesLon, minutesLon;
-    string directionLat, directionLon;
-
-    degreesLat.assign(   matches[1].first, matches[1].second );
-    minutesLat.assign(   matches[2].first, matches[2].second );
-    directionLat.assign( matches[3].first, matches[3].second );
-    degreesLon.assign(   matches[4].first, matches[4].second );
-    minutesLon.assign(   matches[5].first, matches[5].second );
-    directionLon.assign( matches[6].first, matches[6].second );
+    string degreesLat(   matches[1].first, matches[1].second );
+    string minutesLat(   matches[2].first, matches[2].second );
+    string directionLat( matches[3].first, matches[3].second );
+    string degreesLon(   matches[4].first, matches[4].second );
+    string minutesLon(   matches[5].first, matches[5].second );
+    string directionLon( matches[6].first, matches[6].second );
 
     Latitude lat(atoi(degreesLat.c_str()),
                  atof(minutesLat.c_str()),
@@ -137,6 +133,111 @@ Coordinate Parser::getCoordinate(const std::string& s) const
   exit(1);
 }
 
+/**
+  * Parse the given altitude specification and return the value in meter.
+  */
+double Parser::parseAltitude(const std::string& s) const
+{
+
+  smatch matches;
+  regex expression;
+
+  // Flight Level altitudes are 'pressure altitudes'!!!
+  // Examples:
+  //   FL 55
+  //   FL55
+  //   FL 55 foobar
+  expression.assign("\\s*FL\\s*(\\d+).*", boost::regex_constants::icase);
+  if ( regex_match(s, matches, expression) )
+  {
+    string valuestring( matches[1].first, matches[1].second );
+    //cout << "Matched FL " << valuestring << endl;
+    return atof(valuestring.c_str())*100*feet_in_meter; // TODO: check if this is correct!
+  }
+
+  // Examples:
+  //   820 AGL
+  //   7000 ft AGL
+  expression.assign("\\s*(\\d+)\\s*('|ft)?\\s*AGL.*", boost::regex_constants::icase);
+  if ( regex_match(s, matches, expression) )
+  {
+    string valuestring( matches[1].first, matches[1].second );
+    //cout << "Matched " << valuestring << " ft AGL" << endl;
+    return atof(valuestring.c_str())*feet_in_meter; // TODO: check if this is correct!
+  }
+
+  // Examples:
+  //   7000 ft MSL
+  //   7000 ft AMSL
+  //   7000' AMSL
+  expression.assign("\\s*(\\d+)\\s*('|ft)?\\s*A?MSL.*", boost::regex_constants::icase);
+  if ( regex_match(s, matches, expression) )
+  {
+    string valuestring( matches[1].first, matches[1].second );
+    //cout << "Matched " << valuestring << " ft AMSL" << endl;
+    return atof(valuestring.c_str())*feet_in_meter; // TODO: check if this is correct!
+  }
+
+  // Examples:
+  //   820 SFC
+  //   SFC
+  expression.assign("\\s*(\\d*)\\s*SFC.*", boost::regex_constants::icase);
+  if ( regex_match(s, matches, expression) )
+  {
+    string valuestring( matches[1].first, matches[1].second );
+    //cout << "Matched " << valuestring << " ft SFC" << endl;
+    return atof(valuestring.c_str())*feet_in_meter; // TODO: check if this is correct!
+  }
+
+  // Examples:
+  //   820
+  //   7000 ft
+  expression.assign("\\s*(\\d+)\\s*('|ft)?\\s*.*", boost::regex_constants::icase);
+  if ( regex_match(s, matches, expression) )
+  {
+    string valuestring( matches[1].first, matches[1].second );
+    //cout << "Matched " << valuestring << " ft AGL" << endl;
+    return atof(valuestring.c_str())*feet_in_meter; // TODO: check if this is correct!
+  }
+
+  // Examples:
+  //   GND
+  expression.assign("\\s*GND.*", boost::regex_constants::icase);
+  if ( regex_match(s, matches, expression) )
+  {
+    //cout << "Matched GND" << endl;
+    return 0.0; // TODO: check this!  Is GND always = 0 meter ???  Probably not...
+  }
+
+  // Examples:
+  //   (Airspace Floor)
+  expression.assign("\\s*Airspace\\s*Floor.*", boost::regex_constants::icase);
+  if ( regex_match(s, matches, expression) )
+  {
+    //cout << "Matched (Airspace Floor)" << endl;
+    return -1.0; // TODO: what is this???
+  }
+
+  // Example: UNL or UNLD or UNLIM or UNLIM or UNLIMITED
+  expression.assign("\\s*UNL.*", boost::regex_constants::icase);
+  if ( regex_match(s, matches, expression) )
+  {
+    //cout << "Matched UNLIMITED" << endl;
+    return 99999; // TODO: handle 'UNLIMITED'
+  }
+
+  // Example: Ask on 122.8
+  expression.assign("\\s*Ask", boost::regex_constants::icase);
+  if ( regex_match(s, matches, expression) )
+  {
+    //cout << "Matched Ask on..." << endl;
+    return -1.0; // TODO: handle 'Ask on...'
+  }
+
+  cerr << "ERROR: incorrect altitude specification: " << s << endl;
+  exit(EXIT_FAILURE);
+
+}
 
 void Parser::handleLine(const std::string& line)
 {
@@ -192,24 +293,16 @@ void Parser::handleLine(const std::string& line)
   expression = "\\s*AH\\s+(.*)";
   if ( regex_match(line, matches, expression) )
   {
-    string airspace_ceiling;
-    for (unsigned int i = 1; i < matches.size(); ++i)
-    {
-      airspace_ceiling.assign(matches[i].first, matches[i].second);
-    }
-    getCurrentAirspace()->setCeiling(airspace_ceiling);
+    string airspace_ceiling(matches[1].first, matches[1].second);
+    getCurrentAirspace()->setCeiling( parseAltitude(airspace_ceiling) );
     return;
   }
 
   expression = "\\s*AL\\s+(.*)";
   if ( regex_match(line, matches, expression) )
   {
-    string airspace_floor;
-    for (unsigned int i = 1; i < matches.size(); ++i)
-    {
-      airspace_floor.assign(matches[i].first, matches[i].second);
-    }
-    getCurrentAirspace()->setFloor(airspace_floor);
+    string airspace_floor(matches[1].first, matches[1].second);
+    getCurrentAirspace()->setFloor( parseAltitude(airspace_floor) );
     return;
   }
 

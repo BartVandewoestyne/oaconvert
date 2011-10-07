@@ -39,12 +39,17 @@ class Airspace {
 
   private:
 
+    // Name of the airspace.
     std::string name;
+
+    // Class of the airspace (CTR, TMA, Prohibited, Restricted, ...)
     std::string clss;
 
-    // TODO: probably, these should change to doubles (representing stuff in metres).
-    std::string ceiling;
-    std::string floor;
+    //! Ceiling altitude in METER.
+    double ceiling;
+
+    //! Floor altitude in METER.
+    double floor;
 
     //! Closed region defining the airspace.
     Region* region;
@@ -59,14 +64,14 @@ class Airspace {
 
     const std::string& getName() const;
     const std::string& getClass() const;
-    const std::string& getCeiling() const;
-    const std::string& getFloor() const;
+    const double getCeiling() const;
+    const double getFloor() const;
     const Region* getRegion() const;
 
     void setName(const std::string& mystring);
     void setClass(const std::string& clss);
-    void setCeiling(const std::string& ceiling);
-    void setFloor(const std::string& floor);
+    void setCeiling(const double ceiling);
+    void setFloor(const double floor);
 
 //    /**
 //     * Add the region to this airspace (and pass ownership of the pointer).
