@@ -85,7 +85,7 @@ Coordinate Parser::parseCoordinate(const std::string& s) const
 
   // Example: 101:20:32 S 102:32:12 W
 //  expression = "[^0-9]*(\\d+):(\\d\\d):(\\d\\d)\\s*([NZSnzs])[\\s,]+(\\d+):(\\d\\d):(\\d\\d)\\s*([OWEowe])*.*";
-  if ( regex_match(s, matches, regexMap.find(REGEX_SW)->second) )
+  if ( regex_match(s, matches, regexMap.find(REGEX_DDMMSS)->second) )
   {
     string degreesLat, minutesLat, secondsLat;
     string degreesLon, minutesLon, secondsLon;
@@ -111,7 +111,7 @@ Coordinate Parser::parseCoordinate(const std::string& s) const
 
   // Example: 101:20.32 N 102:32.12 E
 //  expression = "[^0-9]*(\\d+):(\\d+.\\d+)\\s*([NZSnzs])[\\s,]+(\\d+):(\\d+.\\d+)\\s*([OWEowe])*.*";
-  if ( regex_match(s, matches, regexMap.find(REGEX_NE)->second) )
+  if ( regex_match(s, matches, regexMap.find(REGEX_DDMM)->second) )
   {
     string degreesLat(   matches[1].first, matches[1].second );
     string minutesLat(   matches[2].first, matches[2].second );
@@ -187,7 +187,7 @@ double Parser::parseAltitude(const std::string& s) const
   //   7000 ft AMSL
   //   7000' AMSL
 //  expression.assign("\\s*(\\d+)\\s*('|ft)?\\s*A?MSL.*", boost::regex_constants::icase);
-  if ( regex_match(s, matches, regexMap.find(REGEX_MSL)->second) )
+  if ( regex_match(s, matches, regexMap.find(REGEX_AMSL)->second) )
   {
     string valuestring( matches[1].first, matches[1].second );
     return atof(valuestring.c_str())*feet_in_meter;
@@ -227,7 +227,7 @@ double Parser::parseAltitude(const std::string& s) const
   // Examples:
   //   (Airspace Floor)
 //  expression.assign("\\s*Airspace\\s*Floor.*", boost::regex_constants::icase);
-  if ( regex_match(s, matches, regexMap.find(REGEX_FLOOR)->second) )
+  if ( regex_match(s, matches, regexMap.find(REGEX_AIRSPACE_FLOOR)->second) )
   {
     //cout << "Matched (Airspace Floor)" << endl;
     return -1.0; // TODO: what is this???
@@ -269,7 +269,7 @@ void Parser::handleLine(const std::string& line)
   //    http://www.winpilot.com/usersguide/userairspace.asp
   // we *do* accept ICAO airspace classes E, F and G as valid input.
 //  expression = "\\s*AC\\s+([RQPABCDEFGW]|GP|CTR)\\s*";
-  if ( regex_match(line, matches, regexMap.find(REGEX_ICAO_EFG)->second) )
+  if ( regex_match(line, matches, regexMap.find(REGEX_AIRSPACE_CLASS)->second) )
   {
     // Write the current airspace but do not delete it just yet...
     Airspace* airspace = getCurrentAirspace();
@@ -483,19 +483,19 @@ void Parser::addArc( const Arc& arc )
 
 void Parser::initRegexMap()
   {
-  regexMap[REGEX_SW] = "[^0-9]*(\\d+):(\\d\\d):(\\d\\d)\\s*([NZSnzs])[\\s,]+(\\d+):(\\d\\d):(\\d\\d)\\s*([OWEowe])*.*";
-  regexMap[REGEX_NE] = "[^0-9]*(\\d+):(\\d+.\\d+)\\s*([NZSnzs])[\\s,]+(\\d+):(\\d+.\\d+)\\s*([OWEowe])*.*";
+  regexMap[REGEX_DDMMSS] = regex("[^0-9]*(\\d+):(\\d\\d):(\\d\\d)\\s*([NZS])[\\s,]+(\\d+):(\\d\\d):(\\d\\d)\\s*([OWE])*.*", boost::regex_constants::icase);
+  regexMap[REGEX_DDMM] = regex("[^0-9]*(\\d+):(\\d+.\\d+)\\s*([NZS])[\\s,]+(\\d+):(\\d+.\\d+)\\s*([OWE])*.*", boost::regex_constants::icase);
   regexMap[REGEX_FL] = regex("\\s*FL\\s*(\\d+).*", boost::regex_constants::icase);
   regexMap[REGEX_AGL] = regex("\\s*(\\d+)\\s*('|ft)?\\s*AGL.*", boost::regex_constants::icase);
-  regexMap[REGEX_MSL] = regex("\\s*(\\d+)\\s*('|ft)?\\s*A?MSL.*", boost::regex_constants::icase);
+  regexMap[REGEX_AMSL] = regex("\\s*(\\d+)\\s*('|ft)?\\s*A?MSL.*", boost::regex_constants::icase);
   regexMap[REGEX_SFC] = regex("\\s*(\\d*)\\s*SFC.*", boost::regex_constants::icase);
   regexMap[REGEX_FT] = regex("\\s*(\\d+)\\s*('|ft)?\\s*.*", boost::regex_constants::icase);
   regexMap[REGEX_GND] = regex("\\s*GND.*", boost::regex_constants::icase);
-  regexMap[REGEX_FLOOR] = regex("\\s*Airspace\\s*Floor.*", boost::regex_constants::icase);
+  regexMap[REGEX_AIRSPACE_FLOOR] = regex("\\s*Airspace\\s*Floor.*", boost::regex_constants::icase);
   regexMap[REGEX_UNLIMITED] = regex("\\s*UNL.*", boost::regex_constants::icase);
   regexMap[REGEX_ASK] = regex("\\s*Ask.*", boost::regex_constants::icase);
   regexMap[REGEX_COMMENT] = "\\s*\\*.*";
-  regexMap[REGEX_ICAO_EFG] = "\\s*AC\\s+([RQPABCDEFGW]|GP|CTR)\\s*";
+  regexMap[REGEX_AIRSPACE_CLASS] = "\\s*AC\\s+([RQPABCDEFGW]|GP|CTR)\\s*";
   regexMap[REGEX_AN] = "\\s*AN\\s+(.*)";
   regexMap[REGEX_AH] = "\\s*AH\\s+(.*)";
   regexMap[REGEX_AL] = "\\s*AL\\s+(.*)";
