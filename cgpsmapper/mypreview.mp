@@ -7,12 +7,12 @@ MapVersion=153
 ProductCode=10
 ID=00000001
 Levels=2
-Level0=18
-Level1=17
+Level0=12
+Level1=11
 Zoom0=5
 Zoom1=6
 [END-MAP]
 
 [FILES]
-IMG=11000204.img
+IMG=19780321.img
 [END-FILES]

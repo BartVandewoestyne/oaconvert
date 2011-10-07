@@ -3,7 +3,7 @@ CMakeFiles
 cmake_install.cmake
 Makefile
 src/*.so
-src/oa2pm
+src/oaconvert
 test/MainTest
 tags
 .*.swp

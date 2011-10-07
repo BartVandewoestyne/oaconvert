@@ -56,7 +56,8 @@ void PolishState::writeHeader(std::ostream &out) const
   //   cgpsmapper manual: 11000204
   //   oa2gm:             42200100
   //   gscripts:          42099999
-  out << "ID=11000204" << endl;
+  // Setting this one to my birthday :-)
+  out << "ID=19780321" << endl;
 
   // Map name to be displayed in the GPS receiver's Map Info menu (mandatory).
   out << "Name=My Very Special Map" << endl;
@@ -127,6 +128,8 @@ void PolishState::writeHeader(std::ostream &out) const
   //         means that only two layers are available for map objects.
   // Note 2: GPS unit map detail must be set to 'Normal'!!!!!
   //         See section 4.4 (on page 40) of cgpsmapper manual (mandatory).
+  // Note 3: Hardware Zoom Level 12 represents the most ''zoomed out'' setting for
+  //         current Garmin devices, so it makes no sense to go lower.
 
   // This is what oa2gm and gscripts use, but it didn't work with GPSMapEdit 1.0.70.0.
   //out << "Levels=5\n";
@@ -142,12 +145,28 @@ void PolishState::writeHeader(std::ostream &out) const
   //out << "Zoom4=4\n";
 
   // This is from http://vjet.f2s.com/gmap/cgpsmapper.html
+  // With these, my [POLYLINE]s are visible on my 60CSX if I zoom to 3km or below.
+  //out << "Levels=5\n";
+  //out << "Level0=24\n";
+  //out << "Level1=22\n";
+  //out << "Level2=20\n";
+  //out << "Level3=19\n";
+  //out << "Level4=18\n";
+  //out << "Zoom0=0\n";
+  //out << "Zoom1=1\n";
+  //out << "Zoom2=2\n";
+  //out << "Zoom3=3\n";
+  //out << "Zoom4=4\n";
+
+  // This is my attempt, trying to get it right for the 60CSX.
+  // Order 24/22/20/18/16 -> visible when zoomed in 8 km or finer.
+  // Order 24/21/18/15/12 -> visible when zoomed in 50km or finer.
   out << "Levels=5\n";
   out << "Level0=24\n";
-  out << "Level1=22\n";
-  out << "Level2=20\n";
-  out << "Level3=19\n";
-  out << "Level4=18\n";
+  out << "Level1=21\n";
+  out << "Level2=18\n";
+  out << "Level3=15\n";
+  out << "Level4=12\n";
   out << "Zoom0=0\n";
   out << "Zoom1=1\n";
   out << "Zoom2=2\n";
@@ -263,10 +282,14 @@ void PolishState::write(std::ostream& out, const std::vector<Coordinate>& coords
 
 /*
  * Return the Polish File [POLYGON] type for the given airspace class.
- * For the listing of the different possible types, see cgpsmapper manual, table 9.3.3 page 89.
+ * For the listing of the different possible types, see cgpsmapper manual,
+ * table 9.3.3 page 89.
  *
- * Note: The Python script at http://www.penguin.cz/~ondrap/paragliding.php sets the polygon type
- *       according to the following rules:
+ * Note: The Python script at
+ *
+ *   http://www.penguin.cz/~ondrap/paragliding.php
+ *
+ * sets the polygon type according to the following rules:
  *
  *      if AH - AL < 500 and AL < 2000:
  *          type = '78'
