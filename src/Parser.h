@@ -20,8 +20,11 @@
 #ifndef PARSER_H
 #define PARSER_H 
 
+#include <boost/regex.hpp>
 #include <list>
+#include <map>
 #include <string>
+
 #include "Airspace.h"
 #include "Coordinate.h"
 #include "OutputWriter.h"
@@ -32,8 +35,36 @@ class CurvedPolygon;
 
 
 class Parser {
+  private:
+    enum ERegex
+      {
+      REGEX_SW,
+      REGEX_NE,
+      REGEX_FL,
+      REGEX_AGL,
+      REGEX_MSL,
+      REGEX_SFC,
+      REGEX_FT,
+      REGEX_GND,
+      REGEX_FLOOR,
+      REGEX_UNLIMITED,
+      REGEX_ASK,
+      REGEX_COMMENT,
+      REGEX_ICAO_EFG,
+      REGEX_AN,
+      REGEX_AH,
+      REGEX_AL,
+      REGEX_AT,
+      REGEX_VX,
+      REGEX_VD,
+      REGEX_DP,
+      REGEX_DA,
+      REGEX_DB,
+      REGEX_DC,
+      };
 
   private:
+    typedef std::pair<ERegex,boost::regex> pairtype;
 
     OutputWriter _writer;
 
@@ -42,6 +73,8 @@ class Parser {
     char currentDirection;
     Coordinate currentCoordinate;
     CurvedPolygon *curved_polygon;
+
+    std::map<ERegex,boost::regex> regexMap;
 
   public:
 
@@ -72,6 +105,8 @@ class Parser {
   private:
     void addLinearSegment( const Coordinate& point );
     void addArc( const Arc& arc );
+
+    void initRegexMap();
 
 };
 
