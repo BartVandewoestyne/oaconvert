@@ -26,7 +26,10 @@
 #include "Coordinate.h"
 #include "OutputWriter.h"
 
+class Arc;
+class Coordinate;
 class CurvedPolygon;
+
 
 class Parser {
 
@@ -65,6 +68,10 @@ class Parser {
     void initialize();
 
     void finalize();
+
+  private:
+    void addLinearSegment( const Coordinate& point );
+    void addArc( const Arc& arc );
 
 };
 

@@ -351,11 +351,7 @@ void Parser::handleLine(const std::string& line)
     {
       point_coordinate.assign(matches[i].first, matches[i].second);
     }
-    if( ! curved_polygon )
-    {
-      curved_polygon = getCurrentAirspace()->addCurvedPolygon();
-    }
-    curved_polygon->addLinearSegment(parseCoordinate(point_coordinate));
+    addLinearSegment(parseCoordinate(point_coordinate));
     return;
   }
 
@@ -376,12 +372,7 @@ void Parser::handleLine(const std::string& line)
              atof(angleStart.c_str()), atof(angleEnd.c_str()), getCurrentDirection());
 
     // Add the arc points to this space's Polygon.
-    // TODO: don't use *hardcoded* 100 points for the discretization!
-    if( ! curved_polygon )
-    {
-      curved_polygon = getCurrentAirspace()->addCurvedPolygon();
-    }
-    curved_polygon->addArc(arc);
+    addArc( arc );
     return;
   }
 
@@ -428,12 +419,7 @@ void Parser::handleLine(const std::string& line)
     Arc arc( getCurrentCoordinate(), radius/1852.0, startAngle, endAngle, getCurrentDirection());
 
     // Add the arc points to this space's Polygon.
-    // TODO: don't use *hardcoded* 100 points for the discretization!
-    if( ! curved_polygon )
-    {
-      curved_polygon = getCurrentAirspace()->addCurvedPolygon();
-    }
-    curved_polygon->addArc( arc );
+    addArc( arc );
 
   }
 
@@ -468,4 +454,22 @@ void Parser::finalize()
   {
   _writer.write(*getCurrentAirspace());
   curved_polygon = 0;
+  }
+
+void Parser::addLinearSegment( const Coordinate& point )
+  {
+  if( ! curved_polygon )
+    {
+    curved_polygon = getCurrentAirspace()->addCurvedPolygon();
+    }
+  curved_polygon->addLinearSegment( point );
+  }
+
+void Parser::addArc( const Arc& arc )
+  {
+  if( ! curved_polygon )
+    {
+      curved_polygon = getCurrentAirspace()->addCurvedPolygon();
+    }
+  curved_polygon->addArc(arc);
   }
