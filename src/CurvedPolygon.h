@@ -20,9 +20,6 @@
 #ifndef CURVEDPOLYGON_H
 #define CURVEDPOLYGON_H
 
-#include <vector>
-#include <ostream>
-
 #include "Region.h"
 
 class Arc;
