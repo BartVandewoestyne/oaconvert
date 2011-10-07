@@ -1,0 +1,6 @@
+Documentation about the Garmin IMG file format can be found at:
+
+  http://pinns.co.uk/osm/RGN.html
+  http://sourceforge.net/projects/garmin-img/
+
+Feel free to help these folks to reverse-engineer it even more!

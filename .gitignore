@@ -6,5 +6,11 @@ src/*.so
 src/oaconvert
 test/MainTest
 tags
+*.mp
+!cgpsmapper/mypreview.mp
 .*.swp
 .*.swo
+openair/belgium/belgium.*
+cgpsmapper/*.TDB
+cgpsmapper/*.reg
+cgpsmapper/*.img
