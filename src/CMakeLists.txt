@@ -20,6 +20,9 @@ add_library(airspace SHARED ${airspace_SRCS})
 set(oaconvert_SRCS
     oaconvert.cpp
 )
+
+set(CMAKE_CXX_FLAGS "-g -Wall")
+
 add_executable(oaconvert ${oaconvert_SRCS})
 target_link_libraries(oaconvert airspace)
 #target_link_libraries(oaconvert boost_regex)
