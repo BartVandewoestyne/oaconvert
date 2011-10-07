@@ -35,59 +35,74 @@ int main (int argc, char* argv[])
 
   if (argc < 2)
   {
-    printf("Usage:\n");
-    printf("%s [-o polish_file.mp] open_air_file.txt\n", argv[0]);
-    exit(1);
+    fprintf(stderr,
+            "Usage: %s [-d|--debug level] [-o|--output polish_file.mp] open_air_file.txt\n",
+            argv[0]);
+    exit(EXIT_FAILURE);
   }
 
-  int write_to_stdout = 0;
+  // By default, if no output file is given, write to stdout.
+  int write_to_stdout = 1;
   std::string outfilename;
 
   static struct option long_options[] =
   {
-    { "stdout",       no_argument, &write_to_stdout,  1 },
-    {    "out", required_argument,                0, 'o'},
-    {        0,                 0,                0,  0 }
+    {  "output", required_argument, 0, 'o'},
+    {   "debug", optional_argument, 0, 'd' },
+    {    "help",       no_argument, 0, 'h'},
+    { "version",       no_argument, 0, 'v'},
+    {         0,                 0, 0,  0 }
   };
 
 
   int opt;
   int option_index;
 
-  while ( (opt = getopt_long(argc, argv, "o:", long_options, &option_index)) != -1 ) {
+  while ( (opt = getopt_long(argc, argv, "d::o:hv", long_options, &option_index)) != -1 ) {
 
     switch (opt) {
 
       case 0:
-        if (long_options[option_index].flag != 0)
-          {
-            break;
-          }
         printf ("option %s", long_options[option_index].name);
         if (optarg)
           printf (" with arg %s", optarg);
         printf ("\n");
-
-        if ( strcmp(long_options[option_index].name, "out") == 0 )
-          {
-          outfilename = optarg;
-          }
         break;
 
       case 'o':
-        printf("Option argument: %s\n", optarg);
         outfilename = optarg;
+        write_to_stdout = 0;
         break;
 
+      case 'd':
+        printf("Requested debug level: %s\n", optarg);
+        printf("WARNING: Debug level output is not implemented yet!\n");
+        break;
+
+      case 'h':
+        printf("TODO: implement help text.\n");
+        exit(EXIT_SUCCESS);
+
+      case 'v':
+        printf("oa2convert <some_version>\n");
+        printf("Copyright (C) 2011 Bart Vandewoestyne, Yves Frederix\n");
+        printf("License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>\n");
+        printf("This is free software: you are free to change and redistribute it.\n");
+        printf("There is NO WARRANTY, to the extent permitted by law.\n");
+        exit(EXIT_SUCCESS);
+
       default: /* '?' */
-        fprintf(stderr, "Usage: %s [-o|--out polish_file.mp] [--stdout] open_air_file.txt\n", argv[0]);
+        fprintf(stderr,
+                "Usage: %s [-d|--debug level] [-o|--output polish_file.mp] open_air_file.txt\n",
+                argv[0]);
         exit(EXIT_FAILURE);
     }
+
   }
 
   // At least one non-option argument, i.e., the input file.
   if (optind >= argc) {
-    fprintf(stderr, "Expected argument after options\n");
+    fprintf(stderr, "ERROR: you must provide an OpenAir file after your options!!!\n");
     exit(EXIT_FAILURE);
   }
 
@@ -98,23 +113,17 @@ int main (int argc, char* argv[])
   // Setup the parser
   Parser *p;
 
-  if( ! write_to_stdout )
+  if ( write_to_stdout )
   {
-    if( outfilename == "" )
-    {
-      outfilename = "output.mp";
-    }
-    p = new Parser( outfilename );
+    p = new Parser();
   }
   else
   {
-    p = new Parser();
+    p = new Parser( outfilename );
   }
 
   // Start reading the input file.
   std::string infile(infilename);
-  cout << "Processing file: " << infile << endl;
-  cout << " +-> outputfile: " << ( strcmp(outfilename.c_str(),"") ? outfilename : "stdout" ) << endl;
   string line;
   ifstream inStream;
   inStream.open(infile.c_str());

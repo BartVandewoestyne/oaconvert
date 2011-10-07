@@ -1,2 +1,29 @@
 http://en.wikibooks.org/wiki/C%2B%2B_Programming/Programming_Languages/C%2B%2B/Code/Style_Conventions
 http://google-styleguide.googlecode.com/svn/trunk/cppguide.xml
+
+Command-line-options.
+---------------------
+We follow POSIX guidelines for the command-line options.  See
+
+  http://www.gnu.org/prep/standards/html_node/Command_002dLine-Interfaces.html
+  http://pubs.opengroup.org/onlinepubs/009695399/
+
+more specifically, section 12 'Utility Conventions'.
+
+We follow common long-option names from
+
+  http://www.gnu.org/prep/standards/html_node/Option-Table.html#Option-Table
+
+We support the two standard options '--version' and '--help'.
+
+  http://www.gnu.org/prep/standards/html_node/_002d_002dversion.html#g_t_002d_002dversion
+  http://www.gnu.org/prep/standards/html_node/_002d_002dhelp.html#g_t_002d_002dhelp
+
+File names given as ordinary arguments must be input files only.  Any output
+files should be specified with '-o' or '--output'.
+
+oaconvert [ options ] [openairfile]
+  -o, --output=FILE
+  -d, --debug=LEVEL
+  -h, --help
+  -v, --version

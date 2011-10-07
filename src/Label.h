@@ -22,15 +22,21 @@
 
 #include <stdlib.h>
 
+#include "Coordinate.h"
+
 class Label {
 
   private:
+
     std::string text;
     Coordinate coord;
 
   public:
-    std::string getText();
-    Coordinate getCoordinate();
+
+    Label(std::string text, Coordinate c);
+
+    const std::string& getText() const;
+    const Coordinate& getCoordinate() const;
 
 };
 

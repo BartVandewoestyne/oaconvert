@@ -24,9 +24,10 @@
 #include "Airspace.h"
 #include "Circle.h"
 #include "CurvedPolygon.h"
-#include "Region.h"
 #include "Parser.h"
+#include "Region.h"
 #include "StringUtils.h"
+#include "Label.h"
 
 using namespace std;
 
@@ -106,9 +107,9 @@ CurvedPolygon* Airspace::addCurvedPolygon()
   return result;
 }
 
-void Airspace::addLabelCoordinate(const std::string& label, const Coordinate& c)
+void Airspace::add(const Label& label)
 {
-  labels.push_back( label_type( label, c ) );
+  labels.push_back( label );
 }
 
 void Airspace::clear()
@@ -131,8 +132,8 @@ ostream& operator <<(ostream& outputStream, const Airspace& s)
     outputStream << "Label coordinates:" << endl;
     for (size_t i=0; i<s.labels.size(); ++i)
     {
-      const Airspace::label_type &label = s.labels[i];
-      outputStream << "  " << label.first << " -- " << label.second << endl;
+      const Label &label = s.labels[i];
+      outputStream << "  " << label.getText() << " -- " << label.getCoordinate() << endl;
     }
   }
   s.region->print( outputStream );

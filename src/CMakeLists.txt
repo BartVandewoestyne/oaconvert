@@ -4,6 +4,7 @@ set(airspace_SRCS
     Circle.cpp
     Coordinate.cpp
     CurvedPolygon.cpp
+    Label.cpp
     Latitude.cpp
     LatLon.cpp
     LinearSegment.cpp

@@ -25,6 +25,7 @@
 #include <vector>
 
 #include "Coordinate.h"
+#include "Label.h"
 
 class Circle;
 class CurvedPolygon;
@@ -34,7 +35,7 @@ class Airspace {
 
   public:
 
-    typedef std::pair<std::string,Coordinate> label_type;
+    //typedef std::pair<std::string,Coordinate> label_type;
 
   private:
 
@@ -49,7 +50,7 @@ class Airspace {
     Region* region;
 
     //! Collection of string labels with associated position.
-    std::vector<label_type> labels;
+    std::vector<Label> labels;
 
   public:
 
@@ -87,9 +88,9 @@ class Airspace {
 
     /**
      * Each airspace can have multiple name-labels that each have their location
-     * on a map.  With this method, you can add locations for these labels.
+     * on a map.  With this method, you can add such labels.
      */
-    void addLabelCoordinate(const std::string& label, const Coordinate& c);
+    void add(const Label& label);
 
     void clear();
 

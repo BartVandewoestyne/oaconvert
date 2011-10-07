@@ -123,7 +123,6 @@ const Coordinate& Arc::getCenter() const
 
 void Arc::discretize( std::vector<Coordinate>& coords, double resolution ) const
   {
-  std::cout << "Arc::discretize()" << std::endl;
   double deg_lat, deg_lon;
   double angle;
 
@@ -161,8 +160,6 @@ void Arc::discretize( std::vector<Coordinate>& coords, double resolution ) const
   // Compute the number of points of the discretization.
   //size_t nbPoints = (size_t) ( 2 * pi * ( interval / 360.0 ) * radiusNM / resolution );
   int nbPoints = (int) ( 2 * pi * ( interval / 360.0 ) * radiusNM / resolution );
-
-  std::cout << "Arc -- nbPoints: " << nbPoints << std::endl;
 
   // Generate all points of the arc.
   for (int i = 0; i < nbPoints; ++i)

@@ -52,13 +52,9 @@ class OutputState {
 
 inline void OutputState::write(std::ostream& stream, const Region* region) const
 {
-  if( region )
+  if ( region )
   {
     region->write(stream, this);
-  }
-  else
-  {
-    std::cout << " WARNING: Not printing airspace with empty region." << std::endl;
   }
 }
 

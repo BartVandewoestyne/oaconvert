@@ -1,0 +1,36 @@
+.TH oaconvert 1
+.SH NAME
+oaconvert \- convert an OpenAir file to a file in Polish Format.
+.SH SYNOPSIS
+.B oaconvert [ options ] [file]
+.SH DESCRIPTION
+Airspaces have their coordinates specified in a country's AIP and can be
+described with the OpenAir Airspace and description language, which is an easy
+to use and publicly available standard for displaying map information.  See
+http://www.winpilot.com/usersguide/userairspace.asp for the specification.
+.PP
+To get airspaces as maps into a Garmin unit, one first has to translate the
+OpenAir file to a file in Polish Format, which is the input format for the
+cgpsmapper tool.  Using cgpsmapper, a file in Polihs Format can then be compiled
+to a Garmin IMG file which can be uploaded to a Garmin unit.
+.PP
+oaconvert converts a file in OpenAir format to a file in Polish Format.
+.SH OPTIONS
+.TP
+-o, --output=FILE
+use the given file as output file.  The used extension (.mp, .kml or .gpx) will
+determine the output file format.  If not output file is specified, then output
+will be on stdout.
+.TP
+-d, --debug=LEVEL
+show debug output.  All messages with debug level up to LEVEL will be shown.
+.TP
+-h, --help
+display a short help text.
+.TP
+-v, --version
+.SH EXIT STATUS
+oaconvert returns a zero exit status if all went well.  Non zero is returned in
+case of failure.
+.SH AUTHOR
+Bart Vandewoestyne and Yves Frederix

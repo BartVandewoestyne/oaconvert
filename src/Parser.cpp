@@ -38,7 +38,6 @@ Parser::Parser()
 , airspaces(1, new Airspace) // at least 1 airspace
 , curved_polygon(0)
 {
-//  std::cout << "Parser::Parser()" << std::endl;
 }
 
 Parser::Parser(const std::string& outfile)
@@ -46,7 +45,6 @@ Parser::Parser(const std::string& outfile)
 , airspaces(1, new Airspace) // at least 1 airspace
 , curved_polygon(0)
 {
-//  std::cout << "Parser::Parser(outfile)" << std::endl;
 }
 
 Parser::~Parser()
@@ -142,8 +140,6 @@ Coordinate Parser::getCoordinate(const std::string& s) const
 
 void Parser::handleLine(const std::string& line)
 {
-  cout << "Read line: '" << line << "'" << endl;
-
   smatch matches;
   regex expression;
 
@@ -177,7 +173,6 @@ void Parser::handleLine(const std::string& line)
     {
       airspace_class.assign(matches[i].first, matches[i].second);
     }
-    //cout << "DEBUG: " << airspace_class << endl;
     getCurrentAirspace()->setClass(airspace_class);
     return;
   }
@@ -190,7 +185,6 @@ void Parser::handleLine(const std::string& line)
     {
       airspace_name.assign(matches[i].first, matches[i].second);
     }
-    //cout << "DEBUG: " << airspace_name << endl;
     getCurrentAirspace()->setName(airspace_name);
     return;
   }
@@ -203,7 +197,6 @@ void Parser::handleLine(const std::string& line)
     {
       airspace_ceiling.assign(matches[i].first, matches[i].second);
     }
-    //cout << "DEBUG: " << airspace_ceiling << endl;
     getCurrentAirspace()->setCeiling(airspace_ceiling);
     return;
   }
@@ -216,7 +209,6 @@ void Parser::handleLine(const std::string& line)
     {
       airspace_floor.assign(matches[i].first, matches[i].second);
     }
-    //cout << "DEBUG: " << airspace_floor << endl;
     getCurrentAirspace()->setFloor(airspace_floor);
     return;
   }
@@ -230,7 +222,7 @@ void Parser::handleLine(const std::string& line)
     {
       airspace_coordinate.assign(matches[i].first, matches[i].second);
     }
-    getCurrentAirspace()->addLabelCoordinate("TODO_DUMMY", getCoordinate(airspace_coordinate));
+    getCurrentAirspace()->add( Label(string("TODO_DUMMY"), getCoordinate(airspace_coordinate)) );
     return;
   }
 
@@ -271,7 +263,6 @@ void Parser::handleLine(const std::string& line)
       curved_polygon = getCurrentAirspace()->addCurvedPolygon();
     }
     curved_polygon->addLinearSegment(getCoordinate(point_coordinate));
-    //cout << "DEBUG: " << getCurrentAirspace() << endl;
     return;
   }
 
@@ -352,7 +343,6 @@ void Parser::handleLine(const std::string& line)
   expression = "\\s*DC\\s+(.*)";
   if ( regex_match(line, matches, expression) )
   {
-    //cout << "DEBUG: found DC record!" << endl;
     // Get circle radius (in Nautical Miles) from what we've just read.
     string radiusNM;
     for (unsigned int i = 1; i < matches.size(); ++i)

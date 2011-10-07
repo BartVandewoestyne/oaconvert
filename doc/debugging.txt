@@ -1,0 +1,11 @@
+We should use better debugging methods, e.g. the ones presented at
+
+  http://oopweb.com/CPP/Documents/DebugCPP/Volume/techniques.html
+
+Method 1: use their debug.h with a certain debug level
+
+Method 2: use assert.h and check assertions
+
+Method 3: gdb
+
+  http://www.math.bas.bg/~nkirov/2005/netb151/debugging-with-gdb.html

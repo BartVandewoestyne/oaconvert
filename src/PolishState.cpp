@@ -156,7 +156,7 @@ void PolishState::writeHeader(std::ostream &out) const
 
 void PolishState::writeFooter(std::ostream &out) const
   {
-  // TODO
+  // Polish files have no footer.
   }
 
 
@@ -178,9 +178,8 @@ void PolishState::writeFooter(std::ostream &out) const
 
 void PolishState::write(std::ostream& stream, const Airspace& airspace) const
   {
-  if( ! airspace.getRegion() )
+  if ( ! airspace.getRegion() )
     {
-    std::cout << " WARNING: Not printing airspace with empty region." << std::endl;
     return;
     }
 
@@ -189,6 +188,7 @@ void PolishState::write(std::ostream& stream, const Airspace& airspace) const
   // oa2gm used [RGN40] here, which is a [POLYLINE]... I think one could also
   // use [RGN80] here, which is a [POLYGON].
   stream << "[POLYLINE]" << endl;
+
   // Type of [POLYGON] element: 'Airport'
   // We should probably change this to something which is more appropriate
   // for each earspace separately.
@@ -205,7 +205,6 @@ void PolishState::write(std::ostream& stream, const Airspace& airspace) const
 
 void PolishState::write(std::ostream& stream, const Circle* circle) const
   {
-  cout << "PolishState::write(Circle)" << endl;
   std::vector<Coordinate> coords;
   // TODO: check what resolution to use!
   circle->discretize( coords, 1 );
@@ -217,7 +216,6 @@ void PolishState::write(std::ostream& stream, const Circle* circle) const
 
 void PolishState::write(std::ostream& stream, const CurvedPolygon* curved_polygon) const
   {
-  cout << "PolishState::write(CurvedPolygon)" << endl;
   std::vector<Coordinate> coords;
   // TODO: check what resolution to use!
   curved_polygon->discretize( coords, 1 );
