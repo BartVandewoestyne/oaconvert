@@ -135,6 +135,8 @@ Coordinate Parser::parseCoordinate(const std::string& s) const
 
 /**
   * Parse the given altitude specification and return the value in meter.
+  *
+  * TODO: I'm not sure how all of these must be translated for the KML output...
   */
 double Parser::parseAltitude(const std::string& s) const
 {
@@ -142,7 +144,13 @@ double Parser::parseAltitude(const std::string& s) const
   smatch matches;
   regex expression;
 
-  // Flight Level altitudes are 'pressure altitudes'!!!
+  // Flight Level altitudes are 'pressure altitudes' with reference
+  // pressure 1013.25 hPa!!!
+  // For example, FL 90 means 9000 ft above the 1013.25 hPa reference altitude.
+  //
+  // See also:
+  //   http://en.wikipedia.org/wiki/Flight_level
+  //
   // Examples:
   //   FL 55
   //   FL55
@@ -151,10 +159,15 @@ double Parser::parseAltitude(const std::string& s) const
   if ( regex_match(s, matches, expression) )
   {
     string valuestring( matches[1].first, matches[1].second );
-    //cout << "Matched FL " << valuestring << endl;
-    return atof(valuestring.c_str())*100*feet_in_meter; // TODO: check if this is correct!
+    return atof(valuestring.c_str())*100*feet_in_meter;
   }
 
+  // AGL means 'Above Ground Level', which means that this altitude is measured
+  // with respect to the underlying ground surface.
+  //
+  // See also:
+  //   http://en.wikipedia.org/wiki/Above_ground_level
+  //
   // Examples:
   //   820 AGL
   //   7000 ft AGL
@@ -162,10 +175,14 @@ double Parser::parseAltitude(const std::string& s) const
   if ( regex_match(s, matches, expression) )
   {
     string valuestring( matches[1].first, matches[1].second );
-    //cout << "Matched " << valuestring << " ft AGL" << endl;
-    return atof(valuestring.c_str())*feet_in_meter; // TODO: check if this is correct!
+    return atof(valuestring.c_str())*feet_in_meter;
   }
 
+  // AMSL means 'Above Mean Sea Level' and refers to the altitude relative to the average sea level datum.
+  //
+  // See also:
+  //  http://en.wikipedia.org/wiki/Above_mean_sea_level
+  //
   // Examples:
   //   7000 ft MSL
   //   7000 ft AMSL
@@ -174,8 +191,7 @@ double Parser::parseAltitude(const std::string& s) const
   if ( regex_match(s, matches, expression) )
   {
     string valuestring( matches[1].first, matches[1].second );
-    //cout << "Matched " << valuestring << " ft AMSL" << endl;
-    return atof(valuestring.c_str())*feet_in_meter; // TODO: check if this is correct!
+    return atof(valuestring.c_str())*feet_in_meter;
   }
 
   // Examples:
@@ -223,11 +239,11 @@ double Parser::parseAltitude(const std::string& s) const
   if ( regex_match(s, matches, expression) )
   {
     //cout << "Matched UNLIMITED" << endl;
-    return 99999; // TODO: handle 'UNLIMITED'
+    return -1.0; // TODO: handle 'UNLIMITED'
   }
 
   // Example: Ask on 122.8
-  expression.assign("\\s*Ask", boost::regex_constants::icase);
+  expression.assign("\\s*Ask.*", boost::regex_constants::icase);
   if ( regex_match(s, matches, expression) )
   {
     //cout << "Matched Ask on..." << endl;
@@ -269,11 +285,7 @@ void Parser::handleLine(const std::string& line)
     curved_polygon = 0;
     setCurrentDirection('+');
 
-    string airspace_class;
-    for (unsigned int i = 1; i < matches.size(); ++i)
-    {
-      airspace_class.assign(matches[i].first, matches[i].second);
-    }
+    string airspace_class( matches[1].first, matches[1].second );
     getCurrentAirspace()->setClass(airspace_class);
     return;
   }
@@ -281,11 +293,7 @@ void Parser::handleLine(const std::string& line)
   expression = "\\s*AN\\s+(.*)";
   if ( regex_match(line, matches, expression) )
   {
-    string airspace_name;
-    for (unsigned int i = 1; i < matches.size(); ++i)
-    {
-      airspace_name.assign(matches[i].first, matches[i].second);
-    }
+    string airspace_name( matches[1].first, matches[1].second );
     getCurrentAirspace()->setName(airspace_name);
     return;
   }
@@ -315,7 +323,7 @@ void Parser::handleLine(const std::string& line)
     {
       airspace_coordinate.assign(matches[i].first, matches[i].second);
     }
-    getCurrentAirspace()->add( Label(string("TODO_DUMMY"), parseCoordinate(airspace_coordinate)) );
+    getCurrentAirspace()->add( Label(getCurrentAirspace()->getName(), parseCoordinate(airspace_coordinate)) );
     return;
   }
 

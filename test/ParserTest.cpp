@@ -20,8 +20,10 @@
 #include <iostream>
 #include "ParserTest.h"
 #include "Parser.h"
+#include "Constants.h"
 
 using namespace std;
+using namespace Constants;
 
 CPPUNIT_TEST_SUITE_REGISTRATION( ParserTest );
 
@@ -68,6 +70,56 @@ ParserTest::testParseCoordinate()
   //c1 = Coordinate(lat, lon);
   //c2 = p.parseCoordinate("12:34:56N56:34:12W    c34");
   //CPPUNIT_ASSERT_EQUAL(c1, c2);
+}
+
+void
+ParserTest::testParseAltitude()
+{
+  // We want an accuracy of 1 meter.
+  double tol = 1;
+
+  Parser p;
+  double alt;
+
+  alt = p.parseAltitude("03500 FT MSL");
+  CPPUNIT_ASSERT_DOUBLES_EQUAL(3500*feet_in_meter, alt, tol);
+
+  alt = p.parseAltitude("10000ft MSL");
+  CPPUNIT_ASSERT_DOUBLES_EQUAL(10000*feet_in_meter, alt, tol);
+
+  alt = p.parseAltitude("04500MSL");
+  CPPUNIT_ASSERT_DOUBLES_EQUAL(4500*feet_in_meter, alt, tol);
+
+  alt = p.parseAltitude("2000 ft AMSL");
+  CPPUNIT_ASSERT_DOUBLES_EQUAL(2000*feet_in_meter, alt, tol);
+
+  alt = p.parseAltitude("3000 ft");
+  CPPUNIT_ASSERT_DOUBLES_EQUAL(3000*feet_in_meter, alt, tol);
+
+  alt = p.parseAltitude("15000ft (Mo-Fri)");
+  CPPUNIT_ASSERT_DOUBLES_EQUAL(15000*feet_in_meter, alt, tol);
+
+  alt = p.parseAltitude("FL55");
+  CPPUNIT_ASSERT_DOUBLES_EQUAL(5500*feet_in_meter, alt, tol);
+
+  alt = p.parseAltitude("FL 100");
+  CPPUNIT_ASSERT_DOUBLES_EQUAL(10000*feet_in_meter, alt, tol);
+
+  alt = p.parseAltitude("1000 AGL");
+  CPPUNIT_ASSERT_DOUBLES_EQUAL(1000*feet_in_meter, alt, tol);
+
+  alt = p.parseAltitude("1000 FT AGL");
+  CPPUNIT_ASSERT_DOUBLES_EQUAL(1000*feet_in_meter, alt, tol);
+
+  alt = p.parseAltitude("1000FT AGL");
+  CPPUNIT_ASSERT_DOUBLES_EQUAL(1000*feet_in_meter, alt, tol);
+
+  alt = p.parseAltitude("Ask on 122.8");
+  CPPUNIT_ASSERT_DOUBLES_EQUAL(-1.0, alt, tol);
+
+  alt = p.parseAltitude("UNL");
+  CPPUNIT_ASSERT_DOUBLES_EQUAL(-1.0, alt, tol);
+
 }
 
 void

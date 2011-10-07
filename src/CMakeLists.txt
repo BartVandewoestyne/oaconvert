@@ -17,10 +17,10 @@ set(airspace_SRCS
 
 add_library(airspace SHARED ${airspace_SRCS})
 
-set(oa2pm_SRCS
-    oa2pm.cpp
+set(oaconvert_SRCS
+    oaconvert.cpp
 )
-add_executable(oa2pm ${oa2pm_SRCS})
-target_link_libraries(oa2pm airspace)
-#target_link_libraries(oa2pm boost_regex)
-target_link_libraries(oa2pm boost_regex-mt)
+add_executable(oaconvert ${oaconvert_SRCS})
+target_link_libraries(oaconvert airspace)
+#target_link_libraries(oaconvert boost_regex)
+target_link_libraries(oaconvert boost_regex-mt)
