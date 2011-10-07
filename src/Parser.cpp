@@ -429,6 +429,10 @@ void Parser::handleLine(const std::string& line)
 
     // Add the arc points to this space's Polygon.
     // TODO: don't use *hardcoded* 100 points for the discretization!
+    if( ! curved_polygon )
+    {
+      curved_polygon = getCurrentAirspace()->addCurvedPolygon();
+    }
     curved_polygon->addArc( arc );
 
   }
