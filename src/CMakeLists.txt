@@ -21,7 +21,7 @@ set(oaconvert_SRCS
     oaconvert.cpp
 )
 
-set(CMAKE_CXX_FLAGS "-g -Wall -DDEBUG")
+#set(CMAKE_CXX_FLAGS "-g -Wall -DDEBUG")
 
 add_executable(oaconvert ${oaconvert_SRCS})
 target_link_libraries(oaconvert airspace)
