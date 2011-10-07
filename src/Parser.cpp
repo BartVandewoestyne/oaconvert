@@ -76,7 +76,7 @@ void Parser::setCurrentDirection(char d)
   currentDirection = d;
 }
 
-Coordinate Parser::getCoordinate(const std::string& s) const
+Coordinate Parser::parseCoordinate(const std::string& s) const
 {
   smatch matches;
   regex expression;
@@ -315,7 +315,7 @@ void Parser::handleLine(const std::string& line)
     {
       airspace_coordinate.assign(matches[i].first, matches[i].second);
     }
-    getCurrentAirspace()->add( Label(string("TODO_DUMMY"), getCoordinate(airspace_coordinate)) );
+    getCurrentAirspace()->add( Label(string("TODO_DUMMY"), parseCoordinate(airspace_coordinate)) );
     return;
   }
 
@@ -327,7 +327,7 @@ void Parser::handleLine(const std::string& line)
     {
       coordinate.assign(matches[i].first, matches[i].second);
     }
-    setCurrentCoordinate(getCoordinate(coordinate));
+    setCurrentCoordinate(parseCoordinate(coordinate));
     return;
   }
 
@@ -355,7 +355,7 @@ void Parser::handleLine(const std::string& line)
     {
       curved_polygon = getCurrentAirspace()->addCurvedPolygon();
     }
-    curved_polygon->addLinearSegment(getCoordinate(point_coordinate));
+    curved_polygon->addLinearSegment(parseCoordinate(point_coordinate));
     return;
   }
 
@@ -393,8 +393,8 @@ void Parser::handleLine(const std::string& line)
     string coord1, coord2;
     coord1.assign(matches[1].first, matches[1].second);
     coord2.assign(matches[2].first, matches[2].second);
-    Coordinate c1 = getCoordinate(coord1);
-    Coordinate c2 = getCoordinate(coord2);
+    Coordinate c1 = parseCoordinate(coord1);
+    Coordinate c2 = parseCoordinate(coord2);
 
     // Retrieve latitude and longitude of the arc-center.
     Latitude lat = getCurrentCoordinate().getLatitude();
