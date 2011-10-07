@@ -68,3 +68,8 @@ Step 2: compile the preview control file with
 
 You should now have a .TDB, .IMG and .REG file which you can load in
 QLandkarteGT or MapSource.
+
+NOTE
+----
+There are also some example .mp and preview control file online at
+http://www.penguin.cz/~ondrap/paragliding.php

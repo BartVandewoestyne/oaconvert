@@ -52,9 +52,10 @@ void PolishState::writeHeader(std::ostream &out) const
   out << "[IMG ID]" << endl;
 
   // Unique identifier (up to 8 decimal digits) for the map (mandatory).  May
-  // be only written in a decimal format.  The cgpsmapper manual gives has as
-  // an example an ID=11000204 so that is the one we use.  In the oa2pm source
-  // code, the value 42200100 is used.
+  // be only written in a decimal format.  I have found the following values:
+  //   cgpsmapper manual: 11000204
+  //   oa2pm:             42200100
+  //   gscripts:          42099999
   out << "ID=11000204" << endl;
 
   // Map name to be displayed in the GPS receiver's Map Info menu (mandatory).
@@ -62,9 +63,11 @@ void PolishState::writeHeader(std::ostream &out) const
 
   // Instead of single byte coding, use full-byte (8-bit) character coding
   // with the specified codepage (depending on the GPS firmware) (optional).
-  // We use the default of 0 here, but the oa2gm source code has a value
-  // of 1250, probably because the author needed it (see for example
-  // http://en.wikipedia.org/wiki/Windows-1250 ).
+  // I have found the following values:
+  //   cgpsmapper manual: default 0
+  //   oa2gm:             1250 (probably because the author needed it (see for example
+  //                            http://en.wikipedia.org/wiki/Windows-1250)
+  //   gscripts:          none specified, so default 0
   out << "Codepage=0" << endl;
 
   // Only index objects if POI index info is explicitly provided.  With
@@ -75,24 +78,57 @@ void PolishState::writeHeader(std::ostream &out) const
   // Maximum allowed region size.  A higher value increases the allowable
   // region size, but may decrease the map performance; a lower value may
   // increase the map size.
-  // Suggested values:
+  // I have found the following values:
+  // cgpsmapper manual:
   //   topo maps: 1000-2000
   //   city (dense streets): 2000-5000
   //   countryside: 6000-10000
+  // oa2pm: 1311
+  // gscripts: 6000
   out << "TreSize=1311" << endl;
 
   // Maximal number of elements in one region (mandatory).
   // Can be any value between ~50 and 1024 (values less than 50 don't make
   // sense).  Recent experiments show that this parameter does not impact
   // map performance and can be set to maximum allowed value: 1024.
-  // Suggested value: 1024
+  // I have found the following values:
+  // cgpsmapper suggested value: 1024
+  // oa2gm: none specified
+  // gscripts: 1024
   out << "RgnLimit=1024" << endl;
 
   // Kind of pre-processing.  We're setting it to the default here...
+  // cgpsmapper default: F
+  // oa2gm:              F
+  // gscripts:           F
   out << "PreProcess=F" << endl;
 
 
-  // This is what oa2gm uses, but it didn't work with GPSMapEdit 1.0.70.0.
+  // Level and Zoom level stuff... this is tricky and we need to find good
+  // settings here!
+  //
+  // Some explanatory examples:
+  //
+  // 'Levels=': Number of map zoom levels (layers) in the map (mandatory, at least 2,
+  //            not more than 10, numbered starting at 0).
+  // 
+  // 'Level0=24': Map zoom level 0 corresponds to hardware zoom level 24 ('Up to 120m')
+  //              This means that map objects and coordinates defined as map level 0, will
+  //              be used at hardware zoom levels 24 and above.  So they will be visible
+  //              if the scale is 120m or more detailed.
+  //              The last level is a special one that dictates when our map replaces the
+  //              base map.  It means the following: from hardware level
+  //              14 ('80km to 120 km') or higher, we will see our map.  At hardware
+  //              zoom levels 13 and below, we will see the base map.
+  //              We are not allowed to define map objects and coordinates at this level.
+  // 'ZoomX=XX': ??
+  //
+  // Note 1: the last layer must always be empty, e.g. Levels=3
+  //         means that only two layers are available for map objects.
+  // Note 2: GPS unit map detail must be set to 'Normal'!!!!!
+  //         See section 4.4 (on page 40) of cgpsmapper manual (mandatory).
+
+  // This is what oa2gm and gscripts use, but it didn't work with GPSMapEdit 1.0.70.0.
   //out << "Levels=5\n";
   //out << "Level0=21\n";
   //out << "Level1=19\n";
@@ -118,35 +154,14 @@ void PolishState::writeHeader(std::ostream &out) const
   out << "Zoom3=3\n";
   out << "Zoom4=4\n";
 
-  //// Below is what GPSMapEdit 1.0.69.1 outputs, and it seems to work in
-  //// GPSMapEdit... so we use this.  Note that this might not work as fluently
-  //// on actual GPS units like the Garmin 60CSX.
-
-  //// Note 1: the last layer must always be empty, e.g. Levels=3
-  ////         means that two layers only are available for map objects.
-  //// Note 2: GPS unit map detail must be set to 'Normal'!!!!!
-  //// See section 4.4 (on page 40) of cgpsmapper manual (mandatory).
-
-  //// Number of map zoom levels (layers) in the map (mandatory, at least 2,
-  //// not more than 10, numbered starting at 0).
-  //cout << "Levels=2\n";
-
-  //// Map zoom level 0 corresponds to hardware zoom level 24 ('Up to 120m')
-  //// This means that map objects and coordinates defined as map level 0, will
-  //// be used at hardware zoom levels 24 and above.  So they will be visible
-  //// if the scale is 120m or more detailed.
-  //cout << "Level0=24\n";
-
-  //// Last level is a special one that dictates when our map replaces the
-  //// base map.  It means the following: from hardware level
-  //// 14 ('80km to 120 km') or higher, we will see our map.  At hardware
-  //// zoom levels 13 and below, we will see the base map.
-  //// We are not allowed to define map objects and coordinates at this level.
-  //cout << "Level1=14\n";
-
-  //cout << "Zoom0=0\n";
-  //cout << "Zoom1=1\n";
-
+  // Below is what GPSMapEdit 1.0.69.1 outputs, and it seems to work in
+  // GPSMapEdit...  Note that this might not work as fluently
+  // on actual GPS units like the Garmin 60CSX.
+  //out << "Levels=2\n";
+  //out << "Level0=24\n";
+  //out << "Level1=14\n";
+  //out << "Zoom0=0\n";
+  //out << "Zoom1=1\n";
 
   // Section terminator (mandatory)
   out << "[END-IMG ID]\n" << endl;
@@ -249,6 +264,23 @@ void PolishState::write(std::ostream& out, const std::vector<Coordinate>& coords
 /*
  * Return the Polish File [POLYGON] type for the given airspace class.
  * For the listing of the different possible types, see cgpsmapper manual, table 9.3.3 page 89.
+ *
+ * Note: The Python script at http://www.penguin.cz/~ondrap/paragliding.php sets the polygon type
+ *       according to the following rules:
+ *
+ *      if AH - AL < 500 and AL < 2000:
+ *          type = '78'
+ *      elif AL == 0:
+ *          type = '0x08'
+ *      elif AL < 500:
+ *          type = '0x1e'
+ *      elif AL < 1000:
+ *          type = '0x3c'
+ *      elif AL < 1900:
+ *          type = '0x18'
+ *      else:
+ *          type = '0x53' 
+ * 
  */
 std::string PolishState::getType(const std::string& airspaceClass) const
 {

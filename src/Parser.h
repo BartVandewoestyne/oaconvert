@@ -36,9 +36,8 @@ class Parser {
 
     std::list<Airspace*> airspaces;
 
-    // Helper variables
-    Coordinate currentCoordinate;
     char currentDirection;
+    Coordinate currentCoordinate;
     CurvedPolygon *curved_polygon;
 
   public:
@@ -49,23 +48,20 @@ class Parser {
 
     void handleLine(const std::string& s);
 
-    Airspace* getCurrentAirspace();
-    const Coordinate& getCurrentCoordinate() const;
     char getCurrentDirection() const;
+    Airspace* getCurrentAirspace();
     Coordinate getCoordinate(const std::string& s) const;
+    const Coordinate& getCurrentCoordinate() const;
 
+    void setCurrentDirection(const char d);
     void setCurrentAirspace(const Airspace &s);
     void setCurrentCoordinate(const Coordinate &c);
-    void setCurrentDirection(const char d);
 
     /** Initialize this parser to start parsing the contents of the input file.
      *  In practice, this includes the writing of the header to the desired output stream.
      */
     void initialize();
 
-    /** Initialize this parser to start parsing the contents of the input file.
-     *  In practice, this includes the writing of the footer to the desired output stream.
-     */
     void finalize();
 
 };

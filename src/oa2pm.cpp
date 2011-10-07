@@ -20,6 +20,7 @@
 #include <iostream>
 #include <fstream>
 #include <getopt.h>
+#include <strings.h>
 #include <boost/regex.hpp> 
 
 #include "Airspace.h"
@@ -48,7 +49,8 @@ int main (int argc, char* argv[])
   static struct option long_options[] =
   {
     {  "output", required_argument, 0, 'o'},
-    {   "debug", optional_argument, 0, 'd' },
+    {   "units", required_argument, 0, 'u'},
+    {   "debug", optional_argument, 0, 'd'},
     {    "help",       no_argument, 0, 'h'},
     { "version",       no_argument, 0, 'v'},
     {         0,                 0, 0,  0 }
@@ -58,7 +60,7 @@ int main (int argc, char* argv[])
   int opt;
   int option_index;
 
-  while ( (opt = getopt_long(argc, argv, "d::o:hv", long_options, &option_index)) != -1 ) {
+  while ( (opt = getopt_long(argc, argv, "d::u:o:hv", long_options, &option_index)) != -1 ) {
 
     switch (opt) {
 
@@ -67,6 +69,23 @@ int main (int argc, char* argv[])
         if (optarg)
           printf (" with arg %s", optarg);
         printf ("\n");
+        break;
+
+      case 'u':
+
+        if (!strcasecmp(optarg, "ft")) // this is counterintuitive...
+        {
+          printf ("TODO: setting output display units to feet.\n");
+        }
+        else if (!strcasecmp(optarg, "m")) // this is counterintuitive...
+        {
+          printf ("TODO: setting output display units to meters.\n");
+        }
+        else
+        {
+          printf("ERROR: display units must be 'ft' (feet) or 'm' (meters).\n");
+          exit(EXIT_FAILURE);
+        }
         break;
 
       case 'o':
@@ -143,7 +162,7 @@ int main (int argc, char* argv[])
 
     inStream.close();
   }
-  else cout << "Unable to open file!\n";
+  else cerr << "ERROR: Unable to open file!\n";
 
   // cleanup
   delete p;

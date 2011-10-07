@@ -82,8 +82,12 @@ void Coordinate::toPolish(ostream& outputStream) const
  * TODO: There exist formulae for computing the distance on a WGS84 earth ellipsoid.  See for
  *       example `Direct and inverse solutions of geodesics on the ellipsoid with application
  *       of nested equations', Vincenty, Thaddeus, 1975.
- *       http://www.movable-type.co.uk/scripts/latlong-vincenty.html
- *       http://www.mathworks.com/matlabcentral/fileexchange/5379
+ *
+ *         http://www.movable-type.co.uk/scripts/latlong-vincenty.html
+ *         http://www.mathworks.com/matlabcentral/fileexchange/5379
+ *
+ *       This is the method that the script at http://www.penguin.cz/~ondrap/paragliding.php
+ *       uses.
  */
 double Coordinate::getDistance(const Coordinate& other) const
 {
