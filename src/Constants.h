@@ -29,8 +29,9 @@ namespace Constants
   const int NBPOINTS = 100;
 
   /* Resolution in Nautical Miles */
-  /* For circles and arcs, each nautical mile ( = each 1852 m) we put a point */
-  const double RESOLUTION = 1;
+  /* For circles and arcs, we put a point at each nautical mile ( = each 1852 * m). */
+  // TODO: find a good value for RESOLUTION that leads to nice results.
+  const double RESOLUTION = 0.5;
 }
 
-#endif /* ONSTANTS_H */
+#endif /* CONSTANTS_H */

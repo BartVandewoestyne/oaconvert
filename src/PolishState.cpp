@@ -23,6 +23,7 @@
 
 #include "Airspace.h"
 #include "Circle.h"
+#include "Constants.h"
 #include "CurvedPolygon.h"
 
 using namespace std;
@@ -232,14 +233,14 @@ void PolishState::write(std::ostream& stream, const Airspace& airspace) const
   stream << "Label=" << airspace.getName() << endl;
   stream << "EndLevel=4" << endl; // Number must not be higher than highest X in LevelX in header.
   OutputState::write(stream, airspace.getRegion());
+  stream << "[END]\n" << endl;
   }
 
 
 void PolishState::write(std::ostream& stream, const Circle* circle) const
   {
   std::vector<Coordinate> coords;
-  // TODO: check what resolution to use!
-  circle->discretize( coords, 1 );
+  circle->discretize( coords, RESOLUTION );
   write( stream, coords );
 //    write(s.getCircle().toPolygon(NBPOINTS), s.getName());;
 //  assert( ! "TODO" );
@@ -249,8 +250,7 @@ void PolishState::write(std::ostream& stream, const Circle* circle) const
 void PolishState::write(std::ostream& stream, const CurvedPolygon* curved_polygon) const
   {
   std::vector<Coordinate> coords;
-  // TODO: check what resolution to use!
-  curved_polygon->discretize( coords, 1 );
+  curved_polygon->discretize( coords, RESOLUTION );
   write( stream, coords );
 //  assert( ! "TODO" );
   }
@@ -275,7 +275,6 @@ void PolishState::write(std::ostream& out, const std::vector<Coordinate>& coords
     write(out, coords.back());
     out << endl;
   }
-  out << "[END]\n" << endl;
 }
 
 /*

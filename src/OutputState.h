@@ -35,11 +35,8 @@ class OutputState {
 
     virtual void writeHeader(std::ostream &out) const = 0;
     virtual void writeFooter(std::ostream &out) const = 0;
-
-    //! Use this method to write out an airspace.
     virtual void write(std::ostream& stream, const Airspace& airspace) const = 0;
 
-    //! Helper methods to write out the info of an airspace.
     void write(std::ostream& stream, const Region* region) const;
     virtual void write(std::ostream& stream, const Circle* circle) const = 0;
     virtual void write(std::ostream& stream, const CurvedPolygon* curved_polygon) const = 0;

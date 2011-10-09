@@ -23,6 +23,7 @@
 #include "Airspace.h"
 #include "assert.h"
 #include "PolishState.h"
+#include "GPXState.h"
 
 using namespace std;
 
@@ -84,4 +85,5 @@ void OutputWriter::writeFooter()
   {
   // TODO
 //  ASSERT( ! "TODO" );
+  _state->writeFooter(out);
   }

@@ -27,6 +27,7 @@
 #include "Coordinate.h"
 #include "Circle.h"
 #include "CurvedPolygon.h"
+#include "GPXState.h"
 
 using namespace boost;
 using namespace std;
@@ -45,7 +46,16 @@ Parser::Parser(const std::string& outfile)
 , airspaces(1, new Airspace) // at least 1 airspace
 , curved_polygon(0)
 {
+
   initRegexMap();
+
+  // Change the state if we have a .gpx extension.
+  std::string ext = parseFileExtension(outfile);
+  if ( ext == "gpx" )
+  {
+    _writer.changeState(GPXState::getInstance());
+  }
+
 }
 
 Parser::~Parser()
@@ -476,6 +486,7 @@ void Parser::finalize()
   {
   _writer.write(*getCurrentAirspace());
   curved_polygon = 0;
+  _writer.writeFooter();
   }
 
 void Parser::addLinearSegment( const Coordinate& point )

@@ -12,6 +12,7 @@ set(airspace_SRCS
     OutputWriter.cpp
     Parser.cpp
     PolishState.cpp
+    GPXState.cpp
     StringUtils.cpp
 )
 

@@ -36,7 +36,6 @@ class OutputWriter {
     void write(const Airspace& s);
     void writeFooter();
 
-  private:
     //! \param[in] state The new state. This output writer does \e not own the
     //!                  given state.
     void changeState(OutputState* state);
