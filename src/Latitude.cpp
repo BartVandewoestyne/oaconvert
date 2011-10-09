@@ -38,6 +38,10 @@ Latitude::Latitude(double degrees) : LatLon(degrees)
   }
 }
 
+Latitude::Latitude(double degrees, char direction)
+  : LatLon(degrees, direction)
+{}
+
 Latitude::Latitude(int degrees, int minutes, int seconds, char direction)
   : LatLon(degrees, minutes, seconds, direction)
 {}

@@ -43,3 +43,14 @@ Also, make sure that the first point of your airspace is the same as the last
 point of your airspace.  This will make sure that if certain software uses
 polylines instead of polygons to represent airspaces, they will be visualized
 as a closed region.
+
+
+Note 1
+------
+In the AIP, the published geographical coordinates indicating LAT and LONG are
+expressed in terms of the World Geodetic System of 1984 (WGS-84) geodetic
+reference datum
+-> See Part 1 GENERAL (GEN)
+     GEN 2 TABLES AND CODES
+       GEN 2.1  Measuring system, aircraft markings, holidays
+         3 GEODETIC REFERENCE DATUM

@@ -44,6 +44,7 @@ class LatLon {
      * @param degrees Angle in degrees.
      */
     LatLon(double degrees);
+    LatLon(double degrees, char direction);
     LatLon(int degrees, double minutes, char direction);
     LatLon(int degrees, int minutes, int seconds, char direction);
 

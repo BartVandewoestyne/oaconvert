@@ -139,6 +139,7 @@ int main (int argc, char* argv[])
   else
   {
     p = new Parser( outfilename );
+    //cout << "INFO: output file has extension ." << p->parseFileExtension( outfilename ) << "." << endl;
   }
 
   // Start reading the input file.

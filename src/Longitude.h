@@ -28,6 +28,7 @@ class Longitude : public LatLon {
   public:
     Longitude();
     Longitude(double degrees);
+    Longitude(double degrees, char direction);
     Longitude(int degrees, int minutes, int seconds, char direction);
     Longitude(int degrees, double minutes, char direction);
 

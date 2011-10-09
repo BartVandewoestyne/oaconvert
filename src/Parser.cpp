@@ -84,21 +84,16 @@ Coordinate Parser::parseCoordinate(const std::string& s) const
   Longitude lon;
 
   // Example: 101:20:32 S 102:32:12 W
-//  expression = "[^0-9]*(\\d+):(\\d\\d):(\\d\\d)\\s*([NZSnzs])[\\s,]+(\\d+):(\\d\\d):(\\d\\d)\\s*([OWEowe])*.*";
   if ( regex_match(s, matches, regexMap.find(REGEX_DDMMSS)->second) )
   {
-    string degreesLat, minutesLat, secondsLat;
-    string degreesLon, minutesLon, secondsLon;
-    string directionLat, directionLon;
-
-    degreesLat.assign(   matches[1].first, matches[1].second );
-    minutesLat.assign(   matches[2].first, matches[2].second );
-    secondsLat.assign(   matches[3].first, matches[3].second );
-    directionLat.assign( matches[4].first, matches[4].second );
-    degreesLon.assign(   matches[5].first, matches[5].second );
-    minutesLon.assign(   matches[6].first, matches[6].second );
-    secondsLon.assign(   matches[7].first, matches[7].second );
-    directionLon.assign( matches[8].first, matches[8].second );
+    string degreesLat(   matches[1].first, matches[1].second );
+    string minutesLat(   matches[2].first, matches[2].second );
+    string secondsLat(   matches[3].first, matches[3].second );
+    string directionLat( matches[4].first, matches[4].second );
+    string degreesLon(   matches[5].first, matches[5].second );
+    string minutesLon(   matches[6].first, matches[6].second );
+    string secondsLon(   matches[7].first, matches[7].second );
+    string directionLon( matches[8].first, matches[8].second );
 
     lat = Latitude(atoi(degreesLat.c_str()),
                    atoi(minutesLat.c_str()),
@@ -110,7 +105,6 @@ Coordinate Parser::parseCoordinate(const std::string& s) const
   }
 
   // Example: 101:20.32 N 102:32.12 E
-//  expression = "[^0-9]*(\\d+):(\\d+.\\d+)\\s*([NZSnzs])[\\s,]+(\\d+):(\\d+.\\d+)\\s*([OWEowe])*.*";
   if ( regex_match(s, matches, regexMap.find(REGEX_DDMM)->second) )
   {
     string degreesLat(   matches[1].first, matches[1].second );
@@ -126,6 +120,19 @@ Coordinate Parser::parseCoordinate(const std::string& s) const
     Longitude lon(atoi(degreesLon.c_str()),
                   atof(minutesLon.c_str()),
                   directionLon[0]);
+    return Coordinate(lat, lon);
+  }
+
+  // Example: 45.32 N 102.12 E
+  if ( regex_match(s, matches, regexMap.find(REGEX_DD)->second) )
+  {
+    string degreesLat(   matches[1].first, matches[1].second );
+    string directionLat( matches[2].first, matches[2].second );
+    string degreesLon(   matches[3].first, matches[3].second );
+    string directionLon( matches[4].first, matches[4].second );
+
+    Latitude  lat( atof(degreesLat.c_str()), directionLat[0] );
+    Longitude lon( atof(degreesLon.c_str()), directionLon[0] );
     return Coordinate(lat, lon);
   }
 
@@ -252,6 +259,15 @@ double Parser::parseAltitude(const std::string& s) const
   cerr << "ERROR: incorrect altitude specification: " << s << endl;
   exit(EXIT_FAILURE);
 
+}
+
+std::string Parser::parseFileExtension(const std::string& fileName) const
+{
+  if (fileName.find_last_of(".") != std::string::npos)
+  {
+    return fileName.substr(fileName.find_last_of(".")+1);
+  }
+  return "";
 }
 
 void Parser::handleLine(const std::string& line)
@@ -485,6 +501,7 @@ void Parser::initRegexMap()
   {
   regexMap[REGEX_DDMMSS] = regex("[^0-9]*(\\d+):(\\d\\d):(\\d\\d)\\s*([NZS])[\\s,]+(\\d+):(\\d\\d):(\\d\\d)\\s*([OWE])*.*", boost::regex_constants::icase);
   regexMap[REGEX_DDMM] = regex("[^0-9]*(\\d+):(\\d+.\\d+)\\s*([NZS])[\\s,]+(\\d+):(\\d+.\\d+)\\s*([OWE])*.*", boost::regex_constants::icase);
+  regexMap[REGEX_DD] = regex("[^0-9]*(\\d+.\\d+)\\s*([NZS])[\\s,]+(\\d+.\\d+)\\s*([OWE])*.*", boost::regex_constants::icase);
   regexMap[REGEX_FL] = regex("\\s*FL\\s*(\\d+).*", boost::regex_constants::icase);
   regexMap[REGEX_AGL] = regex("\\s*(\\d+)\\s*('|ft)?\\s*AGL.*", boost::regex_constants::icase);
   regexMap[REGEX_AMSL] = regex("\\s*(\\d+)\\s*('|ft)?\\s*A?MSL.*", boost::regex_constants::icase);

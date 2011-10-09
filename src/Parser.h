@@ -40,6 +40,7 @@ class Parser {
       {
       REGEX_DDMMSS,
       REGEX_DDMM,
+      REGEX_DD,
       REGEX_FL,
       REGEX_AGL,
       REGEX_AMSL,
@@ -90,6 +91,7 @@ class Parser {
 
     Coordinate parseCoordinate(const std::string& s) const;
     double parseAltitude(const std::string& s) const;
+    std::string parseFileExtension(const std::string& fileName) const;
 
     void setCurrentDirection(const char d);
     void setCurrentAirspace(const Airspace &s);

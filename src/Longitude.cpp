@@ -42,6 +42,10 @@ Longitude::Longitude(double degrees) : LatLon(degrees)
   }
 }
 
+Longitude::Longitude(double degrees, char direction)
+  : LatLon(degrees, direction)
+{}
+
 Longitude::Longitude(int degrees, int minutes, int seconds, char direction)
   : LatLon(degrees, minutes, seconds, direction)
 {}

@@ -39,6 +39,19 @@ LatLon::LatLon(double degrees)
   angle = degrees;
 }
 
+LatLon::LatLon(double degrees, char direction)
+{
+  angle = degrees;
+  if ( (direction == 's')
+      || (direction == 'S')
+      || (direction == 'W')
+      || (direction == 'w') )
+  {
+    angle = -angle;
+  }
+  this->direction = direction;
+}
+
 LatLon::LatLon(int degrees, int minutes, int seconds, char direction)
 {
   angle = degrees + minutes/60.0 + seconds/3600.0;
