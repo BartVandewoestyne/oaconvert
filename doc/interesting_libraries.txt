@@ -1,0 +1,11 @@
+GEOTRANZ
+  http://earth-info.nga.mil/GandG/geotrans/
+
+GeographicLib
+  http://geographiclib.sf.net/
+
+GEOS - Geometry Engine, Open Source
+  http://trac.osgeo.org/geos/
+
+PROJ.4 - Cartographic Projections Library
+  http://trac.osgeo.org/proj/
