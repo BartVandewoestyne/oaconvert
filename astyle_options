@@ -1,0 +1,15 @@
+# This is the options file for astyle, the tool that we use to agree on a
+# certain C++ style.
+#
+# Usage:
+#
+#   astyle --options=astyle_options some_file.cpp
+
+
+# Let's follow ANSI for now and see if we like it...
+style=ansi
+
+# Indent with 4 spaces, which is the default for astyle.
+--indent=spaces=4
+
+# Add our favourite style stuff here...
