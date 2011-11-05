@@ -28,3 +28,7 @@ http://gmapair.com
   http://gmapair.com/sample_E.htm
   blijkbaar gemaakt met Mapwel
   http://gmapair.com/install_E.htm
+
+Other projects that claim to be able to visualize airspace
+----------------------------------------------------------
+http://goworldwind.org/
