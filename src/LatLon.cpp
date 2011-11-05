@@ -1,18 +1,18 @@
 /*
   Copyright 2011 Bart Vandewoestyne, Yves Frederix.
-  
+
   This file is part of oaconvert.
-  
+
   oaconvert is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
-  
+
   oaconvert is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
-  
+
   You should have received a copy of the GNU General Public License
   along with oaconvert.  If not, see <http://www.gnu.org/licenses/>.
 */
@@ -25,73 +25,77 @@ using namespace std;
 using Constants::pi;
 
 LatLon::LatLon()
-{/* Body intentionally empty. */}
+{
+    /* Body intentionally empty. */
+}
 
 LatLon::LatLon(double degrees)
 {
-  // TODO:
-  // Since for latitudes we have that -90 <= angle <= 90 and for longitudes
-  // we have that -180 <= angle <= 180, we could check here if
-  //
-  //   -180 <= angle <= 180
-  //
-  // and throw an exception if this condition is not satisfied?
-  angle = degrees;
+    // TODO:
+    // Since for latitudes we have that -90 <= angle <= 90 and for longitudes
+    // we have that -180 <= angle <= 180, we could check here if
+    //
+    //   -180 <= angle <= 180
+    //
+    // and throw an exception if this condition is not satisfied?
+    angle = degrees;
 }
 
 LatLon::LatLon(double degrees, char direction)
 {
-  angle = degrees;
-  if ( (direction == 's')
-      || (direction == 'S')
-      || (direction == 'W')
-      || (direction == 'w') )
-  {
-    angle = -angle;
-  }
-  this->direction = direction;
+    angle = degrees;
+    if ( (direction == 's')
+            || (direction == 'S')
+            || (direction == 'W')
+            || (direction == 'w') )
+    {
+        angle = -angle;
+    }
+    this->direction = direction;
 }
 
 LatLon::LatLon(int degrees, int minutes, int seconds, char direction)
 {
-  angle = degrees + minutes/60.0 + seconds/3600.0;
-  if ( (direction == 's')
-      || (direction == 'S')
-      || (direction == 'W')
-      || (direction == 'w') )
-  {
-    angle = -angle;
-  }
-  this->direction = direction;
+    angle = degrees + minutes/60.0 + seconds/3600.0;
+    if ( (direction == 's')
+            || (direction == 'S')
+            || (direction == 'W')
+            || (direction == 'w') )
+    {
+        angle = -angle;
+    }
+    this->direction = direction;
 }
 
 LatLon::LatLon(int degrees, double minutes, char direction)
 {
-  angle = degrees + minutes/60.0;
-  if ( (direction == 's')
-      || (direction == 'S')
-      || (direction == 'W')
-      || (direction == 'w') )
-  {
-    angle = -angle;
-  }
-  this->direction = direction;
+    angle = degrees + minutes/60.0;
+    if ( (direction == 's')
+            || (direction == 'S')
+            || (direction == 'W')
+            || (direction == 'w') )
+    {
+        angle = -angle;
+    }
+    this->direction = direction;
 }
 
 /**
  * Return the complete angle as a floating point number.
  */
-double LatLon::getAngle() const {
-  return angle;
+double LatLon::getAngle() const
+{
+    return angle;
 }
 
-char LatLon::getDirection() const {
-  return direction;
+char LatLon::getDirection() const
+{
+    return direction;
 }
 
 void LatLon::setDirection(char c)
 {
-  direction = c;
+    direction = c;
 }
 
 /**
@@ -100,7 +104,7 @@ void LatLon::setDirection(char c)
  */
 int LatLon::getDegrees() const
 {
-  return (int) angle;
+    return (int) angle;
 }
 
 /**
@@ -108,7 +112,7 @@ int LatLon::getDegrees() const
  */
 int LatLon::getMinutes() const
 {
-  return (int) ((getAngle()-getDegrees())*60.0);
+    return (int) ((getAngle()-getDegrees())*60.0);
 }
 
 /**
@@ -116,7 +120,7 @@ int LatLon::getMinutes() const
  */
 double LatLon::getSeconds() const
 {
-  return (getAngle()-getDegrees()-getMinutes()/60.0)*3600;
+    return (getAngle()-getDegrees()-getMinutes()/60.0)*3600;
 }
 
 /**
@@ -124,21 +128,21 @@ double LatLon::getSeconds() const
  */
 const double LatLon::toRadians() const
 {
-  return pi*angle/180.0;
+    return pi*angle/180.0;
 }
 
 bool LatLon::operator ==(const LatLon& other) const
 {
-  return ( (angle == other.angle) && (direction == other.direction) );
+    return ( (angle == other.angle) && (direction == other.direction) );
 }
 
 ostream& operator <<(ostream& outputStream, const LatLon& l)
 {
-  string dirstring(1,l.direction);
+    string dirstring(1,l.direction);
 
-  outputStream << l.angle;
-  outputStream << " ";
-  outputStream << dirstring;
+    outputStream << l.angle;
+    outputStream << " ";
+    outputStream << dirstring;
 
-  return outputStream;
+    return outputStream;
 }

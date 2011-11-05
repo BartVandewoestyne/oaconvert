@@ -63,12 +63,28 @@ ParserTest::testParseCoordinate()
   c2 = p.parseCoordinate("49:24.000N,006:08.000E");
   CPPUNIT_ASSERT_EQUAL(c1, c2);
 
-  /* We currently not allow this... but since there's no ambiguity, we
-     could as well allow it... */
+  /* We currently do not allow this one because it simply doesn't look nice,
+     but since there's no ambiguity, we could as well allow it and give a
+     warning... */
+  // TODO: Throw an exception if we see this kind of coordinate specification and
+  //       check here with CPPUNIT_ASSERT_THROW.
   //lat = Latitude(12, 34, 56, 'N');
   //lon = Longitude(56, 34, 12, 'W');
   //c1 = Coordinate(lat, lon);
   //c2 = p.parseCoordinate("12:34:56N56:34:12W    c34");
+  //CPPUNIT_ASSERT_EQUAL(c1, c2);
+
+  /* We currently do not allow this one because in DD:MM:SS we have that
+   *   0 <= MM < 60
+   * and there's no need to use 3 digits.  For now, the program exits, but
+   * we could give a warning...
+   */
+  // TODO: Throw an exception if we see this kind of coordinate specification and
+  //       check here with CPPUNIT_ASSERT_THROW.
+  //lat = Latitude(50, 59, 57, 'N');
+  //lon = Longitude(5, 3, 55, 'E');
+  //c1 = Coordinate(lat, lon);
+  //c2 = p.parseCoordinate("50:59:57N 005:003:55E");
   //CPPUNIT_ASSERT_EQUAL(c1, c2);
 }
 
@@ -119,6 +135,59 @@ ParserTest::testParseAltitude()
 
   alt = p.parseAltitude("UNL");
   CPPUNIT_ASSERT_DOUBLES_EQUAL(-1.0, alt, tol);
+
+  /* These should not pass. */
+  alt = p.parseAltitude("55 FL");
+
+}
+
+void
+ParserTest::testParseAirspaceClass()
+{
+  Parser p;
+  std::string aclass;
+
+  aclass = p.parseAirspaceClass("A");
+  CPPUNIT_ASSERT("A" == aclass);
+
+  aclass = p.parseAirspaceClass("B");
+  CPPUNIT_ASSERT("B" == aclass);
+
+  aclass = p.parseAirspaceClass("C");
+  CPPUNIT_ASSERT("C" == aclass);
+
+  aclass = p.parseAirspaceClass("D");
+  CPPUNIT_ASSERT("D" == aclass);
+
+  aclass = p.parseAirspaceClass("E");
+  CPPUNIT_ASSERT("E" == aclass);
+
+  aclass = p.parseAirspaceClass("F");
+  CPPUNIT_ASSERT("F" == aclass);
+
+  aclass = p.parseAirspaceClass("G");
+  CPPUNIT_ASSERT("G" == aclass);
+
+  aclass = p.parseAirspaceClass("P");
+  CPPUNIT_ASSERT("P" == aclass);
+
+  aclass = p.parseAirspaceClass("Q");
+  CPPUNIT_ASSERT("Q" == aclass);
+
+  aclass = p.parseAirspaceClass("R");
+  CPPUNIT_ASSERT("R" == aclass);
+
+  aclass = p.parseAirspaceClass("W");
+  CPPUNIT_ASSERT("W" == aclass);
+
+  aclass = p.parseAirspaceClass("GP");
+  CPPUNIT_ASSERT("GP" == aclass);
+
+  aclass = p.parseAirspaceClass("CTR");
+  CPPUNIT_ASSERT("CTR" == aclass);
+
+  aclass = p.parseAirspaceClass("CTR");
+  CPPUNIT_ASSERT("CTR" == aclass);
 
 }
 

@@ -28,6 +28,7 @@ class ParserTest : public CppUnit::TestFixture
   CPPUNIT_TEST_SUITE( ParserTest );
   CPPUNIT_TEST( testParseCoordinate );
   CPPUNIT_TEST( testParseAltitude );
+  CPPUNIT_TEST( testParseAirspaceClass );
   CPPUNIT_TEST( testSetGetCurrentAirspace );
   CPPUNIT_TEST_SUITE_END();
 
@@ -37,6 +38,7 @@ public:
 
   void testParseCoordinate();
   void testParseAltitude();
+  void testParseAirspaceClass();
   void testSetGetCurrentAirspace();
 
 };

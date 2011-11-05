@@ -1,18 +1,18 @@
 /*
   Copyright 2011 Bart Vandewoestyne, Yves Frederix.
-  
+
   This file is part of oaconvert.
-  
+
   oaconvert is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
-  
+
   oaconvert is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
-  
+
   You should have received a copy of the GNU General Public License
   along with oaconvert.  If not, see <http://www.gnu.org/licenses/>.
 */
@@ -32,22 +32,22 @@
 using namespace std;
 
 Airspace::Airspace()
-: region(0)
+    : region(0)
 {}
 
 Airspace::~Airspace()
 {
-  delete region;
+    delete region;
 }
 
 const string& Airspace::getName() const
 {
-  return name;
+    return name;
 }
 
 const string& Airspace::getClass() const
 {
-  return clss;
+    return clss;
 }
 
 /**
@@ -55,7 +55,7 @@ const string& Airspace::getClass() const
   */
 const double Airspace::getCeiling() const
 {
-  return ceiling;
+    return ceiling;
 }
 
 /**
@@ -63,22 +63,22 @@ const double Airspace::getCeiling() const
   */
 const double Airspace::getFloor() const
 {
-  return floor;
+    return floor;
 }
 
 const Region* Airspace::getRegion() const
 {
-  return region;
+    return region;
 }
 
 void Airspace::setName(const string& mystring)
 {
-  name = mystring;
+    name = mystring;
 }
 
 void Airspace::setClass(const string& clss)
 {
-  this->clss = clss;
+    this->clss = clss;
 }
 
 /**
@@ -86,7 +86,7 @@ void Airspace::setClass(const string& clss)
   */
 void Airspace::setCeiling(const double ceiling)
 {
-  this->ceiling = ceiling;
+    this->ceiling = ceiling;
 }
 
 /**
@@ -94,7 +94,7 @@ void Airspace::setCeiling(const double ceiling)
   */
 void Airspace::setFloor(const double floor)
 {
-  this->floor = floor;
+    this->floor = floor;
 }
 
 //void Airspace::add( Region* region )
@@ -106,48 +106,48 @@ void Airspace::setFloor(const double floor)
 Circle* Airspace::addCircle(const Coordinate& coordinate, double radius)
 {
 //  assert(!region); // not initialized yet
-  Circle *result = new Circle(coordinate, radius);
-  region = result;
-  return result;
+    Circle *result = new Circle(coordinate, radius);
+    region = result;
+    return result;
 }
 
 CurvedPolygon* Airspace::addCurvedPolygon()
 {
 //  assert(!region); // not initialized yet
-  CurvedPolygon *result = new CurvedPolygon();
-  region = result;
-  return result;
+    CurvedPolygon *result = new CurvedPolygon();
+    region = result;
+    return result;
 }
 
 void Airspace::add(const Label& label)
 {
-  labels.push_back( label );
+    labels.push_back( label );
 }
 
 void Airspace::clear()
 {
-  name = "";
-  clss = "";
-  ceiling = -1.0;
-  floor = -1.0;
-  labels.clear();
+    name = "";
+    clss = "";
+    ceiling = -1.0;
+    floor = -1.0;
+    labels.clear();
 }
 
 ostream& operator <<(ostream& outputStream, const Airspace& s)
 {
-  outputStream << "Name:    " << s.name << endl;
-  outputStream << "Class:   " << s.clss << endl;
-  outputStream << "Ceiling: " << s.ceiling << endl;
-  outputStream << "Floor:   " << s.floor << endl;
-  if (s.labels.size() > 0)
-  {
-    outputStream << "Label coordinates:" << endl;
-    for (size_t i=0; i<s.labels.size(); ++i)
+    outputStream << "Name:    " << s.name << endl;
+    outputStream << "Class:   " << s.clss << endl;
+    outputStream << "Ceiling: " << s.ceiling << endl;
+    outputStream << "Floor:   " << s.floor << endl;
+    if (s.labels.size() > 0)
     {
-      const Label &label = s.labels[i];
-      outputStream << "  " << label.getText() << " -- " << label.getCoordinate() << endl;
+        outputStream << "Label coordinates:" << endl;
+        for (size_t i=0; i<s.labels.size(); ++i)
+        {
+            const Label &label = s.labels[i];
+            outputStream << "  " << label.getText() << " -- " << label.getCoordinate() << endl;
+        }
     }
-  }
-  s.region->print( outputStream );
-  return outputStream;
+    s.region->print( outputStream );
+    return outputStream;
 }
