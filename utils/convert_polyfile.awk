@@ -6,7 +6,7 @@
 #
 # Example:
 #
-#   ./convert_polyfile.awk ../third_party_data/belgium.poly > ../openair/belgium/belgium_cloudmade.txt
+#   ./convert_polyfile.awk ../third_party_data/belgium.poly > ../openair/belgium/belgian_border.txt
 
 
 # Match a line starting a region.
