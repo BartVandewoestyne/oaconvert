@@ -1,7 +1,16 @@
 Sources with data-files
 -----------------------
-http://www.gadm.org/Belgium
 http://downloads.cloudmade.com/europe/western_europe/belgium
+  -> data extracted from OpenStreetMap
+
+http://www.naturalearthdata.com/
+  -> Data available in Esri Shapefile, to be opened with qgis and then
+     exported somehow???
+
+http://www.gadm.org/Belgium
+
+http://freegisdata.rtwilson.com/
+
 
 Other potential sources
 -----------------------
@@ -13,3 +22,13 @@ http://www.eurogeographics.org/
 
 http://www.eurocadastre.org/pdf/Brussels_december_2010/presentations/1012109_15-15_DMarechal.pdf
 http://ies.jrc.ec.europa.eu/uploads/SDI/PDF%20%20Data%20matching%20experience%20in%20the%20EuroBoundary%20project%20-%20LAURENT.pdf
+
+
+Emails sent to ask for information:
+-----------------------------------
+22 november 2011: Hugo Mertens (Hugo@hnma.be)
+22 november 2011: Belgocontrol
+                    nadine_meesen@belgocontrol.be
+                    SCM@belgocontrol.be (Myriam Schoonbroodt)
+                    GGA@belgocontrol.be (Gilles Gallemaers)
+22 november 2011: NGI via hun online webformulier, sectie 'numerieke gegevens'
