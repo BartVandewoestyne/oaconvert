@@ -112,10 +112,10 @@ Coordinate Parser::parseCoordinate(const std::string& s) const
 
         lat = Latitude(atoi(degreesLat.c_str()),
                        atoi(minutesLat.c_str()),
-                       atoi(secondsLat.c_str()), directionLat[0]);
+                       atof(secondsLat.c_str()), directionLat[0]);
         lon = Longitude(atoi(degreesLon.c_str()),
                         atoi(minutesLon.c_str()),
-                        atoi(secondsLon.c_str()), directionLon[0]);
+                        atof(secondsLon.c_str()), directionLon[0]);
         return Coordinate(lat, lon);
     }
 
@@ -501,9 +501,12 @@ void Parser::addArc( const Arc& arc )
 void Parser::initRegexMap()
 {
     // Coordinate specification stuff.
-    regexMap[REGEX_DDMMSS] = regex("\\s*(\\d{1,3}):(\\d{1,2}):(\\d{1,2})\\s*([NS])[\\s,]+(\\d{1,3}):(\\d{1,2}):(\\d{1,2})\\s*([WE]).*", boost::regex_constants::icase);
-    regexMap[REGEX_DDMM]   = regex("\\s*(\\d{1,3}):(\\d{1,2}.\\d+)\\s*([NS])[\\s,]+(\\d{1,3}):(\\d{1,2}.\\d+)\\s*([WE]).*",             boost::regex_constants::icase);
-    regexMap[REGEX_DD]     = regex("\\s*(\\d{1,3}.\\d+)\\s*([NS])[\\s,]+(\\d{1,3}.\\d+)\\s*([WE]).*",                                   boost::regex_constants::icase);
+    regexMap[REGEX_DDMMSS] = regex("\\s*(\\d{1,3}):(\\d{1,2}):(\\d{1,2}(?:.\\d+)?)\\s*([NS])[\\s,]+(\\d{1,3}):(\\d{1,2}):(\\d{1,2}(?:.\\d+)?)\\s*([WE]).*",
+                                   boost::regex_constants::icase);
+    regexMap[REGEX_DDMM]   = regex("\\s*(\\d{1,3}):(\\d{1,2}.\\d+)\\s*([NS])[\\s,]+(\\d{1,3}):(\\d{1,2}.\\d+)\\s*([WE]).*",
+                                   boost::regex_constants::icase);
+    regexMap[REGEX_DD]     = regex("\\s*(\\d{1,3}.\\d+)\\s*([NS])[\\s,]+(\\d{1,3}.\\d+)\\s*([WE]).*",
+                                   boost::regex_constants::icase);
 
     // Altitude specification stuff.
     regexMap[REGEX_FT]             = regex("\\s*(\\d+)\\s*('|ft)?.*",          boost::regex_constants::icase);

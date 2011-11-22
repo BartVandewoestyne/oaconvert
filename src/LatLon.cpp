@@ -54,7 +54,7 @@ LatLon::LatLon(double degrees, char direction)
     this->direction = direction;
 }
 
-LatLon::LatLon(int degrees, int minutes, int seconds, char direction)
+LatLon::LatLon(int degrees, int minutes, double seconds, char direction)
 {
     angle = degrees + minutes/60.0 + seconds/3600.0;
     if ( (direction == 's')

@@ -47,7 +47,7 @@ public:
     LatLon(double degrees);
     LatLon(double degrees, char direction);
     LatLon(int degrees, double minutes, char direction);
-    LatLon(int degrees, int minutes, int seconds, char direction);
+    LatLon(int degrees, int minutes, double seconds, char direction);
 
     double getAngle() const;
     char getDirection() const;

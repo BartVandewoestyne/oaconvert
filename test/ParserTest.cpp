@@ -51,6 +51,12 @@ ParserTest::testParseCoordinate()
   c2 = p.parseCoordinate("12:34:56 N 56:34:12 W    c34");
   CPPUNIT_ASSERT_EQUAL(c1, c2);
 
+  lat = Latitude(12, 34, 56.3, 'N');
+  lon = Longitude(56, 34, 12.6, 'W');
+  c1 = Coordinate(lat, lon);
+  c2 = p.parseCoordinate("12:34:56.3 N 56:34:12.6 W    c34");
+  CPPUNIT_ASSERT_EQUAL(c1, c2);
+
   lat = Latitude(39, 36.8, 'N');
   lon = Longitude(119, 46.1, 'W');
   c1 = Coordinate(lat, lon);
