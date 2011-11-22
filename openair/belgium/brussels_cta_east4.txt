@@ -10,7 +10,8 @@ AN Brussels CTA EAST 4
 AH FL 195
 AL FL 55 * Lower limit 4500 ft AMSL east of Liège TMA One.
 DP 50:50:00 N 005:38:54 E
-DP 50:49:46.6 N 005:39:09.1 E * START Belgian-Dutch border (OpenStreetMap data)
+* START Belgian-Dutch border (OpenStreetMap data)
+DP 50:49:46.6 N 005:39:09.1 E
 DP 50:49:19.2 N 005:39:37.8 E
 DP 50:49:10.6 N 005:40:20.9 E
 DP 50:48:31.3 N 005:41:30.9 E
@@ -44,7 +45,8 @@ DP 50:45:23.1 N 005:59:56.7 E
 DP 50:45:26.3 N 006:00:25.5 E
 DP 50:45:23.8 N 006:00:25.7 E
 DP 50:45:24.8 N 006:00:41.8 E
-DP 50:45:15.5 N 006:00:43.7 E * END Belgian-Dutch border (OpenStreetMap data)
+DP 50:45:15.5 N 006:00:43.7 E
+* END Belgian-Dutch border (OpenStreetMap data)
 DP 50:45:15 N 006:01:16 E
 DP 50:42:19 N 005:49:02 E
 DP 50:45:01 N 005:36:05 E
