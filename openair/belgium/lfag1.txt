@@ -4,8 +4,9 @@
 *    ENR 5.5 Aerial sporting and recreational activities
 *     2. LOW FLYING AREAS GOLF
 *
-* Note: Belgian border data was extracted from
-*       http://downloads.cloudmade.com/europe/western_europe/belgium/belgium.poly
+* Note:
+*   Belgian border data was extracted from
+*   http://downloads.cloudmade.com/europe/western_europe/belgium/belgium.poly
 *
 * Last update by Bart Vandewoestyne on 23 November 2011.
 

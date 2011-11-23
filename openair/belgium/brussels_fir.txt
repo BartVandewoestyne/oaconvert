@@ -3,8 +3,9 @@
 *   ENR 2 AIR TRAFFIC SERVICES AIRSPACE
 *    ENR 2.1 FIR, UIR, TMA
 *
-* Note: Belgian border data was extracted from
-*       http://downloads.cloudmade.com/europe/western_europe/belgium/belgium.poly
+* Note:
+*   Belgian border data was extracted from
+*   http://downloads.cloudmade.com/europe/western_europe/belgium/belgium.poly
 *
 * Last update by Bart Vandewoestyne on 23 November 2011.
 
