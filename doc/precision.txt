@@ -1,0 +1,11 @@
+Precision of Decimal Degrees:
+  http://www.sunearthtools.com/dp/tools/conversion.php
+  places  decimal deg.  degrees       distance
+  0       1.0           1°0’0"        111.319 km
+  1       0.1           0°6’0"        11.131 km
+  2       0.01          0°0’3.6"      1.113 km
+  3       0.001         0°0’0.36"     111.3 m
+  4       0.0001        0°0’0.036"    11.13 m
+  5       0.00001       0°0’0.0036"   1.11 m
+  6       0.000001      0°0’0.00036"  11.1 cm
+  7       0.0000001     0°0’0.000036" 1.11 cm
