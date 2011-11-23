@@ -9,6 +9,8 @@ http://www.naturalearthdata.com/
 
 http://www.gadm.org/Belgium
 
+http://www.diva-gis.org/gData
+
 http://freegisdata.rtwilson.com/
 
 
@@ -22,6 +24,11 @@ http://www.eurogeographics.org/
 
 http://www.eurocadastre.org/pdf/Brussels_december_2010/presentations/1012109_15-15_DMarechal.pdf
 http://ies.jrc.ec.europa.eu/uploads/SDI/PDF%20%20Data%20matching%20experience%20in%20the%20EuroBoundary%20project%20-%20LAURENT.pdf
+
+Info
+----
+http://help.openstreetmap.org/questions/4036/export-administrative-boundaries-of-a-country-for-use-with-an-external-application
+http://help.openstreetmap.org/questions/1804/is-it-easy-to-extract-the-shape-of-country-across-api
 
 
 Emails sent to ask for information:
