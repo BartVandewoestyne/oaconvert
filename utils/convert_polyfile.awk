@@ -20,5 +20,12 @@
 
 # Match a line with data and print it as an OpenAir DP-record.
 /^[ \t]+([0-9]+[.]?[0-9]*)[ \t]+([0-9]+[.]?[0-9]*)/ {
-  printf("DP %f N %f E\n", $2, $1);
+
+  # We only keep 6 decimal places since GPSMapEdit also only
+  # uses this number of decimal places.
+  printf("DP %.6f N %.6f E\n", $2, $1);
+
+  # With this alternative, we use the precision as it is specified in the
+  # original datafile. 
+  #printf("DP %s N %s E\n", $2, $1);
 }
