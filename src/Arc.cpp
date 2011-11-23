@@ -144,13 +144,13 @@ void Arc::discretize( std::vector<Coordinate>& coords, double resolution ) const
     }
 
     double interval;
-    if (getDirection() == '+')
-    {
-        interval = endAngle - startAngle;
-    }
-    else
+    if (getDirection() == '-')
     {
         interval = -( 360-(endAngle-startAngle) );
+    }
+    else // Default (or non specified) is positive direction.
+    {
+        interval = endAngle - startAngle;
     }
 
     // Compute arcdegree of latitude respectively longitude difference of the center.
