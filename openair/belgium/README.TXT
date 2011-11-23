@@ -18,7 +18,7 @@ then this should be translated into
   V D=+
   V X=<coordinateX>
   * Radius: 5 NM
-  DB <coordinate1>,<coordinate2>
+  DB <coordinate1>, <coordinate2>
   <coordinate2>
   ...
 
