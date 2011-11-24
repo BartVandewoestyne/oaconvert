@@ -1,6 +1,6 @@
 Sources with data-files
 -----------------------
-http://downloads.cloudmade.com/europe/western_europe/belgium
+http://downloads.cloudmade.com/
   -> data extracted from OpenStreetMap
 
 http://www.naturalearthdata.com/
