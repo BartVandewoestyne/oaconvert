@@ -13,7 +13,7 @@
 /^[0-9]+[ \t]*/ {
   printf("\n");
   printf("AC C\n");
-  printf("AN Belgian border\n");
+  printf("AN border\n");
   printf("AL GND\n");
   printf("AH UNLIMITED\n");
 }
