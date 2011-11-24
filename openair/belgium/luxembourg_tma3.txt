@@ -1,0 +1,23 @@
+* See:
+*   AIP Part 2 EN-ROUTE (ENR)
+*   ENR 2 AIR TRAFFIC SERVICES AIRSPACE
+*    ENR 2.1 FIR, UIR, TMA
+*
+* Last update by Bart Vandewoestyne on 24 November 2011.
+
+* Remarks:
+*   - Delegation of ATS from Strasbourg APP to Luxembourg APP.
+AC D
+AN Luxembourg TMA 3
+AH FL 75
+AL 2500 ft AMSL
+DP 49:27:17 N 006:06:04 E
+DP 49:27:17 N 006:28:54 E
+* START German-French border
+* TODO
+* END German-French border
+DP 49:28:10 N 006:22:02 E
+* START French-Luxembourg border
+* TODO
+* END French-Luxembourg border
+DP 49:27:17 N 006:06:04 E

@@ -1,0 +1,32 @@
+* See:
+*   AIP Part 2 EN-ROUTE (ENR)
+*   ENR 2 AIR TRAFFIC SERVICES AIRSPACE
+*    ENR 2.1 FIR, UIR, TMA
+*     2.4 Military Control Zones
+*
+* Last update by Bart Vandewoestyne on 24 November 2011.
+
+* Remarks:
+*   - OPR: Belgian Air Component (see "important notice on crossing of military
+*          TMA and CTR" above).
+*   - For crossing clearance only, contact Beauvechain APP.
+AC D
+AN Beauvechain CTR
+AH 2500 ft AMSL
+AL GND
+DP 50:41:51 N 004:30:16 E
+DP 50:55:55 N 004:50:03 E
+DP 50:52:26 N 005:00:53 E
+V D=+
+V X=50:46:50 N 004:57:23 E
+* Radius 6 NM
+DB 50:52:26 N 005:00:53 E, 50:47:23 N 005:06:50 E
+DP 50:47:23 N 005:06:50 E
+DP 50:41:57 N 004:55:25 E
+DP 50:39:41 N 004:49:55 E
+DP 50:35:02 N 004:42:48 E
+V D=+
+V X=50:45:28 N 004:46:01 E
+* Radius 10.6 NM
+DB 50:35:02 N 004:42:48 E, 50:41:51 N 004:30:16 E
+DP 50:41:51 N 004:30:16 E

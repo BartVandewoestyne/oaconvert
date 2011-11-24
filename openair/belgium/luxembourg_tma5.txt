@@ -1,0 +1,26 @@
+* See:
+*   AIP Part 2 EN-ROUTE (ENR)
+*   ENR 2 AIR TRAFFIC SERVICES AIRSPACE
+*    ENR 2.1 FIR, UIR, TMA
+*
+* Last update by Bart Vandewoestyne on 24 November 2011.
+
+* Remarks:
+*   - Delegation of ATS from Brussels ACC to Luxembourg APP.
+*   - Airspace class C above FL 95.
+AC C/D
+AN Luxembourg TMA 5
+AH FL 165
+AL 2500 ft AMSL
+DP 49:43:28 N 005:49:55 E
+DP 49:40:32 N 005:49:56 E
+DP 49:35:37 N 005:43:56 E
+DP 49:32:32 N 005:45:20 E
+* START Belgian-French border
+* TODO
+* END Belgian-French border
+DP 49:32:47 N 005:49:07 E
+* START Belgian-Luxembourg border
+* TODO
+* END Belgian-Luxembourg border
+DP 49:43:28 N 005:49:55 E

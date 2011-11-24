@@ -1,0 +1,21 @@
+* See:
+*   AIP Part 2 EN-ROUTE (ENR)
+*   ENR 2 AIR TRAFFIC SERVICES AIRSPACE
+*    ENR 2.1 FIR, UIR, TMA
+*
+* Last update by Bart Vandewoestyne on 24 November 2011.
+
+* Remarks:
+*   - Delegation of ATS from Langen ACC to Luxembourg APP.
+AC E
+AN Luxembourg TMA 2C
+AH FL 95
+AL 5500 ft AMSL
+DP 50:01:49 N 006:12:28 E
+DP 49:51:07 N 006:32:20 E
+DP 49:50:32 N 006:33:25 E
+DP 49:47:08 N 006:33:41 E
+DP 49:48:33 N 006:30:10 E
+DP 49:52:28 N 006:20:26 E * ERROR on Belgocontrol website!
+DP 49:56:08 N 006:12:04 E
+DP 50:01:49 N 006:12:28 E

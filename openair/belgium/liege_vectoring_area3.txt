@@ -1,0 +1,27 @@
+* See:
+*   AIP Part 2 EN-ROUTE (ENR)
+*   ENR 2 AIR TRAFFIC SERVICES AIRSPACE
+*    ENR 2.1 FIR, UIR, TMA
+*
+* Note:
+*   Belgian border data was extracted from
+*   http://downloads.cloudmade.com/europe/western_europe/belgium/belgium.poly
+*
+* Last update by Bart Vandewoestyne on 24 November 2011.
+
+* Active daily 2200-0500, except during MIL activity at EBBE or in TRA South.
+AC C
+AN Liège vectoring area 3
+AH FL 55
+AL 3500 ft AMSL
+DP 50:33:25 N 006:10:27 E
+DP 50:30:55 N 005:59:56 E
+DP 50:45:13 N 005:59:56 E
+* START Belgian-Dutch border
+* TODO
+* END Belgian-Dutch border
+DP 50:45:15 N 006:01:16 E
+* START Belgian-German border
+* TODO
+* END Belgian-German border
+DP 50:33:25 N 006:10:27 E

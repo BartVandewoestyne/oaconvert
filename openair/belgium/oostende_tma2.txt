@@ -1,0 +1,28 @@
+* See:
+*   AIP Part 2 EN-ROUTE (ENR)
+*   ENR 2 AIR TRAFFIC SERVICES AIRSPACE
+*    ENR 2.1 FIR, UIR, TMA
+*
+* Last update by Bart Vandewoestyne on 24 November 2011.
+
+* Remarks:
+*   - Partially situated in France.
+*   - AWY L607, L179, Y50 and Q70 excluded.
+AC C
+AN Oostende TMA 2
+AH FL 95
+AL FL 55
+DP 50:59:00 N 002:49:17 E
+DP 51:00:43 N 002:39:05 E
+DP 51:01:48 N 002:19:40 E
+DP 51:06:18 N 002:14:18 E
+DP 51:07:00 N 002:00:00 E
+DP 51:30:00 N 002:00:00 E
+DP 51:22:23 N 003:21:47 E
+* START Belgian-Dutch border
+* TODO
+* END Belgian-Dutch border
+DP 51:16:35 N 003:22:36 E
+DP 51:05:00 N 003:15:00 E
+DP 51:03:57 N 002:58:25 E
+DP 50:59:00 N 002:49:17 E
