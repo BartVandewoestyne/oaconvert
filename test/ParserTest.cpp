@@ -195,6 +195,9 @@ ParserTest::testParseAirspaceClass()
   aclass = p.parseAirspaceClass("CTR");
   CPPUNIT_ASSERT("CTR" == aclass);
 
+  aclass = p.parseAirspaceClass("C/E");
+  CPPUNIT_ASSERT("C/E" == aclass);
+
 }
 
 void

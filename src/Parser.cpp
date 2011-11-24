@@ -520,8 +520,10 @@ void Parser::initRegexMap()
     regexMap[REGEX_ASK]            = regex("\\s*Ask.*",                        boost::regex_constants::icase);
     regexMap[REGEX_COMMENT]        = "\\s*\\*.*";
 
-    // Valid airspace classes.
-    regexMap[REGEX_AIRSPACE_CLASS] = "\\s*([ABCDEFGPQRW]|GP|CTR)\\s*";
+    // Valid airspace classes (we allow the specification of multiple airspace
+    // classes, separated by forward slashes and without spaces in between).
+    regexMap[REGEX_AIRSPACE_CLASS] =
+      "\\s*((?:[ABCDEFGPQRW]|GP|CTR)(?:/[ABCDEFGPQRW]|GP|CTR)*)\\s*";
 
     // Valid DB arc coordinate specifications.
     // TODO: check if we can make this regex shorter...
