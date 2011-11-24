@@ -535,8 +535,8 @@ void Parser::initRegexMap()
     regexMap[REGEX_AH] = "\\s*AH\\s+(.*)(\\*.*)?";
     regexMap[REGEX_AL] = "\\s*AL\\s+(.*)(\\*.*)?";
     regexMap[REGEX_AT] = "\\s*AT\\s+(.*)(\\*.*)?";
-    regexMap[REGEX_VX] = "\\s*V\\s+X\\s*=\\s*(.*)(\\*.*)?";
-    regexMap[REGEX_VD] = "\\s*V\\s+D\\s*=\\s*(.*)(\\*.*)?";
+    regexMap[REGEX_VX] = "\\s*V\\s+X\\s*=\\s*(.*)(?:\\*.*)?";
+    regexMap[REGEX_VD] = "\\s*V\\s+D\\s*=\\s*(.*)(?:\\*.*)?";
     regexMap[REGEX_DP] = "\\s*DP\\s+(.*)(\\*.*)?";
     regexMap[REGEX_DA] = "\\s*DA\\s+(\\d+\\.*\\d*)[\\s,]+(\\d+)[\\s,]+(\\d+)(\\*.*)?";
     regexMap[REGEX_DB] = "\\s*DB\\s+(.*)(\\*.*)?";

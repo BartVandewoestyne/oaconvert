@@ -106,11 +106,17 @@ char Arc::getDirection() const
 //  angleEnd = angle;
 //}
 
+/**
+  * Return the start angle in airspace coordinate frame conventions.
+  */
 double Arc::getStartAngle() const
 {
     return angleStart;
 }
 
+/**
+  * Return the end angle in airspace coordinate frame conventions.
+  */
 double Arc::getEndAngle() const
 {
     return angleEnd;
@@ -159,7 +165,7 @@ void Arc::discretize( std::vector<Coordinate>& coords, double resolution ) const
 
     // Compute the number of points of the discretization.
     //size_t nbPoints = (size_t) ( 2 * pi * ( interval / 360.0 ) * radiusNM / resolution );
-    int nbPoints = (int) ( 2 * pi * ( interval / 360.0 ) * radiusNM / resolution );
+    int nbPoints = (int) abs( 2 * pi * ( interval / 360.0 ) * radiusNM / resolution );
 
     // Generate all points of the arc.
     for (int i = 0; i < nbPoints; ++i)
