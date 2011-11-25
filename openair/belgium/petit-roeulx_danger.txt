@@ -1,0 +1,19 @@
+* See:
+*   AIP Part 2 EN-ROUTE (ENR)
+*   ENR 5 NAVIGATION WARNINGS
+*    ENR 5.1 Prohibited, restricted and danger areas
+*     3 DANGER AREAS
+*
+* Last update by Bart Vandewoestyne on 25 November 2011.
+
+* Type of restriction / nature of hazard:
+*   - Fulminate manufactory and shooting range.
+*
+* Time of activity:
+*   - PERM
+AC D
+AN Petit-Roeulx
+AH 2000 ft AGL
+AL GND
+V X=50:33:57 N 004:19:35 E
+DC 0.539956803455723

@@ -1,0 +1,27 @@
+* See:
+*   AIP Part 2 EN-ROUTE (ENR)
+*   ENR 5 NAVIGATION WARNINGS
+*    ENR 5.1 Prohibited, restricted and danger areas
+*     1 PROHIBITED AREAS
+*
+* Last update by Bart Vandewoestyne on 25 November 2011.
+
+* Type of restriction / nature of hazard:
+*   - Entry prohibited, unless instructed by ATC.
+* Time of activity:
+*   - PERM
+AC P
+AN Brussels city
+AH UNL
+AL GND
+DP 50:53:11 N 004:20:13 E
+V D=+
+V X=50:53:11 N 004:21:30 E
+* Radius 1.5 km
+DB 50:53:11 N 004:20:13 E, 50:53:16 N 004:22:47 E
+DP 50:53:16 N 004:22:47 E
+V D=+
+V X=50:50:39 N 004:21:42 E
+* Radius 5 km
+DB 50:53:16 N 004:22:47 E, 50:53:11 N 004:20:13 E
+DP 50:53:11 N 004:20:13 E

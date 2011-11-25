@@ -1,0 +1,24 @@
+* See:
+*   AIP Part 2 EN-ROUTE (ENR)
+*   ENR 5 NAVIGATION WARNINGS
+*    ENR 5.1 Prohibited, restricted and danger areas
+*     1 PROHIBITED AREAS
+*
+* Last update by Bart Vandewoestyne on 25 November 2011.
+
+* Type of restriction / nature of hazard:
+*   - High intensity flights of jet aircraft during LOFT exercises.
+*
+* Time of activity:
+*   - HX (May be activated MON to FRI (HOL excl), 0830-1600 and 1730-0700.
+*         Activation can be checked with Brussels FIC.)
+AC P
+AN Helchteren LOFT
+AH FL 75
+AL FL 50
+DP 50:59:29 N 005:19:51 E
+DP 51:01:57 N 005:34:55 E
+DP 50:55:47 N 005:34:55 E
+DP 50:55:28 N 005:32:07 E
+DP 50:55:30 N 005:27:54 E
+DP 50:59:29 N 005:19:51 E

@@ -1,0 +1,47 @@
+* See:
+*   AIP Part 2 EN-ROUTE (ENR)
+*   ENR 5 NAVIGATION WARNINGS
+*    ENR 5.1 Prohibited, restricted and danger areas
+*     1 PROHIBITED AREAS
+*
+* Last update by Bart Vandewoestyne on 25 November 2011.
+
+* Type of restriction / nature of hazard:
+*   - Downwind lane for bombing exercises.
+*
+* Time of activity:
+*   - HX (May be activated MON to FRI (HOL excl), 0800-1600 and 1600-0800.
+*         Activation can be checked with Brussels FIC.)
+AC P
+AN Helchteren downwind
+AH FL 50
+AL 2500 ft AGL
+DP 51:03:33 N 005:46:19 E
+* START Belgian-Dutch border
+DP 51.057007 N 5.777950 E
+DP 51.044991 N 5.768659 E
+DP 51.037502 N 5.764046 E
+DP 51.032696 N 5.763574 E
+DP 51.029800 N 5.769839 E
+DP 51.025208 N 5.774496 E
+DP 51.020401 N 5.770569 E
+DP 51.013901 N 5.767801 E
+DP 51.011303 N 5.767350 E
+DP 51.011196 N 5.770719 E
+DP 50.992397 N 5.763080 E
+DP 50.964008 N 5.725787 E
+DP 50.959999 N 5.724993 E
+DP 50.956390 N 5.730979 E
+DP 50.956200 N 5.737696 E
+DP 50.958302 N 5.744455 E
+DP 50.959396 N 5.751901 E
+DP 50.956390 N 5.757158 E
+DP 50.953003 N 5.757308 E
+* END Belgian-Dutch border
+DP 50:56:55 N 005:45:02 E
+DP 50:55:28 N 005:32:07 E
+DP 50:55:30 N 005:27:52 E
+DP 50:55:33 N 005:19:51 E
+DP 50:59:29 N 005:19:51 E
+DP 51:01:57 N 005:34:55 E
+DP 51:03:33 N 005:46:19 E

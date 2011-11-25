@@ -1,0 +1,36 @@
+* See:
+*   AIP Part 2 EN-ROUTE (ENR)
+*   ENR 5 NAVIGATION WARNINGS
+*    ENR 5.1 Prohibited, restricted and danger areas
+*     2 RESTRICTED AREAS
+*
+* Last update by Bart Vandewoestyne on 25 November 2011.
+
+* Type of restriction / nature of hazard:
+*   - Let-down procedure space for jet aircraft. Crossing clearance shall be
+*     requested from Koksijde APP.
+*
+* Time of activity:
+*   - During EBFN OPR HR (EBFN OPR HR can be checked with Brussels FIC or
+*     Semmerzake ATCC.)
+AC R
+AN Koksijde let-down
+AH 4500 ft AMSL
+AL 1100 ft AMSL
+DP 51:01:31 N 002:34:19 E
+* START Belgian-French border
+DP 51.002998 N 2.579985 E
+DP 50.985512 N 2.609103 E
+DP 50.950790 N 2.630775 E
+DP 50.941200 N 2.625883 E
+DP 50.919701 N 2.597709 E
+DP 50.905602 N 2.609296 E
+DP 50.867599 N 2.615690 E
+DP 50.852707 N 2.601078 E
+DP 50.836292 N 2.621891 E
+DP 50.814106 N 2.627900 E
+DP 50.811508 N 2.641375 E
+* END Belgian-French border
+DP 50:48:48 N 002:38:43 E
+DP 50:59:57 N 002:43:37 E
+DP 51:01:31 N 002:34:19 E

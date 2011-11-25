@@ -1,0 +1,22 @@
+* See:
+*   AIP Part 2 EN-ROUTE (ENR)
+*   ENR 5 NAVIGATION WARNINGS
+*    ENR 5.1 Prohibited, restricted and danger areas
+*     3 DANGER AREAS
+*
+* Last update by Bart Vandewoestyne on 25 November 2011.
+
+* Type of restriction / nature of hazard:
+*   - Gunnery area.
+*
+* Time of activity:
+*   - PERM
+AC D
+AN Beverlo 01
+AH 5000 ft AGL
+AL GND
+DP 51:09:27 N 005:15:30 E
+DP 51:09:27 N 005:21:25 E
+DP 51:07:37 N 005:21:25 E
+DP 51:07:03 N 005:15:30 E
+DP 51:09:27 N 005:15:30 E

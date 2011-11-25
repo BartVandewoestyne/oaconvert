@@ -1,0 +1,26 @@
+* See:
+*   AIP Part 2 EN-ROUTE (ENR)
+*   ENR 5 NAVIGATION WARNINGS
+*    ENR 5.1 Prohibited, restricted and danger areas
+*     3 DANGER AREAS
+*
+* Last update by Bart Vandewoestyne on 25 November 2011.
+
+* Type of restriction / nature of hazard:
+*   - Gunnery area.
+*
+* Time of activity:
+*   - HX (Announced by NOTAM.)
+AC D
+AN Lombardsijde sector alpha
+AH 2500 ft AMSL
+AL SFC
+DP 51:09:19 N 002:43:40 E
+DP 51:10:20 N 002:40:01 E
+V D=+
+V X=51:09:19 N 002:43:40 E
+* Radius 2.5 NM
+DB 51:10:20 N 002:40:01 E, 51:10:56 N 002:46:44 E
+DP 51:10:56 N 002:46:44 E
+DP 51:10:10 N 002:46:30 E
+DP 51:09:19 N 002:43:40 E

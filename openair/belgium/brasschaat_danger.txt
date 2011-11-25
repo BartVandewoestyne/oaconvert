@@ -1,0 +1,23 @@
+* See:
+*   AIP Part 2 EN-ROUTE (ENR)
+*   ENR 5 NAVIGATION WARNINGS
+*    ENR 5.1 Prohibited, restricted and danger areas
+*     3 DANGER AREAS
+*
+* Last update by Bart Vandewoestyne on 25 November 2011.
+
+* Type of restriction / nature of hazard:
+*   - Gunnery area.
+*
+* Time of activity:
+*   - HX (Announced by NOTAM.)
+AC D
+AN Brasschaat
+AH FL 140  * Upper limit may be restricted to FL 70 (see NOTAM).
+AL GND
+DP 51:18:27 N 004:31:55 E
+DP 51:18:57 N 004:30:55 E
+DP 51:19:57 N 004:31:55 E
+DP 51:23:27 N 004:36:55 E
+DP 51:22:17 N 004:38:55 E
+DP 51:18:27 N 004:31:55 E

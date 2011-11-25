@@ -1,0 +1,20 @@
+* See:
+*   AIP Part 2 EN-ROUTE (ENR)
+*   ENR 5 NAVIGATION WARNINGS
+*    ENR 5.1 Prohibited, restricted and danger areas
+*     1 PROHIBITED AREAS
+*
+* Last update by Bart Vandewoestyne on 25 November 2011.
+
+* Type of restriction / nature of hazard:
+*   - Chemical plant. Entry prohibited.
+*
+* Time of activity:
+*   - PERM
+* TODO: error in name on Belgocontrol website!!!
+AC P
+AN Du Pont de Nemours
+AH 2500 ft AMSL
+AL GND
+V X=49:35:51 N 006:12:08 E
+DC 0.323974082073434

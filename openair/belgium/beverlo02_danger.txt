@@ -1,0 +1,19 @@
+* See:
+*   AIP Part 2 EN-ROUTE (ENR)
+*   ENR 5 NAVIGATION WARNINGS
+*    ENR 5.1 Prohibited, restricted and danger areas
+*     3 DANGER AREAS
+*
+* Last update by Bart Vandewoestyne on 25 November 2011.
+
+* Type of restriction / nature of hazard:
+*   - Demolition of explosives.
+*
+* Time of activity:
+*   - HX (Announced by NOTAM.)
+AC D
+AN Beverlo 02
+AH 1200 ft AGL
+AL GND
+V X=51:04:38 N 005:20:46 E
+DC 0.5

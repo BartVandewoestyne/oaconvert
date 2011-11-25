@@ -1,0 +1,87 @@
+* See:
+*   AIP Part 2 EN-ROUTE (ENR)
+*   ENR 5 NAVIGATION WARNINGS
+*    ENR 5.5 Aerial sporting and recreational activities
+*     2. LOW FLYING AREAS GOLF
+*
+* Note:
+*   Belgian border data was extracted from
+*   http://downloads.cloudmade.com/europe/western_europe/belgium/belgium.poly
+*
+* Last update by Bart Vandewoestyne on 25 November 2011.
+
+* Type of restriction / nature of hazard:
+*   - Glider activity.
+*
+* Time of activity:
+*   - HX (Only during activation of Low Flying Area Golf One. Brussels ACC will
+*         release Low Flying Area Golf Two West up to FL 70 on request of the
+*         "Liga van Vlaamse zweefclubs" with 30 MIN prior notice to be addressed
+*         to the Brussels ACC Chief Controller. Activation of Low Flying Areas
+*         Golf Two activates Low Flying Area Golf Three and shall only be
+*         requested when meteorological services expect thermal activity above FL
+*         50. Activation can be checked with Brussels ACC Chief Controller (TEL
+*         +32 (0) 2 206 27 22) or Brussels FIC on FREQ 126.900 MHz.)
+AC G
+AN LOW FLYING AREA GOLF 2 WEST
+AH FL 75 (excl)
+AL FL 55
+DP 51:00:59 N 002:34:28 E
+DP 51:00:43 N 002:39:05 E
+DP 50:59:00 N 002:49:17 E
+DP 50:53:34 N 003:24:21 E
+DP 50:35:48 N 003:39:59 E
+DP 50:31:19 N 003:31:07 E
+* START Belgian-French border
+DP 50.525803 N 3.497322 E
+DP 50.520203 N 3.464041 E
+DP 50.497993 N 3.430438 E
+DP 50.496899 N 3.399839 E
+DP 50.489902 N 3.366923 E
+DP 50.527004 N 3.281651 E
+DP 50.536507 N 3.274548 E
+DP 50.594894 N 3.274248 E
+DP 50.632103 N 3.246245 E
+DP 50.655899 N 3.239443 E
+DP 50.668797 N 3.243756 E
+DP 50.676006 N 3.255837 E
+DP 50.694500 N 3.248949 E
+DP 50.707397 N 3.237147 E
+DP 50.715809 N 3.203437 E
+DP 50.736710 N 3.191657 E
+DP 50.752693 N 3.174748 E
+DP 50.778099 N 3.147948 E
+DP 50.780697 N 3.138850 E
+DP 50.772392 N 3.081257 E
+DP 50.773510 N 3.046453 E
+DP 50.768295 N 3.023837 E
+DP 50.761902 N 3.001070 E
+DP 50.749603 N 2.973969 E
+DP 50.747608 N 2.945473 E
+DP 50.711197 N 2.917364 E
+DP 50.700897 N 2.905262 E
+DP 50.699200 N 2.893674 E
+DP 50.709606 N 2.862496 E
+DP 50.722309 N 2.829580 E
+DP 50.728405 N 2.786279 E
+DP 50.748295 N 2.776387 E
+DP 50.753704 N 2.764370 E
+DP 50.771297 N 2.754371 E
+DP 50.784687 N 2.733879 E
+DP 50.811295 N 2.718194 E
+DP 50.813591 N 2.689376 E
+DP 50.819794 N 2.670600 E
+DP 50.818504 N 2.653670 E
+DP 50.811508 N 2.641375 E
+DP 50.814106 N 2.627900 E
+DP 50.836292 N 2.621891 E
+DP 50.852707 N 2.601078 E
+DP 50.867599 N 2.615690 E
+DP 50.905602 N 2.609296 E
+DP 50.919701 N 2.597709 E
+DP 50.941200 N 2.625883 E
+DP 50.950790 N 2.630775 E
+DP 50.985512 N 2.609103 E
+DP 51.002998 N 2.579985 E
+* END Belgian-French border
+DP 51:00:59 N 002:34:28 E

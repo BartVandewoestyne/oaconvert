@@ -1,0 +1,21 @@
+* See:
+*   AIP Part 2 EN-ROUTE (ENR)
+*   ENR 5 NAVIGATION WARNINGS
+*    ENR 5.1 Prohibited, restricted and danger areas
+*     2 RESTRICTED AREAS
+*
+* Last update by Bart Vandewoestyne on 25 November 2011.
+
+* Type of restriction / nature of hazard:
+*   - Entry restricted to aircraft maintaining a listening watch with Brussels
+*     FIC. (In case of unplanned activation of EBFS CTR and TMA, aircraft shall
+*     comply with instructions of Brussels FIC and Florennes APP.)
+*
+* Time of activity:
+*   - HX (Activation announced by NOTAM.)
+AC R
+AN Florennes
+AH FL 95
+AL GND
+V X=50:14:36 N 004:38:45 E  * EBP06A excl.
+DC 5

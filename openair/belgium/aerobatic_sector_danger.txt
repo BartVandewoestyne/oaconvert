@@ -1,0 +1,25 @@
+* See:
+*   AIP Part 2 EN-ROUTE (ENR)
+*   ENR 5 NAVIGATION WARNINGS
+*    ENR 5.1 Prohibited, restricted and danger areas
+*     3 DANGER AREAS
+*
+* Last update by Bart Vandewoestyne on 25 November 2011.
+
+* Type of restriction / nature of hazard:
+*   - Aerobatic and training sector for light aircraft.
+*
+* Time of activity:
+*   - During EBBE OPR HR. In VMC only
+AC D
+AN Aerobatic sector
+AH 2500 ft AMSL
+AL GND
+DP 50:50:06 N 005:12:05 E
+DP 50:48:24 N 005:20:11 E
+DP 50:27:58 N 004:59:57 E
+DP 50:34:57 N 004:49:56 E
+DP 50:39:41 N 004:49:55 E
+DP 50:41:57 N 004:55:25 E
+DP 50:49:25 N 005:11:05 E
+DP 50:50:06 N 005:12:05 E

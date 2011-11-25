@@ -1,0 +1,19 @@
+* See:
+*   AIP Part 2 EN-ROUTE (ENR)
+*   ENR 5 NAVIGATION WARNINGS
+*    ENR 5.1 Prohibited, restricted and danger areas
+*     1 PROHIBITED AREAS
+*
+* Last update by Bart Vandewoestyne on 25 November 2011.
+
+* Type of restriction / nature of hazard:
+*   - Entry prohibited.
+*
+* Time of activity:
+*   - Outside EBBL OPR HR (EBBL OPR HR can be checked with Brussels FIC.)
+AC P
+AN Kleine-Brogel
+AH FL 75
+AL GND
+V X=51:10:06 N 005:28:12 E
+DC 2
