@@ -65,7 +65,10 @@ void Circle::write( std::ostream& stream, const OutputState* outputstate ) const
 
 void Circle::discretize( std::vector<Coordinate>& coords, double resolution ) const
 {
-    size_t nbPoints = (size_t) ( 2 * pi * radius / resolution );
+    // Each circle must have *at least* 360 points (or more if the specified resolution is
+    // not satisfied when taking 360 points).
+    const int min_nb_points = 360;
+    int nbPoints = max((int)(2*pi*radius/resolution), min_nb_points);
 
     coords.clear();
     coords.reserve(nbPoints);
@@ -80,12 +83,12 @@ void Circle::discretize( std::vector<Coordinate>& coords, double resolution ) co
     double arcdegree_lat = lat.getArcDegree();
     double arcdegree_lon = lon.getArcDegree(lat);
 
-    for (size_t i = 0; i < nbPoints; ++i)
+    for (int i = 0; i < nbPoints; ++i)
     {
-        angle = i*360.0/nbPoints;
+        angle = 2*pi*i/nbPoints;
 
-        deg_lon = lon.getAngle() + getRadiusM()*cos(pi*angle/180.0)/arcdegree_lon;
-        deg_lat = lat.getAngle() + getRadiusM()*sin(pi*angle/180.0)/arcdegree_lat;
+        deg_lon = lon.getAngle() + getRadiusM()*cos(angle)/arcdegree_lon;
+        deg_lat = lat.getAngle() + getRadiusM()*sin(angle)/arcdegree_lat;
         coords.push_back( Coordinate( deg_lat, deg_lon ) );
     }
 }
