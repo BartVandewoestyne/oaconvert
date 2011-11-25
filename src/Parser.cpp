@@ -447,12 +447,9 @@ void Parser::handleLine(const std::string& line)
     {
         // Get circle radius (in Nautical Miles) from what we've just read.
         string radiusNM;
-        for (unsigned int i = 1; i < matches.size(); ++i)
-        {
-            radiusNM.assign(matches[i].first, matches[i].second);
-        }
+        radiusNM.assign(matches[1].first, matches[1].second);
 
-        if( ! curved_polygon )
+        if ( ! curved_polygon )
         {
             getCurrentAirspace()->addCircle(getCurrentCoordinate(), atof(radiusNM.c_str()));
         }
