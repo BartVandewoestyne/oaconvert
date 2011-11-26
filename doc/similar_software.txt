@@ -19,15 +19,32 @@ GPSMapEdit:
   http://www.geopainting.com/en/
 
 Mapwel: (untested)
+
   http://www.mapwel.eu/
+
 
 Other projects/companies that provide airspace maps for Garmin
 --------------------------------------------------------------
-http://gmapair.com
-  screenshots:
-  http://gmapair.com/sample_E.htm
-  blijkbaar gemaakt met Mapwel
-  http://gmapair.com/install_E.htm
+Maps from Fabien Maroquin <rojufloairmap@gmail.com> (Mobile: +32 85 513 251)
+
+  http://sites.google.com/site/rojuflo/
+
+Maps from Drachenflugclub Saar:
+
+  http://www.dfc-saar.de/
+  -> 'Lufträume, Airspaces, Cartes aéronautiques'
+
+GmapAir:
+
+  http://gmapair.com
+  http://gmapair.com/sample_E.htm  (nice 60CSX screenshots)
+  http://gmapair.com/install_E.htm (shows that maps are made with Mapwel)
+
+
+OpenAir to KML conversion projects
+----------------------------------
+http://www.skyfool.de/luftraeume/
+
 
 Other projects that claim to be able to visualize airspace
 ----------------------------------------------------------

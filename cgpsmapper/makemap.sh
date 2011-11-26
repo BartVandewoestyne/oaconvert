@@ -20,3 +20,18 @@ cgpsmapper -l ac $1
 # necessary files (.TDB, .REG, .IMG) so that we can load all the stuff as
 # a map in QLandkarteGT or MapSource.
 cgpsmapper -l pv mypreview.mp
+
+# After setting ProductCode=1 in the Polish file and the preview file,
+# putting all .img and .tdb files in
+#
+#   "C:\\Program Files\\Belgian Airspace Maps\\"
+#
+# the registry file content should be changed to:
+# ------------------------------------------------------------------------------
+# REGEDIT4
+# 
+# [HKEY_LOCAL_MACHINE\SOFTWARE\Garmin\MapSource\Products\1]
+# "LOC"="C:\\Program Files\\Belgian Airspace Maps\\"
+# "BMAP"="C:\\Program Files\\Belgian Airspace Maps\\MyFileName.img"
+# "TDB"="C:\\Program Files\\Belgian Airspace Maps\\MyFileName.tdb"
+# ------------------------------------------------------------------------------
