@@ -71,6 +71,12 @@ void PolishState::writeHeader(std::ostream &out) const
     //   gscripts:          none specified, so default 0
     out << "Codepage=0" << endl;
 
+    // Subfamily identifier used for locked IMG files only – value
+    // between 1 and 255. Each subfamily can be unlocked with
+    // universal unlock code or separately with individual unlock
+    // code. (Default = 1)
+    out << "ProductCode=1" << endl;
+
     // Only index objects if POI index info is explicitly provided.  With
     // 'indexing', we mean 'make searcheable by the Find function in the GPS'.
     // We follow the default value  of 'N' here.
