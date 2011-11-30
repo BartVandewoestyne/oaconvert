@@ -1,12 +1,11 @@
 #!/usr/bin/awk -f
 #
-# This script can be used to convert the third_party_data/belgium.poly file
-# to a file in OpenAir syntax.  The belgium.poly file was downloaded from
-# http://downloads.cloudmade.com/europe/western_europe/belgium
+# This script can be used to convert the 'Osmosis country bounding polygon'
+# files from http://downloads.cloudmade.com/ to files in OpenAir format.
 #
 # Example:
 #
-#   ./convert_polyfile.awk ../third_party_data/belgium.poly > ../openair/belgium/belgian_border.txt
+#   ./convert_polyfile.awk ../third_party_data/cloudmade/belgium.poly > ../openair/belgium/belgian_border.txt
 
 
 # Match a line starting a region.
