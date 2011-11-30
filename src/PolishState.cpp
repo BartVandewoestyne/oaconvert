@@ -226,7 +226,7 @@ void PolishState::write(std::ostream& stream, const Airspace& airspace) const
 
     // oa2gm used [RGN40] here, which is a [POLYLINE]... I think one could also
     // use [RGN80] here, which is a [POLYGON].
-    stream << "[POLYLINE]" << endl;
+    stream << "[POLYGON]" << endl;
 
     // Type of [POLYGON] element: 'Airport'
     // We should probably change this to something which is more appropriate
