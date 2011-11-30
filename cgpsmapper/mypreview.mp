@@ -5,6 +5,7 @@ MapSetName=MyMapSetName
 CDSetName=MyCDSetName
 MapVersion=153
 ProductCode=1
+FID=123
 ID=00000001
 Levels=2
 Level0=12
