@@ -21,6 +21,15 @@ cgpsmapper -l ac $1
 # a map in QLandkarteGT or MapSource.
 cgpsmapper -l pv mypreview.mp
 
+# Create a custom TYP file
+cgpsmapper typ MyCustomTypes.txt
+
+mkdir -p ../build/garmin/
+mv 19780321.img   ../build/garmin/
+mv MyFileName.img ../build/garmin/
+mv MyFileName.TDB ../build/garmin/
+mv *.TYP ../build/garmin/
+
 # After setting ProductCode=1 in the Polish file and the preview file,
 # putting all .img and .tdb files in
 #
