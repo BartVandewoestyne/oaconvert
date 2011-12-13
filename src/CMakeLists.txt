@@ -25,6 +25,12 @@ set(oaconvert_SRCS
 #set(CMAKE_CXX_FLAGS "-g -Wall -DDEBUG")
 
 add_executable(oaconvert ${oaconvert_SRCS})
+
 target_link_libraries(oaconvert airspace)
 #target_link_libraries(oaconvert boost_regex)
+#target_link_libraries(oaconvert ${Boost_LIBRARIES})
+
+target_link_libraries(airspace boost_regex-mt)
+
+# This works on Linux, but not in cygwin.
 target_link_libraries(oaconvert boost_regex-mt)

@@ -8,7 +8,7 @@ then
 fi
 
 # Remove old junk.
-rm -f *.reg *.img *.TDB
+rm -f *.reg *.img *.TDB airspace.mp
 
 # First, create an IMG file from the given Polish file.  With the 'ac' option
 # we make sure that the name of the file will be as defined by the ID key
@@ -19,16 +19,23 @@ cgpsmapper -l ac $1
 # Secondly, use our preview control file (mypreview.mp) to generate all the
 # necessary files (.TDB, .REG, .IMG) so that we can load all the stuff as
 # a map in QLandkarteGT or MapSource.
-cgpsmapper -l pv mypreview.mp
+unamestr=`uname -o`
+if [[ "$unamestr" == 'Cygwin' ]]; then
+  cpreview mypreview.mp
+  cgpsmapper airspace.mp
+elif [[ "$unamestr" == 'Linux' ]]; then
+  cgpsmapper -l pv mypreview.mp
+fi
 
 # Create a custom TYP file
-cgpsmapper typ MyCustomTypes.txt
+cgpsmapper typ airspace.txt airspace.TYP
 
 mkdir -p ../build/garmin/
 mv 19780321.img   ../build/garmin/
-mv MyFileName.img ../build/garmin/
-mv MyFileName.TDB ../build/garmin/
-mv *.TYP ../build/garmin/
+mv airspace.img ../build/garmin/
+mv airspace.TDB ../build/garmin/
+mv airspace.TYP ../build/garmin/
+mv airspace.MDX ../build/garmin/
 
 # After setting ProductCode=1 in the Polish file and the preview file,
 # putting all .img and .tdb files in
