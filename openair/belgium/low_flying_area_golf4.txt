@@ -1,0 +1,36 @@
+* See:
+*   AIP Part 2 EN-ROUTE (ENR)
+*   ENR 5 NAVIGATION WARNINGS
+*    ENR 5.5 Aerial sporting and recreational activities
+*     2. LOW FLYING AREAS GOLF
+*
+* Last update by Bart Vandewoestyne on 13 December 2011.
+
+* Type of restriction / nature of hazard:
+*   - Glider activity.
+*
+* Time of activity:
+*   - HX (HJ and outside MIL OPR HR only. Brussels APP will release Low Flying
+*         Area Golf Four for the benefit of glider operations from EBTN with 15
+*         MIN prior notice to be addressed to the Brussels APP Chief Controller.
+*         EBTN shall inform the Brussels APP Chief Controller of the end of the
+*         activity. Activation can be checked with the Brussels ACC Chief
+*         Controller (TEL +32 (0) 2 206 27 22) or Brussels FIC on FREQ 126.900
+*         MHz.)
+AC G
+AN LOW FLYING AREA GOLF 4
+AH FL 50
+AL 3500 ft AMSL
+DP 50:48:27 N 004:56:08 E
+DP 50:48:48 N 005:06:21 E
+V D=+
+V X=50:46:50 N 004:57:23 E
+* Radius 6 NM
+DB 50:48:48 N 005:06:21 E, 50:47:23 N 005:06:50 E
+50:41:57 N 004:55:25 E
+50:43:09 N 004:53:01 E
+V D=-
+V X=50:45:28 N 004:46:01 E
+* Radius 5 NM
+DB 50:43:09 N 004:53:01 E, 50:46:28 N 004:53:46 E
+50:48:27 N 004:56:08 E
