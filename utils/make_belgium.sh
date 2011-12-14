@@ -3,7 +3,7 @@
 # This script combines all individual Belgian OpenAir files into one Belgian
 # OpenAir file.  It also creates a build directory and generates all individual
 # GPX files inside that directory.  Next to that, it generates a Polish and GPX
-# file for the whole of Belgium.
+# file for the whole of Belgium and Luxemburg.
 
 unamestr=`uname -o`
 if [[ "$unamestr" == 'Cygwin' ]]; then
@@ -14,7 +14,7 @@ fi
   
 OA2PM_ROOTDIR=~/Dropbox/MyProjects/oaconvert
 AIRSPACES_DIR=${OA2PM_ROOTDIR}/openair
-OUTPUTFILE=${OA2PM_ROOTDIR}/build/openair/brussels_fir.txt
+OUTPUTFILE=${OA2PM_ROOTDIR}/build/openair/belux.txt
 
 AIRSPACES="${AIRSPACES_DIR}/belgium/*fir*.txt
            ${AIRSPACES_DIR}/belgium/*ctr*.txt
@@ -54,9 +54,9 @@ do
 done
 
 
-# Generate Polish and GPX file for the whole of Belgium.
-${OA2PM_ROOTDIR}/src/$OACONVERT -o ${OA2PM_ROOTDIR}/build/polish_format/brussels_fir.mp ${OA2PM_ROOTDIR}/build/openair/brussels_fir.txt
-${OA2PM_ROOTDIR}/src/$OACONVERT -o ${OA2PM_ROOTDIR}/build/gpx/brussels_fir.gpx ${OA2PM_ROOTDIR}/build/openair/brussels_fir.txt
+# Generate Polish and GPX file for the whole of Belgium and Luxemburg.
+${OA2PM_ROOTDIR}/src/$OACONVERT -o ${OA2PM_ROOTDIR}/build/polish_format/belux.mp ${OA2PM_ROOTDIR}/build/openair/belux.txt
+${OA2PM_ROOTDIR}/src/$OACONVERT -o ${OA2PM_ROOTDIR}/build/gpx/belux.gpx ${OA2PM_ROOTDIR}/build/openair/belux.txt
 
 # Copy license
 cp ../creative_commons_license.txt ${OA2PM_ROOTDIR}/build/
