@@ -17,16 +17,31 @@
   along with oaconvert.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "LinearSegment.h"
+#ifndef POINT_H
+#define POINT_H
 
-LinearSegment::LinearSegment( const Coordinate& point )
-    : m_coordinate( point )
+#include <iostream>
+#include <stdlib.h>
+
+#include "Coordinate.h"
+#include "GeometricShape.h"
+
+class Point : public GeometricShape
 {
-}
+public:
 
-void LinearSegment::discretize( std::vector<Coordinate>& coords, double resolution ) const
-{
-    // TODO: resolution is not used here???  This feels strange... we can do probably do this in a cleaner way!
-    coords.push_back( m_coordinate );
-}
+    Point();
+    Point( const Coordinate& c );
+    virtual ~Point() {};
 
+    const Coordinate& getCoordinate() const;
+
+    virtual void discretize( std::vector<Coordinate>& coords, double resolution ) const;
+
+    friend std::ostream& operator <<(std::ostream& outputStream, const Point& c);
+
+private:
+    Coordinate m_coordinate;
+};
+
+#endif /* POINT_H */

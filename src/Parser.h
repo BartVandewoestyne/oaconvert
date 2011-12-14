@@ -101,11 +101,8 @@ public:
     void setCurrentAirspace(const Airspace &s);
     void setCurrentCoordinate(const Coordinate &c);
 
-    /** Initialize this parser to start parsing the contents of the input file.
-     *  In practice, this includes the writing of the header to the desired output stream.
-     */
     void initialize();
-
+    void writeAirspaces();
     void finalize();
 
 private:

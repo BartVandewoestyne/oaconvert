@@ -75,15 +75,11 @@ void OutputWriter::writeHeader()
 
 void OutputWriter::write(const Airspace &s)
 {
-    // TODO
-//  ASSERT( ! "TODO" );
     _state->write(out, s);
 }
 
 
 void OutputWriter::writeFooter()
 {
-    // TODO
-//  ASSERT( ! "TODO" );
     _state->writeFooter(out);
 }

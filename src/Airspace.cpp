@@ -23,32 +23,36 @@
 
 #include "Airspace.h"
 #include "Circle.h"
+#include "Arc.h"
+#include "Point.h"
 #include "CurvedPolygon.h"
+#include "GeometricShape.h"
 #include "Parser.h"
-#include "Region.h"
 #include "StringUtils.h"
 #include "Label.h"
 
 using namespace std;
 
 Airspace::Airspace()
-    : region(0)
 {}
+
 
 Airspace::~Airspace()
 {
-    delete region;
 }
+
 
 const string& Airspace::getName() const
 {
     return name;
 }
 
+
 const string& Airspace::getClass() const
 {
     return clss;
 }
+
 
 /**
   * Return the ceiling altitude in METER.
@@ -58,6 +62,7 @@ const double Airspace::getCeiling() const
     return ceiling;
 }
 
+
 /**
   * Return the floor altitude in METER.
   */
@@ -66,20 +71,18 @@ const double Airspace::getFloor() const
     return floor;
 }
 
-const Region* Airspace::getRegion() const
-{
-    return region;
-}
 
 void Airspace::setName(const string& mystring)
 {
     name = mystring;
 }
 
+
 void Airspace::setClass(const string& clss)
 {
     this->clss = clss;
 }
+
 
 /**
   * Set the ceiling altitude in METER.
@@ -89,6 +92,7 @@ void Airspace::setCeiling(const double ceiling)
     this->ceiling = ceiling;
 }
 
+
 /**
   * Set the floor altitude in METER.
   */
@@ -97,32 +101,38 @@ void Airspace::setFloor(const double floor)
     this->floor = floor;
 }
 
-//void Airspace::add( Region* region )
-//{
-//  this->region = region;
-//}
 
-
-Circle* Airspace::addCircle(const Coordinate& coordinate, double radius)
+/**
+  * Add the specified GeometricShape to this Airspace's internal
+  * representation.  Allowed GeometricShapes are Point, Arc and Circle.
+  *
+  * TODO:
+  *   * if stuff is already present, then Circle should not be
+  *     allowed
+  *   * if a Circle is already present, then we should
+  *     not be able to add stuff.
+  */
+void Airspace::add(const GeometricShape* s)
 {
-//  assert(!region); // not initialized yet
-    Circle *result = new Circle(coordinate, radius);
-    region = result;
-    return result;
+    p.add(s);
 }
 
-CurvedPolygon* Airspace::addCurvedPolygon()
-{
-//  assert(!region); // not initialized yet
-    CurvedPolygon *result = new CurvedPolygon();
-    region = result;
-    return result;
-}
 
 void Airspace::add(const Label& label)
 {
     labels.push_back( label );
 }
+
+
+/**
+  * Return the (non-discretized!) curved polygon object
+  * representing this Airspace.
+  */
+const CurvedPolygon& Airspace::getCurvedPolygon() const
+{
+    return p;
+}
+
 
 void Airspace::clear()
 {
@@ -132,6 +142,7 @@ void Airspace::clear()
     floor = -1.0;
     labels.clear();
 }
+
 
 ostream& operator <<(ostream& outputStream, const Airspace& s)
 {
@@ -148,6 +159,6 @@ ostream& operator <<(ostream& outputStream, const Airspace& s)
             outputStream << "  " << label.getText() << " -- " << label.getCoordinate() << endl;
         }
     }
-    s.region->print( outputStream );
+    // TODO outputStream  << "CurvedPolygon: " << s.p << endl;
     return outputStream;
 }

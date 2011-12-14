@@ -7,30 +7,28 @@ set(airspace_SRCS
     Label.cpp
     Latitude.cpp
     LatLon.cpp
-    LinearSegment.cpp
     Longitude.cpp
     OutputWriter.cpp
     Parser.cpp
+    Point.cpp
     PolishState.cpp
     GPXState.cpp
     StringUtils.cpp
 )
 
-add_library(airspace SHARED ${airspace_SRCS})
-
 set(oaconvert_SRCS
     oaconvert.cpp
 )
 
-#set(CMAKE_CXX_FLAGS "-g -Wall -DDEBUG")
-
+add_library(airspace SHARED ${airspace_SRCS})
 add_executable(oaconvert ${oaconvert_SRCS})
 
+#set(CMAKE_CXX_FLAGS "-g -Wall -DDEBUG")
+
+target_link_libraries(airspace boost_regex-mt)
 target_link_libraries(oaconvert airspace)
 #target_link_libraries(oaconvert boost_regex)
 #target_link_libraries(oaconvert ${Boost_LIBRARIES})
-
-target_link_libraries(airspace boost_regex-mt)
 
 # This works on Linux, but not in cygwin.
 target_link_libraries(oaconvert boost_regex-mt)

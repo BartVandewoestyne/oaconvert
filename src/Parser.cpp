@@ -35,7 +35,6 @@ using namespace Constants;
 
 Parser::Parser()
     : _writer()
-    , airspaces(1, new Airspace) // at least 1 airspace
     , curved_polygon(0)
 {
     initRegexMap();
@@ -43,7 +42,6 @@ Parser::Parser()
 
 Parser::Parser(const std::string& outfile)
     : _writer( outfile )
-    , airspaces(1, new Airspace) // at least 1 airspace
     , curved_polygon(0)
 {
 
@@ -263,16 +261,16 @@ double Parser::parseAltitude(const std::string& s) const
 
 std::string Parser::parseAirspaceClass(const std::string& clss) const
 {
-  smatch matches;
-   
-  if ( regex_match(clss, matches, regexMap.find(REGEX_AIRSPACE_CLASS)->second) )
-  {
-      string airspace_class( matches[1].first, matches[1].second );
-      return airspace_class;
-  }
+    smatch matches;
 
-  cerr << "ERROR: invalid airspace class: " << clss << endl;
-  exit(EXIT_FAILURE);
+    if ( regex_match(clss, matches, regexMap.find(REGEX_AIRSPACE_CLASS)->second) )
+    {
+        string airspace_class( matches[1].first, matches[1].second );
+        return airspace_class;
+    }
+
+    cerr << "ERROR: invalid airspace class: " << clss << endl;
+    exit(EXIT_FAILURE);
 }
 
 std::string Parser::parseFileExtension(const std::string& fileName) const
@@ -295,22 +293,21 @@ void Parser::handleLine(const std::string& line)
     }
 
     // Although not specified in the OpenAir specs at
+    //
     //    http://www.winpilot.com/usersguide/userairspace.asp
+    //
     // we *do* accept ICAO airspace classes E, F and G as valid input.
     if ( regex_match(line, matches, regexMap.find(REGEX_AC)->second) )
     {
-        // Write the current airspace but do not delete it just yet...
-        Airspace* airspace = getCurrentAirspace();
-        if (airspace)
-        {
-            _writer.write(*airspace);
-        }
-
-        // Create a new airspace and reset the helper curved_polygon and direction.
+        // Add a new airspace to the list.
         airspaces.push_back(new Airspace);
-        curved_polygon = 0;
-        setCurrentDirection('+');
 
+        // Reset the current direction and the helper curved_polygon.
+        setCurrentDirection('+');
+        curved_polygon = 0;
+        // TODO: also invalidate current coordinate here.
+
+        // Assign the parsed class to the current airspace.
         string airspace_class( matches[1].first, matches[1].second );
         getCurrentAirspace()->setClass( parseAirspaceClass(airspace_class) );
         return;
@@ -370,7 +367,7 @@ void Parser::handleLine(const std::string& line)
     if ( regex_match(line, matches, regexMap.find(REGEX_DP)->second) )
     {
         string point_coordinate( matches[1].first, matches[1].second );
-        addLinearSegment( parseCoordinate(point_coordinate) );
+        getCurrentAirspace()->add( new Point(parseCoordinate(point_coordinate)) );
         return;
     }
 
@@ -384,62 +381,59 @@ void Parser::handleLine(const std::string& line)
         Arc arc( getCurrentCoordinate(), atof(radiusNM.c_str()),
                  atof(angleStart.c_str()), atof(angleEnd.c_str()), getCurrentDirection());
 
-        // Add the arc points to this space's Polygon.
-        addArc( arc );
+        getCurrentAirspace()->add( &arc );
         return;
     }
 
     if ( regex_match(line, matches, regexMap.find(REGEX_DB)->second) )
     {
-      // We have a DB-record, now check if the coords are specified correctly...
-      string dbcoords( matches[1].first, matches[1].second );
-      if ( regex_match(dbcoords, matches, regexMap.find(REGEX_DB_COORDS)->second) )
-      {
-        // Fetch the start and end coordinate for this arc.
-        string coord1( matches[1].first, matches[1].second );
-        string coord2( matches[2].first, matches[2].second );
-        Coordinate c1 = parseCoordinate(coord1);
-        Coordinate c2 = parseCoordinate(coord2);
+        // We have a DB-record, now check if the coords are specified correctly...
+        string dbcoords( matches[1].first, matches[1].second );
+        if ( regex_match(dbcoords, matches, regexMap.find(REGEX_DB_COORDS)->second) )
+        {
+            // Fetch the start and end coordinate for this arc.
+            string coord1( matches[1].first, matches[1].second );
+            string coord2( matches[2].first, matches[2].second );
+            Coordinate c1 = parseCoordinate(coord1);
+            Coordinate c2 = parseCoordinate(coord2);
 
-        // Retrieve latitude and longitude of the arc-center.
-        Latitude lat = getCurrentCoordinate().getLatitude();
-        Longitude lon = getCurrentCoordinate().getLongitude();
+            // Retrieve latitude and longitude of the arc-center.
+            Latitude lat = getCurrentCoordinate().getLatitude();
+            Longitude lon = getCurrentCoordinate().getLongitude();
 
-        // Compute arcdegree of latitude respectively longitude, based on the center's coordinates.
-        double arcdegree_lat = lat.getArcDegree();
-        double arcdegree_lon = lon.getArcDegree(lat);
+            // Compute arcdegree of latitude respectively longitude, based on the center's coordinates.
+            double arcdegree_lat = lat.getArcDegree();
+            double arcdegree_lon = lon.getArcDegree(lat);
 
-        // Compute start and end angle (in standard coordinate frame!)
-        // Note that we have to take into account the arcdegrees here!!!
-        double dLat1 = ( c1.getLatitude().getAngle()  - getCurrentCoordinate().getLatitude().getAngle()  )*arcdegree_lat;
-        double dLon1 = ( c1.getLongitude().getAngle() - getCurrentCoordinate().getLongitude().getAngle() )*arcdegree_lon;
-        double dLat2 = ( c2.getLatitude().getAngle()  - getCurrentCoordinate().getLatitude().getAngle()  )*arcdegree_lat;
-        double dLon2 = ( c2.getLongitude().getAngle() - getCurrentCoordinate().getLongitude().getAngle() )*arcdegree_lon;
-        double startAngle = 180.0*atan2(dLat1, dLon1)/pi;
-        double endAngle   = 180.0*atan2(dLat2, dLon2)/pi;
+            // Compute start and end angle (in standard coordinate frame!)
+            // Note that we have to take into account the arcdegrees here!!!
+            double dLat1 = ( c1.getLatitude().getAngle()  - getCurrentCoordinate().getLatitude().getAngle()  )*arcdegree_lat;
+            double dLon1 = ( c1.getLongitude().getAngle() - getCurrentCoordinate().getLongitude().getAngle() )*arcdegree_lon;
+            double dLat2 = ( c2.getLatitude().getAngle()  - getCurrentCoordinate().getLatitude().getAngle()  )*arcdegree_lat;
+            double dLon2 = ( c2.getLongitude().getAngle() - getCurrentCoordinate().getLongitude().getAngle() )*arcdegree_lon;
+            double startAngle = 180.0*atan2(dLat1, dLon1)/pi;
+            double endAngle   = 180.0*atan2(dLat2, dLon2)/pi;
 
-        // Convert start and end angle to airspace coordinate frame.
-        startAngle = 90 - startAngle;
-        endAngle   = 90 - endAngle;
+            // Convert start and end angle to airspace coordinate frame.
+            startAngle = 90 - startAngle;
+            endAngle   = 90 - endAngle;
 
-        // Use maximum of the two radii (for safety reasons).
-        //double radius = max( c1.getDistance(getCurrentCoordinate()), c2.getDistance(getCurrentCoordinate()) );
-        // Use minimum of the two radii.
-        //double radius = min( c1.getDistance(getCurrentCoordinate()), c2.getDistance(getCurrentCoordinate()) );
-        // Use average of the two radii.
-        double radius = ( c1.getDistance(getCurrentCoordinate()) + c2.getDistance(getCurrentCoordinate()) )*0.5;
+            // Use maximum of the two radii (for safety reasons).
+            //double radius = max( c1.getDistance(getCurrentCoordinate()), c2.getDistance(getCurrentCoordinate()) );
+            // Use minimum of the two radii.
+            //double radius = min( c1.getDistance(getCurrentCoordinate()), c2.getDistance(getCurrentCoordinate()) );
+            // Use average of the two radii.
+            double radius = ( c1.getDistance(getCurrentCoordinate()) + c2.getDistance(getCurrentCoordinate()) )*0.5;
 
-        // Create the arc.
-        Arc arc( getCurrentCoordinate(), radius/1852.0, startAngle, endAngle, getCurrentDirection());
-
-        // Add the arc points to this space's Polygon.
-        addArc( arc );
-      }
-      else
-      {
-        cout << "\nERROR: invalid coordinate string specification in DB-record: " << line << endl;
-        exit(1);
-      }
+            // Add the arc points to this space's Polygon.
+            getCurrentAirspace()->add( new Arc(getCurrentCoordinate(),
+                                               radius/1852.0, startAngle, endAngle, getCurrentDirection()) );
+        }
+        else
+        {
+            cout << "\nERROR: invalid coordinate string specification in DB-record: " << line << endl;
+            exit(1);
+        }
 
     }
 
@@ -449,46 +443,39 @@ void Parser::handleLine(const std::string& line)
         string radiusNM;
         radiusNM.assign(matches[1].first, matches[1].second);
 
-        if ( ! curved_polygon )
-        {
-            getCurrentAirspace()->addCircle(getCurrentCoordinate(), atof(radiusNM.c_str()));
-        }
-        else
-        {
-            cout << "ERROR: we already have part of a curved polygon, but the input file gives info for a circle??" << endl;
-        }
-        return;
+        // Add circle to this Airspace.
+        Point center(getCurrentCoordinate());
+        getCurrentAirspace()->add(new Circle(center, atof(radiusNM.c_str())));
+
     }
 }
+
 
 void Parser::initialize()
 {
     _writer.writeHeader();
 }
 
+
 void Parser::finalize()
 {
-    _writer.write(*getCurrentAirspace());
     curved_polygon = 0;
     _writer.writeFooter();
 }
 
-void Parser::addLinearSegment( const Coordinate& point )
-{
-    if( ! curved_polygon )
-    {
-        curved_polygon = getCurrentAirspace()->addCurvedPolygon();
-    }
-    curved_polygon->addLinearSegment( point );
-}
 
-void Parser::addArc( const Arc& arc )
+/**
+  * Write out all currently parsed airspaces.
+  */
+void Parser::writeAirspaces()
 {
-    if( ! curved_polygon )
+    for( std::list<Airspace*>::iterator it = airspaces.begin(); it != airspaces.end(); ++it )
     {
-        curved_polygon = getCurrentAirspace()->addCurvedPolygon();
+        // TODO: we could check if the airspace is valid before writing
+        // it out.  E.g. it must have a valid airspace class and a lower
+        // and upper limit.
+        _writer.write(**it);
     }
-    curved_polygon->addArc(arc);
 }
 
 
@@ -520,7 +507,7 @@ void Parser::initRegexMap()
     // Valid airspace classes (we allow the specification of multiple airspace
     // classes, separated by forward slashes and without spaces in between).
     regexMap[REGEX_AIRSPACE_CLASS] =
-      "\\s*((?:[ABCDEFGPQRW]|GP|CTR)(?:/[ABCDEFGPQRW]|GP|CTR)*)\\s*";
+        "\\s*((?:[ABCDEFGPQRW]|GP|CTR)(?:/[ABCDEFGPQRW]|GP|CTR)*)\\s*";
 
     // Valid DB arc coordinate specifications.
     // TODO: check if we can make this regex shorter...

@@ -70,17 +70,14 @@ void GPXState::write(std::ostream& stream, const Circle* circle) const
     std::vector<Coordinate> coords;
     circle->discretize( coords, RESOLUTION );
     write( stream, coords );
-//    write(s.getCircle().toPolygon(NBPOINTS), s.getName());;
-//  assert( ! "TODO" );
 }
 
 
-void GPXState::write(std::ostream& stream, const CurvedPolygon* curved_polygon) const
+void GPXState::write(std::ostream& stream, const CurvedPolygon& p) const
 {
     std::vector<Coordinate> coords;
-    curved_polygon->discretize( coords, RESOLUTION );
+    p.discretize( coords, RESOLUTION );
     write( stream, coords );
-//  assert( ! "TODO" );
 }
 
 
@@ -111,11 +108,6 @@ void GPXState::write(std::ostream& out, const std::vector<Coordinate>& coords) c
 
 void GPXState::write(std::ostream& stream, const Airspace& airspace) const
 {
-    if ( ! airspace.getRegion() )
-    {
-        return;
-    }
-
     // Write as TRACK
     stream << "  <trk>" << endl;
     stream << "    <name>" << airspace.getName() << "</name>" << endl;
@@ -126,7 +118,7 @@ void GPXState::write(std::ostream& stream, const Airspace& airspace) const
     stream << "    <number>TODO: number</number>" << endl;
     stream << "    <type>" << airspace.getClass() << "</type>" << endl;
     stream << "    <trkseg>" << endl;
-    OutputState::write(stream, airspace.getRegion());
+    write(stream, airspace.getCurvedPolygon());
     stream << "    </trkseg>" << endl;
     stream << "  </trk>" << endl;
 
@@ -139,7 +131,7 @@ void GPXState::write(std::ostream& stream, const Airspace& airspace) const
     //stream << "    <link>TODO: link to eAIP</link>" << endl;
     //stream << "    <number>TODO: number</number>" << endl;
     //stream << "    <type>" << airspace.getClass() << "</type>" << endl;
-    //OutputState::write(stream, airspace.getRegion());
+    //write(stream, airspace.getCurvedPolygon());
     //stream << "  </rte>" << endl;
 
 }

@@ -145,28 +145,30 @@ int main (int argc, char* argv[])
         //cout << "INFO: output file has extension ." << p->parseFileExtension( outfilename ) << "." << endl;
     }
 
-    // Start reading the input file.
+    // Read the input (OpenAir) file.
     std::string infile(infilename);
     string line;
     ifstream inStream;
     inStream.open(infile.c_str());
     if (inStream.is_open())
     {
-        // Writer the header.
-        p->initialize();
-
         while ( inStream.good() )
         {
             getline(inStream, line);
             p->handleLine(line);
         }
 
-        // Make sure we also write the last airspace in the file + included the footer.
-        p->finalize();
-
         inStream.close();
     }
-    else cerr << "ERROR: Unable to open file!\n";
+    else
+    {
+        cerr << "ERROR: Unable to open file!\n";
+    }
+
+    // Everything is parsed and stored, now write!
+    p->initialize();
+    p->writeAirspaces();
+    p->finalize();
 
     // cleanup
     delete p;

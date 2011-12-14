@@ -24,10 +24,15 @@
 #include <utility>
 #include <vector>
 
-#include "Coordinate.h"
+#include "Point.h"
+#include "Circle.h"
+#include "Arc.h"
+#include "CurvedPolygon.h"
 #include "Label.h"
 
+class Point;
 class Circle;
+class Arc;
 class CurvedPolygon;
 class Region;
 
@@ -35,8 +40,6 @@ class Airspace
 {
 
 public:
-
-    //typedef std::pair<std::string,Coordinate> label_type;
 
 private:
 
@@ -52,8 +55,8 @@ private:
     //! Floor altitude in METER.
     double floor;
 
-    //! Closed region defining the airspace.
-    Region* region;
+    //! Closed curved polygon defining the airspace.
+    CurvedPolygon p;
 
     //! Collection of string labels with associated position.
     std::vector<Label> labels;
@@ -67,30 +70,15 @@ public:
     const std::string& getClass() const;
     const double getCeiling() const;
     const double getFloor() const;
-    const Region* getRegion() const;
+    const CurvedPolygon& getCurvedPolygon() const;
 
     void setName(const std::string& mystring);
     void setClass(const std::string& clss);
     void setCeiling(const double ceiling);
     void setFloor(const double floor);
 
-//    /**
-//     * Add the region to this airspace (and pass ownership of the pointer).
-//     */
-//    void add( Region* region );
+    void add(const GeometricShape* s);
 
-
-    /**
-     * Add a circle region to this airspace and return a pointer to the newly created
-     * object. The ownership remains with this airspace.
-     */
-    Circle* addCircle(const Coordinate& coordinate, double radius);
-
-    /**
-     * Add a curved polygon region to this airspace and return a pointer to the newly created
-     * object. The ownership remains with this airspace.
-     */
-    CurvedPolygon* addCurvedPolygon();
 
     /**
      * Each airspace can have multiple name-labels that each have their location

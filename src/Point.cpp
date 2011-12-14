@@ -17,22 +17,36 @@
   along with oaconvert.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef SEGMENT_H
-#define SEGMENT_H
-
-#include <vector>
-
+#include <iostream>
+#include "Point.h"
 #include "Coordinate.h"
 
+using namespace std;
 
-class Segment
+Point::Point()
+{}
+
+Point::Point( const Coordinate& c )
+    : m_coordinate( c )
 {
-public:
-    virtual ~Segment() {};
+}
 
-    virtual void discretize( std::vector<Coordinate>& coords, double resolution ) const = 0;
+const Coordinate& Point::getCoordinate() const
+{
+    return m_coordinate;
+}
 
-};
+void Point::discretize( std::vector<Coordinate>& coords, double resolution ) const
+{
+    coords.push_back( m_coordinate );
+}
 
 
-#endif /* end of include guard: SEGMENT_H */
+ostream& operator <<(ostream& outputStream, const Point& p)
+{
+    outputStream << "Point (";
+    outputStream << p.getCoordinate();
+    outputStream << ")";
+
+    return outputStream;
+}

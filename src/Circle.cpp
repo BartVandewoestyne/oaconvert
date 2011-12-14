@@ -27,11 +27,7 @@
 using namespace std;
 using Constants::pi;
 
-//////////////////////////////////////////////////////////////////////////////////////////
-// Implementation Circle
-//////////////////////////////////////////////////////////////////////////////////////////
-
-Circle::Circle(const Coordinate& center, double radius)
+Circle::Circle(const Point& center, double radius)
     : center( center )
     , radius( radius )
 {
@@ -53,7 +49,7 @@ double Circle::getRadiusM() const
     return radius*1852.0;
 }
 
-const Coordinate& Circle::getCenter() const
+const Point& Circle::getCenter() const
 {
     return center;
 }
@@ -63,8 +59,17 @@ void Circle::write( std::ostream& stream, const OutputState* outputstate ) const
     outputstate->write( stream, this );
 }
 
+/**
+ * See http://en.wikipedia.org/wiki/Latitude#Degree_length
+ *
+ * TODO: check if these calculatiosn (based on the oa2gm source code) are
+ *       correct.  I guess not, because they both use 6371e3 for computing
+ *       new latitudinal and longitudinal points.  This is not 100% correct.
+ *       We should probably follow WGS84 or IERS 2003 ellipsoids.
+ */
 void Circle::discretize( std::vector<Coordinate>& coords, double resolution ) const
 {
+
     // Each circle must have *at least* 360 points (or more if the specified resolution is
     // not satisfied when taking 360 points).
     const int min_nb_points = 360;
@@ -76,8 +81,9 @@ void Circle::discretize( std::vector<Coordinate>& coords, double resolution ) co
     double deg_lat, deg_lon;
     double angle;
 
-    Latitude lat = getCenter().getLatitude();
-    Longitude lon = getCenter().getLongitude();
+    Coordinate centerCoord = center.getCoordinate();
+    Latitude lat = centerCoord.getLatitude();
+    Longitude lon = centerCoord.getLongitude();
 
     // Compute arcdegree of latitude respectively longitude difference of the center.
     double arcdegree_lat = lat.getArcDegree();
@@ -93,53 +99,12 @@ void Circle::discretize( std::vector<Coordinate>& coords, double resolution ) co
     }
 }
 
+
 std::ostream& Circle::print( std::ostream &stream )
 {
     return ( stream << *this );
 }
 
-///*
-// * See http://en.wikipedia.org/wiki/Latitude#Degree_length
-// *
-// * TODO: check if these calculatiosn (based on the oa2gm source code) are
-// *       correct.  I guess not, because they both use 6371e3 for computing
-// *       new latitudinal and longitudinal points.  This is not 100% correct.
-// *       We should probably follow WGS84 or IERS 2003 ellipsoids.
-// */
-//Polygon Circle::toPolygon(int nbPoints) const
-//{
-//
-//  double deg_lat, deg_lon;
-//  double angle;
-//  Polygon p;
-//
-//  Latitude lat = getCenter().getLatitude();
-//  Longitude lon = getCenter().getLongitude();
-//
-//  // Compute arcdegree of latitude respectively longitude difference.
-//  // Note here that we assume latitudinal and longitudinal radius of the
-//  // earth to be the same.  It would be more precise to assume different
-//  // values.  See M and N-values at
-//  //
-//  //   http://en.wikipedia.org/wiki/Latitude#Degree_length
-//  //
-//  double phi = pi*lat.getAngle()/180.0;
-//  double arcdegree_lat = pi*lat.getM()/180;
-//  double arcdegree_lon = pi*cos(phi)*lon.getN()/180;
-//
-//  for (int i = 0; i < nbPoints; ++i)
-//  {
-//    angle = i*360.0/nbPoints;
-//
-//    deg_lon = lon.getAngle() + getRadiusM()*cos(pi*angle/180)/arcdegree_lon;
-//    deg_lat = lat.getAngle() + getRadiusM()*sin(pi*angle/180)/arcdegree_lat;
-//    Coordinate c(deg_lat, deg_lon);
-//    p.add(c);
-//  }
-//
-//  return p;
-//
-//}
 
 ostream& operator <<(ostream& outputStream, const Circle& c)
 {

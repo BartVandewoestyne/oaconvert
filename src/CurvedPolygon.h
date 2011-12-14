@@ -20,43 +20,32 @@
 #ifndef CURVEDPOLYGON_H
 #define CURVEDPOLYGON_H
 
-#include "Region.h"
+#include "GeometricShape.h"
 
-class Arc;
 class Coordinate;
-class Segment;
+class GeometricShape;
+class OutputState;
 
-class CurvedPolygon : public Region
+class CurvedPolygon
 {
 public:
+
     CurvedPolygon();
     virtual ~CurvedPolygon();
 
-    void addArc( const Arc& arc );
-    // TODO (question Bart): shouldn't we jusd change addLinearSegment to addPoint because
-    //      a CurvedPolygon in essence is a set of arcs and points (connected by line segments)???
-    void addLinearSegment( const Coordinate& point );
+    void add( const GeometricShape* s );
 
-    //////////////////////////////////////////////////
-    // Interface Region
-    //! @copydoc Region::write
     virtual void write( std::ostream& stream, const OutputState* outputstate ) const;
-
-    //! @copydoc Region::discretize
     virtual void discretize( std::vector<Coordinate>& coords, double resolution ) const;
-
-    //! @copydoc Region::print
-    virtual std::ostream& print( std::ostream &stream );
+    friend std::ostream& operator <<(std::ostream& outputStream, const CurvedPolygon& p);
 
 private:
+
+    std::vector<const GeometricShape*> shapes;
+
     // copy-constructor is private and not implemented (yet...)!!!
     CurvedPolygon( const CurvedPolygon& i_other );
 
-private:
-    std::vector<Segment*> m_segments;
-
 };
 
-
-
-#endif /* end of include guard: CURVEDPOLYGON_H */
+#endif /* CURVEDPOLYGON_H */

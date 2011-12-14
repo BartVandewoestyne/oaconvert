@@ -36,21 +36,10 @@ public:
     virtual void writeHeader(std::ostream &out) const;
     virtual void writeFooter(std::ostream &out) const;
 
-    //! Use this method to write out an airspace.
     virtual void write(std::ostream& stream, const Airspace& airspace) const;
-
-    //! Helper method to write out an airspace
     virtual void write(std::ostream& stream, const Circle* circle) const;
-    virtual void write(std::ostream& stream, const CurvedPolygon* curved_polygon) const;
+    virtual void write(std::ostream& stream, const CurvedPolygon& p) const;
 
-
-//    virtual void write(std::ostream &out, const Airspace& s) const;
-//    virtual void write(std::ostream &out, const Polygon& p, const std::string &label) const;
-
-private:
-
-    void write(std::ostream& out, const Coordinate& c) const;
-    void write(std::ostream& stream, const std::vector<Coordinate>& coords) const;
 
 protected:
 
@@ -59,9 +48,10 @@ protected:
 private:
 
     static GPXState* _instance;
-
     std::string getType(const std::string& airspaceClass) const;
 
+    void write(std::ostream& out, const Coordinate& c) const;
+    void write(std::ostream& stream, const std::vector<Coordinate>& coords) const;
 };
 
 #endif /* GPXSTATE_H */

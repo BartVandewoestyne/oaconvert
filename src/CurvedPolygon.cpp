@@ -18,10 +18,9 @@
 */
 
 #include "CurvedPolygon.h"
-
-#include "Arc.h"
+#include "GeometricShape.h"
 #include "Coordinate.h"
-#include "LinearSegment.h"
+#include "Point.h"
 #include "OutputState.h"
 
 
@@ -31,39 +30,40 @@ CurvedPolygon::CurvedPolygon()
 
 CurvedPolygon::~CurvedPolygon()
 {
-    for( size_t i = 0; i < m_segments.size(); ++i )
+    for( size_t i = 0; i < shapes.size(); ++i )
     {
-        delete m_segments[i];
+        delete shapes[i];
     }
-    m_segments.clear();
+    shapes.clear();
 }
 
-void CurvedPolygon::addArc( const Arc& arc )
+void CurvedPolygon::add( const GeometricShape* s )
 {
-    m_segments.push_back( new Arc( arc ) );
-}
-
-void CurvedPolygon::addLinearSegment( const Coordinate& point )
-{
-    m_segments.push_back( new LinearSegment( point ) );
+    shapes.push_back( s );
 }
 
 void CurvedPolygon::write( std::ostream& stream, const OutputState* outputstate ) const
 {
-    outputstate->write( stream, this );
+    outputstate->write( stream, *this );
 }
 
 void CurvedPolygon::discretize( std::vector<Coordinate>& coords, double resolution ) const
 {
     coords.clear();
-    for( size_t i = 0; i < m_segments.size(); ++i )
+    for( size_t i = 0; i < shapes.size(); ++i )
     {
-        m_segments[i]->discretize( coords, resolution );
+        shapes[i]->discretize( coords, resolution );
     }
 }
 
 
-std::ostream& CurvedPolygon::print( std::ostream& stream )
+std::ostream& operator <<(std::ostream& outputStream, const CurvedPolygon& p)
 {
-    return ( stream << "TODO" << std::endl );
+    outputStream << "Curved Polygon:";
+    for( size_t i = 0; i < p.shapes.size(); ++i )
+    {
+        outputStream << "  " << p.shapes[i] << std::endl;
+    }
+
+    return outputStream;
 }

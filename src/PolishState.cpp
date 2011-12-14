@@ -217,11 +217,6 @@ void PolishState::writeFooter(std::ostream &out) const
 
 void PolishState::write(std::ostream& stream, const Airspace& airspace) const
 {
-    if ( ! airspace.getRegion() )
-    {
-        return;
-    }
-
     // See section 4.2.4.2 in http://cgpsmapper.com/download/cGPSmapper-UsrMan-v02.1.pdf
 
     // oa2gm used [RGN40] here, which is a [POLYLINE]... I think one could also
@@ -238,7 +233,8 @@ void PolishState::write(std::ostream& stream, const Airspace& airspace) const
 
     stream << "Label=" << airspace.getName() << endl;
     stream << "EndLevel=4" << endl; // Number must not be higher than highest X in LevelX in header.
-    OutputState::write(stream, airspace.getRegion());
+    //cout << airspace.getCurvedPolygon() << endl;
+    write(stream, airspace.getCurvedPolygon()); // BUG: this gives segmentation fault
     stream << "[END]\n" << endl;
 }
 
@@ -249,16 +245,14 @@ void PolishState::write(std::ostream& stream, const Circle* circle) const
     circle->discretize( coords, RESOLUTION );
     write( stream, coords );
 //    write(s.getCircle().toPolygon(NBPOINTS), s.getName());;
-//  assert( ! "TODO" );
 }
 
 
-void PolishState::write(std::ostream& stream, const CurvedPolygon* curved_polygon) const
+void PolishState::write(std::ostream& stream, const CurvedPolygon& p) const
 {
     std::vector<Coordinate> coords;
-    curved_polygon->discretize( coords, RESOLUTION );
+    p.discretize( coords, RESOLUTION );
     write( stream, coords );
-//  assert( ! "TODO" );
 }
 
 

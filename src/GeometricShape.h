@@ -17,23 +17,24 @@
   along with oaconvert.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef LINEARSEGMENT_H
-#define LINEARSEGMENT_H
+#ifndef SEGMENT_H
+#define SEGMENT_H
+
+#include <vector>
 
 #include "Coordinate.h"
-#include "Segment.h"
 
-class LinearSegment : public Segment
+
+class GeometricShape
 {
 public:
-    LinearSegment( const Coordinate& point );
-    virtual ~LinearSegment() {};
+    virtual ~GeometricShape() {};
 
-    //! @copydoc Segment::discretize
-    virtual void discretize( std::vector<Coordinate>& coords, double resolution ) const;
+    virtual void discretize( std::vector<Coordinate>& coords, double resolution ) const = 0;
 
-private:
-    Coordinate m_coordinate;
+    friend std::ostream& operator <<(std::ostream& outputStream, const GeometricShape& c);
+
 };
 
-#endif /* end of include guard: LINEARSEGMENT_H */
+
+#endif /* GEOMETRIC_SHAPE_H */

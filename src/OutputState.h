@@ -21,7 +21,9 @@
 #define OUTPUTSTATE_H
 
 #include <iostream>
-#include "Region.h"
+#include "CurvedPolygon.h"
+
+using namespace std;
 
 class Airspace;
 class Circle;
@@ -36,24 +38,11 @@ public:
 
     virtual void writeHeader(std::ostream &out) const = 0;
     virtual void writeFooter(std::ostream &out) const = 0;
+
     virtual void write(std::ostream& stream, const Airspace& airspace) const = 0;
-
-    void write(std::ostream& stream, const Region* region) const;
     virtual void write(std::ostream& stream, const Circle* circle) const = 0;
-    virtual void write(std::ostream& stream, const CurvedPolygon* curved_polygon) const = 0;
+    virtual void write(std::ostream& stream, const CurvedPolygon& p) const = 0;
 
-//    virtual void write(std::ostream &out, const Airspace& s) const = 0;
-//    virtual void write(std::ostream &out, const Coordinate& c) const = 0;
-//    virtual void write(std::ostream &out, const Polygon& p, const std::string &label) const = 0;
 };
-
-
-inline void OutputState::write(std::ostream& stream, const Region* region) const
-{
-    if ( region )
-    {
-        region->write(stream, this);
-    }
-}
 
 #endif /* OUTPUTSTATE_H */

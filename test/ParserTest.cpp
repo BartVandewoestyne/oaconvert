@@ -199,11 +199,3 @@ ParserTest::testParseAirspaceClass()
   CPPUNIT_ASSERT("C/E" == aclass);
 
 }
-
-void
-ParserTest::testSetGetCurrentAirspace()
-{
-  Parser p;
-  p.getCurrentAirspace()->setName("TestName1");
-  CPPUNIT_ASSERT_EQUAL(string("TestName1"), p.getCurrentAirspace()->getName());
-}

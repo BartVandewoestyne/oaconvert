@@ -20,39 +20,32 @@
 #ifndef CIRCLE_H
 #define CIRCLE_H
 
+#include "Point.h"
+#include "OutputState.h"
 #include "Coordinate.h"
-#include "Region.h"
+#include "GeometricShape.h"
 
-class Circle : public Region
+class Circle : public GeometricShape
 {
 private:
+
+    Point center;
+
     /* Radius in Nautical Miles */
-    Coordinate center;
     double radius;
 
 public:
-    //! Create a circle around given coordinate and given radius
+    //! Create a circle around given point and given radius
     //! \param[in] center Center point of the circle.
     //! \param[in] radius Radius in nautical miles
-    Circle(const Coordinate& center, double radius);
+    Circle(const Point& center, double radius);
 
-    const Coordinate& getCenter() const;
-
+    const Point& getCenter() const;
     double getRadiusNM() const;
-
     double getRadiusM() const;
 
-//    Polygon toPolygon(int nbPoints) const;
-
-    //////////////////////////////////////////////////
-    // Interface Region
-    //! @copydoc Region::write
     virtual void write( std::ostream& stream, const OutputState* outputstate ) const;
-
-    //! @copydoc Region::discretize
     virtual void discretize( std::vector<Coordinate>& coords, double resolution ) const;
-
-    //! @copydoc Region::print
     virtual std::ostream& print( std::ostream &stream );
 
     friend std::ostream& operator <<( std::ostream& outputStream, const Circle& c );
