@@ -64,7 +64,7 @@ private:
         REGEX_DA,
         REGEX_DB,
         REGEX_DB_COORDS,
-        REGEX_DC,
+        REGEX_DC
     };
 
 private:
