@@ -11,7 +11,7 @@
 *
 * Time of activity:
 *   - PERM
-AC D
+AC Q
 AN Westrozebeke-Houthulst
 AH 2500 ft AGL
 AL GND

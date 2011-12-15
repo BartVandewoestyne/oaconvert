@@ -11,7 +11,7 @@
 *
 * Time of activity:
 *   - PERM
-AC D
+AC Q
 AN Beverlo 01
 AH 5000 ft AGL
 AL GND

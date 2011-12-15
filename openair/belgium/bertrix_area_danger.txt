@@ -12,7 +12,7 @@
 * Time of activity:
 *   - HX (Announced by NOTAM. May be active MON, 1230-1600; TUE to THU,
 *         0830-1100 and 1230-1600; FRI, 0830-1100.)
-AC D
+AC Q
 AN Bertrix area
 AH 4500 ft AMSL
 AL GND

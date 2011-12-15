@@ -11,7 +11,7 @@
 *
 * Time of activity:
 *   - HX (Announced by NOTAM.)
-AC D
+AC Q
 AN Ardennes 05
 AH 4500 ft AMSL
 AL 1000 ft AGL

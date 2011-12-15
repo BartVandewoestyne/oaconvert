@@ -11,7 +11,7 @@
 *
 * Time of activity:
 *   - During EBBE OPR HR. In VMC only
-AC D
+AC Q
 AN Aerobatic sector
 AH 2500 ft AMSL
 AL GND

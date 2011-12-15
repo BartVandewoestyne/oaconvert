@@ -11,7 +11,7 @@
 *
 * Time of activity:
 *   - MON to FRI (Activation on SAT, SUN and HOL announced by NOTAM.)
-AC D
+AC Q
 AN Marche-en-Famenne
 AH 1000 ft AGL
 AL GND

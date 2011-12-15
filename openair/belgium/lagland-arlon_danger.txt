@@ -11,7 +11,7 @@
 *
 * Time of activity:
 *   - PERM
-AC D
+AC Q
 AN Lagland-Arlon
 AH 3000 ft AGL  * Upper limit may occasionally be extended to 7000 ft AGL (see NOTAM). 
 AL GND

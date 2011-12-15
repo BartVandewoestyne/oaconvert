@@ -11,7 +11,7 @@
 *
 * Time of activity:
 *   - HX (Announced by NOTAM.)
-AC D
+AC Q
 AN Brasschaat
 AH FL 140  * Upper limit may be restricted to FL 70 (see NOTAM).
 AL GND

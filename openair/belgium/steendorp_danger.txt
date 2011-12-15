@@ -11,7 +11,7 @@
 *
 * Time of activity:
 *   - MON to FRI (HOL excl), 0700-1600
-AC D
+AC Q
 AN Steendorp
 AH 250 ft AGL
 AL GND

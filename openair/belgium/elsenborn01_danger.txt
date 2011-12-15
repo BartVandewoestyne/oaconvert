@@ -14,7 +14,7 @@
 *     Semmerzake ATCC or MDC. This area is contiguous to EDR117 (see AIP
 *     Germany). Activation of EDR117 can be checked with MDC (EBMIZGZF) or
 *     TEL +32 (0) 2 752 44 52.)
-AC D
+AC Q
 AN Elsenborn 01
 AH FL 170  * Upper limit may be restricted to FL 105 (see NOTAM).
 AL GND

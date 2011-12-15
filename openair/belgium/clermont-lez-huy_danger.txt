@@ -11,7 +11,7 @@
 *
 * Time of activity:
 *   - PERM
-AC D
+AC Q
 AN Clermont-lez-Huy
 AH 2000 ft AGL
 AL GND

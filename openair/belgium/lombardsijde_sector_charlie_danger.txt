@@ -11,7 +11,7 @@
 *
 * Time of activity:
 *   - HX (Announced by NOTAM.)
-AC D
+AC Q
 AN Lombardsijde sector charlie
 AH FL 240  * Firing activity may take place higher than FL 240 (see NOTAM).
 AL SFC
