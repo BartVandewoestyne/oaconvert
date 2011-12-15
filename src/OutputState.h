@@ -34,6 +34,9 @@ public:
 
     OutputState() {};
 
+    // The virtual public destructor.
+    virtual ~OutputState() {};
+
     virtual void writeHeader(std::ostream &out) const = 0;
     virtual void writeFooter(std::ostream &out) const = 0;
 
