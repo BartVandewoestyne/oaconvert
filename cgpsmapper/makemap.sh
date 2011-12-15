@@ -23,19 +23,21 @@ unamestr=`uname -o`
 if [[ "$unamestr" == 'Cygwin' ]]; then
   cpreview mypreview.mp
   cgpsmapper airspace.mp
-elif [[ "$unamestr" == 'Linux' ]]; then
+elif [[ "$unamestr" == 'Linux' || "$unamestr" == 'GNU/Linux' ]]; then
   cgpsmapper -l pv mypreview.mp
 fi
 
 # Create a custom TYP file
-cgpsmapper typ airspace.txt airspace.TYP
+cgpsmapper typ Airspace.txt AIRSPACE.TYP
 
 mkdir -p ../build/garmin/
 mv 19780321.img   ../build/garmin/
 mv airspace.img ../build/garmin/
 mv airspace.TDB ../build/garmin/
-mv airspace.TYP ../build/garmin/
-mv airspace.MDX ../build/garmin/
+mv AIRSPACE.TYP ../build/garmin/
+if [[ "$unamestr" == 'Cygwin' ]]; then
+  mv airspace.MDX ../build/garmin/
+fi
 
 # After setting ProductCode=1 in the Polish file and the preview file,
 # putting all .img and .tdb files in

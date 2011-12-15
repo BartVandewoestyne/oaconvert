@@ -125,6 +125,153 @@ void Airspace::add(const Label& label)
 
 
 /**
+  * Return true if this airspace is a CTR.  The airspace
+  * will be a CTR if its name contains the case sensitive
+  * string 'CTR'.
+  *
+  * Note:
+  *   In the OpenAir format, you can also specify 'CTR' in the
+  *   AC-record, so we could also check for that... but the problem
+  *   with this approach is that some CTR's have 'AC C' or 'AC D' in their
+  *   AC-record... so if we put 'AC CTR' there, we lose that information.
+  */
+const bool Airspace::isCTR() const
+{
+    size_t found = name.find("CTR");
+    if ( found != string::npos) {
+      return true;
+    } else {
+      return false;
+    }
+}
+
+
+/**
+  * Return true if this airspace is a CTA.  The airspace
+  * will be a CTA if its name contains the case sensitive
+  * string 'CTA'.
+  */
+const bool Airspace::isCTA() const
+{
+    size_t found = name.find("CTA");
+    if ( found != string::npos) {
+      return true;
+    } else {
+      return false;
+    }
+}
+
+
+/**
+  * Return true if this airspace is a TMA.  The airspace
+  * will be a TMA if its name contains the case sensitive
+  * string 'TMA'.
+  */
+const bool Airspace::isTMA() const
+{
+    size_t found = name.find("TMA");
+    if ( found != string::npos) {
+      return true;
+    } else {
+      return false;
+    }
+}
+
+
+/**
+  * Return true if this airspace is a vectoring area.  The airspace
+  * will be a vectoring area if its name contains the case sensitive
+  * string 'vectoring area'.
+  */
+const bool Airspace::isVectoringArea() const
+{
+    size_t found = name.find("vectoring area");
+    if ( found != string::npos) {
+      return true;
+    } else {
+      return false;
+    }
+}
+
+
+/**
+  * Return true if this airspace is a FIR.  The airspace
+  * will be a FIR if its name contains the case sensitive
+  * string 'FIR'.
+  */
+const bool Airspace::isFIR() const
+{
+    size_t found = name.find("FIR");
+    if ( found != string::npos) {
+      return true;
+    } else {
+      return false;
+    }
+}
+
+
+/**
+  * Return true if this airspace is a Low Flying Area Golf.  The airspace
+  * will be a Low Flying Area Golf if its name contains the case sensitive
+  * string 'LOW FLYING AREA GOLF'.
+  */
+const bool Airspace::isLowFlyingAreaGolf() const
+{
+    size_t found = name.find("LOW FLYING AREA GOLF");
+    if ( found != string::npos) {
+      return true;
+    } else {
+      return false;
+    }
+}
+
+
+/**
+  * Return true if this airspace is a Prohibited area.  The airspace
+  * will be a Prohibited area if its class is the case sensitive
+  * character 'P'.
+  */
+const bool Airspace::isProhibited() const
+{
+    if ( clss.compare("P") == 0) {
+      return true;
+    } else {
+      return false;
+    }
+}
+
+
+/**
+  * Return true if this airspace is a Prohibited area.  The airspace
+  * will be a Prohibited area if its class is the case sensitive
+  * character 'P'.
+  */
+const bool Airspace::isRestricted() const
+{
+    if ( clss.compare("R") == 0) {
+      return true;
+    } else {
+      return false;
+    }
+}
+
+
+/**
+  * Return true if this airspace is a Danger area.  The airspace
+  * will be a Danger area if its class is the case sensitive
+  * character 'Q'.
+  */
+const bool Airspace::isDanger() const
+{
+    if ( clss.compare("Q") == 0) {
+      return true;
+    } else {
+      return false;
+    }
+}
+
+
+/**
   * Return the (non-discretized!) curved polygon object
   * representing this Airspace.
   */

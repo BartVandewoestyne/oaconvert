@@ -53,7 +53,7 @@ private:
     void write(std::ostream& stream, const std::vector<Coordinate>& coords) const;
 
     static PolishState* _instance;
-    std::string getType(const std::string& airspaceClass) const;
+    std::string getType(const Airspace& space) const;
 
 };
 

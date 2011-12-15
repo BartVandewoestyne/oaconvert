@@ -14,6 +14,10 @@ Airspace project
 
 Other software that supports Polish Format:
 -------------------------------------------
+GPSMapEdit++:
+
+  http://sourceforge.net/projects/gmeaddons/
+
 GPSMapEdit:
 
   http://www.geopainting.com/en/

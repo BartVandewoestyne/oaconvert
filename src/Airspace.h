@@ -79,6 +79,15 @@ public:
 
     void add(const GeometricShape* s);
 
+    const bool isFIR() const;
+    const bool isCTR() const;
+    const bool isCTA() const;
+    const bool isTMA() const;
+    const bool isVectoringArea() const;
+    const bool isLowFlyingAreaGolf() const;
+    const bool isProhibited() const;
+    const bool isRestricted() const;
+    const bool isDanger() const;
 
     /**
      * Each airspace can have multiple name-labels that each have their location

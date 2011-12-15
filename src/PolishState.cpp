@@ -229,7 +229,7 @@ void PolishState::write(std::ostream& stream, const Airspace& airspace) const
     // See section 12.3.3 in the cgpsmapper manual.
     // Note that oa2gm used Type=0x0a which is an 'Unpaved Road-thin', but this
     // is for [POLYLINE], not [POLYGON]...
-    stream << "Type=" << getType(airspace.getClass()) << endl;
+    stream << "Type=" << getType(airspace) << endl;
 
     stream << "Label=" << airspace.getName() << endl;
     stream << "EndLevel=4" << endl; // Number must not be higher than highest X in LevelX in header.
@@ -302,37 +302,25 @@ void PolishState::write(std::ostream& out, const std::vector<Coordinate>& coords
  *          type = '0x53'
  *
  */
-std::string PolishState::getType(const std::string& airspaceClass) const
+std::string PolishState::getType(const Airspace& space) const
 {
-    if (airspaceClass == "R")
-    {
-        // Restricted area.
-        return string("0x0702");
-        // Restriction area/line (invisible)
-        //return string("0x0500");
-    }
-    else if (airspaceClass == "Q")
-    {
-        // Danger line (invisible).
-        return string("0x0409");
-    }
-    else if (airspaceClass == "P")
-    {
-        // Prohibited area (invisible).
-        return string("0x0503");
-    }
-    else if (airspaceClass == "CTR")
-    {
-        // Airport.
-        return string("0x07");
-    }
-    else
-    {
-        // Defaults used by oa2gm:
-
-        // University.
-        return string("0x0a");
-        // Golf.
-        //return string("0x18");
+    if (space.isFIR()) {
+        return string("0x60");
+    } else if (space.isCTR()) {
+        return string("0x61");
+    } else if (space.isCTA()) {
+        return string("0x62");
+    } else if ( space.isTMA() || space.isVectoringArea() ) {
+        return string("0x63");
+    } else if (space.isLowFlyingAreaGolf()) {
+        return string("0x64");
+    } else if (space.isRestricted()) {
+        return string("0x65");
+    } else if (space.isProhibited()) {
+        return string("0x66");
+    } else if (space.isDanger()) {
+        return string("0x67");
+    } else {
+        return string("0x69");
     }
 }
