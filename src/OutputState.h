@@ -23,8 +23,6 @@
 #include <iostream>
 #include "CurvedPolygon.h"
 
-using namespace std;
-
 class Airspace;
 class Circle;
 class CurvedPolygon;
