@@ -106,9 +106,6 @@ public:
     void finalize();
 
 private:
-    void addLinearSegment( const Coordinate& point );
-    void addArc( const Arc& arc );
-
     void initRegexMap();
 
 };
