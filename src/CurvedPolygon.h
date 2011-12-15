@@ -35,7 +35,6 @@ public:
 
     void add( const GeometricShape* s );
 
-    virtual void write( std::ostream& stream, const OutputState* outputstate ) const;
     virtual void discretize( std::vector<Coordinate>& coords, double resolution ) const;
     friend std::ostream& operator <<(std::ostream& outputStream, const CurvedPolygon& p);
 

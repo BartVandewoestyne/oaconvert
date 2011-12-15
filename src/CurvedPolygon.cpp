@@ -42,10 +42,6 @@ void CurvedPolygon::add( const GeometricShape* s )
     shapes.push_back( s );
 }
 
-void CurvedPolygon::write( std::ostream& stream, const OutputState* outputstate ) const
-{
-    outputstate->write( stream, *this );
-}
 
 void CurvedPolygon::discretize( std::vector<Coordinate>& coords, double resolution ) const
 {
