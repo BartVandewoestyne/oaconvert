@@ -17,38 +17,39 @@
   along with oaconvert.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "Latitude.h"
+// TODO: for the constructors that also have a direction as parameter, we should
+//       check if the value for degrees (minutes, seconds) is positive.
 
+#include <cmath>
+#include "Latitude.h"
 #include "Constants.h"
 
 using Constants::pi;
+using namespace std;
 
 Latitude::Latitude() : LatLon()
 {}
 
-Latitude::Latitude(double degrees) : LatLon(degrees)
-{
-    if (getAngle() < 0)
-    {
-        setDirection('S');
-    }
-    else
-    {
-        setDirection('N');
-    }
-}
+Latitude::Latitude(double angle) : LatLon(angle)
+{}
 
 Latitude::Latitude(double degrees, char direction)
-    : LatLon(degrees, direction)
-{}
-
-Latitude::Latitude(int degrees, int minutes, int seconds, char direction)
-    : LatLon(degrees, minutes, seconds, direction)
-{}
+    : LatLon(abs(degrees))
+{
+  applyDirection(direction);
+}
 
 Latitude::Latitude(int degrees, double minutes, char direction)
-    : LatLon(degrees, minutes, direction)
-{}
+    : LatLon(abs(degrees) + abs(minutes)/60.0)
+{
+  applyDirection(direction);
+}
+
+Latitude::Latitude(int degrees, int minutes, int seconds, char direction)
+    : LatLon(abs(degrees) + abs(minutes)/60.0 + abs(seconds)/3600.0)
+{
+  applyDirection(direction);
+}
 
 /**
  * Return the value for an arcdegree of north-south latitude difference.
@@ -76,4 +77,29 @@ double Latitude::getM()
     // Currently, we use an approximation of 6371e3, but in reality this value
     // depends on the angle.
     return 6371e3;
+}
+
+const char Latitude::getDirection() const {
+
+    if (getAngle() < 0)
+    {
+        return 'S';
+    }
+    else
+    {
+        return 'N';
+    }
+
+}
+
+const void Latitude::applyDirection(const char direction) {
+
+  // just to be on the safe side, make the angle positive...
+  angle = abs(angle);
+
+  // ... and invert its sign when necessary.
+  if ( direction == 's' || direction == 'S' ) {
+    angle = -angle;
+  }
+
 }

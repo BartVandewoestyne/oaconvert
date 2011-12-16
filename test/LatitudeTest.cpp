@@ -33,6 +33,77 @@ LatitudeTest::tearDown()
 {
 }
 
+void
+LatitudeTest::testConstructors()
+{
+  Latitude lat;
+
+
+  lat = Latitude(12.34);
+  CPPUNIT_ASSERT_EQUAL('N', lat.getDirection());
+
+  lat = Latitude(-12.34);
+  CPPUNIT_ASSERT_EQUAL('S', lat.getDirection());
+
+
+  lat = Latitude(12.34, 'N');
+  CPPUNIT_ASSERT_EQUAL('N', lat.getDirection());
+
+  lat = Latitude(-12.34, 'N');
+  CPPUNIT_ASSERT_EQUAL('N', lat.getDirection());
+
+  lat = Latitude(12.34, 's');
+  CPPUNIT_ASSERT_EQUAL('S', lat.getDirection());
+
+  lat = Latitude(-12.34, 's');
+  CPPUNIT_ASSERT_EQUAL('S', lat.getDirection());
+
+
+  lat = Latitude(12, 34.56, 'N');
+  CPPUNIT_ASSERT_EQUAL('N', lat.getDirection());
+
+  lat = Latitude(-12, 34.56, 'N');
+  CPPUNIT_ASSERT_EQUAL('N', lat.getDirection());
+
+  lat = Latitude(12, 34.56, 's');
+  CPPUNIT_ASSERT_EQUAL('S', lat.getDirection());
+
+  lat = Latitude(-12, 34.56, 's');
+  CPPUNIT_ASSERT_EQUAL('S', lat.getDirection());
+
+
+  lat = Latitude(12, 34, 56.78, 'N');
+  CPPUNIT_ASSERT_EQUAL('N', lat.getDirection());
+
+  lat = Latitude(-12, 34, 56.78, 'N');
+  CPPUNIT_ASSERT_EQUAL('N', lat.getDirection());
+
+  lat = Latitude(12, 34, 56.78, 's');
+  CPPUNIT_ASSERT_EQUAL('S', lat.getDirection());
+
+  lat = Latitude(-12, 34, 56.78, 's');
+  CPPUNIT_ASSERT_EQUAL('S', lat.getDirection());
+}
+
+void
+LatitudeTest::testGetDegrees()
+{
+  Latitude lat;
+
+  lat = Latitude(-12.34);
+  CPPUNIT_ASSERT_EQUAL(12, lat.getDegrees());
+
+  lat = Latitude(12.34);
+  CPPUNIT_ASSERT_EQUAL(12, lat.getDegrees());
+
+  lat = Latitude(-12, 34, 'N');
+  CPPUNIT_ASSERT_EQUAL(12, lat.getDegrees());
+
+  lat = Latitude(12, 34, 'N');
+  CPPUNIT_ASSERT_EQUAL(12, lat.getDegrees());
+}
+
+
 /*
  * Tests based on values returned from
  * http://www.csgnetwork.com/degreelenllavcalc.html

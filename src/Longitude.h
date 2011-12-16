@@ -28,13 +28,19 @@ class Longitude : public LatLon
 
 public:
     Longitude();
-    Longitude(double degrees);
+    Longitude(double angle);
     Longitude(double degrees, char direction);
-    Longitude(int degrees, int minutes, int seconds, char direction);
     Longitude(int degrees, double minutes, char direction);
+    Longitude(int degrees, int minutes, int seconds, char direction);
+
+    const char getDirection() const;
 
     double getArcDegree(const Latitude& lat);
     double getN();
+
+private:
+
+    const void applyDirection(const char direction);
 
 };
 

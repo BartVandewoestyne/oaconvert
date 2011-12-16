@@ -30,29 +30,26 @@ using namespace std;
 Longitude::Longitude() : LatLon()
 {}
 
-Longitude::Longitude(double degrees) : LatLon(degrees)
-{
-    if (getAngle() < 0)
-    {
-        setDirection('W');
-    }
-    else
-    {
-        setDirection('E');
-    }
-}
+Longitude::Longitude(double angle) : LatLon(angle)
+{}
 
 Longitude::Longitude(double degrees, char direction)
-    : LatLon(degrees, direction)
-{}
-
-Longitude::Longitude(int degrees, int minutes, int seconds, char direction)
-    : LatLon(degrees, minutes, seconds, direction)
-{}
+    : LatLon(abs(degrees))
+{
+    applyDirection(direction);
+}
 
 Longitude::Longitude(int degrees, double minutes, char direction)
-    : LatLon(degrees, minutes, direction)
-{}
+    : LatLon(abs(degrees) + abs(minutes)/60.0)
+{
+    applyDirection(direction);
+}
+
+Longitude::Longitude(int degrees, int minutes, int seconds, char direction)
+    : LatLon(abs(degrees) + abs(minutes)/60.0 + abs(seconds)/3600.0)
+{
+    applyDirection(direction);
+}
 
 /**
  * See http://en.wikipedia.org/wiki/Latitude#Degree_length
@@ -77,4 +74,29 @@ double Longitude::getN()
     // According to http://solarsystem.nasa.gov/planets/profile.cfm?Object=Earth
     // the value 6371000 is just the mean radius...
     return 6371e3;
+}
+
+const char Longitude::getDirection() const {
+
+    if (getAngle() < 0)
+    {
+        return 'W';
+    }
+    else
+    {
+        return 'E';
+    }
+
+}
+
+const void Longitude::applyDirection(const char direction) {
+
+  // just to be on the safe side, make the angle positive...
+  angle = abs(angle);
+
+  // ... and invert its sign when necessary.
+  if ( direction == 'w' || direction == 'W' ) {
+    angle = -angle;
+  }
+
 }

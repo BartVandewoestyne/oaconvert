@@ -26,6 +26,8 @@ class LatitudeTest : public CppUnit::TestFixture
 {
 
   CPPUNIT_TEST_SUITE( LatitudeTest );
+  CPPUNIT_TEST( testConstructors);
+  CPPUNIT_TEST( testGetDegrees);
   CPPUNIT_TEST( testGetArcDegree );
   CPPUNIT_TEST_SUITE_END();
 
@@ -33,6 +35,8 @@ public:
   void setUp();
   void tearDown();
 
+  void testConstructors();
+  void testGetDegrees();
   void testGetArcDegree();
 
 };

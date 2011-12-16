@@ -33,6 +33,60 @@ LongitudeTest::tearDown()
 {
 }
 
+
+void
+LongitudeTest::testConstructors()
+{
+  Longitude lat;
+
+
+  lat = Longitude(12.34);
+  CPPUNIT_ASSERT_EQUAL('E', lat.getDirection());
+
+  lat = Longitude(-12.34);
+  CPPUNIT_ASSERT_EQUAL('W', lat.getDirection());
+
+
+  lat = Longitude(12.34, 'E');
+  CPPUNIT_ASSERT_EQUAL('E', lat.getDirection());
+
+  lat = Longitude(-12.34, 'E');
+  CPPUNIT_ASSERT_EQUAL('E', lat.getDirection());
+
+  lat = Longitude(12.34, 'w');
+  CPPUNIT_ASSERT_EQUAL('W', lat.getDirection());
+
+  lat = Longitude(-12.34, 'w');
+  CPPUNIT_ASSERT_EQUAL('W', lat.getDirection());
+
+
+  lat = Longitude(12, 34.56, 'E');
+  CPPUNIT_ASSERT_EQUAL('E', lat.getDirection());
+
+  lat = Longitude(-12, 34.56, 'E');
+  CPPUNIT_ASSERT_EQUAL('E', lat.getDirection());
+
+  lat = Longitude(12, 34.56, 'w');
+  CPPUNIT_ASSERT_EQUAL('W', lat.getDirection());
+
+  lat = Longitude(-12, 34.56, 'w');
+  CPPUNIT_ASSERT_EQUAL('W', lat.getDirection());
+
+
+  lat = Longitude(12, 34, 56.78, 'E');
+  CPPUNIT_ASSERT_EQUAL('E', lat.getDirection());
+
+  lat = Longitude(-12, 34, 56.78, 'E');
+  CPPUNIT_ASSERT_EQUAL('E', lat.getDirection());
+
+  lat = Longitude(12, 34, 56.78, 'w');
+  CPPUNIT_ASSERT_EQUAL('W', lat.getDirection());
+
+  lat = Longitude(-12, 34, 56.78, 'w');
+  CPPUNIT_ASSERT_EQUAL('W', lat.getDirection());
+}
+
+
 /*
  * Tests based on values returned from
  * http://www.csgnetwork.com/degreelenllavcalc.html

@@ -44,32 +44,27 @@ public:
      *
      * @param degrees Angle in degrees.
      */
-    LatLon(double degrees);
-    LatLon(double degrees, char direction);
-    LatLon(int degrees, double minutes, char direction);
-    LatLon(int degrees, int minutes, double seconds, char direction);
+    LatLon(double angle);
+    LatLon(int degrees, double minutes);
+    LatLon(int degrees, int minutes, double seconds);
 
     virtual ~LatLon();
 
     double getAngle() const;
-    char getDirection() const;
     int getDegrees() const;
     int getMinutes() const;
     double getSeconds() const;
     const double toRadians() const;
 
-    void setDirection(char c);
+    virtual const char getDirection() const = 0;
 
     bool operator ==(const LatLon& other) const;
     friend std::ostream& operator <<(std::ostream& outputStream,
                                      const LatLon& l);
 
-private:
-    // TODO: I think our design sucks for the moment... it seems like
-    // we allow negative angles, meaning that the direction private
-    // member is redundant...
+protected:
+
     double angle;
-    char direction;
 
 };
 
