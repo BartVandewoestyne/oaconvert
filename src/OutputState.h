@@ -23,8 +23,6 @@
 #include <iostream>
 #include "CurvedPolygon.h"
 
-using namespace std;
-
 class Airspace;
 class Circle;
 class CurvedPolygon;
@@ -36,12 +34,12 @@ public:
 
     OutputState() {};
 
+    // The virtual public destructor.
+    virtual ~OutputState() {};
+
     virtual void writeHeader(std::ostream &out) const = 0;
     virtual void writeFooter(std::ostream &out) const = 0;
-
     virtual void write(std::ostream& stream, const Airspace& airspace) const = 0;
-    virtual void write(std::ostream& stream, const Circle* circle) const = 0;
-    virtual void write(std::ostream& stream, const CurvedPolygon& p) const = 0;
 
 };
 

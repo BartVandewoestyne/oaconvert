@@ -64,7 +64,7 @@ private:
         REGEX_DA,
         REGEX_DB,
         REGEX_DB_COORDS,
-        REGEX_DC,
+        REGEX_DC
     };
 
 private:
@@ -106,9 +106,6 @@ public:
     void finalize();
 
 private:
-    void addLinearSegment( const Coordinate& point );
-    void addArc( const Arc& arc );
-
     void initRegexMap();
 
 };

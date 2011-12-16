@@ -31,9 +31,11 @@ using namespace Constants;
 
 PolishState* PolishState::_instance = 0;
 
+
 PolishState::PolishState()
 {
 }
+
 
 PolishState* PolishState::getInstance()
 {
@@ -43,6 +45,7 @@ PolishState* PolishState::getInstance()
     }
     return _instance;
 }
+
 
 void PolishState::writeHeader(std::ostream &out) const
 {
@@ -241,26 +244,11 @@ void PolishState::write(std::ostream& stream, const Airspace& airspace) const
 }
 
 
-void PolishState::write(std::ostream& stream, const Circle* circle) const
-{
-    std::vector<Coordinate> coords;
-    circle->discretize( coords, RESOLUTION );
-    write( stream, coords );
-//    write(s.getCircle().toPolygon(NBPOINTS), s.getName());;
-}
-
-
 void PolishState::write(std::ostream& stream, const CurvedPolygon& p) const
 {
     std::vector<Coordinate> coords;
     p.discretize( coords, RESOLUTION );
     write( stream, coords );
-}
-
-
-void PolishState::write(ostream& out, const Coordinate& c) const
-{
-    out << "(" << c.getLatitude().getAngle() << "," << c.getLongitude().getAngle() << ")";
 }
 
 
@@ -278,6 +266,13 @@ void PolishState::write(std::ostream& out, const std::vector<Coordinate>& coords
         out << endl;
     }
 }
+
+
+void PolishState::write(ostream& out, const Coordinate& c) const
+{
+    out << "(" << c.getLatitude().getAngle() << "," << c.getLongitude().getAngle() << ")";
+}
+
 
 /*
  * Return the Polish File [POLYGON] type for the given airspace class.

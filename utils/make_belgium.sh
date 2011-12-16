@@ -12,7 +12,7 @@ elif [[ "$unamestr" == 'Linux' || "$unamestr" == 'GNU/Linux' ]]; then
   OACONVERT=oaconvert
 fi
   
-OA2PM_ROOTDIR=~/Dropbox/MyProjects/oaconvert
+OA2PM_ROOTDIR=..
 AIRSPACES_DIR=${OA2PM_ROOTDIR}/openair
 OUTPUTFILE=${OA2PM_ROOTDIR}/build/openair/belux.txt
 

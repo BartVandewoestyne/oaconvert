@@ -44,7 +44,6 @@ public:
     double getRadiusNM() const;
     double getRadiusM() const;
 
-    virtual void write( std::ostream& stream, const OutputState* outputstate ) const;
     virtual void discretize( std::vector<Coordinate>& coords, double resolution ) const;
     virtual std::ostream& print( std::ostream &stream );
 

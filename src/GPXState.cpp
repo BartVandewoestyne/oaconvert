@@ -31,9 +31,11 @@ using namespace Constants;
 
 GPXState* GPXState::_instance = 0;
 
+
 GPXState::GPXState()
 {
 }
+
 
 GPXState* GPXState::getInstance()
 {
@@ -43,6 +45,7 @@ GPXState* GPXState::getInstance()
     }
     return _instance;
 }
+
 
 void GPXState::writeHeader(std::ostream &out) const
 {
@@ -62,47 +65,6 @@ void GPXState::writeHeader(std::ostream &out) const
 void GPXState::writeFooter(std::ostream &out) const
 {
     out << "</gpx>" << endl;
-}
-
-
-void GPXState::write(std::ostream& stream, const Circle* circle) const
-{
-    std::vector<Coordinate> coords;
-    circle->discretize( coords, RESOLUTION );
-    write( stream, coords );
-}
-
-
-void GPXState::write(std::ostream& stream, const CurvedPolygon& p) const
-{
-    std::vector<Coordinate> coords;
-    p.discretize( coords, RESOLUTION );
-    write( stream, coords );
-}
-
-
-void GPXState::write(ostream& out, const Coordinate& c) const
-{
-    // Write as TRACKPOINT in a TRACK
-    out << "      <trkpt lat=\"" << c.getLatitude().getAngle() << "\" lon=\"" << c.getLongitude().getAngle() << "\"></trkpt>";
-
-    // Write as ROUTEPOINT in a ROUTE
-    //out << "      <rtept lat=\"" << c.getLatitude().getAngle() << "\" lon=\"" << c.getLongitude().getAngle() << "\"></rtept>";
-
-    // TODO: include elevation
-}
-
-
-void GPXState::write(std::ostream& out, const std::vector<Coordinate>& coords) const
-{
-    if (coords.size() > 0)
-    {
-        for (size_t i = 0; i < coords.size(); ++i)
-        {
-            write(out, coords[i]);
-            out << endl;
-        }
-    }
 }
 
 
@@ -134,4 +96,37 @@ void GPXState::write(std::ostream& stream, const Airspace& airspace) const
     //write(stream, airspace.getCurvedPolygon());
     //stream << "  </rte>" << endl;
 
+}
+
+
+void GPXState::write(std::ostream& stream, const CurvedPolygon& p) const
+{
+    std::vector<Coordinate> coords;
+    p.discretize( coords, RESOLUTION );
+    write( stream, coords );
+}
+
+
+void GPXState::write(std::ostream& out, const std::vector<Coordinate>& coords) const
+{
+    if (coords.size() > 0)
+    {
+        for (size_t i = 0; i < coords.size(); ++i)
+        {
+            write(out, coords[i]);
+            out << endl;
+        }
+    }
+}
+
+
+void GPXState::write(ostream& out, const Coordinate& c) const
+{
+    // Write as TRACKPOINT in a TRACK
+    out << "      <trkpt lat=\"" << c.getLatitude().getAngle() << "\" lon=\"" << c.getLongitude().getAngle() << "\"></trkpt>";
+
+    // Write as ROUTEPOINT in a ROUTE
+    //out << "      <rtept lat=\"" << c.getLatitude().getAngle() << "\" lon=\"" << c.getLongitude().getAngle() << "\"></rtept>";
+
+    // TODO: include elevation
 }

@@ -54,10 +54,6 @@ const Point& Circle::getCenter() const
     return center;
 }
 
-void Circle::write( std::ostream& stream, const OutputState* outputstate ) const
-{
-    outputstate->write( stream, this );
-}
 
 /**
  * See http://en.wikipedia.org/wiki/Latitude#Degree_length

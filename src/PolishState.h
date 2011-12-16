@@ -39,20 +39,19 @@ public:
     //! Use this method to write out an airspace.
     virtual void write(std::ostream& stream, const Airspace& airspace) const;
 
-    //! Helper method to write out an airspace
-    virtual void write(std::ostream& stream, const Circle* circle) const;
-    virtual void write(std::ostream& stream, const CurvedPolygon& p) const;
 
 protected:
 
     PolishState();
 
 private:
-
-    void write(std::ostream& out, const Coordinate& c) const;
-    void write(std::ostream& stream, const std::vector<Coordinate>& coords) const;
-
     static PolishState* _instance;
+
+    //! Helper method to write out an airspace
+    void write(std::ostream& stream, const CurvedPolygon& p) const;
+    void write(std::ostream& stream, const std::vector<Coordinate>& coords) const;
+    void write(std::ostream& out, const Coordinate& c) const;
+
     std::string getType(const Airspace& space) const;
 
 };
