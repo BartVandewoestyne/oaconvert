@@ -82,10 +82,10 @@ Section -Post
   WriteRegBin "HKLM" "SOFTWARE\Garmin\MapSource\Families\airspace" "ID" 7B00
   WriteRegStr "HKLM" "Software\Garmin\Mapsource\Families\airspace\1" "LOC" "$INSTDIR\garmin"
   WriteRegStr "HKLM" "Software\Garmin\Mapsource\Families\airspace\1" "BMAP" "$INSTDIR\garmin\airspace.img"
-  WriteRegStr "HKLM" "Software\Garmin\Mapsource\Families\airspace\1" "TDB" "$INSTDIR\garmin\airspace.TDB"
-  WriteRegStr "HKLM" "Software\Garmin\Mapsource\Families\airspace\1" "TYP" "$INSTDIR\garmin\AIRSPACE.TYP"
-  WriteRegStr "HKLM" "Software\Garmin\Mapsource\Families\airspace\1" "MDR" "$INSTDIR\garmin\airspace.img"
-  WriteRegStr "HKLM" "Software\Garmin\Mapsource\Families\airspace\1" "IDX" "$INSTDIR\garmin\airspace.MDX"
+  WriteRegStr "HKLM" "Software\Garmin\Mapsource\Families\airspace\1" "TDB" "$INSTDIR\garmin\airspace.tdb"
+  ;WriteRegStr "HKLM" "Software\Garmin\Mapsource\Families\airspace\1" "MDR" "$INSTDIR\garmin\airspace.img"
+  WriteRegStr "HKLM" "Software\Garmin\Mapsource\Families\airspace" "IDX" "$INSTDIR\garmin\airspace.mdx"
+  WriteRegStr "HKLM" "Software\Garmin\Mapsource\Families\airspace" "TYP" "$INSTDIR\garmin\airspace.typ"
   
 SectionEnd
 
