@@ -301,11 +301,6 @@ void PolishState::write(ostream& out, const Coordinate& c) const
  */
 std::string PolishState::getType(const Airspace& space) const
 {
-
-    // For MapSource testing purposes.  If we uncomment this, we're using
-    // built-in Garmin POLYGON types instead of our own types.
-    //return string("0x02");
-
     if (space.isFIR()) {
         return string("0x60");
     } else if (space.isCTR()) {
