@@ -20,6 +20,7 @@ MapVersion=101
 . and it should be more than 40.
 ProductCode=1
 CodePage=0
+; FID=123 decimal = 7B hex
 FID=123
 ID=65537
 Levels=2
