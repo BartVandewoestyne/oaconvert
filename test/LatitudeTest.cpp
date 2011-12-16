@@ -44,16 +44,16 @@ LatitudeTest::testGetArcDegree()
   double tol = 491.0;
 
   // Longitude doesn't really matter.
-  Longitude lon(45, 00, 00, 'N');
+  Longitude lon(45, 0, 0, 'N');
 
   Latitude lat;
 
-  lat = Latitude(45, 00, 00, 'N');
+  lat = Latitude(45, 0, 0, 'N');
   CPPUNIT_ASSERT_DOUBLES_EQUAL(111131.745, lat.getArcDegree(), tol);
 
-  lat = Latitude(20, 00, 00, 'N');
+  lat = Latitude(20, 0, 0, 'N');
   CPPUNIT_ASSERT_DOUBLES_EQUAL(110704.27818646189, lat.getArcDegree(), tol);
 
-  lat = Latitude(60, 00, 00, 'N');
+  lat = Latitude(60, 0, 0, 'N');
   CPPUNIT_ASSERT_DOUBLES_EQUAL(111412.24020000001, lat.getArcDegree(), tol);
 }

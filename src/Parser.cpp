@@ -35,14 +35,22 @@ using namespace Constants;
 
 Parser::Parser()
     : _writer()
+    , airspaces()
+    , currentDirection('+')
+    , currentCoordinate()
     , curved_polygon(0)
+    , regexMap()
 {
     initRegexMap();
 }
 
 Parser::Parser(const std::string& outfile)
     : _writer( outfile )
+    , airspaces()
+    , currentDirection('+')
+    , currentCoordinate()
     , curved_polygon(0)
+    , regexMap()
 {
 
     initRegexMap();

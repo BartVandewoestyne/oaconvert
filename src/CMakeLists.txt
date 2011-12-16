@@ -23,7 +23,7 @@ set(oaconvert_SRCS
 add_library(airspace SHARED ${airspace_SRCS})
 add_executable(oaconvert ${oaconvert_SRCS})
 
-#set(CMAKE_CXX_FLAGS "-g -Wall -DDEBUG")
+set(CMAKE_CXX_FLAGS "-g -Wall -Weffc++ -DDEBUG")
 
 target_link_libraries(airspace boost_regex-mt)
 target_link_libraries(oaconvert airspace)

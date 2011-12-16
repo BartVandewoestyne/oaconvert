@@ -25,8 +25,14 @@
 using namespace std;
 using Constants::pi;
 
+// TODO: I don't like -1 and -1 as start and end angle as these are plausible
+// values... how to solve this?
 Arc::Arc()
     : radiusNM(-1.0)
+    , center()
+    , angleStart(-1.0)
+    , angleEnd(-1.0)
+    , direction('+')
 {
 }
 

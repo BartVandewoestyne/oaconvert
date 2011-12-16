@@ -25,8 +25,8 @@
 
 
 CurvedPolygon::CurvedPolygon()
-{
-}
+    : shapes()
+{}
 
 CurvedPolygon::~CurvedPolygon()
 {

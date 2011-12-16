@@ -27,21 +27,19 @@
 using namespace std;
 
 Coordinate::Coordinate()
-{
-    /* Body intentionally empty. */
-}
+    : lat()
+    , lon()
+{}
 
 Coordinate::Coordinate(const Latitude& lat, const Longitude& lon)
     : lat( lat )
     , lon( lon )
-{
-}
+{}
 
 Coordinate::Coordinate(double degrees_lat, double degrees_lon)
     : lat( degrees_lat )
     , lon( degrees_lon )
-{
-}
+{}
 
 const Latitude& Coordinate::getLatitude() const
 {

@@ -49,6 +49,8 @@ public:
     LatLon(int degrees, double minutes, char direction);
     LatLon(int degrees, int minutes, double seconds, char direction);
 
+    virtual ~LatLon();
+
     double getAngle() const;
     char getDirection() const;
     int getDegrees() const;
@@ -63,6 +65,9 @@ public:
                                      const LatLon& l);
 
 private:
+    // TODO: I think our design sucks for the moment... it seems like
+    // we allow negative angles, meaning that the direction private
+    // member is redundant...
     double angle;
     char direction;
 

@@ -25,11 +25,19 @@ using namespace std;
 using Constants::pi;
 
 LatLon::LatLon()
+    : angle(-1)
+    , direction()
 {
     /* Body intentionally empty. */
 }
 
+// TODO: having this constructor feels kind of weird... what do we do with
+// negative degrees values... do we set the direction accordingly or not, and if
+// 'yes', wo what value? (we don't know if this is a latitude or longitude
+// yet...)
 LatLon::LatLon(double degrees)
+    : angle(degrees)
+    , direction()
 {
     // TODO:
     // Since for latitudes we have that -90 <= angle <= 90 and for longitudes
@@ -38,12 +46,12 @@ LatLon::LatLon(double degrees)
     //   -180 <= angle <= 180
     //
     // and throw an exception if this condition is not satisfied?
-    angle = degrees;
 }
 
 LatLon::LatLon(double degrees, char direction)
+    : angle(degrees)
+    , direction(direction)
 {
-    angle = degrees;
     if ( (direction == 's')
             || (direction == 'S')
             || (direction == 'W')
@@ -51,34 +59,31 @@ LatLon::LatLon(double degrees, char direction)
     {
         angle = -angle;
     }
-    this->direction = direction;
 }
 
 LatLon::LatLon(int degrees, int minutes, double seconds, char direction)
+    : angle(degrees + minutes/60.0 + seconds/3600.0)
+    , direction(direction)
 {
-    angle = degrees + minutes/60.0 + seconds/3600.0;
-    if ( (direction == 's')
-            || (direction == 'S')
-            || (direction == 'W')
-            || (direction == 'w') )
+    if (   (direction == 's') || (direction == 'S')
+        || (direction == 'w') || (direction == 'W') )
     {
         angle = -angle;
     }
-    this->direction = direction;
 }
 
 LatLon::LatLon(int degrees, double minutes, char direction)
+    : angle(degrees + minutes/60.0)
+    , direction(direction)
 {
-    angle = degrees + minutes/60.0;
-    if ( (direction == 's')
-            || (direction == 'S')
-            || (direction == 'W')
-            || (direction == 'w') )
+    if (    (direction == 's') || (direction == 'S')
+         || (direction == 'w') || (direction == 'W') )
     {
         angle = -angle;
     }
-    this->direction = direction;
 }
+
+LatLon::~LatLon() {}
 
 /**
  * Return the complete angle as a floating point number.

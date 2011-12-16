@@ -51,6 +51,12 @@ private:
     //! The internal output stream to write to.
     std::ostream out;
 
+    // We only declare, but do not implement the copy constructor
+    // and assignment operator.  See [Meyers 2005], Item 11, second last
+    // paragraph.
+    OutputWriter(const OutputWriter& w);
+    OutputWriter operator=(const OutputWriter& w);
+
 };
 
 #endif /* OUTPUTWRITER_H */

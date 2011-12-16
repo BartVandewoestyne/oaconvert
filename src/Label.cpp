@@ -26,10 +26,9 @@
 using namespace std;
 
 Label::Label(std::string text, Coordinate c)
-{
-    this->text = text;
-    this->coord = c;
-}
+    : text(text)
+    , coord(c)
+{}
 
 const std::string& Label::getText() const
 {

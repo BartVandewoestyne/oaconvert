@@ -34,6 +34,12 @@
 using namespace std;
 
 Airspace::Airspace()
+: name(""),
+  clss(""),
+  ceiling(-1),
+  floor(-1),
+  p(),
+  labels()
 {}
 
 

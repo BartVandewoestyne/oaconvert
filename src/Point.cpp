@@ -24,6 +24,7 @@
 using namespace std;
 
 Point::Point()
+    : m_coordinate()
 {}
 
 Point::Point( const Coordinate& c )

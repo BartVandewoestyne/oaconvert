@@ -80,6 +80,12 @@ private:
 
     std::map<ERegex,boost::regex> regexMap;
 
+    // We only declare, but do not implement the copy constructor
+    // and assignment operator.  See [Meyers 2005], Item 11, second last
+    // paragraph.
+    Parser(const Parser& p);
+    Parser operator=(const Parser& p);
+
 public:
 
     Parser();
