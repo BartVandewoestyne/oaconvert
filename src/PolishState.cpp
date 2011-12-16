@@ -71,6 +71,8 @@ void PolishState::writeHeader(std::ostream &out) const
     //   gscripts:          none specified, so default 0
     out << "Codepage=0" << endl;
 
+    out << "Transparent=S" << endl;
+
     // Subfamily identifier used for locked IMG files only – value
     // between 1 and 255. Each subfamily can be unlocked with
     // universal unlock code or separately with individual unlock
@@ -304,6 +306,11 @@ void PolishState::write(std::ostream& out, const std::vector<Coordinate>& coords
  */
 std::string PolishState::getType(const Airspace& space) const
 {
+
+    // For MapSource testing purposes.  If we uncomment this, we're using
+    // built-in Garmin POLYGON types instead of our own types.
+    //return string("0x02");
+
     if (space.isFIR()) {
         return string("0x60");
     } else if (space.isCTR()) {
