@@ -33,10 +33,10 @@ cgpsmapper typ Airspace.txt AIRSPACE.TYP
 mkdir -p ../build/garmin/
 mv 19780321.img   ../build/garmin/
 mv airspace.img ../build/garmin/
-mv airspace.TDB ../build/garmin/
-mv AIRSPACE.TYP ../build/garmin/
+mv airspace.TDB ../build/garmin/airspace.tdb
+mv AIRSPACE.TYP ../build/garmin/airspace.typ
 if [[ "$unamestr" == 'Cygwin' ]]; then
-  mv airspace.MDX ../build/garmin/
+  mv airspace.MDX ../build/garmin/airspace.mdx
 fi
 
 # After setting ProductCode=1 in the Polish file and the preview file,
