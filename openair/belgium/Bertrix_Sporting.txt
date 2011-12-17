@@ -1,0 +1,29 @@
+* Source:
+*
+*   http://www.belgocontrol.be
+*
+*   AIP Part 2 EN-ROUTE (ENR)
+*   ENR 5 NAVIGATION WARNINGS
+*    ENR 5.5 Aerial sporting and recreational activities
+*     1 GENERAL
+*
+* Last update:
+*
+*   Wim Verhoeve (17 December 2011)
+*
+* Map List:
+* 
+*   None (Glider activity)
+*
+* Remarks:
+*
+*   - Type of restriction / nature of hazard: Glider activity.
+*   - Time of activity: HX. In VMC only (1)
+*     (1) During OPR HR of the Belgian Cadets at EBBX. Activation will be announced by NOTAM.
+
+AC Q
+AN Bertrix
+AH 4500 ft AMSL 
+AL GND
+V X=49:53:30 N 005:13:26 E
+DC 10
