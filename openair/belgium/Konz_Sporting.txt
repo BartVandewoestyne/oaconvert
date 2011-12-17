@@ -1,0 +1,31 @@
+* Source:
+*
+*   http://www.belgocontrol.be
+*
+*   AIP Part 2 EN-ROUTE (ENR)
+*   ENR 5 NAVIGATION WARNINGS
+*    ENR 5.5 Aerial sporting and recreational activities
+*     1 GENERAL
+*
+* Last update:
+*
+*   Wim Verhoeve (17 December 2011)
+*
+* Map List:
+* 
+*   None (Glider activity)
+*
+* Remarks:
+*
+*   - Type of restriction / nature of hazard: Glider activity.
+*   - Time of activity: HX. In VMC only
+
+AC Q
+AN Konz/Könen
+AH 4000 ft AMSL
+AL GND
+DP 49:42:27 N 006:29:56 E
+DP 49:42:27 N 006:33:23 E
+DP 49:27:17 N 006:33:04 E
+DP 49:27:17 N 006:29:56 E
+DP 49:42:27 N 006:29:56 E
