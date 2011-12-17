@@ -1,0 +1,44 @@
+* TEST TEST TEST
+
+
+* Source:
+*
+*   http://www.belgocontrol.be
+*
+*   AIP Part 2 EN-ROUTE (ENR)
+*   ENR 5 NAVIGATION WARNINGS
+*    ENR 5.5 Aerial sporting and recreational activities
+*     1 GENERAL
+*
+* Last update:
+*
+*   Wim Verhoeve (17 December 2011)
+*
+* Map List:
+*
+*   None (Training area for free manned balloons)
+*
+* Remarks:
+*
+*   - Type of restriction / nature of hazard: Training area for free manned balloons.
+*   - Time of activity: HJ. In VMC only (1)
+*     (1) By arrangement with Chièvres TWR and Brussels FIC.
+
+AC Q
+AN Beloeil
+AH 1000 ft AGL 
+AL GND
+DP 50:29:45 N 003:31:56 E
+V D=+
+V X=50:32:50 N 003:43:33 E
+* Radius 8 NM
+DB 50:29:45 N 003:31:56 E, 50:25:06 N 003:40:14 E
+DP 50:25:06 N 003:40:14 E
+
+* START Belgian-French border
+*
+* TBD / TBD / TBD/TBD
+*
+* END Belgian-French border
+
+DP 50:29:45 N 003:31:56 E
