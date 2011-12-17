@@ -1,0 +1,31 @@
+* Source:
+*
+*   http://www.belgocontrol.be
+*
+*   AIP Part 2 EN-ROUTE (ENR)
+*   ENR 5 NAVIGATION WARNINGS
+*    ENR 5.5 Aerial sporting and recreational activities
+*     1 GENERAL
+*
+* Last update:
+*
+*   Wim Verhoeve (17 December 2011)
+*
+* Map List:
+* 
+*   None (Glider activity)
+*
+* Remarks:
+*
+*   - Type of restriction / nature of hazard: Glider activity. Winch and motor launching.
+*   - Time of activity: SAT, SUN and HOL, HJ (daily JUL and AUG). In VMC only.
+*   (1) Use of the area is subject to prior permission of the operator of EBGG. Local instructions should be known and complied with.
+*   (2) Altimeter setting based on QNH provided by Brussels APP.
+
+AC Q
+AN Geraardsbergen
+AH 4500 ft AMSL 
+* (2)
+AL GND
+V X=50:45:17 N 003:51:45 E
+DC 2

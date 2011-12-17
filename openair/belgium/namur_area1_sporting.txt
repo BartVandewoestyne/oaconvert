@@ -1,0 +1,34 @@
+* Source:
+*
+*   http://www.belgocontrol.be
+*
+*   AIP Part 2 EN-ROUTE (ENR)
+*   ENR 5 NAVIGATION WARNINGS
+*    ENR 5.5 Aerial sporting and recreational activities
+*     1 GENERAL
+*
+* Last update:
+*
+*   Wim Verhoeve (17 December 2011)
+*
+* Map List:
+* 
+*   MAP WEEK           SEE NOTAM
+*   MAP WEEKEND        SEE NOTAM
+*   MAP WEEKEND_LFAG1  SEE NOTAM
+*   MAP WEEKEND_LFAG2  SEE NOTAM
+*   MAP WEEKEND_LFAG5  SEE NOTAM
+*
+* Remarks:
+*
+*   - Type of restriction / nature of hazard: Parachuting.
+*   - Time of activity: FRI BTN 1500 and SS, outside MIL activities. SAT, SUN and HOL, HJ. In VMC only (1)
+*   (1) Permission for dropping shall be obtained from Charleroi ATC by TEL. MET OBS of EBCI is taken into
+*   consideration only. Continuous listening watch is compulsory as dropping may be suspended for traffic reasons.
+
+AC Q
+AN Namur Area 1
+AH FL 135 
+AL GND
+V X=50:29:17 N 004:46:26 E
+DC 2
