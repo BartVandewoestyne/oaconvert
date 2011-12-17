@@ -13,12 +13,13 @@
 *
 * Map List:
 * 
-*   None (Paragliding)
+*   NONE
 *
-* Remarks:
+* Type of restriction / nature of hazard:
+*   - Paragliding.
 *
-*   - Type of restriction / nature of hazard: Paragliding.
-*   - Time of activity: HJ. In VMC only
+* Time of activity:
+*   - HJ. In VMC only
 
 AC Q
 AN Grinlay

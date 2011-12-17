@@ -13,18 +13,19 @@
 *
 * Map List:
 * 
-*   None (Aerobatic sector for light aircraft)
+*   NONE
 *
-* Remarks:
+* Type of restriction / nature of hazard:
+*   - Aerobatic sector for light aircraft.
 *
-*   - Type of restriction / nature of hazard: Aerobatic sector for light aircraft.
-*   - Time of activity: HX. In VMC only
-*   (1) Release between FL 50 and FL 70 subject to approval from Luxembourg APP.
+* Time of activity:
+*   - HX. In VMC only
+*     (1) Release between FL 50 and FL 70 subject to approval from Luxembourg
+*         APP.
 
 AC Q
 AN Feitsch
-AH FL 70
-* (1)
+AH FL 70  * (1)
 AL 1500 ft AGL
 DP 50:02:42 N 005:53:46 E
 DP 50:01:05 N 005:53:34 E

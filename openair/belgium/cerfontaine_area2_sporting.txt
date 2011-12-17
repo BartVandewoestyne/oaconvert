@@ -19,10 +19,11 @@
 *   MAP WEEKEND_LFAG2  N/A
 *   MAP WEEKEND_LFAG5  N/A
 *
-* Remarks:
+* Type of restriction / nature of hazard:
+*   - Parachuting.
 *
-*   - Type of restriction / nature of hazard: Parachuting.
-*   - Time of activity: HJ (during MIL OPR HR). In VMC only (1)
+* Time of activity:
+*   - HJ (during MIL OPR HR). In VMC only (1)
 *     (1) OPR HR can be checked with Brussels FIC.
 
 AC Q
@@ -35,5 +36,5 @@ DP 50:10:06 N 004:25:17 E
 V D=+
 V X=50:09:10 N 004:23:14 E
 * Radius 3 km
-DB 50:10:06 N 004:25:17 E,50:10:46 N 004:23:40 E
+DB 50:10:06 N 004:25:17 E, 50:10:46 N 004:23:40 E
 DP 50:10:46 N 004:23:40 E

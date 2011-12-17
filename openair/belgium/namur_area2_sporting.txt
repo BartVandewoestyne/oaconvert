@@ -13,19 +13,20 @@
 *
 * Map List:
 * 
-*   None (Glider activity)
+*   NONE
 *
-* Remarks:
+* Type of restriction / nature of hazard:
+*   - Glider activity.
 *
-*   - Type of restriction / nature of hazard: Glider activity..
-*   - Time of activity: MON to THU, 0800-1900. FRI to SUN and HOL, 0800-SS. In VMC only (2)
-*   (1) For operation reasons, highest suitable altitude for glider activity is 2000 ft AMSL.
-*   (2) MET OBS of EBCI is taken into consideration only.
+* Time of activity:
+*   - MON to THU, 0800-1900. FRI to SUN and HOL, 0800-SS. In VMC only (2)
+*     (1) For operation reasons, highest suitable altitude for glider activity
+*         is 2000 ft AMSL.
+*     (2) MET OBS of EBCI is taken into consideration only.
 
 AC Q
 AN Namur Area 2
-AH 2500 ft AMSL
-* (1)
+AH 2500 ft AMSL  * (1)
 AL GND
 DP 50:29:28 N 004:42:01 E
 DP 50:31:21 N 004:50:22 E

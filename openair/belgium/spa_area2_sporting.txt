@@ -19,12 +19,15 @@
 *   MAP WEEKEND_LFAG2  SEE NOTAM
 *   MAP WEEKEND_LFAG5  SEE NOTAM
 *
-* Remarks:
+* Type of restriction / nature of hazard:
+*   - Parachuting.
 *
-*   - Type of restriction / nature of hazard: Parachuting.
-*   - Time of activity: During EBSP OPR HR. In VMC only (1)
-*   (1) See EBSP AD 2.3. Permission for dropping shall be obtained from Brussels ACC (FREQ 128.200 MHz).
-*   Continuous listening watch is compulsory as dropping at FL 50 and above may be suspended for traffic reasons.
+* Time of activity:
+*   - During EBSP OPR HR. In VMC only (1)
+*     (1) See EBSP AD 2.3.  Permission for dropping shall be obtained from
+*         Brussels ACC (FREQ 128.200 MHz).  Continuous listening watch is
+*         compulsory as dropping at FL 50 and above may be suspended for
+*         traffic reasons.
 
 AC Q
 AN Spa Area 2
@@ -39,7 +42,3 @@ DP 50:27:54 N 005:55:42 E
 DP 50:29:12 N 005:53:43 E
 DP 50:29:05 N 005:53:11 E
 DP 50:29:30 N 005:52:05 E
-
-
-
-

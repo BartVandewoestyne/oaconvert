@@ -13,13 +13,15 @@
 *
 * Map List:
 * 
-*   None (Glider activity)
+*   NONE
 *
-* Remarks:
+* Type of restriction / nature of hazard:
+*   - Glider activity.
 *
-*   - Type of restriction / nature of hazard: Glider activity.
-*   - Time of activity: HX. In VMC only (1)
-*     (1) During OPR HR of the Belgian Cadets at EBBX. Activation will be announced by NOTAM.
+* Time of activity:
+*   - HX. In VMC only (1)
+*     (1) During OPR HR of the Belgian Cadets at EBBX. Activation will be
+*     announced by NOTAM.
 
 AC Q
 AN Bertrix

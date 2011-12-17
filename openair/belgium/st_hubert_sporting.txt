@@ -13,12 +13,13 @@
 *
 * Map List:
 * 
-*   None (Glider activity)
+*   NONE
 *
-* Remarks:
+* Type of restriction / nature of hazard:
+*   - Glider activity.
 *
-*   - Type of restriction / nature of hazard: Glider activity.
-*   - Time of activity: During EBSH OPR HR. In VMC only (1)
+* Time of activity:
+*   - During EBSH OPR HR. In VMC only (1)
 *     (1) See EBSH AD 2.3.
 
 AC Q

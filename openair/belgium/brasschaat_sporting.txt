@@ -13,18 +13,19 @@
 *
 * Map List:
 * 
-*   None (Glider activity)
+*   NONE
 *
-* Remarks:
+* Type of restriction / nature of hazard:
+*   - Glider activity.
 *
-*   - Type of restriction / nature of hazard: Glider activity.
-*   - Time of activity: HJ (MON to FRI outside MIL OPR HR only). In VMC only
-*   (1) Upper limit 3500 ft AMSL below Brussels TMA Three and 4500 ft AMSL below Brussels LCTA.
+* Time of activity:
+*   - HJ (MON to FRI outside MIL OPR HR only). In VMC only
+*     (1) Upper limit 3500 ft AMSL below Brussels TMA Three and 4500 ft AMSL
+*     below Brussels LCTA.
 
 AC Q
 AN Brasschaat
-AH 2500 ft AMSL 
-* (1)
+AH 2500 ft AMSL  * (1)
 AL GND
 V X=51:20:27 N 004:30:15 E
 DC 3

@@ -13,12 +13,13 @@
 *
 * Map List:
 * 
-*   None (Glider activity)
+*   NONE
 *
-* Remarks:
+* Type of restriction / nature of hazard:
+*   - Glider activity.
 *
-*   - Type of restriction / nature of hazard: Glider activity.
-*   - Time of activity: HX. In VMC only
+* Time of activity:
+*   - HX. In VMC only
 
 AC Q
 AN Konz/Könen
