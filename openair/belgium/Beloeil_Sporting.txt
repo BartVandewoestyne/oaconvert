@@ -1,6 +1,3 @@
-* TEST TEST TEST
-
-
 * Source:
 *
 *   http://www.belgocontrol.be
