@@ -52,7 +52,8 @@ private:
     void write(std::ostream& stream, const std::vector<Coordinate>& coords) const;
     void write(std::ostream& out, const Coordinate& c) const;
 
-    std::string getType(const Airspace& space) const;
+    std::string getPolygonType(const Airspace& space) const;
+    std::string getLineType(const Airspace& space) const;
 
 };
 
