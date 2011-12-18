@@ -16,7 +16,7 @@
 *   NONE
 *
 * Remark for paragliders:
-*   - AL > FL 55 & override by FLA G => not relevant for us
+*   - AL > FL 55 & override by LFA G => not relevant for paragliding
 *
 * Partially airspace class G during activation of Low Flying Area Golf Two
 * South.

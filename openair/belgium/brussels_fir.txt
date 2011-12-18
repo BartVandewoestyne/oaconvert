@@ -16,7 +16,7 @@
 *   NONE
 *
 * Remark for paragliders:
-*   - This is the whole of Belgian airspace => not relevant for our maps
+*   - This is the whole of Belgian airspace => not relevant for paragliding
 
 AC G
 AN Brussels FIR

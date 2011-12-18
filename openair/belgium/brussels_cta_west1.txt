@@ -12,7 +12,7 @@
 *   NONE
 *
 * Remark for paragliders:
-*   - AL > FL 55 => not relevant for us
+*   - AL > FL 55 => not relevant for paragliding
 
 AC C
 AN Brussels CTA WEST 1

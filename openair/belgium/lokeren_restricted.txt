@@ -24,7 +24,7 @@
 *   - PERM
 *
 * Remark for paragliders:
-*   - Not for us
+*   - Not for paragliding.
 
 AC R
 AN Lokeren
