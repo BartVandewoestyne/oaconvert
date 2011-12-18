@@ -4,8 +4,14 @@
 *    ENR 5.1 Prohibited, restricted and danger areas
 *     2 RESTRICTED AREAS
 *
-* Last update by Bart Vandewoestyne on 25 November 2011.
-
+* Last update:
+*   Bart Vandewoestyne (25 November 2011)
+*   Wim Verhoeve (18 December 2011)
+*
+* Map List:
+* 
+*   NONE
+*
 * Type of restriction / nature of hazard:
 *   - Entry restricted to aircraft maintaining a listening watch with Brussels
 *     FIC. (In case of unplanned activation of EBFS CTR and TMA, aircraft shall
@@ -13,6 +19,10 @@
 *
 * Time of activity:
 *   - HX (Activation announced by NOTAM.)
+*
+* Remark for paragliders:
+*   - In practice, CTR and TMA will be activated => not realy relevant
+
 AC R
 AN Florennes
 AH FL 95

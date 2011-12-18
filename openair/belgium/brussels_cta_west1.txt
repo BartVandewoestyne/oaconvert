@@ -3,7 +3,16 @@
 *   ENR 2 AIR TRAFFIC SERVICES AIRSPACE
 *    ENR 2.1 FIR, UIR, TMA
 *
-* Last update by Bart Vandewoestyne on 2 October 2011.
+* Last update:
+*   Bart Vandewoestyne (2 October 2011)
+*   Wim Verhoeve (17 December 2011)
+*
+* Map List:
+* 
+*   NONE
+*
+* Remark for paragliders:
+*   - AL > FL 55 => not relevant for us
 
 AC C
 AN Brussels CTA WEST 1

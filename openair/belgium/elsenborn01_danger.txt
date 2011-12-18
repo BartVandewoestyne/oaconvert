@@ -4,8 +4,18 @@
 *    ENR 5.1 Prohibited, restricted and danger areas
 *     3 DANGER AREAS
 *
-* Last update by Bart Vandewoestyne on 25 November 2011.
-
+* Last update:
+*   Bart Vandewoestyne (25 November 2011)
+*   Wim Verhoeve (18 December 2011)
+*
+* Map List:
+* 
+*   MAP WEEK           SEE NOTAM
+*   MAP WEEKEND        SEE NOTAM
+*   MAP WEEKEND_LFAG1  SEE NOTAM
+*   MAP WEEKEND_LFAG2  SEE NOTAM
+*   MAP WEEKEND_LFAG5  SEE NOTAM
+*
 * Type of restriction / nature of hazard:
 *   - Gunnery area and destruction centre of explosives. Air exercises.
 *
@@ -14,6 +24,7 @@
 *     Semmerzake ATCC or MDC. This area is contiguous to EDR117 (see AIP
 *     Germany). Activation of EDR117 can be checked with MDC (EBMIZGZF) or
 *     TEL +32 (0) 2 752 44 52.)
+
 AC Q
 AN Elsenborn 01
 AH FL 170  * Upper limit may be restricted to FL 105 (see NOTAM).

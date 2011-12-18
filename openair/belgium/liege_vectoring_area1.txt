@@ -1,4 +1,4 @@
-* See:
+﻿* See:
 *   AIP Part 2 EN-ROUTE (ENR)
 *   ENR 2 AIR TRAFFIC SERVICES AIRSPACE
 *    ENR 2.1 FIR, UIR, TMA
@@ -7,9 +7,19 @@
 *   Belgian border data was extracted from
 *   http://downloads.cloudmade.com/europe/western_europe/belgium/belgium.poly
 *
-* Last update by Bart Vandewoestyne on 24 November 2011.
-
+* Last update:
+*   Bart Vandewoestyne (24 November 2011)
+*   Wim Verhoeve (18 December 2011)
+*
+* Map List:
+* 
+*   NONE
+*
 * Active daily 2200-0500, except during MIL activity at EBBE or in TRA South.
+*
+* Remark for paragliders:
+*   - Active at night => not relevant
+
 AC C
 AN Liège vectoring area 1
 AH FL 55

@@ -5,12 +5,22 @@
 *     3 DANGER AREAS
 *
 * Last update by Bart Vandewoestyne on 25 November 2011.
+*   Wim Verhoeve (18 December 2011)
+*
+* Map List:
+* 
+*   MAP WEEK           SEE NOTAM
+*   MAP WEEKEND        NO
+*   MAP WEEKEND_LFAG1  NO
+*   MAP WEEKEND_LFAG2  NO
+*   MAP WEEKEND_LFAG5  NO
 
 * Type of restriction / nature of hazard:
 *   - Gunnery area.
 *
 * Time of activity:
 *   - MON to FRI (Activation on SAT, SUN and HOL announced by NOTAM.)
+
 AC Q
 AN Marche-en-Famenne
 AH 1000 ft AGL

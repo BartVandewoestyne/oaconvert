@@ -5,11 +5,21 @@
 *     1 PROHIBITED AREAS
 *
 * Last update by Bart Vandewoestyne on 25 November 2011.
+*   Wim Verhoeve (18 December 2011)
+*
+* Map List:
+* 
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
 
 * Type of restriction / nature of hazard:
 *   - Entry prohibited, unless instructed by ATC.
 * Time of activity:
 *   - PERM
+
 AC P
 AN Royal estate of Ciergnon
 AH UNL

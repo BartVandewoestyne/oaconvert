@@ -5,7 +5,17 @@
 *     2. LOWER AIRSPACE
 *      2.3 Terminal Control Areas
 *
-* Last update by Bart Vandewoestyne on 2 October 2011.
+* Last update:
+*   Bart Vandewoestyne (October 2011)
+*   Wim Verhoeve (17 December 2011)
+*
+* Map List:
+* 
+*   MAP WEEK           YES
+*   MAP WEEKEND        NO
+*   MAP WEEKEND_LFAG1  NO
+*   MAP WEEKEND_LFAG2  NO
+*   MAP WEEKEND_LFAG5  NO
 
 AC C
 AN Beauvechain TMA 1

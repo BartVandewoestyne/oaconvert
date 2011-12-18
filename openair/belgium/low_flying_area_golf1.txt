@@ -9,6 +9,18 @@
 *   http://downloads.cloudmade.com/europe/western_europe/belgium/belgium.poly
 *
 * Last update by Bart Vandewoestyne on 23 November 2011.
+*   Wim Verhoeve (18 December 2011)
+*
+* Map List:
+* 
+*   MAP WEEK           NO
+*   MAP WEEKEND        NO
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+*
+* Remark for paragliders:
+*   - As we are allowed to fly in the LFA G areas, the AH limit is our AL
 
 AC G
 AN LOW FLYING AREA GOLF 1

@@ -9,7 +9,7 @@
 *
 * Last update:
 *
-*   Wim Verhoeve (17 December 2011)
+*   Wim Verhoeve (18 December 2011)
 *
 * Map List:
 * 
@@ -39,7 +39,7 @@
 AC D
 AN Useldange Glider Corridor East
 AH FL 60
-AL 2500 ft AMSL
+AL FL60 * CHAGNED: glider flying! AL 2500 ft AMSL
 DP 49:54:43 N 005:58:06 E
 DP 49:57:48 N 006:10:13 E
 * START German-Luxembourg border

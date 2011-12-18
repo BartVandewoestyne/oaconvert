@@ -13,7 +13,7 @@
 *
 * Map list:
 *
-*   MAP WEEK           CTR
+*   MAP WEEK           YES
 *   MAP WEEKEND        SEE NOTAM
 *   MAP WEEKEND_LFAG1  SEE NOTAM
 *   MAP WEEKEND_LFAG2  SEE NOTAM

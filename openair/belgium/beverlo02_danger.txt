@@ -4,13 +4,24 @@
 *    ENR 5.1 Prohibited, restricted and danger areas
 *     3 DANGER AREAS
 *
-* Last update by Bart Vandewoestyne on 25 November 2011.
-
+* Last update:
+*   Bart Vandewoestyne (25 November 2011)
+*   Wim Verhoeve (18 December 2011)
+*
+* Map List:
+* 
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+*
 * Type of restriction / nature of hazard:
 *   - Demolition of explosives.
 *
 * Time of activity:
 *   - HX (Announced by NOTAM.)
+
 AC Q
 AN Beverlo 02
 AH 1200 ft AGL
