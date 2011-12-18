@@ -13,13 +13,14 @@
 *
 * Map List:
 * 
-*   None (Gunnery area)
+*   NONE
 *
-* Remarks:
+* Type of restriction / nature of hazard:
+*   - Gunnery area.
 *
-*   - Type of restriction / nature of hazard: Gunnery area.
-*   - Time of activity: PERM (1)
-*   (1) Not on SAT, SUN or HOL and in JUL and AUG, unless announced by NOTAM.
+* Time of activity:
+*   - PERM (1)
+*     (1) Not on SAT, SUN or HOL and in JUL and AUG, unless announced by NOTAM.
 
 AC Q
 AN Humain

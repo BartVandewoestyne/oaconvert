@@ -222,24 +222,42 @@ void PolishState::writeFooter(std::ostream &out) const
 
 void PolishState::write(std::ostream& stream, const Airspace& airspace) const
 {
-    // See section 4.2.4.2 in http://cgpsmapper.com/download/cGPSmapper-UsrMan-v02.1.pdf
+    // See section 4.2.4.2 in
+    //   http://cgpsmapper.com/download/cGPSmapper-UsrMan-v02.1.pdf
 
-    // oa2gm used [RGN40] here, which is a [POLYLINE]... I think one could also
-    // use [RGN80] here, which is a [POLYGON].
-    stream << "[POLYGON]" << endl;
+    if ( airspace.isDanger() || airspace.isRestricted() ) {
 
-    // Type of [POLYGON] element: 'Airport'
-    // We should probably change this to something which is more appropriate
-    // for each earspace separately.
-    // See section 12.3.3 in the cgpsmapper manual.
-    // Note that oa2gm used Type=0x0a which is an 'Unpaved Road-thin', but this
-    // is for [POLYLINE], not [POLYGON]...
-    stream << "Type=" << getType(airspace) << endl;
+        stream << "[POLYLINE]" << endl;
+        stream << "Type=" << getLineType(airspace) << endl;
 
-    stream << "Label=" << airspace.getName() << endl;
-    stream << "EndLevel=4" << endl; // Number must not be higher than highest X in LevelX in header.
-    //cout << airspace.getCurvedPolygon() << endl;
-    write(stream, airspace.getCurvedPolygon()); // BUG: this gives segmentation fault
+    } else {
+
+        stream << "[POLYGON]" << endl;
+        stream << "Type=" << getPolygonType(airspace) << endl;
+
+    }
+
+    stream << "Label=";
+    if ( airspace.isDanger() ) {
+        stream << "DANGER: ";
+    } 
+    if ( airspace.isRestricted() ) {
+        stream << "RESTRICTED: ";
+    } 
+    stream << airspace.getName();
+    if (   airspace.isTMA()
+        || airspace.isCTA()
+        || airspace.isVectoringArea() ) {
+      stream << " (" << airspace.getFloor() << " m max)";
+    }
+    stream << endl;
+
+    // The EndLevel number must not be higher than the highest X from the
+    // LevelX records in the Polish header.
+    stream << "EndLevel=4" << endl;
+
+    write(stream, airspace.getCurvedPolygon());
+
     stream << "[END]\n" << endl;
 }
 
@@ -299,7 +317,7 @@ void PolishState::write(ostream& out, const Coordinate& c) const
  *          type = '0x53'
  *
  */
-std::string PolishState::getType(const Airspace& space) const
+std::string PolishState::getPolygonType(const Airspace& space) const
 {
     if (space.isFIR()) {
         return string("0x60");
@@ -320,4 +338,15 @@ std::string PolishState::getType(const Airspace& space) const
     } else {
         return string("0x69");
     }
+}
+
+std::string PolishState::getLineType(const Airspace& space) const
+{
+  if (space.isDanger()) {
+      return string("0x01");
+  } else if (space.isRestricted()) {
+      return string("0x02");
+  } else {
+      return string("0x03");
+  }
 }

@@ -19,11 +19,12 @@
 *   MAP WEEKEND_LFAG2  SEE NOTAM
 *   MAP WEEKEND_LFAG5  SEE NOTAM
 *
-* Remarks:
+* Type of restriction / nature of hazard:
+*   - Parachuting.
 *
-*   - Type of restriction / nature of hazard: Parachuting.
-*   - Time of activity: During EBSP OPR HR. In VMC only (1)
-*   (1) See EBSP AD 2.3.
+* Time of activity:
+*   - During EBSP OPR HR.  In VMC only (1)
+*     (1) See EBSP AD 2.3.
 
 AC Q
 AN Spa Area 1

@@ -89,6 +89,64 @@ Type=0x67,6 ; Danger
 Type=0x69,8 ; Undefined
 [end]
 
+
+[_line]
+Type=0x01
+Xpm="32 5 4 1"
+"= c #FF0000"
+"  c none"
+"3 c #585858"
+"4 c none"
+"================================"
+"    =======         =======     "
+"    =======         =======     "
+"    =======         =======     "
+"================================"
+String1=0x01,Danger ; 0x01 = French
+String2=0x02,Gefahr ; 0x02 = German
+String3=0x03,Gevaar ; 0x03 = Dutch
+String4=0x04,Danger ; 0x04 = English
+[end]
+
+
+[_line]
+Type=0x02
+Xpm="32 5 4 1"
+"= c #00FF00"
+"  c none"
+"3 c #585858"
+"4 c none"
+"================================"
+"    =======         =======     "
+"    =======         =======     "
+"    =======         =======     "
+"================================"
+String1=0x01,Restreint  ; 0x01 = French
+String2=0x02,Beschränkt ; 0x02 = German
+String3=0x03,Beperkt    ; 0x03 = Dutch
+String4=0x04,Restricted ; 0x04 = English
+[end]
+
+
+[_line]
+Type=0x03
+Xpm="32 5 4 1"
+"= c #0000FF"
+"  c none"
+"3 c #585858"
+"4 c none"
+"================================"
+"    =======         =======     "
+"    =======         =======     "
+"    =======         =======     "
+"================================"
+String1=0x01,Par NOTAM ; 0x01 = French
+String2=0x02,Bei NOTAM ; 0x02 = German
+String3=0x03,Via NOTAM ; 0x03 = Dutch
+String4=0x04,Via NOTAM ; 0x04 = English
+[end]
+
+
 ; Polygon definitions are limited to 32x32 xpm bitmaps using using 2 colors
 ; each for the daytime and nighttime definitions.  They are tiled when rendered.
 

@@ -24,6 +24,7 @@ AIRSPACES="${AIRSPACES_DIR}/belgium/*fir*.txt
            ${AIRSPACES_DIR}/belgium/*prohibited*.txt
            ${AIRSPACES_DIR}/belgium/*restricted*.txt
            ${AIRSPACES_DIR}/belgium/*danger*.txt
+           ${AIRSPACES_DIR}/belgium/*sporting*.txt
            ${AIRSPACES_DIR}/belgium/low_flying_area*.txt
            ${AIRSPACES_DIR}/luxembourg/*tma*.txt"
 

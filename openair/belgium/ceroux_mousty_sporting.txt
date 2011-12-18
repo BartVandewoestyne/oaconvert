@@ -13,12 +13,13 @@
 *
 * Map List:
 *
-*   None (Training area for free manned balloons)
+*   NONE
 *
-* Remarks:
+* Type of restriction / nature of hazard:
+*   - Training area for free manned balloons.
 *
-*   - Type of restriction / nature of hazard: Training area for free manned balloons.
-*   - Time of activity: HJ. In VMC only (1)
+* Time of activity:
+*   - HJ. In VMC only (1)
 *     (1) By arrangement with Beauvechain TWR and Brussels FIC.
 
 AC Q
