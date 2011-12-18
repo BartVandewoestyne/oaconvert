@@ -1,4 +1,4 @@
-* See:
+﻿* See:
 *   AIP Part 2 EN-ROUTE (ENR)
 *   ENR 5 NAVIGATION WARNINGS
 *    ENR 5.5 Aerial sporting and recreational activities
@@ -9,7 +9,19 @@
 *   http://downloads.cloudmade.com/europe/western_europe/belgium/belgium.poly
 *
 * Last update by Bart Vandewoestyne on 25 November 2011.
-
+*   Wim Verhoeve (18 December 2011)
+*
+* Map List:
+* 
+*   MAP WEEK           NO
+*   MAP WEEKEND        NO
+*   MAP WEEKEND_LFAG1  NO
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+*
+* Remark for paragliders:
+*   - As we are allowed to fly in the LFA G areas, the AH limit is our AL
+*
 * Type of restriction / nature of hazard:
 *   - Glider activity.
 *
@@ -23,6 +35,7 @@
 *         activity above FL 50. Activation can be checked with Brussels ACC Chief
 *         Controller (TEL +32 (0) 2 206 27 22) or Brussels FIC on FREQ 126.900
 *         MHz.)
+
 AC G
 AN LOW FLYING AREA GOLF 2 SOUTH
 AH FL 75 (excl)

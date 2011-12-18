@@ -1,18 +1,30 @@
-* See:
+﻿* See:
 *   AIP Part 2 EN-ROUTE (ENR)
 *   ENR 2 AIR TRAFFIC SERVICES AIRSPACE
 *    ENR 2.1 FIR, UIR, TMA
 *
+* Last update:
+*
+*   Bart Vandewoestyne (23 November 2011)
+*   Wim Verhoeve (18 December 2011)
+*
+* Map List:
+* 
+*   MAP WEEK           YES  (AL lower than FL 55 east of Liège TMA One)
+*   MAP WEEKEND        YES  (AL lower than FL 55 east of Liège TMA One)
+*   MAP WEEKEND_LFAG1  NO   (LFA G overrides this zone)
+*   MAP WEEKEND_LFAG2  NO   (LFA G overrides this zone)
+*   MAP WEEKEND_LFAG5  NO   (LFA G overrides this zone)
+*
 * Note:
 *   Belgian border data was extracted from
 *   http://downloads.cloudmade.com/europe/western_europe/belgium/belgium.poly
-*
-* Last update by Bart Vandewoestyne on 23 November 2011.
 
 AC C
 AN Brussels CTA EAST 4
 AH FL 195
-AL FL 55 * Lower limit 4500 ft AMSL east of Liège TMA One.
+* AL FL 55  Lower limit 4500 ft AMSL east of Liège TMA One.
+AL 4500 ft AMSL * AL FL 55 inside Liège TMA One, but TMA AL = 2500 ft AMSL
 DP 50:50:00 N 005:38:54 E
 * START Belgian-Dutch border
 DP 50.829597 N 5.652530 E

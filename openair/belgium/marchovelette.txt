@@ -5,12 +5,22 @@
 *     3 DANGER AREAS
 *
 * Last update by Bart Vandewoestyne on 25 November 2011.
+*   Wim Verhoeve (18 December 2011)
+*
+* Map List:
+* 
+*   MAP WEEK           YES
+*   MAP WEEKEND        NO
+*   MAP WEEKEND_LFAG1  NO
+*   MAP WEEKEND_LFAG2  NO
+*   MAP WEEKEND_LFAG5  NO
 
 * Type of restriction / nature of hazard:
 *   - Destruction centre of explosives.
 *
 * Time of activity:
 *   - MON to FRI (HOL excl), 0730-1600
+
 AC D
 AN Marchovelette
 AH 500 ft AGL

@@ -4,15 +4,26 @@
 *    ENR 5.1 Prohibited, restricted and danger areas
 *     3 DANGER AREAS
 *
-* Last update by Bart Vandewoestyne on 25 November 2011.
-
+* Last update:
+*
+*   Bart Vandewoestyne (25 November 2011)
+*   Wim Verhoeve (17 December 2011)
+*
+* Map List:
+* 
+*   NONE
+*
 * Type of restriction / nature of hazard:
 *   - "Tactical Leadership Programme" CSAR exercises.
 *
 * Time of activity:
 *   - HX (Announced by NOTAM.)
+*
+* Remark for paragliders:
+*   - No real added value to show this zone on the maps
+
 AC Q
-AN Ardennes 07
+AN Ardennes 07 - EBD29
 AH 4500 ft AMSL
 AL 1000 ft AGL
 DP 50:07:23 N 004:12:07 E

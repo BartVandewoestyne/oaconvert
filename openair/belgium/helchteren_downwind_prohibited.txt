@@ -4,14 +4,25 @@
 *    ENR 5.1 Prohibited, restricted and danger areas
 *     1 PROHIBITED AREAS
 *
-* Last update by Bart Vandewoestyne on 25 November 2011.
-
+* Last update:
+*   Bart Vandewoestyne (25 November 2011)
+*   Wim Verhoeve (18 December 2011)
+*
+* Map List:
+* 
+*   MAP WEEK           SEE NOTAM
+*   MAP WEEKEND        NO
+*   MAP WEEKEND_LFAG1  NO
+*   MAP WEEKEND_LFAG2  NO
+*   MAP WEEKEND_LFAG5  NO
+*
 * Type of restriction / nature of hazard:
 *   - Downwind lane for bombing exercises.
 *
 * Time of activity:
 *   - HX (May be activated MON to FRI (HOL excl), 0800-1600 and 1600-0800.
 *         Activation can be checked with Brussels FIC.)
+
 AC P
 AN Helchteren downwind
 AH FL 50

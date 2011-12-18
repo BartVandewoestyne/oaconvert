@@ -4,7 +4,17 @@
 *    ENR 5.1 Prohibited, restricted and danger areas
 *     1 PROHIBITED AREAS
 *
-* Last update by Bart Vandewoestyne on 25 November 2011.
+* Last update:
+*   Bart Vandewoestyne (November 2011)
+*   Wim Verhoeve (18 December 2011)
+*
+* Map List:
+* 
+*   MAP WEEK           YES
+*   MAP WEEKEND        NO
+*   MAP WEEKEND_LFAG1  NO
+*   MAP WEEKEND_LFAG2  NO
+*   MAP WEEKEND_LFAG5  NO
 
 * Type of restriction / nature of hazard:
 *   - Parachute dropping zone. Entry prohibited, unless instructed by ATC.
@@ -14,6 +24,7 @@
 *           excl). This period may be exceptionally extended for operational
 *           requirements and will be announced by NOTAM. The area becomes danger
 *           area during CIV activity (PJE and GLD) on SAT, SUN and HOL, HJ.)
+
 AC P
 AN Diest
 AH 2000 ft AMSL

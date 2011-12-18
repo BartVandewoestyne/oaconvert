@@ -13,11 +13,11 @@
 *
 * Map List:
 * 
-*   MAP WEEK           SEE NOTAM
-*   MAP WEEKEND        N/A
-*   MAP WEEKEND_LFAG1  N/A
-*   MAP WEEKEND_LFAG2  N/A
-*   MAP WEEKEND_LFAG5  N/A
+*   MAP WEEK           YES
+*   MAP WEEKEND        NO
+*   MAP WEEKEND_LFAG1  NO
+*   MAP WEEKEND_LFAG2  NO
+*   MAP WEEKEND_LFAG5  NO
 *
 * Type of restriction / nature of hazard:
 *   - Parachuting.

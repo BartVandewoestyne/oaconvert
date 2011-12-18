@@ -5,13 +5,23 @@
 *     3 DANGER AREAS
 *
 * Last update by Bart Vandewoestyne on 25 November 2011.
-
+*   Wim Verhoeve (18 December 2011)
+*
+* Map List:
+* 
+*   MAP WEEK           SEE NOTAM
+*   MAP WEEKEND        NO
+*   MAP WEEKEND_LFAG1  NO
+*   MAP WEEKEND_LFAG2  NO
+*   MAP WEEKEND_LFAG5  NO
+*
 * Type of restriction / nature of hazard:
 *   - CAS exercises target zone.
 *
 * Time of activity:
 *   - HX (Announced by NOTAM. May be active MON, 1230-1600; TUE to THU,
 *         0830-1100 and 1230-1600; FRI, 0830-1100.)
+
 AC Q
 AN Remagne area
 AH 4500 ft AMSL
