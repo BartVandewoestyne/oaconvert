@@ -331,6 +331,7 @@ void Parser::handleLine(const std::string& line)
     if ( regex_match(line, matches, regexMap.find(REGEX_AH)->second) )
     {
         string airspace_ceiling(matches[1].first, matches[1].second);
+        getCurrentAirspace()->setCeilingString(airspace_ceiling);
         getCurrentAirspace()->setCeiling( parseAltitude(airspace_ceiling) );
         return;
     }
@@ -338,6 +339,7 @@ void Parser::handleLine(const std::string& line)
     if ( regex_match(line, matches, regexMap.find(REGEX_AL)->second) )
     {
         string airspace_floor(matches[1].first, matches[1].second);
+        getCurrentAirspace()->setFloorString(airspace_floor);
         getCurrentAirspace()->setFloor( parseAltitude(airspace_floor) );
         return;
     }

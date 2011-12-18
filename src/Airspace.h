@@ -49,8 +49,14 @@ private:
     // Class of the airspace (CTR, TMA, Prohibited, Restricted, ...)
     std::string clss;
 
+    // Ceiling string
+    std::string ceiling_string;
+
     //! Ceiling altitude in METER.
     double ceiling;
+
+    // Floor string
+    std::string floor_string;
 
     //! Floor altitude in METER.
     double floor;
@@ -74,7 +80,9 @@ public:
 
     void setName(const std::string& mystring);
     void setClass(const std::string& clss);
+    void setCeilingString(const std::string& ceiling_string);
     void setCeiling(const double ceiling);
+    void setFloorString(const std::string& floor_string);
     void setFloor(const double floor);
 
     void add(const GeometricShape* s);
@@ -84,10 +92,13 @@ public:
     const bool isCTA() const;
     const bool isTMA() const;
     const bool isVectoringArea() const;
+    const bool isByNOTAM() const;
     const bool isLowFlyingAreaGolf() const;
     const bool isProhibited() const;
     const bool isRestricted() const;
     const bool isDanger() const;
+    const bool hasAGLFloor() const;
+    const bool hasFLFloor() const;
 
     /**
      * Each airspace can have multiple name-labels that each have their location

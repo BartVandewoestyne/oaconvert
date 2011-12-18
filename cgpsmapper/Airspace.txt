@@ -92,14 +92,28 @@ Type=0x69,8 ; Undefined
 
 [_line]
 Type=0x01
-Xpm="32 5 4 1"
-"= c #FF0000"
+Xpm="32 2 4 1"
+"= c #0000FF" ; Blue
 "  c none"
 "3 c #585858"
 "4 c none"
 "================================"
-"    =======         =======     "
-"    =======         =======     "
+"================================"
+String1=0x01,FIR ; 0x01 = French
+String2=0x02,FIR ; 0x02 = German
+String3=0x03,FIR ; 0x03 = Dutch
+String4=0x04,FIR ; 0x04 = English
+[end]
+
+
+[_line]
+Type=0x02
+Xpm="32 3 4 1"
+"= c #FF0000" ; Red
+"  c none"
+"3 c #585858"
+"4 c none"
+"================================"
 "    =======         =======     "
 "================================"
 String1=0x01,Danger ; 0x01 = French
@@ -110,15 +124,13 @@ String4=0x04,Danger ; 0x04 = English
 
 
 [_line]
-Type=0x02
-Xpm="32 5 4 1"
-"= c #00FF00"
+Type=0x03
+Xpm="32 3 4 1"
+"= c #FFA500" ; Orange
 "  c none"
 "3 c #585858"
 "4 c none"
 "================================"
-"    =======         =======     "
-"    =======         =======     "
 "    =======         =======     "
 "================================"
 String1=0x01,Restreint  ; 0x01 = French
@@ -129,21 +141,30 @@ String4=0x04,Restricted ; 0x04 = English
 
 
 [_line]
-Type=0x03
-Xpm="32 5 4 1"
-"= c #0000FF"
+Type=0x04
+Xpm="32 3 4 1"
+"= c #0000FF" ; Blue
 "  c none"
 "3 c #585858"
 "4 c none"
 "================================"
 "    =======         =======     "
-"    =======         =======     "
-"    =======         =======     "
 "================================"
 String1=0x01,Par NOTAM ; 0x01 = French
 String2=0x02,Bei NOTAM ; 0x02 = German
 String3=0x03,Via NOTAM ; 0x03 = Dutch
-String4=0x04,Via NOTAM ; 0x04 = English
+String4=0x04,By NOTAM ; 0x04 = English
+[end]
+
+
+[_line]
+Type=0x05
+Xpm="32 1 4 1"
+"= c #000000" ; Black
+"  c none"
+"3 c #585858"
+"4 c none"
+"================================"
 [end]
 
 

@@ -20,6 +20,7 @@
 #include "PolishState.h"
 
 #include <cassert>
+#include <cmath>
 
 #include "Airspace.h"
 #include "Circle.h"
@@ -204,61 +205,85 @@ void PolishState::writeFooter(std::ostream &out) const
 }
 
 
-// void PolishState::write(ostream& out, const Airspace& s) const
-// {
-//   /* TODO
-//   if ( s.hasPolygon() )
-//   {
-//     //cout << "DEBUG: Airspace has a polygon" << endl;
-//     write(out, s.getPolygon(), s.getName());
-//   }
-//   if ( s.hasCircle() )
-//   {
-//     //cout << "DEBUG: Airspace has a circle" << endl;
-//     write(out, s.getCircle().toPolygon(100), s.getName());;
-//   }
-//   */
-// }
-
 void PolishState::write(std::ostream& stream, const Airspace& airspace) const
 {
     // See section 4.2.4.2 in
     //   http://cgpsmapper.com/download/cGPSmapper-UsrMan-v02.1.pdf
 
-    if ( airspace.isDanger() || airspace.isRestricted() ) {
-
-        stream << "[POLYLINE]" << endl;
-        stream << "Type=" << getLineType(airspace) << endl;
-
-    } else {
+    // First, draw all things that need to be a POLYGON.  Only
+    // Danger and Restricted zones are not POLYGONs.
+    if ( !(airspace.isDanger() || airspace.isRestricted() || airspace.isFIR()) ) {
 
         stream << "[POLYGON]" << endl;
         stream << "Type=" << getPolygonType(airspace) << endl;
+        stream << "Label=";
+        if ( airspace.isTMA() ) {
+            stream << "TMA:";
+        }
+        if ( airspace.isCTA() ) {
+            stream << "CTA:";
+        }
+        if ( airspace.isProhibited() ) {
+            stream << "Prohibited:";
+        }
+        if ( airspace.isVectoringArea() ) {
+            stream << "Vectoring Area:";
+        }
+        if ( airspace.isByNOTAM() ) {
+            stream << "By NOTAM:";
+        }
+        if ( (   airspace.isTMA()
+              || airspace.isCTA()
+              || airspace.isVectoringArea()
+              || airspace.isByNOTAM()
+              || airspace.isProhibited() ) && (airspace.getFloor() > 0) ) {
+
+            if (airspace.hasAGLFloor()) {
+                stream << " " << floor(airspace.getFloor()) << " m AGL max";
+            } else if (airspace.hasFLFloor()) {
+                stream << " " << floor(airspace.getFloor()) << " m (+QNH) max";
+            } else {
+                stream << " " << floor(airspace.getFloor()) << " m max";
+            }
+            stream << " (" << airspace.getName() << ")";
+
+        } else {
+          stream << airspace.getName();
+        }
+        stream << endl;
+
+        // The EndLevel number must not be higher than the highest X from the
+        // LevelX records in the Polish header.
+        stream << "EndLevel=4" << endl;
+        write(stream, airspace.getCurvedPolygon());
+        stream << "[END]\n" << endl;
 
     }
 
+
+    // Now, write out all things that also need to have a POLYLINE.
+
+    stream << "[POLYLINE]" << endl;
+    stream << "Type=" << getLineType(airspace) << endl;
     stream << "Label=";
     if ( airspace.isDanger() ) {
-        stream << "DANGER: ";
+        stream << "Danger: ";
     } 
     if ( airspace.isRestricted() ) {
-        stream << "RESTRICTED: ";
+        stream << "Restricted: ";
     } 
-    stream << airspace.getName();
-    if (   airspace.isTMA()
-        || airspace.isCTA()
-        || airspace.isVectoringArea() ) {
-      stream << " (" << airspace.getFloor() << " m max)";
+    if ( airspace.isByNOTAM() ) {
+        stream << "By NOTAM: ";
     }
+    stream << airspace.getName();
     stream << endl;
 
     // The EndLevel number must not be higher than the highest X from the
     // LevelX records in the Polish header.
     stream << "EndLevel=4" << endl;
-
     write(stream, airspace.getCurvedPolygon());
-
     stream << "[END]\n" << endl;
+
 }
 
 
@@ -319,13 +344,11 @@ void PolishState::write(ostream& out, const Coordinate& c) const
  */
 std::string PolishState::getPolygonType(const Airspace& space) const
 {
-    if (space.isFIR()) {
-        return string("0x60");
-    } else if (space.isCTR()) {
+    if (space.isCTR()) {
         return string("0x61");
     } else if (space.isCTA()) {
         return string("0x62");
-    } else if ( space.isTMA() || space.isVectoringArea() ) {
+    } else if ( (space.isTMA() || space.isVectoringArea() || space.isProhibited()) && (space.getFloor() > 0) ) {
         return string("0x63");
     } else if (space.isLowFlyingAreaGolf()) {
         return string("0x64");
@@ -342,11 +365,15 @@ std::string PolishState::getPolygonType(const Airspace& space) const
 
 std::string PolishState::getLineType(const Airspace& space) const
 {
-  if (space.isDanger()) {
+  if (space.isFIR()) {
       return string("0x01");
-  } else if (space.isRestricted()) {
+  } else if (space.isDanger()) {
       return string("0x02");
-  } else {
+  } else if (space.isRestricted()) {
       return string("0x03");
+  } else if (space.isByNOTAM()) {
+      return string("0x04");
+  } else {
+      return string("0x05");
   }
 }

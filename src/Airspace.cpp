@@ -36,7 +36,9 @@ using namespace std;
 Airspace::Airspace()
 : name(""),
   clss(""),
+  ceiling_string(""),
   ceiling(-1),
+  floor_string(""),
   floor(-1),
   p(),
   labels()
@@ -90,12 +92,24 @@ void Airspace::setClass(const string& clss)
 }
 
 
+void Airspace::setCeilingString(const string& ceiling_string)
+{
+    this->ceiling_string = ceiling_string;
+}
+
+
 /**
   * Set the ceiling altitude in METER.
   */
 void Airspace::setCeiling(const double ceiling)
 {
     this->ceiling = ceiling;
+}
+
+
+void Airspace::setFloorString(const string& floor_string)
+{
+    this->floor_string = floor_string;
 }
 
 
@@ -176,7 +190,7 @@ const bool Airspace::isCTA() const
 const bool Airspace::isTMA() const
 {
     size_t found = name.find("TMA");
-    if ( found != string::npos) {
+    if ( found != string::npos ) {
       return true;
     } else {
       return false;
@@ -192,7 +206,23 @@ const bool Airspace::isTMA() const
 const bool Airspace::isVectoringArea() const
 {
     size_t found = name.find("vectoring area");
-    if ( found != string::npos) {
+    if ( found != string::npos ) {
+      return true;
+    } else {
+      return false;
+    }
+}
+
+
+/**
+  * Return true if the activity of this airspace depends on NOTAMs.  This
+  * will be the case if its name contains the case sensitive
+  * string 'NOTAM' in its AN-record.
+  */
+const bool Airspace::isByNOTAM() const
+{
+    size_t found = name.find("NOTAM");
+    if ( found != string::npos ) {
       return true;
     } else {
       return false;
@@ -208,7 +238,7 @@ const bool Airspace::isVectoringArea() const
 const bool Airspace::isFIR() const
 {
     size_t found = name.find("FIR");
-    if ( found != string::npos) {
+    if ( found != string::npos ) {
       return true;
     } else {
       return false;
@@ -270,6 +300,36 @@ const bool Airspace::isRestricted() const
 const bool Airspace::isDanger() const
 {
     if ( clss.compare("Q") == 0) {
+      return true;
+    } else {
+      return false;
+    }
+}
+
+
+/**
+ * Return true if the AL-record contains a floor specification
+ * in feet or meters Above Ground Level (AGL).
+ */
+const bool Airspace::hasAGLFloor() const
+{
+    size_t found = floor_string.find("AGL");
+    if ( found != string::npos) {
+      return true;
+    } else {
+      return false;
+    }
+}
+
+
+/**
+ * Return true if the AL-record contains a floor specification
+ * in Flight Level.
+ */
+const bool Airspace::hasFLFloor() const
+{
+    size_t found = floor_string.find("FL");
+    if ( found != string::npos) {
       return true;
     } else {
       return false;
