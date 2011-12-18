@@ -4,8 +4,18 @@
 *    ENR 5.1 Prohibited, restricted and danger areas
 *     2 RESTRICTED AREAS
 *
-* Last update by Bart Vandewoestyne on 25 November 2011.
-
+* Last update:
+*   Bart Vandewoestyne (25 November 2011)
+*   Wim Verhoeve (18 December 2011)
+*
+* Map List:
+* 
+*   MAP WEEK           YES
+*   MAP WEEKEND        NO
+*   MAP WEEKEND_LFAG1  NO
+*   MAP WEEKEND_LFAG2  NO
+*   MAP WEEKEND_LFAG5  NO
+*
 * Type of restriction / nature of hazard:
 *   - Let-down procedure space for jet aircraft. Crossing clearance shall be
 *     requested from Koksijde APP.
@@ -13,6 +23,7 @@
 * Time of activity:
 *   - During EBFN OPR HR (EBFN OPR HR can be checked with Brussels FIC or
 *     Semmerzake ATCC.)
+
 AC R
 AN Koksijde let-down
 AH 4500 ft AMSL

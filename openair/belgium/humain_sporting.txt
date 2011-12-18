@@ -9,11 +9,15 @@
 *
 * Last update:
 *
-*   Wim Verhoeve (17 December 2011)
+*   Wim Verhoeve (18 December 2011)
 *
 * Map List:
 * 
-*   NONE
+*   MAP WEEK           YES
+*   MAP WEEKEND        SEE NOTAM
+*   MAP WEEKEND_LFAG1  SEE NOTAM
+*   MAP WEEKEND_LFAG2  SEE NOTAM
+*   MAP WEEKEND_LFAG5  SEE NOTAM
 *
 * Type of restriction / nature of hazard:
 *   - Gunnery area.

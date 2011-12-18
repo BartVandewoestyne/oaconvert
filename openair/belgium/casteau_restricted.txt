@@ -1,10 +1,20 @@
-* See:
+﻿* See:
 *   AIP Part 2 EN-ROUTE (ENR)
 *   ENR 5 NAVIGATION WARNINGS
 *    ENR 5.1 Prohibited, restricted and danger areas
 *     2 RESTRICTED AREAS
 *
-* Last update by Bart Vandewoestyne on 25 November 2011.
+* Last update:
+*   Bart Vandewoestyne (25 November 2011)
+*   Wim Verhoeve (18 December 2011)
+*
+* Map List:
+* 
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
 
 * Type of restriction / nature of hazard:
 *   - Entry prohibited, except police and SAR aircraft or if instructed by
@@ -12,6 +22,7 @@
 *
 * Time of activity:
 *   - PERM
+
 AC R
 AN Casteau
 AH 2500 ft AMSL

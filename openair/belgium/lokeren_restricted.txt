@@ -4,8 +4,14 @@
 *    ENR 5.1 Prohibited, restricted and danger areas
 *     2 RESTRICTED AREAS
 *
-* Last update by Bart Vandewoestyne on 25 November 2011.
-
+* Last update:
+*   Bart Vandewoestyne (25 November 2011)
+*   Wim Verhoeve (18 December 2011)
+*
+* Map List:
+* 
+*   NONE
+*
 * Type of restriction / nature of hazard:
 *   - Entry prohibited to manned balloons. (Above 1500 ft AMSL manned free
 *     balloons flights are allowed if the pilot makes use either of a fully
@@ -16,6 +22,10 @@
 *
 * Time of activity:
 *   - PERM
+*
+* Remark for paragliders:
+*   - Not for us
+
 AC R
 AN Lokeren
 AH 2500 ft AMSL

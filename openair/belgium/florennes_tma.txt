@@ -7,7 +7,17 @@
 *   Belgian border data was extracted from
 *   http://downloads.cloudmade.com/europe/western_europe/belgium/belgium.poly
 *
-* Last update by Bart Vandewoestyne on 23 November 2011.
+* Last update:
+*   Bart Vandewoestyne (23 November 2011)
+*   Wim Verhoeve (18 December 2011)
+*
+* Map List:
+* 
+*   MAP WEEK           YES
+*   MAP WEEKEND        SEE NOTAM
+*   MAP WEEKEND_LFAG1  SEE NOTAM
+*   MAP WEEKEND_LFAG2  SEE NOTAM
+*   MAP WEEKEND_LFAG5  SEE NOTAM
 
 AC C
 AN Florennes TMA

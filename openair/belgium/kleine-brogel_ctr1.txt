@@ -4,13 +4,24 @@
 *    ENR 2.1 FIR, UIR, TMA
 *     2.4 Military Control Zones
 *
-* Last update by Bart Vandewoestyne on 24 November 2011.
+* Last update:
+*   Bart Vandewoestyne (24 November 2011)
+*   Wim Verhoeve (18 December 2011)
+*
+* Map List:
+* 
+*   MAP WEEK           YES
+*   MAP WEEKEND        SEE NOTAM
+*   MAP WEEKEND_LFAG1  SEE NOTAM
+*   MAP WEEKEND_LFAG2  SEE NOTAM
+*   MAP WEEKEND_LFAG5  SEE NOTAM
 
 * Remarks:
 *   - OPR: Belgian Air Component (see "important notice on crossing of military
 *     TMA and CTR" above).
 *   - Kleine-Brogel CTR Two is situated in the Netherlands (see AIP the
 *     Netherlands for details).
+
 AC D
 AN Kleine-Brogel CTR 1
 AH 2500 ft AMSL

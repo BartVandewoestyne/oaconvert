@@ -5,12 +5,22 @@
 *     3 DANGER AREAS
 *
 * Last update by Bart Vandewoestyne on 25 November 2011.
+*   Wim Verhoeve (18 December 2011)
+*
+* Map List:
+* 
+*   MAP WEEK           SEE NOTAM
+*   MAP WEEKEND        SEE NOTAM
+*   MAP WEEKEND_LFAG1  SEE NOTAM
+*   MAP WEEKEND_LFAG2  SEE NOTAM
+*   MAP WEEKEND_LFAG5  SEE NOTAM
 
 * Type of restriction / nature of hazard:
 *   - Gunnery area, parachuting and coastguard flights.
 *
 * Time of activity:
 *   - HX (Announced by NOTAM.)
+
 AC Q
 AN North sea
 AH FL 150  * Activation limited to 4500 ft AMSL MAX when TSA13A/B is active (see NOTAM). 

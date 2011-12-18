@@ -4,8 +4,18 @@
 *    ENR 2.1 FIR, UIR, TMA
 *     2.4 Military Control Zones
 *
-* Last update by Bart Vandewoestyne on 24 November 2011.
-
+* Last update:
+*   Bart Vandewoestyne (24 November 2011)
+*   Wim Verhoeve (18 December 2011)
+*
+* Map List:
+* 
+*   MAP WEEK           YES
+*   MAP WEEKEND        NO
+*   MAP WEEKEND_LFAG1  NO
+*   MAP WEEKEND_LFAG2  NO
+*   MAP WEEKEND_LFAG5  NO
+*
 * Remarks:
 *   - Partially situated in France.
 *   - OPR: Belgian Air Component (see "important notice on crossing of military
@@ -13,6 +23,7 @@
 *   - The area overhead LFAK is excluded between GND and 800 ft AMSL.
 *   - ATS can be delegated to Oostende APP. Information on the status of
 *     Koksijde CTR can be obtained from Koksijde APP or Oostende APP.
+
 AC D
 AN Koksijde CTR
 AH FL 55

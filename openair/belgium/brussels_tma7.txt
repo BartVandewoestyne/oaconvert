@@ -7,10 +7,21 @@
 *   Belgian border data was extracted from
 *   http://downloads.cloudmade.com/europe/western_europe/belgium/belgium.poly
 *
-* Last update by Bart Vandewoestyne on 23 November 2011.
+* Last update:
+*   Bart Vandewoestyne (November 2011)
+*   Wim Verhoeve (18 December 2011)
+*
+* Map List:
+* 
+*   NONE
+*
+* Remark:
+*   - Airspace class G between FL 55 and FL 75 during activation of Low Flying
+*     Area Golf Two North.
+*
+* Remark for paragliders:
+*   - Above FL55 & coverd by 'LFA G2 N' => not important for us
 
-* Airspace class G between FL 55 and FL 75 during activation of Low Flying
-* Area Golf Two North.
 AC C
 AN Brussels TMA 7
 AH FL 95

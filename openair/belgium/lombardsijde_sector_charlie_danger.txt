@@ -4,13 +4,24 @@
 *    ENR 5.1 Prohibited, restricted and danger areas
 *     3 DANGER AREAS
 *
-* Last update by Bart Vandewoestyne on 25 November 2011.
-
+* Last update: 
+*   Bart Vandewoestyne (25 November 2011)
+*   Wim Verhoeve (18 December 2011)
+*
+* Map List:
+* 
+*   MAP WEEK           SEE NOTAM
+*   MAP WEEKEND        SEE NOTAM
+*   MAP WEEKEND_LFAG1  SEE NOTAM
+*   MAP WEEKEND_LFAG2  SEE NOTAM
+*   MAP WEEKEND_LFAG5  SEE NOTAM
+*
 * Type of restriction / nature of hazard:
 *   - Gunnery area.
 *
 * Time of activity:
 *   - HX (Announced by NOTAM.)
+
 AC Q
 AN Lombardsijde sector charlie
 AH FL 240  * Firing activity may take place higher than FL 240 (see NOTAM).

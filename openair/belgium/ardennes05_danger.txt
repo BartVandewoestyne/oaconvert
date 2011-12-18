@@ -4,15 +4,26 @@
 *    ENR 5.1 Prohibited, restricted and danger areas
 *     3 DANGER AREAS
 *
-* Last update by Bart Vandewoestyne on 25 November 2011.
-
+* Last update:
+*
+*   Bart Vandewoestyne (25 November 2011)
+*   Wim Verhoeve (17 December 2011)
+*
+* Map List:
+* 
+*   NONE
+*
 * Type of restriction / nature of hazard:
 *   - High performance flights.
 *
 * Time of activity:
 *   - HX (Announced by NOTAM.)
+*
+* Remark for paragliders:
+*   - No real added value to show this zone on the maps
+
 AC Q
-AN Ardennes 05
+AN Ardennes 05 - EBD26
 AH 4500 ft AMSL
 AL 1000 ft AGL
 DP 50:25:36 N 005:05:43 E

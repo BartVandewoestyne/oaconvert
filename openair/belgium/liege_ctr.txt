@@ -1,8 +1,19 @@
-* See AIP Part 3 AERODROME (AD), section AD 2 AERODROMES.
+﻿* See AIP Part 3 AERODROME (AD), section AD 2 AERODROMES.
 * EBLG LIÈGE/Liège
 *  AD 2.17 EBLG ATS AIRSPACE
 *
-* Last update by Bart Vandewoestyne on 2 October 2011.
+* Last update:
+*
+*   Bart Vandewoestyne (2 October 2011)
+*   Wim Verhoeve (18 December 2011)
+*
+* Map List:
+* 
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
 
 AC C
 AN Liège CTR
