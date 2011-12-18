@@ -21,7 +21,7 @@
 *   - HX (Activation announced by NOTAM.)
 *
 * Remark for paragliders:
-*   - In practice, CTR and TMA will be activated => not realy relevant
+*   - In practice, CTR and TMA will be activated => not really relevant
 
 AC R
 AN Kleine-Brogel
