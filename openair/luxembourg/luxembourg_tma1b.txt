@@ -8,10 +8,20 @@
 *   http://downloads.cloudmade.com/europe/western_europe/belgium/belgium.poly
 *
 * Last update by Bart Vandewoestyne on 24 November 2011.
-
+*   Wim Verhoeve (19 December 2011)
+*
+* Map List:
+* 
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+*
 * Remarks:
 *   - Airspace class C above FL 95. Partially airspace class G during activation
 *     of the Useldange Glider Box (see ENR 5.5).
+
 AC C/D
 AN Luxembourg TMA 1B
 AH FL 145
