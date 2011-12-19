@@ -4,11 +4,21 @@
 *    ENR 2.1 FIR, UIR, TMA
 *
 * Last update by Bart Vandewoestyne on 24 November 2011.
-
+*   Wim Verhoeve (19 December 2011)
+*
+* Map List:
+* 
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+*
 * Remarks:
 *   - Delegation of ATS from Langen ACC to Luxembourg APP.
 *   - Lower limit partially 2500 ft AGL (see AIP Germany for further details).
 *   - Airspace class C at and above FL 100.
+
 AC C/E
 AN Luxembourg TMA 2F
 AH FL 165
