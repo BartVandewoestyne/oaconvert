@@ -1,0 +1,45 @@
+* Source:
+*
+*   http://www.belgocontrol.be
+*
+*   AIP Part 3 AERODROME (AD)
+*   ENR 2 AERODROMES
+*    EBBR BRUSSELS / Brussel-National
+*     EBBR AD 2.17  ATS AIRSPACE
+*
+* Last update:
+*
+*   Wim Verhoeve (20 December 2011)
+*
+* Map list:
+*
+*   MAP WEEK           NO
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+*
+* Remarks:
+*
+*   - CTR EBBR minus part defined as class G during EBGB OH 
+*     (see chart AD2 EBBR VAC.01 and AD 2 PVT-EBGB)
+ 
+AC C
+AN Brussels CTR w/o EBGB
+AH 1500 ft AMSL
+AL GND
+DP 50:44:34 N 004:34:04 E
+V D=+
+V X=50:54:05 N 004:29:04 E
+* Radius 10 NM
+DB 50:44:34 N 004:34:04 E, 50:58:00 N 004:14:28 E
+DP 50:58:00 N 004:14:28 E
+DP 50:55:45 N 004:24:52 E
+DP 50:58:00 N 004:28:00 E
+DP 51:04:01 N 004:27:00 E
+V D=+
+V X=50:54:05 N 004:29:04 E
+* Radius 10 NM
+DB 51:04:01 N 004:27:00 E, 50:44:34 N 004:34:04 E
+DP 50:44:34 N 004:34:04 E
+
