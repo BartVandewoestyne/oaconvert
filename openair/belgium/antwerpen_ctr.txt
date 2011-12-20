@@ -1,0 +1,37 @@
+* Source:
+*
+*   http://www.belgocontrol.be
+*
+*   AIP Part 3 AERODROME (AD)
+*   ENR 2 AERODROMES
+*    EBAW — ANTWERPEN / Deurne
+*     EBAW AD 2.17  ATS AIRSPACE
+*
+* Last update:
+*
+*   Wim Verhoeve (20 December 2011)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        SEE NOTAM
+*   MAP WEEKEND_LFAG1  SEE NOTAM
+*   MAP WEEKEND_LFAG2  SEE NOTAM
+*   MAP WEEKEND_LFAG5  SEE NOTAM
+*
+* Remarks:
+*   - Activation on SAT upon request
+ 
+AC C
+AN Antwerpen CTR
+AH 2500 ft AMSL
+AL GND
+DP 51:16:06 N 004:16:00 E
+DP 51:16:06 N 004:37:37 E
+DP 51:10:05 N 004:47:46 E
+DP 51:04:32 N 004:18:45 E
+V D=+
+V X=51:11:07 N 004:26:00 E
+* Radius 5 NM
+DB 51:04:32 N 004:18:45 E, 51:16:06 N 004:16:00 E
+DP 51:16:06 N 004:16:00 E
