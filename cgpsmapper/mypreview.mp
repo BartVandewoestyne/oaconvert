@@ -1,7 +1,7 @@
 [MAP]
 
 ; Not important.  This is the name of the files.
-FileName=airspace
+FileName=SomeFileName
 
 ; Not important.  It will be shown in the listbox of MapSource available maps.
 MapsourceName=Bart's Fantastic Airspace Map
@@ -12,7 +12,7 @@ MapSetName=Bart's Airspace Map Set
 CDSetName=Bart's Airspace CD Set
 
 ; Any number between 100 en 999.
-MapVersion=101
+MapVersion=100
 
 ; According to http://www.shanghai2006.narod.ru/eng/gps/imgtdb.html this
 ; number is important and i should use a number which does not appear in
