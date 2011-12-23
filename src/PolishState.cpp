@@ -21,6 +21,7 @@
 
 #include <cassert>
 #include <cmath>
+#include <string>
 
 #include "Airspace.h"
 #include "Circle.h"
@@ -238,6 +239,10 @@ void PolishState::write(std::ostream& stream, const Airspace& airspace) const
               || airspace.isByNOTAM()
               || airspace.isProhibited() ) && (airspace.getFloor() > 0) ) {
 
+            string myName(airspace.getName());
+            if (airspace.isByNOTAM()) {
+              myName = myName.substr(10);
+            }
             if (airspace.hasAGLFloor()) {
                 stream << " " << floor(airspace.getFloor()) << " m AGL max";
             } else if (airspace.hasFLFloor()) {
@@ -245,7 +250,7 @@ void PolishState::write(std::ostream& stream, const Airspace& airspace) const
             } else {
                 stream << " " << floor(airspace.getFloor()) << " m max";
             }
-            stream << " (" << airspace.getName() << ")";
+            stream << " (" << myName << ")";
 
         } else {
           stream << airspace.getName();
@@ -275,7 +280,11 @@ void PolishState::write(std::ostream& stream, const Airspace& airspace) const
     if ( airspace.isByNOTAM() ) {
         stream << "By NOTAM: ";
     }
-    stream << airspace.getName();
+    string myName(airspace.getName());
+    if (airspace.isByNOTAM()) {
+      myName = myName.substr(10);
+    }
+    stream << myName;
     stream << endl;
 
     // The EndLevel number must not be higher than the highest X from the
