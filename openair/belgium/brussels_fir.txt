@@ -13,7 +13,11 @@
 *
 * Map List:
 * 
-*   NONE
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
 *
 * Remark for paragliders:
 *   - This is the whole of Belgian airspace => not relevant for paragliding
