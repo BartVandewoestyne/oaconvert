@@ -1,0 +1,79 @@
+**************************************************************************
+* ! ! ! ! NEEDS TO BE VERIFIED WITH OFFICIAL AIP INFORMATION ! ! ! ! ! ! !
+*           - Germany:     http://www.dfs.de/                            *
+**************************************************************************
+* Source:
+*
+*   Soaring Services (http://soaringweb.org)
+*
+* Last update:
+*
+*   Wim Verhoeve (24 December 2011)
+*
+* Map list:
+*
+*   MAP WEEK           NO
+*   MAP WEEKEND        NO
+*   MAP WEEKEND_LFAG1  NO
+*   MAP WEEKEND_LFAG2  NO
+*   MAP WEEKEND_LFAG5  NO
+*
+* Remarks for paragliding:
+*   - Glider areas. Not relevant for paragliding
+
+AC W
+AN Bochum
+AH 4500 ft AMSL
+AL 3500 ft AMSL
+DP 51:33:19 N 007:02:57 E
+DP 51:34:42 N 006:58:12 E
+DP 51:37:26 N 007:05:18 E
+DP 51:36:13 N 007:08:23 E
+DP 51:36:17 N 007:11:55 E
+DP 51:31:54 N 007:17:14 E
+DP 51:31:06 N 007:16:38 E
+DP 51:25:01 N 007:19:07 E
+DP 51:22:51 N 007:21:27 E
+DP 51:20:06 N 007:15:17 E
+DP 51:33:19 N 007:02:57 E
+
+
+* DFC Saarland
+* http://www.dfc-saar.de
+* AC W
+* AN BOCHUM
+* AL 3500MSL
+* AH 4500MSL
+* DP 51:33:19 N 007:02:57 E
+* DP 51:34:42 N 006:58:12 E
+* DP 51:37:26 N 007:05:18 E
+* DP 51:36:13 N 007:08:23 E
+* DP 51:36:17 N 007:11:55 E
+* DP 51:31:54 N 007:17:14 E
+* DP 51:31:06 N 007:16:38 E
+* DP 51:25:01 N 007:19:07 E
+* DP 51:22:51 N 007:21:27 E
+* DP 51:20:06 N 007:15:17 E
+
+* SoaringWeb
+* http://soaringweb.org
+* AC W
+* AN Bochum 129.875/126.15
+* *W N=W_D3
+* AH 4500MSL
+* AL 3500MSL
+* DP 51:33:19 N 007:02:57 E
+* DP 51:34:42 N 006:58:12 E
+* DP 51:37:26 N 007:05:18 E
+* DP 51:36:13 N 007:08:23 E
+* DP 51:36:17 N 007:11:55 E
+* DP 51:31:54 N 007:17:14 E
+* DP 51:31:06 N 007:16:38 E
+* DP 51:25:01 N 007:19:07 E
+* DP 51:22:51 N 007:21:27 E
+* DP 51:20:06 N 007:15:17 E
+* DP 51:33:19 N 007:02:57 E
+
+* Winpilot
+* http://www.winpilot.com/OpenAir/Europe.asp
+* missing

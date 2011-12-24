@@ -1,0 +1,70 @@
+**************************************************************************
+* ! ! ! ! NEEDS TO BE VERIFIED WITH OFFICIAL AIP INFORMATION ! ! ! ! ! ! !
+*           - Germany:     http://www.dfs.de/                            *
+**************************************************************************
+* TO DO ! TO DO !  cut at border of map area             TO DO ! TO DO ! *
+**************************************************************************
+
+* Source:
+*
+*   Soaring Services (http://soaringweb.org)
+*
+* Last update:
+*
+*   Wim Verhoeve (24 December 2011)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+*
+* Remarks for paragliding:
+
+AC CTR
+AN Ramstein CTR
+AH 3600 ft AMSL
+AL GND
+DP 49:29:55 N 007:25:00 E
+DP 49:30:35 N 007:46:35 E
+DP 49:23:35 N 007:47:05 E
+DP 49:22:55 N 007:25:35 E
+DP 49:29:55 N 007:25:00 E
+
+
+* DFC Saarland
+* http://www.dfc-saar.de
+* AC CTR
+* AN RAMSTEIN 124,275MHz
+* AL GND
+* AH 3600MSL
+* DP 49:29:55 N 007:25:00 E
+* DP 49:30:35 N 007:46:35 E
+* DP 49:23:35 N 007:47:05 E
+* DP 49:22:55 N 007:25:35 E
+
+* SoaringWeb
+* http://soaringweb.org
+* AC CTR
+* AN Ramstein
+* *W N=RamsteinCTR
+* AH 3600MSL
+* AL GND
+* DP 49:29:55 N 007:25:00 E
+* DP 49:30:35 N 007:46:35 E
+* DP 49:23:35 N 007:47:05 E
+* DP 49:22:55 N 007:25:35 E
+* DP 49:29:55 N 007:25:00 E
+
+* Winpilot
+* http://www.winpilot.com/OpenAir/Europe.asp
+* AC D
+* AN RAMSTEIN CTR
+* AL 0ft GND
+* AH 3600ft MSL
+* DP 49:29:55 N 7:25:00 E
+* DP 49:30:35 N 7:46:35 E
+* DP 49:23:35 N 7:47:05 E
+* DP 49:22:55 N 7:25:35 E

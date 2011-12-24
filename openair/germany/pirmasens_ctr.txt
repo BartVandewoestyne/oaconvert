@@ -1,0 +1,60 @@
+**************************************************************************
+* ! ! ! ! NEEDS TO BE VERIFIED WITH OFFICIAL AIP INFORMATION ! ! ! ! ! ! !
+*           - Germany:     http://www.dfs.de/                            *
+**************************************************************************
+
+* Source:
+*
+*   Soaring Services (http://soaringweb.org)
+*
+* Last update:
+*
+*   Wim Verhoeve (24 December 2011)
+*
+* Map list:
+*
+*   MAP WEEK           NO (outside of map area)
+*   MAP WEEKEND        NO
+*   MAP WEEKEND_LFAG1  NO
+*   MAP WEEKEND_LFAG2  NO
+*   MAP WEEKEND_LFAG5  NO
+*
+* Remarks for paragliding:
+
+AC R
+AN Pirmasens CTR (EDR118)
+AH 3300ft AMSL
+AL GND
+V X=49:14:18 N 007:36:45 E
+DC 1.00
+
+
+* DFC Saarland
+* http://www.dfc-saar.de
+* AC R
+* AN ED-R118 PIRMASENS
+* AL GND
+* AH 3300MSL
+* V X=49:14:18 N 007:36:45 E
+* DC 1.0
+
+* SoaringWeb
+* http://soaringweb.org
+* AC R
+* AN ED-R118 Pirmasens TUE+
+* *W N=EDR118
+* AH 3300ft MSL
+* AL GND
+* *W W=Mon: Free         *09:00-16:30 LT NOTAM
+* *W W=Tue: 09:00-16:30 LT
+* *W W=Wed: Free         *09:00-16:30 LT NOTAM
+* *W W=Thu: Free         *09:00-16:30 LT NOTAM
+* *W W=Fri: Free         *09:00-12:00 LT NOTAM
+* *W W=Sat: Free
+* *W W=Sun: Free
+* V X=49:14:18 N 007:36:45 E
+* DC 1.00
+
+* Winpilot
+* http://www.winpilot.com/OpenAir/Europe.asp
+* missing

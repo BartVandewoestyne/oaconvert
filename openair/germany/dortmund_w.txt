@@ -1,0 +1,29 @@
+**************************************************************************
+* ! ! ! ! NEEDS TO BE VERIFIED WITH OFFICIAL AIP INFORMATION ! ! ! ! ! ! !
+*           - Germany:     http://www.dfs.de/                            *
+**************************************************************************
+
+* Source:
+*
+*   Soaring Services (http://soaringweb.org)
+*
+* Last update:
+*
+*   Wim Verhoeve (24 December 2011)
+*
+* Map list:
+*
+*   MAP WEEK           NO
+*   MAP WEEKEND        NO
+*   MAP WEEKEND_LFAG1  NO
+*   MAP WEEKEND_LFAG2  NO
+*   MAP WEEKEND_LFAG5  NO
+*
+* Remarks for paragliding:
+*   - Glider areas. Not relevant for paragliding
+*      - Dortmund Nord_1 125.225/126.15
+*      - Dortmund Nord_2 125.225/126.15
+*      - Dortmund Nord-CTR 125.225/126.15
+*      - Dortmund Sued_1 125.225/126.15* DFC Saarland
+*      - Dortmund Sued_2 125.225/126.15* http://www.dfc-saar.de
+*      - Dortmund Sued_D45 125.225/126.15

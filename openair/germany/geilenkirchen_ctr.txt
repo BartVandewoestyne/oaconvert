@@ -1,0 +1,107 @@
+**************************************************************************
+* ! ! ! ! NEEDS TO BE VERIFIED WITH OFFICIAL AIP INFORMATION ! ! ! ! ! ! !
+*           - Germany:     http://www.dfs.de/                            *
+**************************************************************************
+* Source:
+*
+*   Soaring Services (http://soaringweb.org)
+*
+* Last update:
+*
+*   Wim Verhoeve (24 December 2011)
+*
+* Map list:
+*
+*   MAP WEEK           SEE NOTAM
+*   MAP WEEKEND        SEE NOTAM
+*   MAP WEEKEND_LFAG1  SEE NOTAM
+*   MAP WEEKEND_LFAG2  SEE NOTAM
+*   MAP WEEKEND_LFAG5  SEE NOTAM
+*
+* Remarks for paragliding:
+
+AC CTR
+AN Geilenkirchen
+AH 3000 ft AMSL
+AL GND
+DP 50:54:36 N 006:13:33 E
+DP 51:00:36 N 006:13:44 E
+DP 51:00:46 N 005:57:46 E
+DP 50:59:04 N 005:57:46 E
+DP 50:58:59 N 005:58:13 E
+DP 50:59:11 N 005:59:53 E
+DP 50:59:11 N 006:00:09 E
+DP 50:59:09 N 006:01:42 E
+DP 50:58:53 N 006:01:59 E
+DP 50:58:38 N 006:01:45 E
+DP 50:58:34 N 006:01:23 E
+DP 50:57:53 N 006:00:47 E
+DP 50:57:39 N 006:00:26 E
+DP 50:57:15 N 006:01:04 E
+DP 50:56:45 N 006:01:03 E
+DP 50:56:20 N 006:01:16 E
+DP 50:56:11 N 006:01:35 E
+DP 50:55:52 N 006:03:24 E
+DP 50:55:40 N 006:03:43 E
+DP 50:55:28 N 006:05:06 E
+DP 50:55:00 N 006:05:13 E
+DP 50:54:48 N 006:05:10 E
+DP 50:54:42 N 006:05:02 E
+DP 50:54:36 N 006:13:33 E
+
+* DFC Saarland
+* http://www.dfc-saar.de
+* AC CTR
+* AN GEILENKIRCHEN (HX)
+* AL GND
+* AH 3000MSL
+* DP 50:59:00 N 005:57:38 E
+* DP 51:00:46 N 005:57:38 E
+* DP 51:00:36 N 006:13:44 E
+* DP 50:54:36 N 006:13:33 E
+* DP 50:54:42 N 006:05:04 E
+
+* SoaringWeb
+* http://soaringweb.org
+* AC CTR
+* AN Geilenkirchen
+* *W N=GeilenkirchenCTR
+* AH 3000MSL
+* AL GND
+* DP 50:54:36 N 006:13:33 E
+* DP 51:00:36 N 006:13:44 E
+* DP 51:00:46 N 005:57:46 E
+* DP 50:59:04 N 005:57:46 E
+* DP 50:58:59 N 005:58:13 E
+* DP 50:59:11 N 005:59:53 E
+* DP 50:59:11 N 006:00:09 E
+* DP 50:59:09 N 006:01:42 E
+* DP 50:58:53 N 006:01:59 E
+* DP 50:58:38 N 006:01:45 E
+* DP 50:58:34 N 006:01:23 E
+* DP 50:57:53 N 006:00:47 E
+* DP 50:57:39 N 006:00:26 E
+* DP 50:57:15 N 006:01:04 E
+* DP 50:56:45 N 006:01:03 E
+* DP 50:56:20 N 006:01:16 E
+* DP 50:56:11 N 006:01:35 E
+* DP 50:55:52 N 006:03:24 E
+* DP 50:55:40 N 006:03:43 E
+* DP 50:55:28 N 006:05:06 E
+* DP 50:55:00 N 006:05:13 E
+* DP 50:54:48 N 006:05:10 E
+* DP 50:54:42 N 006:05:02 E
+
+* Winpilot
+* http://www.winpilot.com/OpenAir/Europe.asp
+* AC D
+* AN GEILENKIRCHEN CTR
+* AL 0ft GND
+* AH 2900ft MSL
+* DP 51:02:09 N 5:52:21 E
+* DP 51:00:47 N 5:55:40 E
+* DP 51:00:36 N 6:13:44 E
+* DP 50:54:36 N 6:13:33 E
+* DP 50:54:42 N 6:05:02 E
+* * Grenze angenähert
+* DP 50:54:42 N 5:50:00 E
