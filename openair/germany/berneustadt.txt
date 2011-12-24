@@ -1,0 +1,62 @@
+**************************************************************************
+* ! ! ! ! NEEDS TO BE VERIFIED WITH OFFICIAL AIP INFORMATION ! ! ! ! ! ! !
+*           - Germany:     http://www.dfs.de/                            *
+**************************************************************************
+* Source:
+*
+*   Soaring Services (http://soaringweb.org)
+*
+* Last update:
+*
+*   Wim Verhoeve (24 December 2011)
+*
+* Map list:
+*
+*   MAP WEEK           NO
+*   MAP WEEKEND        NO
+*   MAP WEEKEND_LFAG1  NO
+*   MAP WEEKEND_LFAG2  NO
+*   MAP WEEKEND_LFAG5  NO
+*
+* Remarks for paragliding:
+* Class W
+* Berneustadt = Gustorf
+
+
+* DFC Saarland
+* http://www.dfc-saar.de
+* AC W
+* AN GUSTORF
+* AL 4500MSL
+* AH FL65
+* DP 51:07:48 N 006:17:36 E
+* DP 51:06:57 N 006:23:04 E
+* DP 51:00:10 N 006:25:20 E
+* DP 51:00:10 N 006:19:54 E
+
+* AC W
+* AN GUSTORF1
+* AL 3500MSL
+* AH FL65
+* DP 51:06:57 N 006:23:04 E
+* DP 51:05:07 N 006:34:35 E
+* DP 51:02:53 N 006:37:16 E
+* DP 51:00:10 N 006:31:19 E
+* DP 51:00:10 N 006:25:20 E
+
+* SoaringWeb
+* http://soaringweb.org
+* AC W
+* AN Gustorf 129.875/126.15
+* *W N=W_D1
+* AH FL65
+* AL 2500MSL
+* DP 51:07:48 N 006:17:36 E
+* DP 51:05:07 N 006:34:35 E
+* DP 51:02:53 N 006:37:16 E
+* DP 51:00:10 N 006:31:19 E
+* DP 51:00:10 N 006:19:54 E
+* DP 51:07:48 N 006:17:36 E
+
+* Winpilot
+* http://www.winpilot.com/OpenAir/Europe.asp

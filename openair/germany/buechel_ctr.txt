@@ -1,0 +1,66 @@
+**************************************************************************
+* ! ! ! ! NEEDS TO BE VERIFIED WITH OFFICIAL AIP INFORMATION ! ! ! ! ! ! !
+*           - Germany:     http://www.dfs.de/                            *
+**************************************************************************
+* Source:
+*
+*   Soaring Services (http://soaringweb.org)
+*
+* Last update:
+*
+*   Wim Verhoeve (23 December 2011)
+*
+* Map list:
+*
+*   MAP WEEK           SEE NOTAM
+*   MAP WEEKEND        SEE NOTAM
+*   MAP WEEKEND_LFAG1  SEE NOTAM
+*   MAP WEEKEND_LFAG2  SEE NOTAM
+*   MAP WEEKEND_LFAG5  SEE NOTAM
+*
+* Remarks for paragliding:
+
+AC CTR
+AN Büchel CTR
+AH 4100 ft AMSL
+AL GND
+DP 50:02:52 N 007:02:40 E
+DP 50:05:49 N 006:54:28 E
+DP 50:18:06 N 007:05:00 E
+DP 50:15:10 N 007:13:14 E
+DP 50:02:52 N 007:02:40 E
+
+
+* DFC Saarland
+* http://www.dfc-saar.de
+* AC CTR
+* AN BÜCHEL (HX)
+* AL GND
+* AH 4100MSL
+* DP 50:02:52 N 007:02:40 E
+* DP 50:05:49 N 006:54:28 E
+* DP 50:18:06 N 007:05:00 E
+* DP 50:15:10 N 007:13:14 E
+
+* SoaringWeb
+* http://soaringweb.org
+* AC CTR
+* AN Buechel
+* *W N=BuechelCTR
+* AH 4100MSL
+* AL GND
+* DP 50:02:52 N 007:02:40 E
+* DP 50:05:49 N 006:54:28 E
+* DP 50:18:06 N 007:05:00 E
+* DP 50:15:10 N 007:13:14 E
+* DP 50:02:52 N 007:02:40 E
+
+* Winpilot
+* http://www.winpilot.com/OpenAir/Europe.aspAC D
+* AN BüCHEL CTR
+* AL 0ft GND
+* AH 4100ft MSL
+* DP 50:02:52 N 7:02:40 E
+* DP 50:05:49 N 6:54:28 E
+* DP 50:18:06 N 7:05:00 E
+* DP 50:15:10 N 7:13:14 E

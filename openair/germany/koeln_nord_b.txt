@@ -1,0 +1,66 @@
+**************************************************************************
+* ! ! ! ! NEEDS TO BE VERIFIED WITH OFFICIAL AIP INFORMATION ! ! ! ! ! ! !
+*           - Germany:     http://www.dfs.de/                            *
+**************************************************************************
+* Source:
+*
+*   Soaring Services (http://soaringweb.org)
+*
+* Last update:
+*
+*   Wim Verhoeve (24 December 2011)
+*
+* Map list:
+*
+*   MAP WEEK           NO
+*   MAP WEEKEND        NO
+*   MAP WEEKEND_LFAG1  NO
+*   MAP WEEKEND_LFAG2  NO
+*   MAP WEEKEND_LFAG5  NO
+*
+* Remarks for paragliding:
+*   - Glider areas (class W). Not relevant for paragliding
+
+AC W
+AN Köln-Nord_B (W_K23)
+AH FL 65
+AL 2500 ft AMSL
+DP 50:56:00 N 006:40:00 E
+DP 50:58:37 N 006:42:26 E
+DP 51:00:29 N 006:46:35 E
+DP 50:56:56 N 006:54:51 E
+DP 50:55:48 N 006:49:23 E
+DP 50:53:37 N 006:41:40 E
+DP 50:56:00 N 006:40:00 E
+
+
+* DFC Saarland
+* http://www.dfc-saar.de
+* AC W
+* AN KÖLN NORD B
+* AL 2500MSL
+* AH FL65
+* DP 50:53:37 N 006:41:40 E
+* DP 50:56:00 N 006:40:00 E
+* DP 50:58:37 N 006:42:26 E
+* DP 51:00:29 N 006:46:35 E
+* DP 50:56:56 N 006:54:51 E
+* DP 50:55:48 N 006:49:23 
+
+* SoaringWeb
+* http://soaringweb.org
+* AC W
+* AN Koeln-Nord_B 129.875/126.15
+* *W N=W_K23
+* AH FL65
+* AL 2500MSL
+* DP 50:56:00 N 006:40:00 E
+* DP 50:58:37 N 006:42:26 E
+* DP 51:00:29 N 006:46:35 E
+* DP 50:56:56 N 006:54:51 E
+* DP 50:55:48 N 006:49:23 E
+* DP 50:53:37 N 006:41:40 E
+* DP 50:56:00 N 006:40:00 E
+
+* Winpilot
+* http://www.winpilot.com/OpenAir/Europe.asp

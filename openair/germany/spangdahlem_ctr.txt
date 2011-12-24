@@ -1,0 +1,73 @@
+**************************************************************************
+* ! ! ! ! NEEDS TO BE VERIFIED WITH OFFICIAL AIP INFORMATION ! ! ! ! ! ! !
+*           - Germany:     http://www.dfs.de/                            *
+**************************************************************************
+* Source:
+*
+*   Soaring Services (http://soaringweb.org)
+*
+* Last update:
+*
+*   Wim Verhoeve (24 December 2011)
+*
+* Map list:
+*
+*   MAP WEEK           SEE NOTAM
+*   MAP WEEKEND        SEE NOTAM
+*   MAP WEEKEND_LFAG1  SEE NOTAM
+*   MAP WEEKEND_LFAG2  SEE NOTAM
+*   MAP WEEKEND_LFAG5  SEE NOTAM
+*
+* Remarks for paragliding:
+
+AC CTR
+AN Spangdahlem CTR
+AH 3700 ft AMSL
+AL GND
+DP 50:05:35 N 006:43:55 E
+DP 49:59:58 N 006:52:44 E
+DP 49:50:59 N 006:38:58 E
+DP 49:55:20 N 006:32:11 E
+DP 49:57:16 N 006:36:26 E
+DP 49:59:13 N 006:34:09 E
+DP 50:05:35 N 006:43:55 E
+
+
+* DFC Saarland
+* http://www.dfc-saar.de
+* AC CTR
+* AN SPANGDAHLEM (HX)
+* AL GND
+* AH 3700MSL
+* DP 50:05:35 N 006:43:55 E
+* DP 49:59:58 N 006:52:44 E
+* DP 49:50:59 N 006:38:58 E
+* DP 49:55:20 N 006:32:11 E
+* DP 49:57:16 N 006:36:26 E
+* DP 49:59:13 N 006:34:09 E
+
+* SoaringWeb
+* http://soaringweb.org
+* AC CTR
+* AN Spangdahlem
+* *W N=SpangdahlemCTR
+* AH 3700MSL
+* AL GND
+* DP 50:05:35 N 006:43:55 E
+* DP 49:59:58 N 006:52:44 E
+* DP 49:50:59 N 006:38:58 E
+* DP 49:55:20 N 006:32:11 E
+* DP 49:57:16 N 006:36:26 E
+* DP 49:59:13 N 006:34:09 E
+* DP 50:05:35 N 006:43:55 E
+
+* Winpilot
+* http://www.winpilot.com/OpenAir/Europe.asp
+* AC D
+* AN SPANGDAHLEM CTR
+* AL 0ft GND
+* AH 3700ft MSL
+* DP 50:05:35 N 6:43:55 E
+* DP 49:59:58 N 6:52:44 E
+* DP 49:50:59 N 6:38:58 E
+* DP 49:56:36 N 6:30:09 E
