@@ -1,0 +1,60 @@
+**************************************************************************
+* ! ! ! ! NEEDS TO BE VERIFIED WITH OFFICIAL AIP INFORMATION ! ! ! ! ! ! !
+*           - Germany:     http://www.dfs.de/                            *
+**************************************************************************
+* Source:
+*
+*   Soaring Services (http://soaringweb.org)
+*
+* Last update:
+*
+*   Wim Verhoeve (24 December 2011)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+*
+* Remarks for paragliding:
+
+AC C
+AN Düsseldorf/Köln-Bonn CL
+AH FL 100
+AL 4500 ft AMSL
+DP 51:17:20 N 007:09:06 E
+DP 51:23:26 N 007:22:45 E
+DP 51:18:47 N 007:27:45 E
+DP 51:15:36 N 007:20:25 E
+DP 51:17:20 N 007:09:06 E
+
+
+* DFC Saarland
+* http://www.dfc-saar.de
+* AC C
+* AN DÜSSELDORF/KÖLN-BONN10
+* AL 4500MSL
+* AH FL100
+* DP 51:17:20 N 007:09:06 E
+* DP 51:23:26 N 007:22:45 E
+* DP 51:18:47 N 007:27:45 E
+* DP 51:15:36 N 007:20:25 E
+
+* SoaringWeb
+* http://soaringweb.org
+* AC C
+* AN Duesseldorf/Koeln-Bonn
+* *W N=KoelnCL
+* AH FL100
+* AL 4500MSL
+* DP 51:17:20 N 007:09:06 E
+* DP 51:23:26 N 007:22:45 E
+* DP 51:18:47 N 007:27:45 E
+* DP 51:15:36 N 007:20:25 E
+* DP 51:17:20 N 007:09:06 E
+
+* Winpilot
+* http://www.winpilot.com/OpenAir/Europe.asp
+* missing

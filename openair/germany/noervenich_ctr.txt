@@ -1,0 +1,67 @@
+**************************************************************************
+* ! ! ! ! NEEDS TO BE VERIFIED WITH OFFICIAL AIP INFORMATION ! ! ! ! ! ! !
+*           - Germany:     http://www.dfs.de/                            *
+**************************************************************************
+* Source:
+*
+*   Soaring Services (http://soaringweb.org)
+*
+* Last update:
+*
+*   Wim Verhoeve (24 December 2011)
+*
+* Map list:
+*
+*   MAP WEEK           SEE NOTAM
+*   MAP WEEKEND        SEE NOTAM
+*   MAP WEEKEND_LFAG1  SEE NOTAM
+*   MAP WEEKEND_LFAG2  SEE NOTAM
+*   MAP WEEKEND_LFAG5  SEE NOTAM
+*
+* Remarks for paragliding:
+
+AC CTR
+AN Nörvenich CTR
+AH 2900 ft AMSL
+AL GND
+DP 50:44:48 N 006:32:46 E
+DP 50:50:03 N 006:29:09 E
+DP 50:55:48 N 006:49:23 E
+DP 50:50:17 N 006:53:06 E
+DP 50:44:48 N 006:32:46 E
+
+
+* DFC Saarland
+* http://www.dfc-saar.de
+* AC CTR
+* AN NÖRVENICH (HX)
+* AL GND
+* AH 2900MSL
+* DP 50:44:48 N 006:32:46 E
+* DP 50:50:03 N 006:29:09 E
+* DP 50:55:48 N 006:49:23 E
+* DP 50:50:17 N 006:53:06 E
+
+* SoaringWeb
+* http://soaringweb.org
+* AC CTR
+* AN Noervenich
+* *W N=NoervenichCTR
+* AH 2900MSL
+* AL GND
+* DP 50:44:48 N 006:32:46 E
+* DP 50:50:03 N 006:29:09 E
+* DP 50:55:48 N 006:49:23 E
+* DP 50:50:17 N 006:53:06 E
+* DP 50:44:48 N 006:32:46 E
+
+* Winpilot
+* http://www.winpilot.com/OpenAir/Europe.asp
+* AC D
+* AN NöRVENICH CTR
+* AL 0ft GND
+* AH 2900ft MSL
+* DP 50:44:48 N 6:32:46 E
+* DP 50:50:03 N 6:29:09 E
+* DP 50:55:48 N 6:49:23 E
+* DP 50:50:17 N 6:53:06 E

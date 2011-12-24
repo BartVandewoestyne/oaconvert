@@ -1,0 +1,68 @@
+**************************************************************************
+* ! ! ! ! NEEDS TO BE VERIFIED WITH OFFICIAL AIP INFORMATION ! ! ! ! ! ! !
+*           - Germany:     http://www.dfs.de/                            *
+**************************************************************************
+* TO DO ! TO DO !  cut at border of map area             TO DO ! TO DO ! *
+**************************************************************************
+
+* Source:
+*
+*   Soaring Services (http://soaringweb.org)
+*
+* Last update:
+*
+*   Wim Verhoeve (24 December 2011)
+*
+* Map list:
+*
+*   MAP WEEK           SEE NOTAM
+*   MAP WEEKEND        SEE NOTAM
+*   MAP WEEKEND_LFAG1  SEE NOTAM
+*   MAP WEEKEND_LFAG2  SEE NOTAM
+*   MAP WEEKEND_LFAG5  SEE NOTAM
+*
+* Remarks for paragliding:
+
+AC CTR
+AN Zweibrücken CTR
+AH 3100 ft AMSL
+AL GND
+DP 49:08:01 N 007:19:04 E
+DP 49:09:14 N 007:15:49 E
+DP 49:19:01 N 007:24:25 E
+DP 49:16:02 N 007:32:23 E
+DP 49:09:51 N 007:26:56 E
+DP 49:06:15 N 007:23:49 E
+DP 49:08:01 N 007:19:04 E
+
+
+* DFC Saarland
+* http://www.dfc-saar.de
+* AC CTR
+* AN ZWEIBRÜCKEN (HX)
+* AL GND
+* AH 3100MSL
+* DP 49:08:05 N 007:18:54 E
+* DP 49:09:14 N 007:15:49 E
+* DP 49:19:01 N 007:24:25 E
+* DP 49:16:02 N 007:32:23 E
+* DP 49:10:09 N 007:27:12 E
+
+* SoaringWeb
+* http://soaringweb.org
+* AC CTR
+* AN Zweibruecken
+* *W N=ZweibrueckenCTR
+* AH 3100MSL
+* AL GND
+* DP 49:08:01 N 007:19:04 E
+* DP 49:09:14 N 007:15:49 E
+* DP 49:19:01 N 007:24:25 E
+* DP 49:16:02 N 007:32:23 E
+* DP 49:09:51 N 007:26:56 E
+* DP 49:06:15 N 007:23:49 E
+* DP 49:08:01 N 007:19:04 E
+
+* Winpilot
+* http://www.winpilot.com/OpenAir/Europe.asp
+* missing
