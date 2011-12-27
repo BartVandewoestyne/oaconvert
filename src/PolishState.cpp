@@ -213,7 +213,7 @@ void PolishState::write(std::ostream& stream, const Airspace& airspace) const
 
     // First, draw all things that need to be a POLYGON.  Only
     // Danger and Restricted zones are not POLYGONs.
-    if ( !(airspace.isDanger() || airspace.isRestricted() || airspace.isFIR()) ) {
+    if ( !(airspace.isDanger() || airspace.isRestricted() || airspace.isFIR() || airspace.isByNOTAM()) ) {
 
         stream << "[POLYGON]" << endl;
         stream << "Type=" << getPolygonType(airspace) << endl;
