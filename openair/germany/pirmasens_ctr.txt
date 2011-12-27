@@ -23,7 +23,7 @@
 
 AC R
 AN Pirmasens CTR (EDR118)
-AH 3300ft AMSL
+AH 3300 ft AMSL
 AL GND
 V X=49:14:18 N 007:36:45 E
 DC 1.00
@@ -43,7 +43,7 @@ DC 1.00
 * AC R
 * AN ED-R118 Pirmasens TUE+
 * *W N=EDR118
-* AH 3300ft MSL
+* AH 3300 ft MSL
 * AL GND
 * *W W=Mon: Free         *09:00-16:30 LT NOTAM
 * *W W=Tue: 09:00-16:30 LT
