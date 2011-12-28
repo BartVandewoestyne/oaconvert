@@ -76,7 +76,18 @@ void PolishState::writeHeader(std::ostream &out) const
     //   gscripts:          none specified, so default 0
     out << "Codepage=0" << endl;
 
-    out << "Transparent=S" << endl;
+    // When a transparent map is displayed on a GPS unit, features
+    // in the unit's basemap will also be visible.  If your map is not
+    // transparent, it will obscure the basemap when visible.
+    // Semi-transparent map is created in a way a usual map is
+    // created, but no background object is created.  Full transparent
+    // map is created in a way that no background object is created
+    // and information in IMG is stored that map is transparent.
+    // -> In some cases - to have a nice overlapping map it is
+    // necessary to use semi-transparency instead of full-transparency.
+    //
+    // Note Bart: BaseCamp software has a problem with S, so trying N
+    out << "Transparent=N" << endl;
 
     // Subfamily identifier used for locked IMG files only – value
     // between 1 and 255. Each subfamily can be unlocked with
