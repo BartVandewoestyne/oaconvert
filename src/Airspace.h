@@ -88,9 +88,11 @@ public:
     void add(const GeometricShape* s);
 
     const bool isFIR() const;
+    const bool isMapEdge() const;
     const bool isCTR() const;
     const bool isCTA() const;
     const bool isTMA() const;
+    const bool isFloating() const;
     const bool isVectoringArea() const;
     const bool isByNOTAM() const;
     const bool isLowFlyingAreaGolf() const;

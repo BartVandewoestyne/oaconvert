@@ -199,6 +199,20 @@ const bool Airspace::isTMA() const
 
 
 /**
+  * Return true if this airspace is 'floating', by which
+  * we mean that its floor is above 0 m AMSL.
+  */
+const bool Airspace::isFloating() const
+{
+    if ( getFloor() > 0 ) {
+      return true;
+    } else {
+      return false;
+    }
+}
+
+
+/**
   * Return true if this airspace is a vectoring area.  The airspace
   * will be a vectoring area if its name contains the case sensitive
   * string 'vectoring area'.
@@ -239,6 +253,22 @@ const bool Airspace::isFIR() const
 {
     size_t found = name.find("FIR");
     if ( found != string::npos ) {
+      return true;
+    } else {
+      return false;
+    }
+}
+
+
+/**
+  * Return true if this 'airspace' represents the edges
+  * of the map.  An airspace is the map edge if it contains
+  * the case sensitive string 'Map edge'.
+  */
+const bool Airspace::isMapEdge() const
+{
+    size_t found = name.find("Map edge");
+    if (found != string::npos ) {
       return true;
     } else {
       return false;

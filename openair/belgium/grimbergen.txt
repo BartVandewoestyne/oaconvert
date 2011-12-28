@@ -25,7 +25,7 @@
 *     (see chart AD2 EBBR VAC.01 and AD 2 PVT-EBGB)
  
 AC C
-AN Brussels TMA EBGB
+AN Grimbergen
 AH 1500 ft AMSL
 AL 1000 ft AMSL   * part between 1000ft and GND is defined as class G
 DP 51:04:01 N 004:27:00 E

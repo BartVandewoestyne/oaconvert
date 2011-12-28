@@ -216,6 +216,7 @@ void PolishState::write(std::ostream& stream, const Airspace& airspace) const
     if ( !(    airspace.isDanger()
             || airspace.isRestricted()
             || airspace.isFIR()
+            || airspace.isMapEdge()
             || airspace.isByNOTAM()) ) {
 
         stream << "[POLYGON]" << endl;
@@ -360,7 +361,7 @@ std::string PolishState::getPolygonType(const Airspace& space) const
         return string("0x61");
     } else if (space.isCTA()) {
         return string("0x62");
-    } else if ( (space.isTMA() || space.isVectoringArea() || space.isProhibited()) && (space.getFloor() > 0) ) {
+    } else if ( space.isFloating() && !space.isLowFlyingAreaGolf() ) {
         return string("0x63");
     } else if (space.isLowFlyingAreaGolf()) {
         return string("0x64");
@@ -385,7 +386,9 @@ std::string PolishState::getLineType(const Airspace& space) const
       return string("0x03");
   } else if (space.isByNOTAM()) {
       return string("0x04");
-  } else {
+  } else if (space.isMapEdge()) {
       return string("0x05");
+  } else {
+      return string("0x06");
   }
 }
