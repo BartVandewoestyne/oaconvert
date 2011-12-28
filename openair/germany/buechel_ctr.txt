@@ -36,7 +36,7 @@ DP 50:02:52 N 007:02:40 E
 * AC CTR
 * AN BÜCHEL (HX)
 * AL GND
-* AH 4100MSL
+* AH 4100 ft AMSL
 * DP 50:02:52 N 007:02:40 E
 * DP 50:05:49 N 006:54:28 E
 * DP 50:18:06 N 007:05:00 E
@@ -47,7 +47,7 @@ DP 50:02:52 N 007:02:40 E
 * AC CTR
 * AN Buechel
 * *W N=BuechelCTR
-* AH 4100MSL
+* AH 4100 ft AMSL
 * AL GND
 * DP 50:02:52 N 007:02:40 E
 * DP 50:05:49 N 006:54:28 E
@@ -59,7 +59,7 @@ DP 50:02:52 N 007:02:40 E
 * http://www.winpilot.com/OpenAir/Europe.aspAC D
 * AN BüCHEL CTR
 * AL 0ft GND
-* AH 4100ft MSL
+* AH 4100 ft AMSL
 * DP 50:02:52 N 7:02:40 E
 * DP 50:05:49 N 6:54:28 E
 * DP 50:18:06 N 7:05:00 E
