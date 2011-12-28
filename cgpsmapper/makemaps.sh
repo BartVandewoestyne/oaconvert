@@ -13,6 +13,9 @@ rm -f *.reg *.img *.TDB
 ID=19780321
 FID=122
 
+mkdir -p ../build/nsis/
+> ../build/nsis/create_registry_keys.nsi
+> ../build/nsis/delete_registry_keys.nsi
 for POLISH_FILE in ../build/polish_format/*.mp;
 do
 
@@ -83,6 +86,7 @@ do
   rm -f $MAP_FILENAME.mp
 
   # Add necessary stuff to the NSIS installer script.
-  # TODO
+  printf "!insertmacro writeRegistryEntries \"$MAP_FILENAME\" %x\n" $FID >> ../build/nsis/create_registry_keys.nsi
+  printf "DeleteRegKey \"HKLM\" \"Software\Garmin\Mapsource\Families\\$MAP_FILENAME\"\n" >> ../build/nsis/delete_registry_keys.nsi
 
 done
