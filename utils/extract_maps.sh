@@ -1,23 +1,37 @@
 #!/bin/bash
 #
+# Check the individual OpenAir files to see what maps need to be created and
+# then check what individual OpenAir files go into what maps.  For each map,
+# the following filetypes are being generated:
+#
+#   build/openair/<MAPNAME>.txt		-> OpenAir
+#   build/polish_format/<MAPNAME>.mp	-> Polish Format
+#   build/gpx/<MAPNAME>.gpx		-> GPX
 
+
+# Set the name of the oaconvert binary, depending wether we are on
+# Cygwin or on Linux.
 unamestr=`uname -o`
-if [[ "$unamestr" == 'Cygwin' ]]; then
+if [[ "$unamestr" =~ '.*Cygwin.*' ]]; then
   OACONVERT=oaconvert.exe
-elif [[ "$unamestr" == 'Linux' || "$unamestr" == 'GNU/Linux' ]]; then
+elif [[ "$unamestr" =~ '.*Linux.*' ]]; then
   OACONVERT=oaconvert
 fi
 
 OA2PM_ROOTDIR=..
 
+# Create the different output build directories.
 mkdir -p ${OA2PM_ROOTDIR}/build
 mkdir -p ${OA2PM_ROOTDIR}/build/openair
 mkdir -p ${OA2PM_ROOTDIR}/build/polish_format
 mkdir -p ${OA2PM_ROOTDIR}/build/gpx
 mkdir -p ${OA2PM_ROOTDIR}/build/kml
 
+# Extract the different map names from all OpenAir files.
 MAPNAMES=`grep -rh MAP ../openair/* | awk '{print $3}' | sort | uniq`
 
+# Combine individual OpenAir files into their respecitve full OpenAir file.
+# Also use the oaconvert tool to create full GPX and Polish files.
 for name in $MAPNAMES
 do
 
