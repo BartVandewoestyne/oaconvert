@@ -3,13 +3,14 @@
 ; HM NIS Edit Wizard helper defines
 !define PRODUCT_NAME "Bart's Fantastic Airspace Maps"
 !define PRODUCT_VERSION "1.00"
+!define /date MyTIMESTAMP "%Y-%m-%d-%H-%M-%S"
 !define PRODUCT_PUBLISHER "Bart Vandewoestyne"
 !define PRODUCT_WEB_SITE "https://github.com/BartVandewoestyne/oaconvert"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
-OutFile "Setup.exe"
+OutFile "BartsFantasticAirspaceMaps-${PRODUCT_VERSION}-${MyTIMESTAMP}.exe"
 LoadLanguageFile "${NSISDIR}\Contrib\Language files\Dutch.nlf"
 LoadLanguageFile "${NSISDIR}\Contrib\Language files\English.nlf"
 LoadLanguageFile "${NSISDIR}\Contrib\Language files\French.nlf"
@@ -24,6 +25,7 @@ ShowInstDetails show
 ShowUnInstDetails show
 
 Page license
+Page custom paypal
 Page components
 Page directory
 Page instfiles
@@ -37,6 +39,10 @@ Page instfiles
   WriteRegStr "HKLM" "Software\Garmin\Mapsource\Families\${Name}\1" "TDB"  "$INSTDIR\garmin\${Name}.tdb"
   WriteRegStr "HKLM" "Software\Garmin\Mapsource\Families\${Name}\1" "MDR"  "$INSTDIR\garmin\${Name}.img"
 !macroend
+
+Function paypal
+  MessageBox MB_OK "Disclaimer: we provide these maps as a free service.  Although we do our very best to make sure that the maps are accurate, we are aware that some might contain mistakes and we make no guarantee as to their absolute correctness.  These maps are provided “as is” in the hope that they will be useful, but WITHOUT ANY WARRANTY, to the extent permitted by law; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  Please use these maps as a guide and not as definitive information."
+FunctionEnd
 
 Function .onInit
 FunctionEnd
