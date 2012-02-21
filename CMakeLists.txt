@@ -2,14 +2,15 @@
 #
 #   make VERBOSE=1
 
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 2.6)
+#cmake_minimum_required(VERSION 2.8)
 
 # search for Boost version 1.34
 #find_package( Boost 1.34 COMPONENTS regex )
 
 project(oaconvert)
 
-add_definitions(-Wall -g)
+add_definitions(-Wall -Wextra -g)
 
 add_subdirectory(src)
 add_subdirectory(test)
