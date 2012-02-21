@@ -94,12 +94,13 @@ Section -Post
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "URLInfoAbout" "${PRODUCT_WEB_SITE}"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "Publisher" "${PRODUCT_PUBLISHER}"
 
-  ; TODO !include file.nsi here
-  !insertmacro writeRegistryEntries "WEEK"          7B00
-  !insertmacro writeRegistryEntries "WEEKEND"       7C00
-  !insertmacro writeRegistryEntries "WEEKEND_LFAG1" 7D00
-  !insertmacro writeRegistryEntries "WEEKEND_LFAG2" 7E00
-  !insertmacro writeRegistryEntries "WEEKEND_LFAG5" 7F00
+  ; TODO: test this!!!
+  !include build/nsis/create_registry_keys.nsi
+  ;!insertmacro writeRegistryEntries "WEEK"          7B00
+  ;!insertmacro writeRegistryEntries "WEEKEND"       7C00
+  ;!insertmacro writeRegistryEntries "WEEKEND_LFAG1" 7D00
+  ;!insertmacro writeRegistryEntries "WEEKEND_LFAG2" 7E00
+  ;!insertmacro writeRegistryEntries "WEEKEND_LFAG5" 7F00
   
 SectionEnd
 
@@ -136,12 +137,13 @@ Section Uninstall
 
   DeleteRegKey ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}"
   
-  ; TODO: Use !include file.nsi here
-  DeleteRegKey "HKLM" "Software\Garmin\Mapsource\Families\WEEK"
-  DeleteRegKey "HKLM" "Software\Garmin\Mapsource\Families\WEEKEND"
-  DeleteRegKey "HKLM" "Software\Garmin\Mapsource\Families\WEEKEND_LFAG1"
-  DeleteRegKey "HKLM" "Software\Garmin\Mapsource\Families\WEEKEND_LFAG2"
-  DeleteRegKey "HKLM" "Software\Garmin\Mapsource\Families\WEEKEND_LFAG5"
+  ; TODO: TEST THIS!!!
+  !include build/nsis/delete_registry_keys.nsi
+  ;DeleteRegKey "HKLM" "Software\Garmin\Mapsource\Families\WEEK"
+  ;DeleteRegKey "HKLM" "Software\Garmin\Mapsource\Families\WEEKEND"
+  ;DeleteRegKey "HKLM" "Software\Garmin\Mapsource\Families\WEEKEND_LFAG1"
+  ;DeleteRegKey "HKLM" "Software\Garmin\Mapsource\Families\WEEKEND_LFAG2"
+  ;DeleteRegKey "HKLM" "Software\Garmin\Mapsource\Families\WEEKEND_LFAG5"
   
   SetAutoClose true
 SectionEnd
