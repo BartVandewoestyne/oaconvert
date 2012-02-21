@@ -76,7 +76,7 @@ double Longitude::getN()
     return 6371e3;
 }
 
-const char Longitude::getDirection() const {
+char Longitude::getDirection() const {
 
     if (getAngle() < 0)
     {
@@ -89,7 +89,7 @@ const char Longitude::getDirection() const {
 
 }
 
-const void Longitude::applyDirection(const char direction) {
+void Longitude::applyDirection(const char direction) {
 
   // just to be on the safe side, make the angle positive...
   angle = abs(angle);

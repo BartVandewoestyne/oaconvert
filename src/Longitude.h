@@ -33,14 +33,14 @@ public:
     Longitude(int degrees, double minutes, char direction);
     Longitude(int degrees, int minutes, int seconds, char direction);
 
-    const char getDirection() const;
+    char getDirection() const;
 
     double getArcDegree(const Latitude& lat);
     double getN();
 
 private:
 
-    const void applyDirection(const char direction);
+    void applyDirection(const char direction);
 
 };
 

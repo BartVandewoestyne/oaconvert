@@ -79,7 +79,7 @@ double Latitude::getM()
     return 6371e3;
 }
 
-const char Latitude::getDirection() const {
+char Latitude::getDirection() const {
 
     if (getAngle() < 0)
     {
@@ -92,7 +92,7 @@ const char Latitude::getDirection() const {
 
 }
 
-const void Latitude::applyDirection(const char direction) {
+void Latitude::applyDirection(const char direction) {
 
   // just to be on the safe side, make the angle positive...
   angle = abs(angle);

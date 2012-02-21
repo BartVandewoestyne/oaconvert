@@ -54,9 +54,9 @@ public:
     int getDegrees() const;
     int getMinutes() const;
     double getSeconds() const;
-    const double toRadians() const;
+    double toRadians() const;
 
-    virtual const char getDirection() const = 0;
+    virtual char getDirection() const = 0;
 
     bool operator ==(const LatLon& other) const;
     friend std::ostream& operator <<(std::ostream& outputStream,

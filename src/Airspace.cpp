@@ -65,7 +65,7 @@ const string& Airspace::getClass() const
 /**
   * Return the ceiling altitude in METER.
   */
-const double Airspace::getCeiling() const
+double Airspace::getCeiling() const
 {
     return ceiling;
 }
@@ -74,7 +74,7 @@ const double Airspace::getCeiling() const
 /**
   * Return the floor altitude in METER.
   */
-const double Airspace::getFloor() const
+double Airspace::getFloor() const
 {
     return floor;
 }
@@ -155,7 +155,7 @@ void Airspace::add(const Label& label)
   *   with this approach is that some CTR's have 'AC C' or 'AC D' in their
   *   AC-record... so if we put 'AC CTR' there, we lose that information.
   */
-const bool Airspace::isCTR() const
+bool Airspace::isCTR() const
 {
     size_t found = name.find("CTR");
     if ( found != string::npos) {
@@ -171,7 +171,7 @@ const bool Airspace::isCTR() const
   * will be a CTA if its name contains the case sensitive
   * string 'CTA'.
   */
-const bool Airspace::isCTA() const
+bool Airspace::isCTA() const
 {
     size_t found = name.find("CTA");
     if ( found != string::npos) {
@@ -187,7 +187,7 @@ const bool Airspace::isCTA() const
   * will be a TMA if its name contains the case sensitive
   * string 'TMA'.
   */
-const bool Airspace::isTMA() const
+bool Airspace::isTMA() const
 {
     size_t found = name.find("TMA");
     if ( found != string::npos ) {
@@ -202,7 +202,7 @@ const bool Airspace::isTMA() const
   * Return true if this airspace is 'floating', by which
   * we mean that its floor is above 0 m AMSL.
   */
-const bool Airspace::isFloating() const
+bool Airspace::isFloating() const
 {
     if ( getFloor() > 0 ) {
       return true;
@@ -217,7 +217,7 @@ const bool Airspace::isFloating() const
   * will be a vectoring area if its name contains the case sensitive
   * string 'vectoring area'.
   */
-const bool Airspace::isVectoringArea() const
+bool Airspace::isVectoringArea() const
 {
     size_t found = name.find("vectoring area");
     if ( found != string::npos ) {
@@ -233,7 +233,7 @@ const bool Airspace::isVectoringArea() const
   * will be the case if its name contains the case sensitive
   * string 'NOTAM' in its AN-record.
   */
-const bool Airspace::isByNOTAM() const
+bool Airspace::isByNOTAM() const
 {
     size_t found = name.find("NOTAM");
     if ( found != string::npos ) {
@@ -249,7 +249,7 @@ const bool Airspace::isByNOTAM() const
   * will be a FIR if its name contains the case sensitive
   * string 'FIR'.
   */
-const bool Airspace::isFIR() const
+bool Airspace::isFIR() const
 {
     size_t found = name.find("FIR");
     if ( found != string::npos ) {
@@ -265,7 +265,7 @@ const bool Airspace::isFIR() const
   * of the map.  An airspace is the map edge if it contains
   * the case sensitive string 'Map edge'.
   */
-const bool Airspace::isMapEdge() const
+bool Airspace::isMapEdge() const
 {
     size_t found = name.find("Map edge");
     if (found != string::npos ) {
@@ -281,7 +281,7 @@ const bool Airspace::isMapEdge() const
   * will be a Low Flying Area Golf if its name contains the case sensitive
   * string 'LOW FLYING AREA GOLF'.
   */
-const bool Airspace::isLowFlyingAreaGolf() const
+bool Airspace::isLowFlyingAreaGolf() const
 {
     size_t found = name.find("LOW FLYING AREA GOLF");
     if ( found != string::npos) {
@@ -297,7 +297,7 @@ const bool Airspace::isLowFlyingAreaGolf() const
   * will be a Prohibited area if its class is the case sensitive
   * character 'P'.
   */
-const bool Airspace::isProhibited() const
+bool Airspace::isProhibited() const
 {
     if ( clss.compare("P") == 0) {
       return true;
@@ -312,7 +312,7 @@ const bool Airspace::isProhibited() const
   * will be a Prohibited area if its class is the case sensitive
   * character 'P'.
   */
-const bool Airspace::isRestricted() const
+bool Airspace::isRestricted() const
 {
     if ( clss.compare("R") == 0) {
       return true;
@@ -327,7 +327,7 @@ const bool Airspace::isRestricted() const
   * will be a Danger area if its class is the case sensitive
   * character 'Q'.
   */
-const bool Airspace::isDanger() const
+bool Airspace::isDanger() const
 {
     if ( clss.compare("Q") == 0) {
       return true;
@@ -341,7 +341,7 @@ const bool Airspace::isDanger() const
  * Return true if the AL-record contains a floor specification
  * in feet or meters Above Ground Level (AGL).
  */
-const bool Airspace::hasAGLFloor() const
+bool Airspace::hasAGLFloor() const
 {
     size_t found = floor_string.find("AGL");
     if ( found != string::npos) {
@@ -356,7 +356,7 @@ const bool Airspace::hasAGLFloor() const
  * Return true if the AL-record contains a floor specification
  * in Flight Level.
  */
-const bool Airspace::hasFLFloor() const
+bool Airspace::hasFLFloor() const
 {
     size_t found = floor_string.find("FL");
     if ( found != string::npos) {
