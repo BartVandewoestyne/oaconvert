@@ -7,7 +7,7 @@
 *
 * Last update:
 *   Bart Vandewoestyne (3 October 2011)
-*   Wim Verhoeve (17 December 2011)
+*   Wim Verhoeve (23 February 2012)
 *
 * Map List:
 * 
@@ -19,7 +19,7 @@
 
 AC C
 AN Beauvechain TMA 2
-AH 4000 ft AMSL
+AH 3500 ft AMSL
 AL 2500 ft AMSL
 DP 50:41:11 N 004:29:20 E
 DP 50:55:00 N 004:48:45 E
