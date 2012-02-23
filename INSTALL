@@ -41,7 +41,8 @@ the makemaps.sh script:
 
 Step 5 (only Windows): install the Garmin maps
 ----------------------------------------------
-Startup Windows and open and run the create_setup.nsi NSIS installer script.
+Startup Windows and open and run the create_setup.nsi NSIS installer script
+with the 'HM NIS Edit' program, available from http://hmne.sourceforge.net/
 
 => You now have have a <somefilename>.exe setup file that you can run
    to install the maps.
