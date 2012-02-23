@@ -370,6 +370,50 @@ bool Airspace::hasAGLFloor() const
 
 /**
  * Return true if the AH-record contains a ceiling specification
+ * in feet or meters SFC.
+ */
+bool Airspace::hasSFCCeiling() const
+{
+    size_t found = ceiling_string.find("SFC");
+    if ( found != string::npos) {
+      return true;
+    } else {
+      return false;
+    }
+}
+
+
+/**
+ * Return true if the AL-record contains a floor specification
+ * in feet or meters (SFC).
+ */
+bool Airspace::hasSFCFloor() const
+{
+    size_t found = floor_string.find("SFC");
+    if ( found != string::npos) {
+      return true;
+    } else {
+      return false;
+    }
+}
+
+
+/**
+ * Return true if the AL-record contains a GND floor specification.
+ */
+bool Airspace::hasGNDFloor() const
+{
+    size_t found = floor_string.find("GND");
+    if ( found != string::npos) {
+      return true;
+    } else {
+      return false;
+    }
+}
+
+
+/**
+ * Return true if the AH-record contains a ceiling specification
  * in Flight Level.
  */
 bool Airspace::hasFLCeiling() const

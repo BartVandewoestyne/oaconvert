@@ -101,6 +101,9 @@ public:
     bool isDanger() const;
     bool hasAGLCeiling() const;
     bool hasAGLFloor() const;
+    bool hasSFCCeiling() const;
+    bool hasSFCFloor() const;
+    bool hasGNDFloor() const;
     bool hasFLCeiling() const;
     bool hasFLFloor() const;
 
