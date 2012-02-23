@@ -18,6 +18,7 @@
 */
 
 #include <cassert>
+#include <cmath>
 #include <iostream>
 #include <string>
 
@@ -338,12 +339,42 @@ bool Airspace::isDanger() const
 
 
 /**
+ * Return true if the AH-record contains a ceiling specification
+ * in feet or meters Above Ground Level (AGL).
+ */
+bool Airspace::hasAGLCeiling() const
+{
+    size_t found = ceiling_string.find("AGL");
+    if ( found != string::npos) {
+      return true;
+    } else {
+      return false;
+    }
+}
+
+
+/**
  * Return true if the AL-record contains a floor specification
  * in feet or meters Above Ground Level (AGL).
  */
 bool Airspace::hasAGLFloor() const
 {
     size_t found = floor_string.find("AGL");
+    if ( found != string::npos) {
+      return true;
+    } else {
+      return false;
+    }
+}
+
+
+/**
+ * Return true if the AH-record contains a ceiling specification
+ * in Flight Level.
+ */
+bool Airspace::hasFLCeiling() const
+{
+    size_t found = ceiling_string.find("FL");
     if ( found != string::npos) {
       return true;
     } else {
@@ -364,6 +395,56 @@ bool Airspace::hasFLFloor() const
     } else {
       return false;
     }
+}
+
+
+/**
+ * Return a label for this airspace for a 2D map representation.
+ */
+const string Airspace::get2DLabel() const
+{
+    string label2D;
+
+    if ( isTMA() ) {
+        label2D.append("TMA:");
+    }
+    if ( isCTA() ) {
+        label2D.append("CTA:");
+    }
+    if ( isProhibited() ) {
+        label2D.append("Prohibited:");
+    }
+    if ( isVectoringArea() ) {
+        label2D.append("Vectoring Area:");
+    }
+    if ( isByNOTAM() ) {
+        label2D.append("By NOTAM:");
+    }
+    if ( (   isTMA()
+          || isCTA()
+          || isVectoringArea()
+          || isByNOTAM()
+          || isProhibited() ) && (getFloor() > 0) ) {
+
+        string myName(getName());
+        if (isByNOTAM()) {
+          myName = myName.substr(10);
+        }
+        if (hasAGLFloor()) {
+            //label2D.append(" " + floor(getFloor()) + " m AGL max"); // TODO
+        } else if (hasFLFloor()) {
+            //label2D.append(" " + floor(getFloor()) + " m (+QNH) max");
+        } else {
+            //label2D.append(" " + floor(getFloor()) + " m max");
+        }
+        label2D.append(" (" + myName + ")");
+
+    } else {
+      label2D.append(getName());
+    }
+
+    return label2D;
+
 }
 
 

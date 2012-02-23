@@ -99,8 +99,12 @@ public:
     bool isProhibited() const;
     bool isRestricted() const;
     bool isDanger() const;
+    bool hasAGLCeiling() const;
     bool hasAGLFloor() const;
+    bool hasFLCeiling() const;
     bool hasFLFloor() const;
+
+    const std::string get2DLabel() const;
 
     /**
      * Each airspace can have multiple name-labels that each have their location
