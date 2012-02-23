@@ -13,6 +13,7 @@ set(airspace_SRCS
     Point.cpp
     PolishState.cpp
     GPXState.cpp
+    KMLState.cpp
     StringUtils.cpp
 )
 

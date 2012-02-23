@@ -58,8 +58,9 @@ do
     
     done
     
-    # Generate Polish and GPX file for the total.
+    # Generate Polish, KML and GPX file for the total.
     ${OA2PM_ROOTDIR}/src/$OACONVERT -o ${OA2PM_ROOTDIR}/build/polish_format/$name.mp ${OA2PM_ROOTDIR}/build/openair/$name.txt
+    ${OA2PM_ROOTDIR}/src/$OACONVERT -o ${OA2PM_ROOTDIR}/build/kml/$name.kml ${OA2PM_ROOTDIR}/build/openair/$name.txt
     ${OA2PM_ROOTDIR}/src/$OACONVERT -o ${OA2PM_ROOTDIR}/build/gpx/$name.gpx ${OA2PM_ROOTDIR}/build/openair/$name.txt
 
 done
