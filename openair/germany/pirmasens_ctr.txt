@@ -34,7 +34,7 @@ DC 1.00
 * AC R
 * AN ED-R118 PIRMASENS
 * AL GND
-* AH 3300MSL
+* AH 3300 ft AMSL
 * V X=49:14:18 N 007:36:45 E
 * DC 1.0
 
@@ -43,7 +43,7 @@ DC 1.00
 * AC R
 * AN ED-R118 Pirmasens TUE+
 * *W N=EDR118
-* AH 3300 ft MSL
+* AH 3300 ft AMSL
 * AL GND
 * *W W=Mon: Free         *09:00-16:30 LT NOTAM
 * *W W=Tue: 09:00-16:30 LT

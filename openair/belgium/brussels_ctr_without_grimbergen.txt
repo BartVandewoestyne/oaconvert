@@ -13,11 +13,7 @@
 *
 * Map list:
 *
-*   MAP WEEK           NO
-*   MAP WEEKEND        YES
-*   MAP WEEKEND_LFAG1  YES
-*   MAP WEEKEND_LFAG2  YES
-*   MAP WEEKEND_LFAG5  YES
+*   NONE
 *
 * Remarks:
 *
@@ -43,5 +39,3 @@ V X=50:54:05 N 004:29:04 E
 DB 51:04:01 N 004:27:00 E,  50:52:03 N 004:44:35 E
 DP 50:52:03 N 004:44:35 E
 DP 50:44:34 N 004:34:04 E
-
-

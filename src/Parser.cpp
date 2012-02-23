@@ -28,6 +28,7 @@
 #include "Circle.h"
 #include "CurvedPolygon.h"
 #include "GPXState.h"
+#include "KMLState.h"
 
 using namespace boost;
 using namespace std;
@@ -60,6 +61,10 @@ Parser::Parser(const std::string& outfile)
     if ( ext == "gpx" )
     {
         _writer.changeState(GPXState::getInstance());
+    }
+    else if ( ext == "kml" )
+    {
+        _writer.changeState(KMLState::getInstance());
     }
 
 }

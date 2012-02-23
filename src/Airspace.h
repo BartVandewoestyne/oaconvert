@@ -74,8 +74,8 @@ public:
 
     const std::string& getName() const;
     const std::string& getClass() const;
-    const double getCeiling() const;
-    const double getFloor() const;
+    double getCeiling() const;
+    double getFloor() const;
     const CurvedPolygon& getCurvedPolygon() const;
 
     void setName(const std::string& mystring);
@@ -87,18 +87,24 @@ public:
 
     void add(const GeometricShape* s);
 
-    const bool isFIR() const;
-    const bool isCTR() const;
-    const bool isCTA() const;
-    const bool isTMA() const;
-    const bool isVectoringArea() const;
-    const bool isByNOTAM() const;
-    const bool isLowFlyingAreaGolf() const;
-    const bool isProhibited() const;
-    const bool isRestricted() const;
-    const bool isDanger() const;
-    const bool hasAGLFloor() const;
-    const bool hasFLFloor() const;
+    bool isFIR() const;
+    bool isMapEdge() const;
+    bool isCTR() const;
+    bool isCTA() const;
+    bool isTMA() const;
+    bool isFloating() const;
+    bool isVectoringArea() const;
+    bool isByNOTAM() const;
+    bool isLowFlyingAreaGolf() const;
+    bool isProhibited() const;
+    bool isRestricted() const;
+    bool isDanger() const;
+    bool hasAGLCeiling() const;
+    bool hasAGLFloor() const;
+    bool hasFLCeiling() const;
+    bool hasFLFloor() const;
+
+    const std::string get2DLabel() const;
 
     /**
      * Each airspace can have multiple name-labels that each have their location

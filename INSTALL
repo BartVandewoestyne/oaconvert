@@ -1,0 +1,48 @@
+Step 1: run cmake
+-----------------
+To generate the Makefiles, run cmake in the root directory.  If necessary,
+remove the CMakeCache.txt file first:
+
+  rm CMakeCache.txt
+  cmake .
+
+Step 2: compile the source
+--------------------------
+To compile the source and obtain the oaconvert binary, change into the src
+directory and run make:
+
+  cd src
+  make
+
+=> You should now have a libairspace.so and a oaconvert file in the src
+   directory.
+
+Step 3: generate the OpenAir, Polish and GPX maps
+-------------------------------------------------
+To generate the OpenAir, Polish and GPX maps, change into the utils directory
+and run the extract_maps.sh script.
+
+  cd ../utils
+  ./extract_maps.sh
+
+=> Under the root directory, you now have a build directory with the different
+   maps in OpenAir, Polish and GPX file format.
+
+Step 4: generate the Garmin maps
+--------------------------------
+To generate the Garmin maps, change into the cgpsmapper directory and run
+the makemaps.sh script:
+
+  cd ../cgpsmapper
+  ./makemaps.sh
+
+=> Under the build directory, you now also have a garmin directory with the
+   Garmin maps.
+
+Step 5 (only Windows): install the Garmin maps
+----------------------------------------------
+Startup Windows and open and run the create_setup.nsi NSIS installer script
+with the 'HM NIS Edit' program, available from http://hmne.sourceforge.net/
+
+=> You now have have a <somefilename>.exe setup file that you can run
+   to install the maps.

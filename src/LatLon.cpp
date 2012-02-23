@@ -89,7 +89,7 @@ double LatLon::getSeconds() const
 /**
  * Return the angle in radians.
  */
-const double LatLon::toRadians() const
+double LatLon::toRadians() const
 {
     return pi*angle/180.0;
 }

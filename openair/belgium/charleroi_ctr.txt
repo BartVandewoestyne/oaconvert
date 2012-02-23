@@ -3,8 +3,8 @@
 *  AD 2.17 EBCI ATS AIRSPACE
 *
 * Last update:
-*   Bart Vandewoestyne (2 October 2011)
-*   Wim Verhoeve (18 December 2011)
+*
+*   Bart Vandewoestyne (28 December 2011)
 *
 * Map List:
 * 

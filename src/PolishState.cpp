@@ -76,7 +76,18 @@ void PolishState::writeHeader(std::ostream &out) const
     //   gscripts:          none specified, so default 0
     out << "Codepage=0" << endl;
 
-    out << "Transparent=S" << endl;
+    // When a transparent map is displayed on a GPS unit, features
+    // in the unit's basemap will also be visible.  If your map is not
+    // transparent, it will obscure the basemap when visible.
+    // Semi-transparent map is created in a way a usual map is
+    // created, but no background object is created.  Full transparent
+    // map is created in a way that no background object is created
+    // and information in IMG is stored that map is transparent.
+    // -> In some cases - to have a nice overlapping map it is
+    // necessary to use semi-transparency instead of full-transparency.
+    //
+    // Note Bart: BaseCamp software has a problem with S, so trying N
+    out << "Transparent=N" << endl;
 
     // Subfamily identifier used for locked IMG files only – value
     // between 1 and 255. Each subfamily can be unlocked with
@@ -213,7 +224,11 @@ void PolishState::write(std::ostream& stream, const Airspace& airspace) const
 
     // First, draw all things that need to be a POLYGON.  Only
     // Danger and Restricted zones are not POLYGONs.
-    if ( !(airspace.isDanger() || airspace.isRestricted() || airspace.isFIR() || airspace.isByNOTAM()) ) {
+    if ( !(    airspace.isDanger()
+            || airspace.isRestricted()
+            || airspace.isFIR()
+            || airspace.isMapEdge()
+            || airspace.isByNOTAM()) ) {
 
         stream << "[POLYGON]" << endl;
         stream << "Type=" << getPolygonType(airspace) << endl;
@@ -357,7 +372,7 @@ std::string PolishState::getPolygonType(const Airspace& space) const
         return string("0x61");
     } else if (space.isCTA()) {
         return string("0x62");
-    } else if ( (space.isTMA() || space.isVectoringArea() || space.isProhibited()) && (space.getFloor() > 0) ) {
+    } else if ( space.isFloating() && !space.isLowFlyingAreaGolf() ) {
         return string("0x63");
     } else if (space.isLowFlyingAreaGolf()) {
         return string("0x64");
@@ -382,7 +397,9 @@ std::string PolishState::getLineType(const Airspace& space) const
       return string("0x03");
   } else if (space.isByNOTAM()) {
       return string("0x04");
-  } else {
+  } else if (space.isMapEdge()) {
       return string("0x05");
+  } else {
+      return string("0x06");
   }
 }

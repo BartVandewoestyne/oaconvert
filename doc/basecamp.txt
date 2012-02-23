@@ -1,0 +1,13 @@
+Tips:
+-----
+* Make sure to turn on the Detail toolbar and set it to Highest to get smooth
+  lines.
+
+
+Some problems related to BaseCamp:
+----------------------------------
+  https://forums.garmin.com/showthread.php?t=8404
+  -> Semi-Transparency seems to be a good option according to this thread,
+     but I have found it to result in strange map displays.
+
+  https://forums.garmin.com/showthread.php?p=34743#post34743

@@ -14,10 +14,10 @@
 * Map list:
 *
 *   MAP WEEK           YES
-*   MAP WEEKEND        NO
-*   MAP WEEKEND_LFAG1  NO
-*   MAP WEEKEND_LFAG2  NO
-*   MAP WEEKEND_LFAG5  NO
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
 *
 * Remarks:
 *

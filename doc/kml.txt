@@ -1,0 +1,1 @@
+http://stackoverflow.com/questions/2199991/how-do-you-create-a-polygon-shape-in-a-kml-that-is-positioned-in-the-air

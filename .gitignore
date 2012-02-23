@@ -14,3 +14,8 @@ openair/belgium/belgium.*
 cgpsmapper/*.TDB
 cgpsmapper/*.reg
 cgpsmapper/*.img
+Setup.exe
+build/*
+src/cygairspace.dll
+src/libairspace.dll.a
+src/oaconvert.exe

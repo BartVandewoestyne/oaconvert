@@ -17,8 +17,8 @@
   along with oaconvert.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef SEGMENT_H
-#define SEGMENT_H
+#ifndef GEOMETRIC_SHAPE_H
+#define GEOMETRIC_SHAPE_H
 
 #include <vector>
 

@@ -43,7 +43,7 @@ DP 49:16:49 N 007:30:17 E
 * http://soaringweb.org
 * AC D
 * AN CTR EDRZ sector Pirmasens
-* AH 2500 MSL
+* AH 2500 ft AMSL
 * AL GND
 * DP 49:16:49 N 007:30:17 E
 * DP 49:16:02 N 007:32:23 E
