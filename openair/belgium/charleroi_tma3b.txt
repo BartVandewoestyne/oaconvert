@@ -1,0 +1,34 @@
+* Source:
+*
+*   http://www.belgocontrol.be
+*
+*   AIP Part 2 EN-ROUTE (ENR)
+*   ENR 2 AIR TRAFFIC SERVICES AIRSPACE
+*    ENR 2.1 FIR, UIR, TMA
+*
+* Last update:
+*
+*   Wim Verhoeve (23 February 2012)
+*
+* Remarks
+*   - Only active outside MIL OPR HR.
+*   - Upper limit 4500 ft AMSL when higher than FL 55.
+*   - Controlled by Brussels APP outside EBCI OPR HR.
+*
+* Map List:
+* 
+*   MAP WEEK           NO
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+
+AC C
+AN Charleroi TMA 3B
+AH FL 55
+AL 3500 ft AMSL
+DP 50:29:00 N 004:51:06 E
+DP 50:30:53 N 004:57:43 E
+DP 50:24:07 N 004:59:10 E
+DP 50:23:16 N 004:52:20 E
+DP 50:29:00 N 004:51:06 E
