@@ -97,7 +97,7 @@ do
   fi
 
   # Add necessary stuff to the NSIS installer script.
-  printf "!insertmacro writeRegistryEntries \"$MAP_FILENAME\" %x\n" $FID >> ../build/nsis/create_registry_keys.nsi
+  printf "!insertmacro writeRegistryEntries \"$MAP_FILENAME\" %x00\n" $FID >> ../build/nsis/create_registry_keys.nsi
   printf "DeleteRegKey \"HKLM\" \"Software\Garmin\Mapsource\Families\\$MAP_FILENAME\"\n" >> ../build/nsis/delete_registry_keys.nsi
 
 done
