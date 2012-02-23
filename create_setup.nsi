@@ -67,6 +67,9 @@ Section /o "GPX files" SEC03
 SectionEnd
 
 Section /o "KML files" SEC04
+  SetOutPath "$INSTDIR\kml"
+  SetOverwrite ifnewer
+  File /r "build\kml\*.*"
 SectionEnd
 
 Section /o "OpenAir files" SEC05
