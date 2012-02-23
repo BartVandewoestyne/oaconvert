@@ -111,6 +111,8 @@ void KMLState::write(std::ostream& stream, const Airspace& airspace) const
           stream << "    <name>";
           stream << airspace.get2DLabel();
           stream << "</name>" << endl;
+          stream << "  <MultiGeometry>" << endl;
+
           stream << "    <Polygon>" << endl;
           if ( airspace.hasAGLCeiling() ) {
             stream << "      <altitudeMode>relativeToGround</altitudeMode>" << endl;
@@ -127,15 +129,8 @@ void KMLState::write(std::ostream& stream, const Airspace& airspace) const
           stream << "        </LinearRing>" << endl;
           stream << "      </outerBoundaryIs>" << endl;
           stream << "    </Polygon>" << endl;
-          stream << "  </Placemark>\n" << endl;
-
 
           /* polygon representing floor */
-          stream << "  <Placemark>" << endl;
-          stream << "    <styleUrl>" << getPolygonType(airspace) << "</styleUrl>" << endl;
-          stream << "    <name>";
-          stream << airspace.get2DLabel();
-          stream << "</name>" << endl;
           stream << "    <Polygon>" << endl;
           if ( airspace.hasAGLFloor() ) {
             stream << "      <altitudeMode>relativeToGround</altitudeMode>" << endl;
@@ -152,18 +147,11 @@ void KMLState::write(std::ostream& stream, const Airspace& airspace) const
           stream << "        </LinearRing>" << endl;
           stream << "      </outerBoundaryIs>" << endl;
           stream << "    </Polygon>" << endl;
-          stream << "  </Placemark>\n" << endl;
-
 
           /* Polygon borders: loop over all coordinates and draw a 'side-rectangle' for each coordinate. */
 
           for (size_t i = 0; i < coords.size(); ++i)
           {
-              stream << "  <Placemark>" << endl;
-              stream << "    <styleUrl>" << getPolygonType(airspace) << "</styleUrl>" << endl;
-              stream << "    <name>";
-              stream << airspace.get2DLabel();
-              stream << "</name>" << endl;
               stream << "    <Polygon>" << endl;
               if ( airspace.hasAGLFloor() ) { // TODO: what if floor and ceiling have different altitude convention (absolute/relativeToGround)?
                 stream << "      <altitudeMode>relativeToGround</altitudeMode>" << endl;
@@ -192,8 +180,10 @@ void KMLState::write(std::ostream& stream, const Airspace& airspace) const
               stream << "        </LinearRing>" << endl;
               stream << "      </outerBoundaryIs>" << endl;
               stream << "    </Polygon>" << endl;
-              stream << "  </Placemark>\n" << endl;
           }
+
+          stream << "    </MultiGeometry>" << endl;
+          stream << "  </Placemark>\n" << endl;
 
        }
     }
