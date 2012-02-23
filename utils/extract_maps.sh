@@ -58,12 +58,18 @@ do
     
     done
     
-    # Generate Polish, KML and GPX file for the total.
+    echo -n "Generating Polish file $name.mp... "
     ${OA2PM_ROOTDIR}/src/$OACONVERT -o ${OA2PM_ROOTDIR}/build/polish_format/$name.mp ${OA2PM_ROOTDIR}/build/openair/$name.txt
+    echo "done."
+    echo -n "Generating KML file $name.kml... "
     ${OA2PM_ROOTDIR}/src/$OACONVERT -o ${OA2PM_ROOTDIR}/build/kml/$name.kml ${OA2PM_ROOTDIR}/build/openair/$name.txt
+    echo "done."
+    echo -n "Generating GPX file $name.gpx... "
     ${OA2PM_ROOTDIR}/src/$OACONVERT -o ${OA2PM_ROOTDIR}/build/gpx/$name.gpx ${OA2PM_ROOTDIR}/build/openair/$name.txt
+    echo "done."
 
 done
 
-# Copy license
+echo -n "Copying license file to build directory... "
 cp ../creative_commons_license.txt ${OA2PM_ROOTDIR}/build/
+echo "done."
