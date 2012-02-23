@@ -258,7 +258,9 @@ double Parser::parseAltitude(const std::string& s) const
     // Example: UNL or UNLD or UNLIM or UNLIM or UNLIMITED
     if ( regex_match(s, matches, regexMap.find(REGEX_UNLIMITED)->second) )
     {
-        return -1.0; // TODO: handle 'UNLIMITED'
+        // We model UNLIMITED heights as FL 95 for now... since this is the
+        // maximum altitude appearing on our airspace maps.
+        return 95*100*feet_in_meter;
     }
 
     // Example: Ask on 122.8
