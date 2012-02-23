@@ -7,7 +7,11 @@
 *
 * Last update:
 *   Vandewoestyne (October 2011)
-*   Wim Verhoeve (18 December 2011)
+*   Wim Verhoeve (23 February 2012)
+*
+* Remarks:
+*   - Only active outside MIL OPR HR.
+*   - Partially airspace class G during activation of Low Flying Area Golf Four
 *
 * Map List:
 * 
@@ -24,4 +28,9 @@ AL 3500 ft AMSL
 DP 50:40:48 N 004:38:01 E
 DP 50:53:45 N 004:54:25 E
 DP 50:51:07 N 005:07:12 E
+V D=+
+V X=51:09:54 N 004:11:02 E
+* Radius 40 NM
+DB 50:51:07 N 005:07:12 E, 50:38:10 N 004:49:49 E
+DP 50:38:10 N 004:49:49 E
 DP 50:40:48 N 004:38:01 E

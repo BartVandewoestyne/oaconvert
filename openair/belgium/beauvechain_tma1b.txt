@@ -6,7 +6,6 @@
 *      2.3 Terminal Control Areas
 *
 * Last update:
-*   Bart Vandewoestyne (3 October 2011)
 *   Wim Verhoeve (23 February 2012)
 *
 * Map List:
@@ -18,9 +17,9 @@
 *   MAP WEEKEND_LFAG5  NO
 
 AC C
-AN Beauvechain TMA 4
-AH 4500 ft AMSL
-AL 3500 ft AMSL
+AN Beauvechain TMA 1B
+AH 3500 ft AMSL
+AL 2500 ft AMSL
 DP 50:40:48 N 004:38:01 E
 DP 50:53:45 N 004:54:25 E
 DP 50:51:07 N 005:07:12 E
