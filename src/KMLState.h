@@ -51,6 +51,7 @@ private:
     void write(std::ostream& stream, const CurvedPolygon& p, double altitude) const;
     void write(std::ostream& stream, const std::vector<Coordinate>& coords, double altitude) const;
     void write(std::ostream& out, const Coordinate& c, double altitude) const;
+    void writeStyle(std::ostream &out, std::string id, std::string color) const;
 
     std::string getPolygonType(const Airspace& space) const;
     std::string getLineType(const Airspace& space) const;

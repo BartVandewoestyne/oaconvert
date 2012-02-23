@@ -51,38 +51,34 @@ KMLState* KMLState::getInstance()
 
 void KMLState::writeHeader(std::ostream &out) const
 {
+
+    const string gray   = "82c0c0c0";
+    const string orange = "820066ff";
+    const string red    = "820000ff";
+    const string green  = "8200ff00";
+    const string blue   = "82ff0000";
+
     out << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" << endl;
     out << "<kml xmlns=\"http://www.opengis.net/kml/2.2\">" << endl;
     out << "<Document>" << endl;
 
-    // alpha, blue, green, red
-    // Define different styles here! (CTR, TMA, ...)
-    out << "  <Style id=\"default\">" << endl;
-    out << "      <LineStyle>" << endl;
-    out << "          <color>f0ffed42</color>" << endl;
-    out << "      </LineStyle>" << endl;
-    out << "      <PolyStyle>" << endl;
-    out << "          <color>e8ff9257</color>" << endl;
-    out << "      </PolyStyle>" << endl;
-    out << "  </Style>" << endl;
+    out << endl;
 
-    out << "  <Style id=\"ctr\">" << endl;
-    out << "      <LineStyle>" << endl;
-    out << "          <color>f00000ff</color>" << endl;
-    out << "      </LineStyle>" << endl;
-    out << "      <PolyStyle>" << endl;
-    out << "          <color>f00000ff</color>" << endl;
-    out << "      </PolyStyle>" << endl;
-    out << "  </Style>" << endl;
+    writeStyle(out, "ctr", red);
+    writeStyle(out, "prohibited", red);
 
-    out << "  <Style id=\"tma\">" << endl;
-    out << "      <LineStyle>" << endl;
-    out << "          <color>f00066ff</color>" << endl;
-    out << "      </LineStyle>" << endl;
-    out << "      <PolyStyle>" << endl;
-    out << "          <color>f00066ff</color>" << endl;
-    out << "      </PolyStyle>" << endl;
-    out << "  </Style>" << endl;
+    writeStyle(out, "cta", orange);
+    writeStyle(out, "tma", orange);
+    writeStyle(out, "restricted", orange);
+
+    writeStyle(out, "lfag", green);
+    writeStyle(out, "danger", green);
+
+    writeStyle(out, "bynotam", blue);
+
+    writeStyle(out, "default", gray);
+
+    out << endl;
 
 }
 
@@ -114,7 +110,7 @@ void KMLState::write(std::ostream& stream, const Airspace& airspace) const
           stream << "  <MultiGeometry>" << endl;
 
           stream << "    <Polygon>" << endl;
-          if ( airspace.hasAGLCeiling() ) {
+          if ( airspace.hasAGLCeiling() || airspace.hasSFCCeiling() ) {
             stream << "      <altitudeMode>relativeToGround</altitudeMode>" << endl;
           } else {
             stream << "      <altitudeMode>absolute</altitudeMode>" << endl;
@@ -132,7 +128,7 @@ void KMLState::write(std::ostream& stream, const Airspace& airspace) const
 
           /* polygon representing floor */
           stream << "    <Polygon>" << endl;
-          if ( airspace.hasAGLFloor() ) {
+          if ( airspace.hasAGLFloor() || airspace.hasSFCFloor() || airspace.hasGNDFloor() ) {
             stream << "      <altitudeMode>relativeToGround</altitudeMode>" << endl;
           } else {
             stream << "      <altitudeMode>absolute</altitudeMode>" << endl;
@@ -153,7 +149,7 @@ void KMLState::write(std::ostream& stream, const Airspace& airspace) const
           for (size_t i = 0; i < coords.size(); ++i)
           {
               stream << "    <Polygon>" << endl;
-              if ( airspace.hasAGLFloor() ) { // TODO: what if floor and ceiling have different altitude convention (absolute/relativeToGround)?
+              if ( airspace.hasAGLFloor() || airspace.hasSFCFloor() ) { // TODO: what if floor and ceiling have different altitude convention (absolute/relativeToGround)?
                 stream << "      <altitudeMode>relativeToGround</altitudeMode>" << endl;
               } else {
                 stream << "      <altitudeMode>absolute</altitudeMode>" << endl;
@@ -273,4 +269,16 @@ std::string KMLState::getLineType(const Airspace& space) const
   } else {
       return string("#default");
   }
+}
+
+void KMLState::writeStyle(std::ostream &out, std::string id, std::string color) const
+{
+    out << "  <Style id=\"" + id + "\">" << endl;
+    out << "      <LineStyle>" << endl;
+    out << "          <color>" + color + "</color>" << endl;
+    out << "      </LineStyle>" << endl;
+    out << "      <PolyStyle>" << endl;
+    out << "          <color>" + color + "</color>" << endl;
+    out << "      </PolyStyle>" << endl;
+    out << "  </Style>" << endl;
 }
