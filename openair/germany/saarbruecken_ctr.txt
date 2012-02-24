@@ -21,7 +21,7 @@
 * Remarks for paragliding:
 
 AC CTR
-AN Saarbrücken CTR
+AN SaarbrÃ¼cken CTR
 AH 3600 ft AMSL
 AL GND
 DP 49:15:35 N 006:55:40 E
@@ -35,7 +35,7 @@ DP 49:15:35 N 006:55:40 E
 * DFC Saarland
 * http://www.dfc-saar.de
 * AC CTR
-* AN SAARBRÜCKEN (HX)
+* AN SAARBRÃœCKEN (HX)
 * AL GND
 * AH 3600 ft AMSL
 * DP 49:15:35 N 006:55:40 E
@@ -62,7 +62,7 @@ DP 49:15:35 N 006:55:40 E
 * Winpilot
 * http://www.winpilot.com/OpenAir/Europe.asp
 * AC D
-* AN SAARBRüCKEN CTR
+* AN SAARBRÃ¼CKEN CTR
 * AL 0ft GND
 * AH 3600 ft AMSL
 * DP 49:13:30 N 6:56:00 E

@@ -21,7 +21,7 @@
 * Remarks for paragliding:
 
 AC R
-AN Jülich (ED-R111 H24)
+AN JÃ¼lich (ED-R111 H24)
 AH 2300 ft AMSL
 AL GND
 V X=50:54:00 N 006:25:00 E
@@ -31,7 +31,7 @@ DC 2.00
 * DFC Saarland
 * http://www.dfc-saar.de
 * AC R
-* AN ED-R111 JÜLICH
+* AN ED-R111 JÃœLICH
 * AL GND
 * AH 2300MSL
 * V X=50:54:00 N 006:25:00 E

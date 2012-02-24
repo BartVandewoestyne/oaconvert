@@ -21,7 +21,7 @@
 * Remarks for paragliding:
 
 AC CTR
-AN Büchel CTR
+AN BÃ¼chel CTR
 AH 4100 ft AMSL
 AL GND
 DP 50:02:52 N 007:02:40 E
@@ -34,7 +34,7 @@ DP 50:02:52 N 007:02:40 E
 * DFC Saarland
 * http://www.dfc-saar.de
 * AC CTR
-* AN BÜCHEL (HX)
+* AN BÃœCHEL (HX)
 * AL GND
 * AH 4100 ft AMSL
 * DP 50:02:52 N 007:02:40 E
@@ -57,7 +57,7 @@ DP 50:02:52 N 007:02:40 E
 
 * Winpilot
 * http://www.winpilot.com/OpenAir/Europe.aspAC D
-* AN BüCHEL CTR
+* AN BÃ¼CHEL CTR
 * AL 0ft GND
 * AH 4100 ft AMSL
 * DP 50:02:52 N 7:02:40 E

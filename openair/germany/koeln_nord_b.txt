@@ -22,7 +22,7 @@
 *   - Glider areas (class W). Not relevant for paragliding
 
 AC W
-AN Köln-Nord_B (W_K23)
+AN KÃ¶ln-Nord_B (W_K23)
 AH FL 65
 AL 2500 ft AMSL
 DP 50:56:00 N 006:40:00 E
@@ -37,7 +37,7 @@ DP 50:56:00 N 006:40:00 E
 * DFC Saarland
 * http://www.dfc-saar.de
 * AC W
-* AN KÖLN NORD B
+* AN KÃ–LN NORD B
 * AL 2500MSL
 * AH FL65
 * DP 50:53:37 N 006:41:40 E

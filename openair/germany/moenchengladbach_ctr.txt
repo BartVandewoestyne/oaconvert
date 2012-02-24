@@ -21,7 +21,7 @@
 * Remarks for paragliding:
 
 AC CTR
-AN Mönchengladbach CTR
+AN MÃ¶nchengladbach CTR
 AH 2500 ft AMSL
 AL GND
 DP 51:19:30 N 006:26:59 E
@@ -37,7 +37,7 @@ DP 51:19:30 N 006:26:59 E
 * DFC Saarland
 * http://www.dfc-saar.de
 * AC CTR
-* AN MÖNCHENGLADBACH (HX)
+* AN MÃ–NCHENGLADBACH (HX)
 * AL GND
 * AH 2500 ft AMSL
 * DP 51:19:30 N 006:26:59 E
@@ -67,7 +67,7 @@ DP 51:19:30 N 006:26:59 E
 * Winpilot
 * http://www.winpilot.com/OpenAir/Europe.asp
 * AC D
-* AN MöNCHENGLADBACH CTR
+* AN MÃ¶NCHENGLADBACH CTR
 * AL 0ft GND
 * AH 2500 ft AMSL
 * DP 51:16:25 N 6:22:50 E

@@ -21,7 +21,7 @@
 * Remarks for paragliding:
 
 AC CTR
-AN Düsseldorf CTR
+AN DÃ¼sseldorf CTR
 AH 2500 ft AMSL
 AL GND
 DP 51:15:14 N 006:33:29 E
@@ -39,7 +39,7 @@ DP 51:15:14 N 006:33:29 E
 * DFC Saarland
 * http://www.dfc-saar.de
 * AC CTR
-* AN DÜSSELDORF1
+* AN DÃœSSELDORF1
 * AL GND
 * AH 2500MSL
 * DP 51:10:15 N 006:39:25 E

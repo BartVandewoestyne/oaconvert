@@ -21,7 +21,7 @@
 * Remarks for paragliding:
 
 AC CTR
-AN Köln/Bonn CTR
+AN KÃ¶ln/Bonn CTR
 AH 2500 ft AMSL
 AL GND
 DP 50:56:56 N 006:54:51 E
@@ -44,7 +44,7 @@ DP 50:56:56 N 006:54:51 E
 * DFC Saarland
 * http://www.dfc-saar.de
 * AC CTR
-* AN KÖLN/BONN
+* AN KÃ–LN/BONN
 * AL GND
 * AH 2500 ft AMSL
 * DP 51:01:02 N 007:01:49 E
@@ -88,7 +88,7 @@ DP 50:56:56 N 006:54:51 E
 * Winpilot
 * http://www.winpilot.com/OpenAir/Europe.asp
 * AC D
-* AN KöLN/BONN CTR
+* AN KÃ¶LN/BONN CTR
 * AL 0ft GND
 * AH 2500 ft AMSL
 * DP 50:56:56 N 6:54:51 E

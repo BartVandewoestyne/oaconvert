@@ -22,7 +22,7 @@
 *   - HX. In VMC only
 
 AC Q
-AN Konz/Könen
+AN Konz/KÃ¶nen
 AH 4000 ft AMSL
 AL GND
 DP 49:42:27 N 006:29:56 E

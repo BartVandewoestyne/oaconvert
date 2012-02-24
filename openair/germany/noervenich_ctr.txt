@@ -21,7 +21,7 @@
 * Remarks for paragliding:
 
 AC CTR
-AN Nörvenich CTR
+AN NÃ¶rvenich CTR
 AH 2900 ft AMSL
 AL GND
 DP 50:44:48 N 006:32:46 E
@@ -34,7 +34,7 @@ DP 50:44:48 N 006:32:46 E
 * DFC Saarland
 * http://www.dfc-saar.de
 * AC CTR
-* AN NÖRVENICH (HX)
+* AN NÃ–RVENICH (HX)
 * AL GND
 * AH 2900 ft AMSL
 * DP 50:44:48 N 006:32:46 E
@@ -58,7 +58,7 @@ DP 50:44:48 N 006:32:46 E
 * Winpilot
 * http://www.winpilot.com/OpenAir/Europe.asp
 * AC D
-* AN NöRVENICH CTR
+* AN NÃ¶RVENICH CTR
 * AL 0ft GND
 * AH 2900 ft AMSL
 * DP 50:44:48 N 6:32:46 E

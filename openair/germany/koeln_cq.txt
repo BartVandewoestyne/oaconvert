@@ -21,7 +21,7 @@
 * Remarks for paragliding:
 
 AC C
-AN Düsseldorf/Köln-Bonn CQ
+AN DÃ¼sseldorf/KÃ¶ln-Bonn CQ
 AH FL 100
 AL FL 85
 DP 51:18:47 N 007:27:45 E
@@ -39,7 +39,7 @@ DP 51:18:47 N 007:27:45 E
 * DFC Saarland
 * http://www.dfc-saar.de
 * AC C
-* AN DÜSSELDORF/KÖLN-BONN15
+* AN DÃœSSELDORF/KÃ–LN-BONN15
 * AL FL85
 * AH FL100
 * DP 51:18:47 N 007:27:45 E

@@ -34,7 +34,7 @@
 *   - Despite that this is a glider area, it is important to show the contour
 *     on the maps because this box/corridor can be used to fly from Fumay (FR)
 *     to Rachtig (DE) and vice versa (activation needs to be checked with the
-*     "Cercle Luxembourgeois de Vol à Voile".
+*     "Cercle Luxembourgeois de Vol Ã  Voile".
 
 AC D
 AN Useldange Glider Corridor East

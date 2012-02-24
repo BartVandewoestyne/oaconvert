@@ -24,7 +24,7 @@
 * Remarks for paragliding:
 
 AC CTR
-AN Zweibrücken CTR
+AN ZweibrÃ¼cken CTR
 AH 3100 ft AMSL
 AL GND
 DP 49:08:01 N 007:19:04 E
@@ -39,7 +39,7 @@ DP 49:08:01 N 007:19:04 E
 * DFC Saarland
 * http://www.dfc-saar.de
 * AC CTR
-* AN ZWEIBRÜCKEN (HX)
+* AN ZWEIBRÃœCKEN (HX)
 * AL GND
 * AH 3100MSL
 * DP 49:08:05 N 007:18:54 E
