@@ -3,9 +3,9 @@
 *   http://www.belgocontrol.be
 *
 *   AIP Part 3 AERODROME (AD)
-*   ENR 2 AERODROMES
-*    EBOS — OOSTENDE-BRUGGE / Oostende
-*     EBOS AD 2.17  ATS AIRSPACE
+*   AD 2 AERODROMES
+*    EBOS OOSTENDE-BRUGGE / Oostende
+*     AD 2.17 EBOS ATS AIRSPACE
 *
 * Last check:
 *

@@ -3,9 +3,9 @@
 *   http://www.belgocontrol.be
 *
 *   AIP Part 3 AERODROME (AD)
-*   ENR 2 AERODROMES
-*    ELLX — LUXEMBOURG / Luxembourg
-*     ELLX AD 2.17  ATS AIRSPACE
+*   AD 2 AERODROMES
+*    ELLX LUXEMBOURG / Luxembourg
+*     AD 2.17 ELLX ATS AIRSPACE
 *
 * Last check:
 *

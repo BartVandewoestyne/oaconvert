@@ -3,9 +3,9 @@
 *   http://www.belgocontrol.be
 *
 *   AIP Part 3 AERODROME (AD)
-*   ENR 2 AERODROMES
-*    EBBR BRUSSELS / Brussel-National
-*     EBBR AD 2.17  ATS AIRSPACE
+*   AD 2 AERODROMES
+*    EBBR BRUSSELS / Brussels-National
+*     AD 2.17 EBBR ATS AIRSPACE
 *
 * Last check:
 *
