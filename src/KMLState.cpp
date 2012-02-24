@@ -149,11 +149,15 @@ void KMLState::write(std::ostream& stream, const Airspace& airspace) const
           for (size_t i = 0; i < coords.size(); ++i)
           {
               stream << "    <Polygon>" << endl;
-              if ( airspace.hasAGLFloor() || airspace.hasSFCFloor() ) { // TODO: what if floor and ceiling have different altitude convention (absolute/relativeToGround)?
-                stream << "      <altitudeMode>relativeToGround</altitudeMode>" << endl;
-              } else {
-                stream << "      <altitudeMode>absolute</altitudeMode>" << endl;
-              }
+              // It is maybe best to always use absolute for the sides, because then the only
+              // thing that can happen is a small 'incorrectness' just below the
+              // floor and ceiling polygon???  TO BE INVESTIGATED!
+              stream << "      <altitudeMode>absolute</altitudeMode>" << endl;
+              //if ( airspace.hasAGLFloor() || airspace.hasSFCFloor() ) {
+              //  stream << "      <altitudeMode>relativeToGround</altitudeMode>" << endl;
+              //} else {
+              //  stream << "      <altitudeMode>absolute</altitudeMode>" << endl;
+              //}
               stream << "      <outerBoundaryIs>" << endl;
               stream << "        <LinearRing>" << endl;
               stream << "          <coordinates>" << endl;
