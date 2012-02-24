@@ -35,7 +35,13 @@ MAPNAMES=`grep -rh MAP ../openair/* | awk '{print $3}' | sort | uniq`
 for name in $MAPNAMES
 do
 
-    AIRSPACE_FILES=`grep -rl "MAP $name " ../openair/*`
+    # TODO: Apparently, if the grep command returns *a lot* of files,
+    #       then the resulting final map files have problems displaying
+    #       special characters (Like the è in Liège).  If the grep command
+    #       returns fewer files, then there is no problem with special
+    #       characters.  Find out why and fix this!
+    AIRSPACE_FILES=`grep -rl "MAP $name " ../openair/*`      # SPECIAL CHARACTER PROBLEM
+    #AIRSPACE_FILES=`grep -rl "Li.*ge " ../openair/belgium/*` # NO SPECIAL CHARACTER PROBLEM
     
     OUTPUTFILE=../build/openair/$name.txt
 
