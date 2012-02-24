@@ -5,7 +5,8 @@
 *     2. LOWER AIRSPACE
 *      2.3 Terminal Control Areas
 *
-* Last update:
+* Last check:
+*
 *   Bart Vandewoestyne (3 October 2011)
 *   Wim Verhoeve (18 December 2011)
 *

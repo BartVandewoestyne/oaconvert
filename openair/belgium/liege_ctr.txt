@@ -2,9 +2,8 @@
 * EBLG LIÈGE/Liège
 *  AD 2.17 EBLG ATS AIRSPACE
 *
-* Last update:
+* Last check:
 *
-*   Bart Vandewoestyne (2 October 2011)
 *   Wim Verhoeve (18 December 2011)
 *
 * Map List:

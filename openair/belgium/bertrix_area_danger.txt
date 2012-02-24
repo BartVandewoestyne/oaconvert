@@ -4,7 +4,8 @@
 *    ENR 5.1 Prohibited, restricted and danger areas
 *     3 DANGER AREAS
 *
-* Last update:
+* Last check:
+*
 *   Bart Vandewoestyne (25 November 2011.
 *   Wim Verhoeve (18 December 2011)
 *

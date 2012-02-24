@@ -7,7 +7,7 @@
 *    ENR 2.1 FIR, UIR, TMA
 *     2.3 Terminal Control Areas
 *
-* Last update:
+* Last check:
 *
 *   Bart Vandewoestyne (24 February 2012)
 *

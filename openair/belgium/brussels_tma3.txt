@@ -7,7 +7,8 @@
 *   Belgian border data was extracted from
 *   http://downloads.cloudmade.com/europe/western_europe/belgium/belgium.poly
 *
-* Last update: 
+* Last check: 
+*
 *   Bart Vandewoestyne (November 2011)
 *   Wim Verhoeve (18 December 2011)
 *

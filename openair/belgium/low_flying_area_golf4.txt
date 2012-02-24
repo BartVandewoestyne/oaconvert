@@ -4,7 +4,8 @@
 *    ENR 5.5 Aerial sporting and recreational activities
 *     2. LOW FLYING AREAS GOLF
 *
-* Last update:
+* Last check:
+*
 *   Wim Verhoeve (18 December 2011)
 *
 * Map List:

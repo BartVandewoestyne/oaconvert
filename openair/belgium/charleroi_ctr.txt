@@ -2,7 +2,7 @@
 * EBCI CHARLEROI/Brussels South
 *  AD 2.17 EBCI ATS AIRSPACE
 *
-* Last update:
+* Last check:
 *
 *   Bart Vandewoestyne (28 December 2011)
 *

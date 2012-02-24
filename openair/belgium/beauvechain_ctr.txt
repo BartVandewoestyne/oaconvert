@@ -4,7 +4,8 @@
 *    ENR 2.1 FIR, UIR, TMA
 *     2.4 Military Control Zones
 *
-* Last update:
+* Last check:
+*
 *   Bart Vandewoestyne (24 November 2011)
 *   Wim Verhoeve (17 December 2011)
 *

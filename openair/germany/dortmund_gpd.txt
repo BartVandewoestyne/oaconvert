@@ -9,7 +9,7 @@
 *
 *   Soaring Services (http://soaringweb.org)
 *
-* Last update:
+* Last check:
 *
 *   Wim Verhoeve (24 December 2011)
 *

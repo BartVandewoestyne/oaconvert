@@ -2,7 +2,7 @@
 *
 *   BAPO / Johan Brichau / Etienne Marchal
 *
-* Last update:
+* Last check:
 *
 *   Wim Verhoeve (20 December 2011)
 *
