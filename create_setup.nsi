@@ -76,6 +76,11 @@ Section /o "OpenAir files" SEC05
   SetOutPath "$INSTDIR\openair"
   SetOverwrite ifnewer
   File /r "build\openair\*.*"
+  File /r "openair\belgium\*.*"
+  File /r "openair\france\*.*"
+  File /r "openair\germany\*.*"
+  File /r "openair\luxembourg\*.*"
+  File /r "openair\map_edges.txt"
 SectionEnd
 
 Section /o "Polish Format files" SEC06
