@@ -6,25 +6,20 @@
 *      2.3 Terminal Control Areas
 *
 * Last update:
-*   Vandewoestyne (October 2011)
 *   Wim Verhoeve (23 February 2012)
-*
-* Remarks:
-*   - Only active outside MIL OPR HR.
-*   - Partially airspace class G during activation of Low Flying Area Golf Four
 *
 * Map List:
 * 
-*   MAP WEEK           NO
-*   MAP WEEKEND        YES
-*   MAP WEEKEND_LFAG1  YES
-*   MAP WEEKEND_LFAG2  YES
-*   MAP WEEKEND_LFAG5  YES
+*   MAP WEEK           YES
+*   MAP WEEKEND        NO
+*   MAP WEEKEND_LFAG1  NO
+*   MAP WEEKEND_LFAG2  NO
+*   MAP WEEKEND_LFAG5  NO
 
 AC C
-AN Brussels TMA 8
-AH 4500 ft AMSL
-AL 3500 ft AMSL
+AN Beauvechain TMA 1B
+AH 3500 ft AMSL
+AL 2500 ft AMSL
 DP 50:40:48 N 004:38:01 E
 DP 50:53:45 N 004:54:25 E
 DP 50:51:07 N 005:07:12 E
