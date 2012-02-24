@@ -5,7 +5,7 @@
 *
 * Last update:
 *   Bart Vandewoestyne (2 October 2011)
-*   Wim Verhoeve (18 December 2011)
+*   Wim Verhoeve (23 February 2012)
 *
 * Map List:
 * 
@@ -22,13 +22,11 @@ AL 2500 ft AMSL
 DP 50:29:20 N 003:48:40 E
 DP 50:30:39 N 004:01:51 E
 DP 50:38:23 N 004:29:17 E
-DP 50:36:23 N 004:29:12 E
-DP 50:33:45 N 004:32:28 E
 DP 50:35:02 N 004:42:48 E
 V D=+
 V X=50:29:32 N 004:42:15 E
 * Radius 5.5 NM
-DB 50:35:02 N 004:42:48 E,50:30:18 N 004:50:49 E
+DB 50:35:02 N 004:42:48 E, 50:30:18 N 004:50:49 E
 DP 50:30:18 N 004:50:49 E
 DP 50:23:16 N 004:52:20 E
 DP 50:18:42 N 004:16:27 E

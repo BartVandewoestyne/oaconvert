@@ -7,7 +7,7 @@
 *
 * Last update:
 *   Bart Vandewoestyne (3 October 2011)
-*   Wim Verhoeve (18 December 2011)
+*   Wim Verhoeve (23 February 2012)
 *
 * Map List:
 * 
@@ -20,7 +20,7 @@
 AC C
 AN Brussels TMA 5
 AH FL 195
-AL 4000 ft AMSL
+AL 3000 ft AMSL
 DP 50:41:11 N 004:29:20 E
 DP 50:55:00 N 004:48:45 E
 DP 50:53:45 N 004:54:25 E

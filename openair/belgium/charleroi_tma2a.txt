@@ -5,7 +5,7 @@
 *
 * Last update:
 *   Bart Vandewoestyne (2 October 2011)
-*   Wim Verhoeve (18 December 2011)
+*   Wim Verhoeve (23 February 2012)
 *
 * Map List:
 * 
@@ -16,7 +16,7 @@
 *   MAP WEEKEND_LFAG5  YES
 
 AC C
-AN Charleroi TMA 2
+AN Charleroi TMA 2A
 AH 2500 ft AMSL
 AL 2000 ft AMSL
 DP 50:33:45 N 004:32:28 E
