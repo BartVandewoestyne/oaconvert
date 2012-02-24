@@ -7,10 +7,10 @@ src/oaconvert
 test/MainTest
 tags
 *.mp
+*.exe
 !cgpsmapper/mypreview.mp
 .*.swp
 .*.swo
-openair/belgium/belgium.*
 cgpsmapper/*.TDB
 cgpsmapper/*.reg
 cgpsmapper/*.img
