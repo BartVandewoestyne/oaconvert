@@ -1,0 +1,23 @@
+BELLUX_WEEK_110302.txt
+----------------------
+Line 2505:
+  DP 49:52:28E 006:20:26E ==>> DP 49:52:28N 006:20:26E
+
+Line 2928 (niet echt verkeerd, maar toch beter als volgt):
+  V X=51:07:17N002:30:45E ==>> V X=51:07:17N 002:30:45E
+
+BELLUX_WEEK_BELOW_4500FT_110302.txt
+-----------------------------------
+Line 2500:
+  DP 49:52:28E 006:20:26E ==>> DP 49:52:28N 006:20:26E
+
+Line 2923 (niet echt verkeerd, maar toch beter als volgt):
+  V X=51:07:17N002:30:45E ==>> V X=51:07:17N 002:30:45E
+
+BELLUX_WEEKEND_110302.txt
+-------------------------
+Line 2509:
+  DP 49:52:28E 006:20:26E ==>> DP 49:52:28N 006:20:26E
+
+Line 2886 (niet echt verkeerd, maar toch beter als volgt):
+  V X=51:07:17N002:30:45E ==>> V X=51:07:17N 002:30:45E

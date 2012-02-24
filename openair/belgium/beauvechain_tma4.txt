@@ -6,8 +6,7 @@
 *      2.3 Terminal Control Areas
 *
 * Last update:
-*   Bart Vandewoestyne (3 October 2011)
-*   Wim Verhoeve (23 February 2012)
+*   Bart Vandewoestyne (24 February 2012)
 *
 * Map List:
 * 

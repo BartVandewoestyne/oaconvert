@@ -4,7 +4,7 @@
 *    ENR 5.1 Prohibited, restricted and danger areas
 *     3 DANGER AREAS
 *
-* Last update by Bart Vandewoestyne on 25 November 2011.
+* Last update:
 *   Wim Verhoeve (18 December 2011)
 *
 * Map List:

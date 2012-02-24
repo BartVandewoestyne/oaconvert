@@ -6,8 +6,7 @@
 *      2.3 Terminal Control Areas
 *
 * Last update:
-*   Vandewoestyne (October 2011)
-*   Wim Verhoeve (23 February 2012)
+*   Bart Vandewoestyne (24 February 2012)
 *
 * Remarks:
 *   - Only active outside MIL OPR HR.

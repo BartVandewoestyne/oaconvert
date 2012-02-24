@@ -5,8 +5,7 @@
 *     2. LOWER AIRSPACE
 *      2.3 Terminal Control Areas
 *
-* Last update by:
-*   Bart Vandewoestyne (October 2011)
+* Last update:
 *   Wim Verhoeve (18 December 2011)
 *
 * Map List:
