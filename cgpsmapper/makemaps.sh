@@ -70,9 +70,9 @@ do
     echo "Doing the preview thing..."
     cgpsmapper -l pv mypreview_temp.mp
     echo "done."
-    rm -f mypreview_temp.mp
   
   fi
+  rm -f mypreview_temp.mp
 
 
   # Create a custom TYP file
