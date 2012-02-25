@@ -15,21 +15,22 @@
 *   MAP WEEKEND_LFAG5  SEE NOTAM
 *
 * Remarks:
-*   - Conditional Clearance Zone - Belgium Ardennes Paraglidig Open
-*     During the Ardenne Open competition, this zone of the EBLG TMA can be
-*     permitted for paraglider traffic by the competition organizer when he
-*     obtains clearance from the air traffic control authorities. 
+*   - Conditional Clearance Zone - Belgian Ardenne Paragliding Open
+*     During the Belgian Ardenne Paragliding Open competition, this zone of
+*     the EBLG TMA can be permitted for paraglider traffic by the competition
+*     organizer when he obtains clearance from the air traffic control
+*     authorities. 
 *
-*     THIS ZONE IS NOT PERMITTED FOR PARAGLIDER TRAFFIC ON ANY OTHER DAY. 
+*     THIS ZONE IS NOT PERMITTED FOR PARAGLIDER TRAFFIC ON ANY OTHER DAY!
 *     STANDARD AIR TRAFFIC REGULATIONS ARE IN FORCE.
  
 AC G
 AN Prayon CLR ZN
 AL GND
 AH 4000 ft AMSL
-DP 50:30:30.7 N   5:29:37.0 E
-DP 50:26:18.1 N   5:27:59.7 E
-DP 50:34:27.5 N   5:41:33.9 E
-DP 50:35:18.0 N   5:39:10.0 E
-DP 50:33:05.1 N   5:33:32.5 E
-DP 50:30:30.7 N   5:29:37.0 E
+DP 50:30:30.7 N 5:29:37.0 E
+DP 50:26:18.1 N 5:27:59.7 E
+DP 50:34:27.5 N 5:41:33.9 E
+DP 50:35:18.0 N 5:39:10.0 E
+DP 50:33:05.1 N 5:33:32.5 E
+DP 50:30:30.7 N 5:29:37.0 E
