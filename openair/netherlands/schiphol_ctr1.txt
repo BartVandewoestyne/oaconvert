@@ -1,0 +1,40 @@
+* Source:
+*
+*   http://www.ais-netherlands.nl/
+*
+*   AIP Part 3 AERODROME (AD)
+*   AD 2 AERODROMES
+*    EHAM AMSTERDAM/Schiphol
+*     AD 2.17 EHAM ATS AIRSPACE
+*
+* Last check:
+*
+*   Bart Vandewoestyne (27 February 2012)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+*
+* Remarks:
+*
+*   - Restricted to ACFT capable of maintaining two-way radio communication
+*     with Schiphol TWR, unless prior permission from Aerodrome Control has
+*     been obtained. Such permission will only be given in extraordinary cases.
+ 
+AC C
+AN SCHIPHOL CTR 1
+AH 3000 ft AMSL
+AL GND
+DP 52:24:54.39 N 004:38:05.45 E
+DP 52:28:21.18 N 004:38:24.39 E
+DP 52:28:01.08 N 004:48:12.13 E
+DP 52:26:21.48 N 004:48:03.00 E
+V D=+
+V X=52:18:29.00 N 004:45:51.00 E
+DB 52:26:21.48 N 004:48:03.00 E, 52:24:54.39 N 004:38:05.45 E
+* Radius 8 NM
+DP 52:24:54.39 N 004:38:05.45 E
