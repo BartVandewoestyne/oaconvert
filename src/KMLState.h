@@ -53,6 +53,7 @@ private:
     void write(std::ostream& out, const Coordinate& c, double altitude) const;
     void writeStyle(std::ostream &out, std::string id, std::string color) const;
 
+    std::string getPlacemarkName(const Airspace& airspace) const;
     std::string getPolygonType(const Airspace& space) const;
     std::string getLineType(const Airspace& space) const;
 

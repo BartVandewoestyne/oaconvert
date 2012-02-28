@@ -105,8 +105,12 @@ void KMLState::write(std::ostream& stream, const Airspace& airspace) const
           stream << "  <Placemark>" << endl;
           stream << "    <styleUrl>" << getPolygonType(airspace) << "</styleUrl>" << endl;
           stream << "    <name>";
-          stream << airspace.get2DLabel();
+          stream << getPlacemarkName(airspace);
           stream << "</name>" << endl;
+          stream << "    <description>" << endl;
+          stream << "Ceiling: " << airspace.getCeilingString() << " (" << ceil(airspace.getCeiling()) << " m)" << endl;
+          stream << "Floor  : " << airspace.getFloorString() << " (" << floor(airspace.getFloor()) << " m)" << endl;
+          stream << "    </description>" << endl;
           stream << "  <MultiGeometry>" << endl;
 
           stream << "    <Polygon>" << endl;
@@ -211,29 +215,7 @@ void KMLState::write(ostream& out, const Coordinate& c, double altitude) const
 
 
 /*
- * Return the KML File [POLYGON] type for the given airspace class.
- * For the listing of the different possible types, see cgpsmapper manual,
- * table 9.3.3 page 89.
- *
- * Note: The Python script at
- *
- *   http://www.penguin.cz/~ondrap/paragliding.php
- *
- * sets the polygon type according to the following rules:
- *
- *      if AH - AL < 500 and AL < 2000:
- *          type = '78'
- *      elif AL == 0:
- *          type = '0x08'
- *      elif AL < 500:
- *          type = '0x1e'
- *      elif AL < 1000:
- *          type = '0x3c'
- *      elif AL < 1900:
- *          type = '0x18'
- *      else:
- *          type = '0x53'
- *
+ * Return the KML File Polygon type for the given airspace class.
  */
 std::string KMLState::getPolygonType(const Airspace& space) const
 {
@@ -243,8 +225,6 @@ std::string KMLState::getPolygonType(const Airspace& space) const
         return string("#cta");
     } else if (space.isTMA()) {
         return string("#tma");
-    } else if ( space.isFloating() && !space.isLowFlyingAreaGolf() ) {
-        return string("#default");
     } else if (space.isLowFlyingAreaGolf()) {
         return string("#lfag");
     } else if (space.isRestricted()) {
@@ -274,6 +254,22 @@ std::string KMLState::getLineType(const Airspace& space) const
       return string("#default");
   }
 }
+
+
+/**
+ * Return a KML Placemark name for this airspace.  For now, we just use
+ * The name of the airspace... we can add more info later.
+ */
+std::string KMLState::getPlacemarkName(const Airspace& airspace) const
+{   
+    string pName;
+
+    pName.append( airspace.getName() );
+
+    return pName;
+
+}
+
 
 void KMLState::writeStyle(std::ostream &out, std::string id, std::string color) const
 {
