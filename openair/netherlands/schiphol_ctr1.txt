@@ -2,7 +2,7 @@
 *
 *   http://www.ais-netherlands.nl/
 *
-*   AIP Part 3 AERODROME (AD)
+*   AIP Part 3 AERODROMES (AD)
 *   AD 2 AERODROMES
 *    EHAM AMSTERDAM/Schiphol
 *     AD 2.17 EHAM ATS AIRSPACE
