@@ -63,3 +63,12 @@ void StringUtils::trim(string& str)
     */
 
 }
+
+
+/**
+ * Return true if the first string has the second string as substring (case sensitive!).
+ */
+bool StringUtils::hasSubstring(const string& sfull, const string& ssub)
+{
+  return string::npos != sfull.find(ssub);
+}

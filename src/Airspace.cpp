@@ -63,6 +63,18 @@ const string& Airspace::getClass() const
 }
 
 
+const string& Airspace::getCeilingString() const
+{
+    return ceiling_string;
+}
+
+
+const string& Airspace::getFloorString() const
+{
+    return floor_string;
+}
+
+
 /**
   * Return the ceiling altitude in METER.
   */
@@ -158,12 +170,7 @@ void Airspace::add(const Label& label)
   */
 bool Airspace::isCTR() const
 {
-    size_t found = name.find("CTR");
-    if ( found != string::npos) {
-      return true;
-    } else {
-      return false;
-    }
+    return StringUtils::hasSubstring(name, "CTR");
 }
 
 
@@ -174,12 +181,7 @@ bool Airspace::isCTR() const
   */
 bool Airspace::isCTA() const
 {
-    size_t found = name.find("CTA");
-    if ( found != string::npos) {
-      return true;
-    } else {
-      return false;
-    }
+    return StringUtils::hasSubstring(name, "CTA");
 }
 
 
@@ -190,12 +192,7 @@ bool Airspace::isCTA() const
   */
 bool Airspace::isTMA() const
 {
-    size_t found = name.find("TMA");
-    if ( found != string::npos ) {
-      return true;
-    } else {
-      return false;
-    }
+    return StringUtils::hasSubstring(name, "TMA");
 }
 
 
@@ -220,12 +217,7 @@ bool Airspace::isFloating() const
   */
 bool Airspace::isVectoringArea() const
 {
-    size_t found = name.find("vectoring area");
-    if ( found != string::npos ) {
-      return true;
-    } else {
-      return false;
-    }
+    return StringUtils::hasSubstring(name, "vectoring area");
 }
 
 
@@ -236,12 +228,7 @@ bool Airspace::isVectoringArea() const
   */
 bool Airspace::isByNOTAM() const
 {
-    size_t found = name.find("NOTAM");
-    if ( found != string::npos ) {
-      return true;
-    } else {
-      return false;
-    }
+    return StringUtils::hasSubstring(name, "NOTAM");
 }
 
 
@@ -252,12 +239,7 @@ bool Airspace::isByNOTAM() const
   */
 bool Airspace::isFIR() const
 {
-    size_t found = name.find("FIR");
-    if ( found != string::npos ) {
-      return true;
-    } else {
-      return false;
-    }
+    return StringUtils::hasSubstring(name, "FIR");
 }
 
 
@@ -268,12 +250,7 @@ bool Airspace::isFIR() const
   */
 bool Airspace::isMapEdge() const
 {
-    size_t found = name.find("Map edge");
-    if (found != string::npos ) {
-      return true;
-    } else {
-      return false;
-    }
+    return StringUtils::hasSubstring(name, "Map edge");
 }
 
 
@@ -284,12 +261,7 @@ bool Airspace::isMapEdge() const
   */
 bool Airspace::isLowFlyingAreaGolf() const
 {
-    size_t found = name.find("LOW FLYING AREA GOLF");
-    if ( found != string::npos) {
-      return true;
-    } else {
-      return false;
-    }
+    return StringUtils::hasSubstring(name, "LOW FLYING AREA GOLF");
 }
 
 
@@ -309,9 +281,9 @@ bool Airspace::isProhibited() const
 
 
 /**
-  * Return true if this airspace is a Prohibited area.  The airspace
-  * will be a Prohibited area if its class is the case sensitive
-  * character 'P'.
+  * Return true if this airspace is a Restricted area.  The airspace
+  * will be a Restricted area if its class is the case sensitive
+  * character 'R'.
   */
 bool Airspace::isRestricted() const
 {
@@ -344,12 +316,7 @@ bool Airspace::isDanger() const
  */
 bool Airspace::hasAGLCeiling() const
 {
-    size_t found = ceiling_string.find("AGL");
-    if ( found != string::npos) {
-      return true;
-    } else {
-      return false;
-    }
+    return StringUtils::hasSubstring(ceiling_string, "AGL");
 }
 
 
@@ -359,12 +326,7 @@ bool Airspace::hasAGLCeiling() const
  */
 bool Airspace::hasAGLFloor() const
 {
-    size_t found = floor_string.find("AGL");
-    if ( found != string::npos) {
-      return true;
-    } else {
-      return false;
-    }
+    return StringUtils::hasSubstring(floor_string, "AGL");
 }
 
 
@@ -374,12 +336,7 @@ bool Airspace::hasAGLFloor() const
  */
 bool Airspace::hasSFCCeiling() const
 {
-    size_t found = ceiling_string.find("SFC");
-    if ( found != string::npos) {
-      return true;
-    } else {
-      return false;
-    }
+    return StringUtils::hasSubstring(ceiling_string, "SFC");
 }
 
 
@@ -389,12 +346,7 @@ bool Airspace::hasSFCCeiling() const
  */
 bool Airspace::hasSFCFloor() const
 {
-    size_t found = floor_string.find("SFC");
-    if ( found != string::npos) {
-      return true;
-    } else {
-      return false;
-    }
+    return StringUtils::hasSubstring(floor_string, "SFC");
 }
 
 
@@ -403,12 +355,7 @@ bool Airspace::hasSFCFloor() const
  */
 bool Airspace::hasGNDFloor() const
 {
-    size_t found = floor_string.find("GND");
-    if ( found != string::npos) {
-      return true;
-    } else {
-      return false;
-    }
+    return StringUtils::hasSubstring(floor_string, "GND");
 }
 
 
@@ -418,12 +365,7 @@ bool Airspace::hasGNDFloor() const
  */
 bool Airspace::hasFLCeiling() const
 {
-    size_t found = ceiling_string.find("FL");
-    if ( found != string::npos) {
-      return true;
-    } else {
-      return false;
-    }
+    return StringUtils::hasSubstring(ceiling_string, "FL");
 }
 
 
@@ -433,62 +375,7 @@ bool Airspace::hasFLCeiling() const
  */
 bool Airspace::hasFLFloor() const
 {
-    size_t found = floor_string.find("FL");
-    if ( found != string::npos) {
-      return true;
-    } else {
-      return false;
-    }
-}
-
-
-/**
- * Return a label for this airspace for a 2D map representation.
- */
-const string Airspace::get2DLabel() const
-{
-    string label2D;
-
-    if ( isTMA() ) {
-        label2D.append("TMA:");
-    }
-    if ( isCTA() ) {
-        label2D.append("CTA:");
-    }
-    if ( isProhibited() ) {
-        label2D.append("Prohibited:");
-    }
-    if ( isVectoringArea() ) {
-        label2D.append("Vectoring Area:");
-    }
-    if ( isByNOTAM() ) {
-        label2D.append("By NOTAM:");
-    }
-    if ( (   isTMA()
-          || isCTA()
-          || isVectoringArea()
-          || isByNOTAM()
-          || isProhibited() ) && (getFloor() > 0) ) {
-
-        string myName(getName());
-        if (isByNOTAM()) {
-          myName = myName.substr(10);
-        }
-        if (hasAGLFloor()) {
-            //label2D.append(" " + floor(getFloor()) + " m AGL max"); // TODO
-        } else if (hasFLFloor()) {
-            //label2D.append(" " + floor(getFloor()) + " m (+QNH) max");
-        } else {
-            //label2D.append(" " + floor(getFloor()) + " m max");
-        }
-        label2D.append(" (" + myName + ")");
-
-    } else {
-      label2D.append(getName());
-    }
-
-    return label2D;
-
+    return StringUtils::hasSubstring(floor_string, "FL");
 }
 
 

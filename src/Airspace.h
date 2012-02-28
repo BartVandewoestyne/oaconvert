@@ -74,6 +74,8 @@ public:
 
     const std::string& getName() const;
     const std::string& getClass() const;
+    const std::string& getCeilingString() const;
+    const std::string& getFloorString() const;
     double getCeiling() const;
     double getFloor() const;
     const CurvedPolygon& getCurvedPolygon() const;
@@ -106,8 +108,6 @@ public:
     bool hasGNDFloor() const;
     bool hasFLCeiling() const;
     bool hasFLFloor() const;
-
-    const std::string get2DLabel() const;
 
     /**
      * Each airspace can have multiple name-labels that each have their location
