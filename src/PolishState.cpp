@@ -22,6 +22,7 @@
 #include <cassert>
 #include <cmath>
 #include <string>
+#include <sstream>
 
 #include "Airspace.h"
 #include "Circle.h"
@@ -232,45 +233,7 @@ void PolishState::write(std::ostream& stream, const Airspace& airspace) const
 
         stream << "[POLYGON]" << endl;
         stream << "Type=" << getPolygonType(airspace) << endl;
-        stream << "Label=";
-        if ( airspace.isTMA() ) {
-            stream << "TMA:";
-        }
-        if ( airspace.isCTA() ) {
-            stream << "CTA:";
-        }
-        if ( airspace.isProhibited() ) {
-            stream << "Prohibited:";
-        }
-        if ( airspace.isVectoringArea() ) {
-            stream << "Vectoring Area:";
-        }
-        if ( airspace.isByNOTAM() ) {
-            stream << "By NOTAM:";
-        }
-        if ( (   airspace.isTMA()
-              || airspace.isCTA()
-              || airspace.isVectoringArea()
-              || airspace.isByNOTAM()
-              || airspace.isProhibited() ) && (airspace.getFloor() > 0) ) {
-
-            string myName(airspace.getName());
-            if (airspace.isByNOTAM()) {
-              myName = myName.substr(10);
-            }
-            if (airspace.hasAGLFloor()) {
-                stream << " " << floor(airspace.getFloor()) << " m AGL max";
-            } else if (airspace.hasFLFloor()) {
-                stream << " " << floor(airspace.getFloor()) << " m (+QNH) max";
-            } else {
-                stream << " " << floor(airspace.getFloor()) << " m max";
-            }
-            stream << " (" << myName << ")";
-
-        } else {
-          stream << airspace.getName();
-        }
-        stream << endl;
+        stream << "Label=" << getPolishLabel(airspace) << endl;
 
         // The EndLevel number must not be higher than the highest X from the
         // LevelX records in the Polish header.
@@ -285,22 +248,7 @@ void PolishState::write(std::ostream& stream, const Airspace& airspace) const
 
     stream << "[POLYLINE]" << endl;
     stream << "Type=" << getLineType(airspace) << endl;
-    stream << "Label=";
-    if ( airspace.isDanger() ) {
-        stream << "Danger: ";
-    } 
-    if ( airspace.isRestricted() ) {
-        stream << "Restricted: ";
-    } 
-    if ( airspace.isByNOTAM() ) {
-        stream << "By NOTAM: ";
-    }
-    string myName(airspace.getName());
-    if (airspace.isByNOTAM()) {
-      myName = myName.substr(10);
-    }
-    stream << myName;
-    stream << endl;
+    stream << "Label=" << getPolishLabel(airspace) << endl;
 
     // The EndLevel number must not be higher than the highest X from the
     // LevelX records in the Polish header.
@@ -402,4 +350,57 @@ std::string PolishState::getLineType(const Airspace& space) const
   } else {
       return string("0x06");
   }
+}
+
+
+/**
+ * Return a label for this airspace for a 2D map representation.
+ */
+string PolishState::getPolishLabel(const Airspace& airspace) const
+{
+    stringstream pLabel;
+
+    if ( airspace.isTMA() ) {
+        pLabel << "TMA:";
+    }
+    if ( airspace.isCTA() ) {
+        pLabel << "CTA:";
+    }
+    if ( airspace.isProhibited() ) {
+        pLabel << "Prohibited:";
+    }
+    if ( airspace.isVectoringArea() ) {
+        pLabel << "Vectoring Area:";
+    }
+
+    if ( airspace.isByNOTAM() ) {
+        pLabel << "By NOTAM:";
+    }
+
+    if ( (   airspace.isTMA()
+          || airspace.isCTA()
+          || airspace.isVectoringArea()
+          || airspace.isByNOTAM()
+          || airspace.isProhibited() ) && (airspace.getFloor() > 0) ) {
+
+        string myName(airspace.getName());
+        if (airspace.isByNOTAM()) {
+          myName = myName.substr(10);
+        }
+
+        if (airspace.hasAGLFloor()) {
+            pLabel << " " << floor(airspace.getFloor()) << " m AGL max";
+        } else if (airspace.hasFLFloor()) {
+            pLabel << " " << floor(airspace.getFloor()) << " m (+QNH) max";
+        } else {
+            pLabel << " " << floor(airspace.getFloor()) << " m max";
+        }
+        pLabel << " (" << myName << ")";
+
+    } else {
+      pLabel << airspace.getName();
+    }
+
+    return pLabel.str();
+
 }
