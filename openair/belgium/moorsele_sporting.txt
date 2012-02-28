@@ -9,7 +9,7 @@
 *
 * Last check:
 *
-*   Wim Verhoeve (17 December 2011)
+*   Bart Vandewoestyne (26 February 2012)
 *
 * Map List:
 * 
