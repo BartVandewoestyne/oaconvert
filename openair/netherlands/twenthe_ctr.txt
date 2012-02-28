@@ -1,0 +1,48 @@
+* Source:
+*
+*   http://www.ais-netherlands.nl/
+*
+*   AIP Part 3 AERODROMES (AD)
+*   AD 2 AERODROMES
+*    EHTW TWENTHE CTR/Twenthe
+*     AD 2.17 EHTW ATS AIRSPACE
+*
+* Last check:
+*
+*   Bart Vandewoestyne (28 February 2012)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        NO
+*   MAP WEEKEND_LFAG1  NO
+*   MAP WEEKEND_LFAG2  NO
+*   MAP WEEKEND_LFAG5  NO
+*
+* Remarks:
+*
+*   The area of the Twenthe CTR in the Bremen FIR and Langen FIR has airspace
+*   classification D (see AIP Germany).
+ 
+AC C
+AN TWENTHE CTR
+AH 3000 ft AMSL
+AL GND
+DP 52:24:08.26 N 007:02:32.46 E
+* START DUTCH-GERMAN BORDER
+* END DUTCH-GERMAN BORDER
+DP 52:08:34.39 N 006:52:37.32 E
+V D=+
+* Radius: 8 NM
+V X=52:16:32.99 N 006:53:20.76 E
+DB 52:08:34.39 N 006:52:37.32 E, 52:09:50.56 N 006:46:16.74 E
+DP 52:09:50.56 N 006:46:16.74 E
+DP 52:08:21.48 N 006:42:50.85 E
+DP 52:13:15.29 N 006:37:13.80 E
+DP 52:14:44.52 N 006:40:39.84 E
+V D=+
+* Radius: 8 NM
+V X=52:16:32.99 N 006:53:20.76 E
+DB 52:14:44.52 N 006:40:39.84 E, 52:23:14.85 N 007:00:27.28 E
+DP 52:23:14.85 N 007:00:27.28 E
+DP 52:24:08.26 N 007:02:32.46 E

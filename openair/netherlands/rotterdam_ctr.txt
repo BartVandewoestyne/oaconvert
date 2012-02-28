@@ -1,0 +1,34 @@
+* Source:
+*
+*   http://www.ais-netherlands.nl/
+*
+*   AIP Part 3 AERODROMES (AD)
+*   AD 2 AERODROMES
+*    EHRD ROTTERDAM/Rotterdam
+*     AD 2.17 EHRD ATS AIRSPACE
+*
+* Last check:
+*
+*   Bart Vandewoestyne (28 February 2012)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+ 
+AC C
+AN ROTTERDAM CTR
+AH 3000 ft AMSL
+AL GND
+DP 51:50:51.97 N 004:18:50.32 E
+DP 51:48:21.82 N 004:12:39.13 E
+DP 51:53:22.62 N 004:07:21.16 E
+DP 51:55:53.02 N 004:13:32.74 E
+V D=+
+* Radius: 8 NM
+V X=51:57:25.00 N 004:26:14.00 E
+DB 51:55:53.02 N 004:13:32.74 E, 51:50:51.97 N 004:18:50.32 E
+DP 51:50:51.97 N 004:18:50.32 E
