@@ -19,3 +19,4 @@ build/*
 src/cygairspace.dll
 src/libairspace.dll.a
 src/oaconvert.exe
+gpltext.txt
