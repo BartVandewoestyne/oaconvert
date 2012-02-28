@@ -60,19 +60,19 @@ Section "Garmin maps" SEC02
   File /r "build\garmin\*.*"
 SectionEnd
 
-Section /o "GPX files" SEC03
+Section "GPX files" SEC03
   SetOutPath "$INSTDIR\gpx"
   SetOverwrite ifnewer
   File /r "build\gpx\*.*"
 SectionEnd
 
-Section /o "KML files" SEC04
+Section "KML files" SEC04
   SetOutPath "$INSTDIR\kml"
   SetOverwrite ifnewer
   File /r "build\kml\*.*"
 SectionEnd
 
-Section /o "OpenAir files" SEC05
+Section "OpenAir files" SEC05
   SetOutPath "$INSTDIR\openair"
   SetOverwrite ifnewer
   File /r "build\openair\*.*"
@@ -83,7 +83,7 @@ Section /o "OpenAir files" SEC05
   File /r "openair\map_edges.txt"
 SectionEnd
 
-Section /o "Polish Format files" SEC06
+Section "Polish Format files" SEC06
   SetOutPath "$INSTDIR\polish_format"
   SetOverwrite ifnewer
   File /r "build\polish_format\*.*"
