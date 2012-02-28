@@ -1,10 +1,10 @@
-﻿* See:
+﻿* Source:
+*
 *   AIP Part 2 EN-ROUTE (ENR)
 *   ENR 5 NAVIGATION WARNINGS
 *    ENR 5.5 Aerial sporting and recreational activities
 *     2. LOW FLYING AREAS GOLF
 *
-* Note:
 *   Belgian border data was extracted from
 *   http://downloads.cloudmade.com/europe/western_europe/belgium/belgium.poly
 *

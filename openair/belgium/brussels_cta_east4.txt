@@ -1,7 +1,11 @@
-* See:
+* Source:
+*
 *   AIP Part 2 EN-ROUTE (ENR)
 *   ENR 2 AIR TRAFFIC SERVICES AIRSPACE
 *    ENR 2.1 FIR, UIR, TMA
+*
+*   Belgian border data was extracted from
+*   http://downloads.cloudmade.com/europe/western_europe/belgium/belgium.poly
 *
 * Last check:
 *
@@ -14,10 +18,6 @@
 *   MAP WEEKEND_LFAG1  NO   (LFA G overrides this zone)
 *   MAP WEEKEND_LFAG2  NO   (LFA G overrides this zone)
 *   MAP WEEKEND_LFAG5  NO   (LFA G overrides this zone)
-*
-* Note:
-*   Belgian border data was extracted from
-*   http://downloads.cloudmade.com/europe/western_europe/belgium/belgium.poly
 
 AC C
 AN Brussels CTA EAST 4

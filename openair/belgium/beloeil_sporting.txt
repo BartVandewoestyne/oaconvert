@@ -7,6 +7,9 @@
 *    ENR 5.5 Aerial sporting and recreational activities
 *     1 GENERAL
 *
+*   Belgian border data was extracted from
+*   http://downloads.cloudmade.com/europe/western_europe/belgium/belgium.poly
+*
 * Last check:
 *
 *   Wim Verhoeve (17 December 2011)

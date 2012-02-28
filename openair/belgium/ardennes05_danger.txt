@@ -1,8 +1,12 @@
-* See:
+* Source:
+*
 *   AIP Part 2 EN-ROUTE (ENR)
 *   ENR 5 NAVIGATION WARNINGS
 *    ENR 5.1 Prohibited, restricted and danger areas
 *     3 DANGER AREAS
+*
+*   Belgian border data was extracted from
+*   http://downloads.cloudmade.com/europe/western_europe/belgium/belgium.poly
 *
 * Last check:
 *
