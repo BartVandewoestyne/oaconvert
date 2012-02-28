@@ -1,0 +1,32 @@
+* Source:
+*
+*   http://www.ais-netherlands.nl/
+*
+*   AIP Part 3 AERODROME (AD)
+*   AD 2 AERODROMES
+*    EHBK MAASTRICHT/Maastricht Aachen
+*     AD 2.17 EHBK ATS AIRSPACE
+*
+* Last check:
+*
+*   Bart Vandewoestyne (27 February 2012)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+ 
+AC C
+AN MAASTRICHT CTR
+AH 3000 ft AMSL
+AL GND
+DP 51:02:00.74 N 005:52:37.81 E
+DP 51:00:46.92 N 005:55:37.48 E
+DP 51:00:45.89 N 005:57:37.54 E
+DP 50:58:59.61 N 005:57:37.54 E
+* START DUTCH-GERMAN BORDER
+* END DUTCH-GERMAN BORDER
+DP 51:02:00.74 N 005:52:37.81 E
