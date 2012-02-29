@@ -20,8 +20,6 @@
 *   MAP WEEKEND_LFAG1  YES
 *   MAP WEEKEND_LFAG2  YES
 *   MAP WEEKEND_LFAG5  YES
-*
-* Remarks for paragliding:
 
 AC F
 AN Siegerland FB
