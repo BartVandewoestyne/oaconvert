@@ -1,0 +1,39 @@
+* Source:
+*
+*   https://www.sia.aviation-civile.gouv.fr/
+*
+*   Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*   ENR 2 ESPACE ATS
+*    ENR 2.3 REGIONS DE CONTROLE TERMINALES (TMA) 
+*
+* Last check:
+*
+*   Wim Verhoeve (29 February 2012)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+*
+* Remarks:
+*
+*   Virtual zone for map-technical reasons
+*   This zone equals the part of Metz 5 west of Metz 5.1
+
+AC D
+AN Metz TMA 5A
+AH FL 75
+AL 4000 ft AMSL
+DP 48:47:50 N 006:39:30 E
+DP 49:08:00 N 006:34:45 E
+DP 49:08:00 N 006:45:20 E
+DP 49:01:59 N 006:49:16 E
+V D=+
+V X=48:59:11 N 006:42:58 E
+* Radius 5 NM
+DB 49:01:59 N 006:49:16 E, 48:56:06 N 006:48:58 E
+DP 48:56:06 N 006:48:58 E
+DP 48:47:50 N 006:39:30 E

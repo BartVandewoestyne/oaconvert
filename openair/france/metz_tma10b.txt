@@ -1,0 +1,36 @@
+* Source:
+*
+*   https://www.sia.aviation-civile.gouv.fr/
+*
+*   Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*   ENR 2 ESPACE ATS
+*    ENR 2.3 REGIONS DE CONTROLE TERMINALES (TMA) 
+*
+* Last check:
+*
+*   Wim Verhoeve (29 February 2012)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+*
+* Remarks:
+*
+*   Virtual zone for map-technical reasons
+*   part of Metz1 above Metz 1.0
+
+AC D
+AN Metz TMA 1.0B Thionville
+AH FL 115
+AL 3300 ft AMSL
+DP 49:21:57 N 006:13:13 E
+V D=+
+V X=49:21:17 N 006:12:05 E
+DB 49:21:57 N 006:13:13 E, 49:21:49 N 006:10:47 E
+DP 49:21:49 N 006:10:47 E
+DP 49:21:13 N 006:11:59 E
+DP 49:21:57 N 006:13:13 E
