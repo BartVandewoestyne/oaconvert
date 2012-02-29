@@ -11,6 +11,9 @@ Scripts from ondrap@penguin.cz :
 Airspace project
   http://www.cloudbase.org.nz/airspace
 
+GDAL/OGR
+  http://www.gdal.org/ogr/drv_openair.html
+  http://www.gdal.org/ogr/
 
 Other software that supports Polish Format:
 -------------------------------------------
