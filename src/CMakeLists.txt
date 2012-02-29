@@ -24,14 +24,11 @@ set(oaconvert_SRCS
 add_library(airspace SHARED ${airspace_SRCS})
 add_executable(oaconvert ${oaconvert_SRCS})
 
-set(CMAKE_CXX_FLAGS "-g -Wall -Wextra -Weffc++ -DDEBUG")
-
-
-# Set this according to whatever works for you...
-# TODO: can we let cmake automatically determine the name of the
-#       boost library???
-set(BOOST_LIBNAME "boost_regex")
-#set(BOOST_LIBNAME "boost_regex-mt")
-
-target_link_libraries(airspace ${BOOST_LIBNAME})
-target_link_libraries(oaconvert airspace)
+# See `cmake --help-module FindBoost` for more info
+# about the things below.
+find_package(Boost REQUIRED regex)
+if (Boost_FOUND)
+   include_directories(${Boost_INCLUDE_DIRS})
+   target_link_libraries(airspace ${Boost_REGEX_LIBRARY})
+   target_link_libraries(oaconvert airspace)
+endif()

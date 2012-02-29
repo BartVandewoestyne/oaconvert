@@ -1,16 +1,14 @@
-# If you want to see the actual commands, run
+# Note:
+#   If you want to see the actual compile-commands, run
 #
-#   make VERBOSE=1
+#     make VERBOSE=1
 
 cmake_minimum_required(VERSION 2.6)
-#cmake_minimum_required(VERSION 2.8)
-
-# search for Boost version 1.34
-#find_package( Boost 1.34 COMPONENTS regex )
 
 project(oaconvert)
 
-add_definitions(-Wall -Wextra -g)
+add_definitions(-DDEBUG)
+set(CMAKE_CXX_FLAGS "-g -Wall -Wextra -Weffc++")
 
 add_subdirectory(src)
 add_subdirectory(test)
