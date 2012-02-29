@@ -52,9 +52,11 @@ Longitude::Longitude(int degrees, int minutes, int seconds, char direction)
 }
 
 /**
- * See http://en.wikipedia.org/wiki/Latitude#Degree_length
+ * Return the arcdegree length in case of a spherical model of the earth.
  *
- * TODO: check the theory if we really nead lat.getAngle() or lon.getAngle().
+ * See http://en.wikipedia.org/wiki/Longitude#Length_of_a_degree_of_longitude
+ *
+ * TODO: Return the same, but for an elliptical model of the earth.
  */
 double Longitude::getArcDegree(const Latitude& lat)
 {
@@ -62,17 +64,12 @@ double Longitude::getArcDegree(const Latitude& lat)
 }
 
 /**
- * See http://en.wikipedia.org/wiki/Latitude#Degree_length
- * TODO: find exact formula for N, the normal radius of curvature.
+ * Return the normal radius of curvature for a spherical model of the earth.
+ *
+ * TODO: implement the normal radius of curvature for an elliptical model of the earth.
  */
 double Longitude::getN()
 {
-    // Th value 3671e3 is taken from the oa2gm program.  Note that
-    // http://en.wikipedia.org/wiki/Latitude#Degree_length mentions
-    // a value of 6378137m for the equatorial radius... maybe we should use
-    // that more precise value?
-    // According to http://solarsystem.nasa.gov/planets/profile.cfm?Object=Earth
-    // the value 6371000 is just the mean radius...
     return 6371e3;
 }
 

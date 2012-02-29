@@ -52,8 +52,11 @@ Latitude::Latitude(int degrees, int minutes, int seconds, char direction)
 }
 
 /**
- * Return the value for an arcdegree of north-south latitude difference.
+ * Return the value for an arcdegree of north-south latitude difference
+ * for a spherical model of the earth.
  * See http://en.wikipedia.org/wiki/Latitude#Degree_length
+ *
+ * TODO: implement this function for other models of the earth.
  */
 double Latitude::getArcDegree()
 {
@@ -61,21 +64,17 @@ double Latitude::getArcDegree()
 }
 
 /**
- * Return the meridional radius of curvature.
+ * Return the meridional radius of curvature for a spherical model of the
+ * earth.  In case of a spherical model of the earth, the meridional radius
+ * of curvature is equal to the mean radius of the earth.
+ *
  * See http://en.wikipedia.org/wiki/Latitude#Degree_length
- * TODO: use correct formula instead of 6371e3.
+ *
+ * TODO: implement meridional radius of curvature for other models of the
+ *       earth.
  */
 double Latitude::getM()
 {
-    // Th value 3671e3 is taken from the oa2gm program.  Note that
-    // http://en.wikipedia.org/wiki/Latitude#Degree_length mentions
-    // a value of 6378137m for the equatorial radius... maybe we should use
-    // that more precise value?
-    // According to http://solarsystem.nasa.gov/planets/profile.cfm?Object=Earth
-    // the value 6371000 is just the mean radius...
-
-    // Currently, we use an approximation of 6371e3, but in reality this value
-    // depends on the angle.
     return 6371e3;
 }
 
