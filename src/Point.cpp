@@ -37,7 +37,7 @@ const Coordinate& Point::getCoordinate() const
     return m_coordinate;
 }
 
-void Point::discretize( std::vector<Coordinate>& coords, double resolution ) const
+void Point::discretize( std::vector<Coordinate>& coords, double ) const
 {
     coords.push_back( m_coordinate );
 }

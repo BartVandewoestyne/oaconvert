@@ -34,7 +34,7 @@ public:
     static PolishState* getInstance();
 
     virtual void writeHeader(std::ostream &out) const;
-    virtual void writeFooter(std::ostream &out) const;
+    virtual void writeFooter(std::ostream& ) const;
 
     //! Use this method to write out an airspace.
     virtual void write(std::ostream& stream, const Airspace& airspace) const;

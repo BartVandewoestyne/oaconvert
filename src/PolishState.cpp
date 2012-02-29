@@ -212,7 +212,7 @@ void PolishState::writeHeader(std::ostream &out) const
 }
 
 
-void PolishState::writeFooter(std::ostream &out) const
+void PolishState::writeFooter( std::ostream& ) const
 {
     // Polish files have no footer.
 }

@@ -36,7 +36,7 @@ public:
 
     const Coordinate& getCoordinate() const;
 
-    virtual void discretize( std::vector<Coordinate>& coords, double resolution ) const;
+    virtual void discretize( std::vector<Coordinate>& coords, double ) const;
 
     friend std::ostream& operator <<(std::ostream& outputStream, const Point& c);
 
