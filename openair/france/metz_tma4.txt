@@ -1,0 +1,46 @@
+* Source:
+*
+*   https://www.sia.aviation-civile.gouv.fr/
+*
+*   Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*   ENR 2 ESPACE ATS
+*    ENR 2.3 REGIONS DE CONTROLE TERMINALES (TMA) 
+*
+* Last check:
+*
+*   Wim Verhoeve (29 February 2012)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+*
+* Remarks:
+*
+*   Procédures CAM/CAG
+*   Gestionnaire annoncé sur RAI 125.9 MHz.
+*   A l:exclusion de la LF R 97 Monce lorsqu:elle est active.
+
+AC D
+AN Metz TMA 4
+AH FL 76
+AL 3800 ft AMSL
+DP 49:25:43 N 006:32:47 E
+
+* Begin - Frontière francoDPallemande
+* TO DO - TO DO - TO DO
+* end - Frontière francoDPallemande
+
+DP 49:09:51 N 006:44:25 E
+DP 49:08:00 N 006:45:20 E
+DP 49:08:00 N 006:34:45 E
+DP 48:47:50 N 006:39:30 E
+DP 48:39:15 N 006:32:24 E
+DP 48:44:48 N 006:19:42 E
+DP 48:55:32 N 006:30:06 E
+DP 49:10:30 N 006:26:20 E
+DP 49:21:45 N 006:18:40 E
+DP 49:25:43 N 006:32:47 E
