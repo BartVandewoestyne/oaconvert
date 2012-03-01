@@ -2,7 +2,7 @@
 *
 *   https://www.sia.aviation-civile.gouv.fr/
 *
-*   Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*   Manuel d'information AÃ©ronautique GEN-ENR-AD en vigueur
 *   ENR 2 ESPACE ATS
 *    ENR 2.3 REGIONS DE CONTROLE TERMINALES (TMA) 
 *
@@ -20,12 +20,12 @@
 *
 * Remarks:
 *
-*   Procédures CAM/CAG
-*   Gestionnaire annoncé sur RAI 125.9 MHz.
+*   ProcÃ©dures CAM/CAG
+*   Gestionnaire annoncÃ© sur RAI 125.9 MHz.
 *   A l'exclusion de L FDPR45 N3 Luxembourg lorsqu'elle est active.
-*   LUNDPVEN sauf JF : SRDP30 à SS+30 déclassement en G selon protocole 
-*   annoncé sur RAI 125.9 MHz ou sur ATIS LORRAINE 136.575 MHz.
-*   SAM, DIM et JF: déclassement en G de SRDP30 à SS+30.
+*   LUNDPVEN sauf JF : SRDP30 Ã  SS+30 dÃ©classement en G selon protocole 
+*   annoncÃ© sur RAI 125.9 MHz ou sur ATIS LORRAINE 136.575 MHz.
+*   SAM, DIM et JF: dÃ©classement en G de SRDP30 Ã  SS+30.
 
 AC D
 AN Metz TAM 1.2 Thionville Haut

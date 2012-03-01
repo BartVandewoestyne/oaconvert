@@ -2,7 +2,7 @@
 *
 *   https://www.sia.aviation-civile.gouv.fr/
 *
-*   Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*   Manuel d'information AÃ©ronautique GEN-ENR-AD en vigueur
 *   ENR 2 ESPACE ATS
 *    ENR 2.3 REGIONS DE CONTROLE TERMINALES (TMA) 
 *
@@ -20,9 +20,9 @@
 *
 * Remarks:
 *
-*   Procédures CAM/CAG
-*   Gestionnaire annoncé sur RAI 125.9 MHz.
-*   SAM, DIM et JF : déclassement en G de SRDP30 à SS+30.
+*   ProcÃ©dures CAM/CAG
+*   Gestionnaire annoncÃ© sur RAI 125.9 MHz.
+*   SAM, DIM et JF : dÃ©classement en G de SRDP30 Ã  SS+30.
 
 AC D
 AN Metz TMA 5.1 Sarre

@@ -1,0 +1,39 @@
+﻿* Source:
+*
+*   https://www.sia.aviation-civile.gouv.fr/
+*
+*   Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*   ENR 2 ESPACE ATS
+*    ENR 2.3 REGIONS DE CONTROLE TERMINALES (TMA)
+*
+* Last check:
+*
+*   Wim Verhoeve (1 March 2012)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+*
+* Remarks:
+*
+*   Activable H24.
+*   Procédures CAM/CAG.
+*   Activité connue de RAI 118.525 Mhz, LILLE Info et PARIS ACC/FIC.
+
+AC D
+AN Cambrai TMA 3
+AH FL 195
+AL FL 45
+DP 50:18:30 N 003:30:54 E
+DP 50:18:30 N 003:42:17 E
+DP 50:18:30 N 003:57:00 E
+DP 49:57:30 N 004:06:00 E
+DP 49:58:40 N 003:34:00 E
+DP 50:03:20 N 003:21:00 E
+DP 50:11:46 N 003:17:53 E
+DP 50:16:38 N 003:27:05 E
+DP 50:18:30 N 003:30:54 E

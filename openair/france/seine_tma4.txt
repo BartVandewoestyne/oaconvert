@@ -1,0 +1,43 @@
+﻿* Source:
+*
+*   https://www.sia.aviation-civile.gouv.fr/
+*
+*   Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*   ENR 2 ESPACE ATS
+*    ENR 2.3 REGIONS DE CONTROLE TERMINALES (TMA)
+*
+* Last check:
+*
+*   Wim Verhoeve (1 March 2012)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+*
+* Remarks:
+*
+*   H24
+*   ATS SEINE : 0400--2000
+*   HIV : + 1HR
+*   A l’exclusion de la R6A, la TMA 3 SAINT-DIZIER et de la TMA 4.1 SEINE 
+*   lorsqu’elles sont actives.
+*   Plafond 4500 ft AMSL dans la partie située en dessous de la TMA 5 PARIS
+
+AC E
+AN Seine TMA 4
+AH FL 65
+AL 2000 ft AMSL
+DP 49:02:00 N 003:29:00 E
+DP 49:02:00 N 003:57:00 E
+DP 48:58:34 N 004:11:37 E
+DP 48:54:00 N 004:31:00 E
+DP 48:49:45 N 004:34:30 E
+DP 48:40:57 N 004:32:20 E
+DP 48:35:00 N 004:09:20 E
+DP 48:35:00 N 003:49:12 E
+DP 48:34:03 N 003:42:40 E
+DP 49:02:00 N 003:29:00 E

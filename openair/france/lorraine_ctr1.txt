@@ -2,7 +2,7 @@
 *
 *   https://www.sia.aviation-civile.gouv.fr/
 *
-*   Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*   Manuel d'information AÃ©ronautique GEN-ENR-AD en vigueur
 *   AD 2 AERODROMES
 *    AD 2.LFJL METZ NANCY LORRAINE  
 *

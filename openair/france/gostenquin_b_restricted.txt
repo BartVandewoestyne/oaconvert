@@ -1,0 +1,64 @@
+﻿* Source:
+*
+*   https://www.sia.aviation-civile.gouv.fr/
+*
+*   Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*   ENR 5 AVERTISSEMENTS A LA NAVIGATION AERIENNE
+*    ENR 5.1 Zones interdites, réglementées et dangereuses 
+*
+* Last check:
+*
+*   Wim Verhoeve (1 March 2012)
+*
+* Map list:
+*
+*   MAP WEEK           NOTAM
+*   MAP WEEKEND        NOTAM
+*   MAP WEEKEND_LFAG1  NOTAM
+*   MAP WEEKEND_LFAG2  NOTAM
+*   MAP WEEKEND_LFAG5  NOTAM
+*
+* Remarks:
+*
+*   Activable 
+*     LUN--JEU sauf JF: 0700--2200. 
+*     VEN sauf JF:0700--1600. HIV:+1HR.
+*   En dehors de ces HOR, activable par NOTAM.
+*   Activité réelle connue de POLYGONE Info ou RAI 130.675.
+*   Activités MIL spécifiques.
+*   Gestionnaire: POLYGONE Info 130.675 ou 03 87 01 78 39.
+*   IFR/VFR: autorisé après contact radio, suivre instructions.
+
+AC R
+AN R 163 B GROSTENQUIN-POLYGONE
+AH 4000 ft ASFC
+AL  800 ft ASFC
+DP 49:07:00 N 006:41:00 E
+DP 49:07:00 N 007:02:48 E
+
+* begin - Frontière franco--allemande
+* TO DO
+* end * Frontière franco--allemande
+
+DP 49:07:00 N 007:04:06 E
+DP 49:07:00 N 007:11:52 E
+
+* begin - Frontière franco--allemande
+* TO DO
+* end - Frontière franco--allemande
+
+DP 49:07:00 N 007:12:01 E
+DP 49:07:00 N 007:12:30 E
+DP 49:00:00 N 007:20:00 E
+DP 49:00:00 N 007:02:00 E
+DP 48:55:00 N 007:00:00 E
+DP 48:55:00 N 006:37:56 E
+DP 49:22:45 N 006:31:07 E
+DP 49:22:45 N 006:35:10 E
+
+* Frontière franco--allemande
+* TO DO
+* Frontière franco--allemande
+
+DP 49:13:22 N 006:41:20 E
+DP 49:07:00 N 006:41:00 E
