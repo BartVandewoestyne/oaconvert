@@ -1,0 +1,32 @@
+* Source:
+*
+*   https://www.sia.aviation-civile.gouv.fr/
+*
+*   Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*   AD 2 AERODROMES
+*    AD 2.LFJL METZ NANCY LORRAINE  
+*
+* Last check:
+*
+*   Wim Verhoeve (29 February 2012)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+*
+* Remarks:
+*
+*   H24, hors activité CTR METZ
+
+AC D
+AN Lorraine CTR 2
+AH 2000 ft AMSL
+AL SFC
+DP 48:58:28 N 006:10:48 E
+DP 48:52:18 N 006:03:16 E
+DP 48:54:15 N 006:00:07 E
+DP 48:58:28 N 006:10:48 E

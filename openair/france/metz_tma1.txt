@@ -1,0 +1,55 @@
+* Source:
+*
+*   https://www.sia.aviation-civile.gouv.fr/
+*
+*   Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*   ENR 2 ESPACE ATS
+*    ENR 2.3 REGIONS DE CONTROLE TERMINALES (TMA) 
+*
+* Last check:
+*
+*   Wim Verhoeve (29 February 2012)
+*
+* Map list:
+*
+*   MAP WEEK           NO
+*   MAP WEEKEND        NO
+*   MAP WEEKEND_LFAG1  NO
+*   MAP WEEKEND_LFAG2  NO
+*   MAP WEEKEND_LFAG5  NO
+*
+* Remarks:
+*
+*   For map-technical reasons, this zone has been seperated in 2 zones
+*   Metz 1a and 1b
+*
+*   Procédures CAM/CAG
+*   Gestionnaire annoncé sur RAI 125.9 MHz.
+*   Plancher :
+*   DP 2000 ft AMSL dans les limites de la CTR Metz Frescaty,
+*   DP 3300 ft AMSL selon protocole dans les limites latérales de l:arc 
+*      horaire de 1 NM de rayon centré sur 49 21 17 N  006 12 05 E (ARP 
+*      Thionville Yutz) limité au Nord par les TMA 1.1 Thionville Bas 
+*      et 1.2 Thionville Haut,
+*   DP FL 065 dans les limites des parties 1.1 Thionville Bas et 1.2 
+*      Thionville Haut.
+*   A l:exclusion de la TMA Luxembourg et de la
+*   LFDPR 45 N3 Luxembourg lorsqu'elles sont actives.
+
+AC D
+AN Metz TMA 1
+AH FL 115
+AL 3000 ft AMSL
+DP 49:30:24 N 006:12:44 E
+DP 49:10:30 N 006:26:20 E
+DP 48:55:32 N 006:30:06 E
+DP 48:43:30 N 006:18:26 E
+DP 49:00:00 N 005:50:00 E
+DP 49:27:20 N 005:50:00 E
+DP 49:29:09 N 005:58:09 E
+
+* Begin Frontière francoDPluxembourgeoise
+* TO DO
+* Begin Frontière francoDPluxembourgeoise
+
+DP 49:30:24 N 006:12:44 E
