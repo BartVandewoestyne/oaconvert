@@ -2,7 +2,7 @@
 *
 *   https://www.sia.aviation-civile.gouv.fr/
 *
-*   Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*   Manuel d'information AÃ©ronautique GEN-ENR-AD en vigueur
 *   ENR 2 ESPACE ATS
 *    ENR 2.3 REGIONS DE CONTROLE TERMINALES (TMA) 
 *
@@ -20,9 +20,9 @@
 *
 * Remarks:
 *
-*   A l’exclusion de l ’AWY G21, de la CTR Sarrebruck et de la CTR Zweibrucken
+*   A l'exclusion de l'AWY G21, de la CTR Sarrebruck et de la CTR Zweibrucken
 *   Les conditions de transit de la LF--R 163 B Grostenquin sont maintenues 
-*   dans l’intégralité de son volume.
+*   dans l'intÃ©gralitÃ© de son volume.
 
 AC E
 AN Sarre TMA
@@ -34,8 +34,8 @@ DP 48:56:06 N 007:14:48 E
 DP 49:02:02 N 006:59:35 E
 DP 49:09:05 N 006:50:05 E
 
-* Begin -- Frontière franco--allemande
+* Begin -- FrontiÃ¨re franco--allemande
 * TO DO / TO DO / TO DO / TO DO
-* End -- Frontière franco--allemande
+* End -- FrontiÃ¨re franco--allemande
 
 DP 49:10:00 N 007:29:36 E

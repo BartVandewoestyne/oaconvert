@@ -2,7 +2,7 @@
 *
 *   https://www.sia.aviation-civile.gouv.fr/
 *
-*   Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*   Manuel d'information AÃ©ronautique GEN-ENR-AD en vigueur
 *   ENR 2 ESPACE ATS
 *    ENR 2.3 REGIONS DE CONTROLE TERMINALES (TMA) 
 *
@@ -25,7 +25,7 @@
 *   For map-technical reasons, this zone is not used and replaced by 2 
 *   virtual zones Metz 5A and 5B. 
 *
-*   Procédures CAM/CAG Gestionnaire annoncé sur RAI 125.9 MHz.
+*   ProcÃ©dures CAM/CAG Gestionnaire annoncÃ© sur RAI 125.9 MHz.
 *   Plancher FL 065 dans les limites de la partie 5.1 Sarre.
 
 AC D

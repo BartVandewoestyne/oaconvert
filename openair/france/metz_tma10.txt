@@ -2,7 +2,7 @@
 *
 *   https://www.sia.aviation-civile.gouv.fr/
 *
-*   Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*   Manuel d'information AÃ©ronautique GEN-ENR-AD en vigueur
 *   ENR 2 ESPACE ATS
 *    ENR 2.3 REGIONS DE CONTROLE TERMINALES (TMA) 
 *
@@ -21,8 +21,8 @@
 * Remarks:
 *
 *   3300 ft AMSL selon protocole dans les limites
-*   latérales de l’arc horaire de 1 NM de rayon centré sur 
-*   49 21 17 N, 006 12 05 E (ARP Thionville Yutz) limité au Nord 
+*   latÃ©rales de lÂ’arc horaire de 1 NM de rayon centrÃ© sur 
+*   49 21 17 N, 006 12 05 E (ARP Thionville Yutz) limitÃ© au Nord 
 *   par les TMA 1.1 Thionville Bas et 1.2 Thionville Haut,
 
 AC D

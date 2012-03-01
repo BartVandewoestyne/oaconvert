@@ -2,7 +2,7 @@
 *
 *   https://www.sia.aviation-civile.gouv.fr/
 *
-*   Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*   Manuel d'information AÃ©ronautique GEN-ENR-AD en vigueur
 *   ENR 2 ESPACE ATS
 *    ENR 2.3 REGIONS DE CONTROLE TERMINALES (TMA) 
 *
@@ -33,8 +33,8 @@ DP 49:27:10 N 005:50:00 E
 DP 49:27:20 N 005:50:00 E
 DP 49:29:09 N 005:58:09 E
 
-* Begin Frontière francoDPluxembourgeoise
+* Begin FrontiÃ¨re francoDPluxembourgeoise
 * TO DO
-* Begin Frontière francoDPluxembourgeoise
+* Begin FrontiÃ¨re francoDPluxembourgeoise
 
 DP 49:30:24 N 006:12:44 E

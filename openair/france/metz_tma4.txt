@@ -2,7 +2,7 @@
 *
 *   https://www.sia.aviation-civile.gouv.fr/
 *
-*   Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*   Manuel d'information AÃ©ronautique GEN-ENR-AD en vigueur
 *   ENR 2 ESPACE ATS
 *    ENR 2.3 REGIONS DE CONTROLE TERMINALES (TMA) 
 *
@@ -20,8 +20,8 @@
 *
 * Remarks:
 *
-*   Procédures CAM/CAG
-*   Gestionnaire annoncé sur RAI 125.9 MHz.
+*   ProcÃ©dures CAM/CAG
+*   Gestionnaire annoncÃ© sur RAI 125.9 MHz.
 *   A l:exclusion de la LF R 97 Monce lorsqu:elle est active.
 
 AC D
@@ -30,9 +30,9 @@ AH FL 76
 AL 3800 ft AMSL
 DP 49:25:43 N 006:32:47 E
 
-* Begin - Frontière francoDPallemande
+* Begin - FrontiÃ¨re francoDPallemande
 * TO DO - TO DO - TO DO
-* end - Frontière francoDPallemande
+* end - FrontiÃ¨re francoDPallemande
 
 DP 49:09:51 N 006:44:25 E
 DP 49:08:00 N 006:45:20 E
