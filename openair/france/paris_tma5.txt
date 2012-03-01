@@ -1,0 +1,65 @@
+﻿* Source:
+*
+*   https://www.sia.aviation-civile.gouv.fr/
+*
+*   Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*   ENR 2 ESPACE ATS
+*    ENR 2.3 REGIONS DE CONTROLE TERMINALES (TMA)
+*
+* Last check:
+*
+*   Wim Verhoeve (1 March 2012)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+*
+* Remarks:
+*
+*   H24
+*   Espace de procédures DE GAULLE et ORLY
+*   A l’exclusion :
+*   - des zones LF-P 23
+*   - des zones LF-R 3100 D-E-F-G-K-L-M,
+*   LF-R 3101 A-B, LF-R 3102 C-E-V, LF-R
+*   3103 D-E-K-L-M-N-P, LF-R 3104 B-D-E-
+*   H-J-K-V, LF-R 3105 A-B-D-E-F, LF-R 3106 A-B
+*   lorsqu’elles sont actives.
+
+AC A
+AN Paris TMA 5
+AH FL 65
+AL 4500 ft AMSL
+DP 49:30:38 N 002:42:32 E
+DP 49:26:15 N 003:09:28 E
+DP 49:28:07 N 003:18:53 E
+DP 49:26:42 N 003:27:42 E
+DP 49:08:26 N 003:39:44 E
+DP 49:06:21 N 003:39:42 E
+DP 48:44:12 N 003:39:25 E
+DP 48:41:56 N 003:30:33 E
+DP 48:36:29 N 003:09:31 E
+DP 48:22:36 N 002:53:06 E
+DP 48:22:38 N 002:44:50 E
+DP 48:22:39 N 001:52:19 E
+DP 48:22:37 N 001:45:14 E
+DP 48:29:54 N 001:33:08 E
+DP 48:36:24 N 001:34:34 E
+DP 48:42:21 N 001:25:31 E
+DP 48:55:02 N 001:25:09 E
+DP 49:06:04 N 001:29:43 E
+DP 49:08:19 N 001:29:19 E
+DP 49:15:09 N 001:28:05 E
+DP 49:18:00 N 001:34:14 E
+DP 49:22:49 N 001:36:47 E
+DP 49:22:31 N 001:43:23 E
+DP 49:24:36 N 001:51:09 E
+DP 49:26:02 N 001:56:28 E
+DP 49:20:26 N 002:14:33 E
+DP 49:26:00 N 002:30:00 E
+DP 49:28:17 N 002:36:10 E
+DP 49:30:38 N 002:42:32 E

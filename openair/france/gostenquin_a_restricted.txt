@@ -1,0 +1,42 @@
+﻿* Source:
+*
+*   https://www.sia.aviation-civile.gouv.fr/
+*
+*   Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*   ENR 5 AVERTISSEMENTS A LA NAVIGATION AERIENNE
+*    ENR 5.1 Zones interdites, réglementées et dangereuses 
+*
+* Last check:
+*
+*   Wim Verhoeve (1 March 2012)
+*
+* Map list:
+*
+*   MAP WEEK           NOTAM
+*   MAP WEEKEND        NOTAM
+*   MAP WEEKEND_LFAG1  NOTAM
+*   MAP WEEKEND_LFAG2  NOTAM
+*   MAP WEEKEND_LFAG5  NOTAM
+*
+* Remarks:
+*
+*   Activable 
+*     LUN--JEU sauf JF: 0700--2200. 
+*     VEN sauf JF:0700--1600. HIV:+1HR.
+*   En dehors de ces HOR, activable par NOTAM.
+*   Activité réelle connue de POLYGONE Info ou RAI 130.675.
+*   Activités MIL spécifiques.
+*   Gestionnaire: POLYGONE Info 130.675 ou 03 87 01 78 39.
+*   IFR/VFR: autorisé après contact radio, suivre instructions.
+
+AC R
+AN R 163 A GROSTENQUIN-POLYGONE
+AH 4000 ft ASFC
+AL SFC
+DP 49:03:07 N 006:35:59 E
+V D=+
+V X=49:01:10 N 006:43:00 E
+DB 49:03:07 N 006:35:59 E, 48:57:52 N 006:37:16 E
+* Radius 5 NM
+DP 48:57:52 N 006:37:16 E
+DP 49:03:07 N 006:35:59 E

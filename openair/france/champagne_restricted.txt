@@ -1,0 +1,67 @@
+﻿* Source:
+*
+*   https://www.sia.aviation-civile.gouv.fr/
+*
+*   Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*   ENR 5 AVERTISSEMENTS A LA NAVIGATION AERIENNE
+*    ENR 5.1 Zones interdites, réglementées et dangereuses 
+*
+* Last check:
+*
+*   Wim Verhoeve (1 March 2012)
+*
+* Map list:
+*
+*   MAP WEEK           NOTAM
+*   MAP WEEKEND        NO
+*   MAP WEEKEND_LFAG1  NO
+*   MAP WEEKEND_LFAG2  NO
+*   MAP WEEKEND_LFAG5  NO
+*
+* Remarks:
+*
+*   Sauf JF.
+*   LUN : 0730-1000 et 1130-1500.
+*   MAR, JEU : 0730-1000 et 1130 - 2359
+*   MER : 0000-LS-30, 0730-1000 et CS+30-2359.
+*   VEN : 0000-LS-30 et 0730-1000.
+*   HIV : +1HR.
+*
+*   Entrainement très grande vitesse, très basse altitude.
+*   Le pilote n’assure pas la prévention des collisions
+*
+*   Contournement obligatoire pendant les créneaux d’activation.
+*   A l’exclusion de la LF-R 175 A et de la LF-R 3 Vouziers Séchault 
+*   lorsqu’elle est active.
+*   Gestionnaire : CDPGE Athis-Mons.
+*   Connaissance des créneaux d’activation par :
+*   - Internet www.sia.aviation-civile.gouv.fr
+*     (rubrique Préparation de vol/Cartes AZBA)
+*   - Tél vert 0880 24 54 66
+*   - CIV PARIS
+*   - SIV SEINE
+*   - SIV BALE
+*   - SIV STRASBOURG
+*   - AD Saint-Dizier, Nancy-Ochey, Epinal, Troyes et Châlons-Vatry.
+*   Altitude maximale du plafond 4400 ft AMSL.
+
+AC R
+AN LF R 69 CHAMPAGNE
+AH 2700 ft ASFC
+AL  800 ft ASFC
+DP 49:22:40 N 004:40:00 E
+DP 49:19:00 N 004:46:30 E
+DP 48:58:01 N 005:00:03 E
+V D=+
+V X=48:55:40 N 004:50:00 E
+DB 48:58:01 N 005:00:03 E, 48:48:42 N 004:51:00 E 
+* Radius 7 NM
+DP 48:48:42 N 004:51:00 E
+DP 48:38:45 N 004:57:30 E
+DP 48:21:00 N 005:05:00 E
+DP 48:11:36 N 005:39:04 E
+DP 48:05:22 N 005:42:05 E
+DP 48:17:30 N 004:58:45 E
+DP 48:37:10 N 004:50:00 E
+DP 49:14:40 N 004:26:00 E
+DP 49:22:40 N 004:40:00 E

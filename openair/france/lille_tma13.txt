@@ -1,0 +1,38 @@
+﻿* Source:
+*
+*   https://www.sia.aviation-civile.gouv.fr/
+*
+*   Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*   ENR 2 ESPACE ATS
+*    ENR 2.3 REGIONS DE CONTROLE TERMINALES (TMA)
+*
+* Last check:
+*
+*   Wim Verhoeve (1 March 2012)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+*
+* Remarks:
+*
+*   Cette partie n’existe que lorsque la TMA CAMBRAI est désactivée.
+*   Activable H 24.
+*   Activité connue de RAI CAMBRAI 118.525 Mhz et LILLE APP/INFO.
+
+AC D
+AN Lille TMA 13
+AH FL 115
+AL 5000 ft AMSL
+DP 50:18:30 N 003:30:54 E
+DP 50:18:30 N 003:42:17 E
+DP 50:18:30 N 003:57:00 E
+DP 50:03:20 N 004:03:31 E
+DP 50:03:20 N 003:21:00 E
+DP 50:11:46 N 003:17:53 E
+DP 50:16:38 N 003:27:05 E
+DP 50:18:30 N 003:30:54 E

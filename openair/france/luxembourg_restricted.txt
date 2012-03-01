@@ -1,0 +1,61 @@
+﻿* Source:
+*
+*   https://www.sia.aviation-civile.gouv.fr/
+*
+*   Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*   ENR 5 AVERTISSEMENTS A LA NAVIGATION AERIENNE
+*    ENR 5.1 Zones interdites, réglementées et dangereuses 
+*
+* Last check:
+*
+*   Wim Verhoeve (1 March 2012)
+*
+* Map list:
+*
+*   MAP WEEK           NOTAM
+*   MAP WEEKEND        NO
+*   MAP WEEKEND_LFAG1  NO
+*   MAP WEEKEND_LFAG2  NO
+*   MAP WEEKEND_LFAG5  NO
+*
+* Remarks:
+*
+*   Sauf JF.
+*   LUN : 0730-1000 et 1130-1500.
+*   MAR, JEU : 0730-1000 et 1130 - 2359
+*   MER : 0000-LS-30, 0730-1000 et CS+30-2359.
+*   VEN : 0000-LS-30 et 0730-1000.
+*   HIV : +1HR.
+*
+*   Entrainement très grande vitesse, très basse altitude.
+*   Le pilote n’assure pas la prévention des collisions
+*
+*   Contournement obligatoire pendant les créneaux d’activation.
+*   Gestionnaire : CDPGE Athis-Mons.
+*   Connaissance des créneaux d’activation par :
+*   - Internet www.sia.aviation--civile.gouv.fr
+*     (rubrique Préparation de vol/Cartes AZBA)
+*   - Tél vert 0880 24 54 66
+*   - CIV PARIS
+*   - SIV STRASBOURG
+*   - AD Saint--Dizier, Etain et Charleville.
+*   Altitude maximale du plafond 3200 ft AMSL.
+
+AC R
+AN LF R 45 N3 LUXEMBOURG
+AH 2700 ft ASFC
+AL  800 ft ASFC
+DP 49:31:03 N 005:14:27 E
+DP 49:27:10 N 005:32:00 E
+DP 49:27:16 N 006:06:00 E
+DP 49:30:00 N 006:13:00 E
+DP 49:27:18 N 006:22:00 E
+DP 49:27:20 N 006:29:00 E
+DP 49:22:45 N 006:35:00 E
+DP 49:22:45 N 006:31:07 E
+DP 49:22:21 N 006:23:29 E
+DP 49:25:00 N 006:13:00 E
+DP 49:22:16 N 006:06:00 E
+DP 49:22:10 N 005:12:00 E
+DP 49:22:54 N 005:09:29 E
+DP 49:31:03 N 005:14:27 E

@@ -1,0 +1,65 @@
+﻿* Source:
+*
+*   https://www.sia.aviation-civile.gouv.fr/
+*
+*   Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*   ENR 5 AVERTISSEMENTS A LA NAVIGATION AERIENNE
+*    ENR 5.1 Zones interdites, réglementées et dangereuses 
+*
+* Last check:
+*
+*   Wim Verhoeve (1 March 2012)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+*
+* Remarks:
+*
+*   Nuclear powerplant of Chooz (also referred to as ZIT 23)
+*
+*   Pénétration interdite H24 à l’exception des ACFT :
+*   - de la défense, de la gendarmerie, des services de police, des douanes,
+*   de la santé, intervenant au profit d’EDF, de la sécurité civile et de 
+*   surveillance ayant à intervenir dans le cadre de leur mission et ne 
+*   pouvant contourner cette zone, après obtention des éléments de pénétration
+*   - ayant obtenu une autorisation avec un préavis minimum de 48HR, ainsi
+*   que les éléments de pénétration de la zone.
+*   Organisme à contacter :
+*   Obtention d’une autorisation : Commandement de la Défense Aérienne
+*   et des Opérations Aériennes, : 01 45 52 30 25 ou 01 45 52 30 29
+*   FAX : 01 45 52 49 95.
+*   Obtention des éléments de pénétration (transpondeur, fréquence radio...):
+*   Centre National des Opérations Aériennes : 0800 39 73 75 
+*   ou +33 4 78 14 31 33.
+
+AC P
+AN P38 Chooz
+AH FL 55
+AL SFC
+DP 50:06:07 N 004:43:10 E
+
+* begin Frontière francoDPbelge
+* TO DO
+* end Frontière francoDPbelge
+
+DP 50:07:20 N 004:44:53 E
+V D=+
+V X=50:05:00 N 004:47:00 E
+DB 50:07:20 N 004:44:53 E, 50:05:55 N 004:50:58 E
+* Radius 5 km
+DP 50:05:55 N 004:50:58 E
+
+* begin Frontière francoDPbelge DP
+* TO DO
+* end Frontière francoDPbelge 
+DP 50:02:57 N 004:49:44 E
+V D=+
+V X=50:05:00 N 004:47:00 E
+DB 50:02:57 N 004:49:44 E, 50:06:07 N 004:43:10 E
+* Radius 5 km
+DP 50:06:07 N 004:43:10 E
