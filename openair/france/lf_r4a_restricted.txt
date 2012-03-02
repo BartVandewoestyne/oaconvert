@@ -12,7 +12,7 @@
 *
 * Map list:
 *
-*   MAP WEEK           NOTAM
+*   MAP WEEK           SEE NOTAM
 *   MAP WEEKEND        NO
 *   MAP WEEKEND_LFAG1  NO
 *   MAP WEEKEND_LFAG2  NO
@@ -35,7 +35,7 @@
 AC R
 AN LF R 4 A
 AH 800 ft ASFC
-AL SCF
+AL SFC
 DP 49:07:20 N 004:40:06 E
 DP 48:54:00 N 004:48:00 E
 DP 48:52:31 N 004:40:10 E
