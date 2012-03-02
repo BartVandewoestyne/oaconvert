@@ -44,7 +44,7 @@ AL SFC
 DP 50:06:07 N 004:43:10 E
 
 * begin Frontière francoDPbelge
-* TO DO
+* TODO
 * end Frontière francoDPbelge
 
 DP 50:07:20 N 004:44:53 E
@@ -55,7 +55,7 @@ DB 50:07:20 N 004:44:53 E, 50:05:55 N 004:50:58 E
 DP 50:05:55 N 004:50:58 E
 
 * begin Frontière francoDPbelge DP
-* TO DO
+* TODO
 * end Frontière francoDPbelge 
 DP 50:02:57 N 004:49:44 E
 V D=+

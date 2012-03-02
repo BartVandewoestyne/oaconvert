@@ -49,7 +49,7 @@ DP 49:27:20 N 005:50:00 E
 DP 49:29:09 N 005:58:09 E
 
 * Begin Frontière francoDPluxembourgeoise
-* TO DO
+* TODO
 * Begin Frontière francoDPluxembourgeoise
 
 DP 49:30:24 N 006:12:44 E

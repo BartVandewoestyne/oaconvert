@@ -30,7 +30,7 @@ DP 50:26:33 N 003:34:25 E
 DP 50:22:24 N 003:39:29 E
 
 * Begin Frontière franco--belge
-* TO DO
+* TODO
 * Begin Frontière franco--belge
 
 DP 50:18:30 N 003:42:17 E

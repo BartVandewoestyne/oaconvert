@@ -35,7 +35,7 @@ DP 49:02:02 N 006:59:35 E
 DP 49:09:05 N 006:50:05 E
 
 * Begin -- Frontière franco--allemande
-* TO DO / TO DO / TO DO / TO DO
+* TODO
 * End -- Frontière franco--allemande
 
 DP 49:10:00 N 007:29:36 E

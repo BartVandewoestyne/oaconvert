@@ -31,7 +31,7 @@ AL 3800 ft AMSL
 DP 49:25:43 N 006:32:47 E
 
 * Begin - Frontière francoDPallemande
-* TO DO - TO DO - TO DO
+* TODO
 * end - Frontière francoDPallemande
 
 DP 49:09:51 N 006:44:25 E
