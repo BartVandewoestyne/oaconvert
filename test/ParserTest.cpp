@@ -136,11 +136,17 @@ ParserTest::testParseAltitude()
   alt = p.parseAltitude("1000FT AGL");
   CPPUNIT_ASSERT_DOUBLES_EQUAL(1000*feet_in_meter, alt, tol);
 
+  alt = p.parseAltitude("800 ft ASFC");
+  CPPUNIT_ASSERT_DOUBLES_EQUAL(800*feet_in_meter, alt, tol);
+
+  alt = p.parseAltitude("SFC");
+  CPPUNIT_ASSERT_DOUBLES_EQUAL(0, alt, tol);
+
   alt = p.parseAltitude("Ask on 122.8");
   CPPUNIT_ASSERT_DOUBLES_EQUAL(-1.0, alt, tol);
 
   alt = p.parseAltitude("UNL");
-  CPPUNIT_ASSERT_DOUBLES_EQUAL(-1.0, alt, tol);
+  CPPUNIT_ASSERT_DOUBLES_EQUAL(p.parseAltitude("FL 95"), alt, tol);
 
   /* These should not pass. */
   alt = p.parseAltitude("55 FL");

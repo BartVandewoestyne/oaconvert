@@ -217,7 +217,7 @@ double Parser::parseAltitude(const std::string& s) const
     //   7000 ft MSL
     //   7000 ft AMSL
     //   7000' AMSL
-    if ( regex_match(s, matches, regexMap.find(REGEX_AMSL)->second) )
+    if ( regex_match(s, matches, regexMap.find(REGEX_MSL)->second) )
     {
         string valuestring( matches[1].first, matches[1].second );
         return atof(valuestring.c_str())*feet_in_meter;
@@ -513,8 +513,9 @@ void Parser::initRegexMap()
     regexMap[REGEX_FT]             = regex("\\s*(\\d+)\\s*('|ft)?.*",          boost::regex_constants::icase);
     regexMap[REGEX_FL]             = regex("\\s*FL\\s*(\\d+).*",               boost::regex_constants::icase);
     regexMap[REGEX_AGL]            = regex("\\s*(\\d+)\\s*('|ft)?\\s*AGL.*",   boost::regex_constants::icase);
-    regexMap[REGEX_AMSL]           = regex("\\s*(\\d+)\\s*('|ft)?\\s*A?MSL.*", boost::regex_constants::icase);
-    regexMap[REGEX_SFC]            = regex("\\s*(\\d*)\\s*SFC.*",              boost::regex_constants::icase);
+    regexMap[REGEX_MSL]            = regex("\\s*(\\d+)\\s*('|ft)?\\s*A?MSL.*", boost::regex_constants::icase);
+    // TODO: REGEX_SFC incorrectly matches 'ft ASFC'.  If there is 'ft', then there should be a number in front of it!  But simply 'SFC' should also be allowed...
+    regexMap[REGEX_SFC]            = regex("\\s*(\\d*)\\s*('|ft)?\\s*A?SFC.*", boost::regex_constants::icase);
     regexMap[REGEX_GND]            = regex("\\s*GND.*",                        boost::regex_constants::icase);
     regexMap[REGEX_AIRSPACE_FLOOR] = regex("\\s*Airspace\\s*Floor.*",          boost::regex_constants::icase);
     regexMap[REGEX_UNLIMITED]      = regex("\\s*UNL.*",                        boost::regex_constants::icase);
