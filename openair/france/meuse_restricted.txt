@@ -1,0 +1,54 @@
+﻿* Source:
+*
+*   https://www.sia.aviation-civile.gouv.fr/
+*
+*   Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*   ENR 5 AVERTISSEMENTS A LA NAVIGATION AERIENNE
+*    ENR 5.1 Zones interdites, réglementées et dangereuses 
+*
+* Last check:
+*
+*   Wim Verhoeve (1 March 2012)
+*
+* Map list:
+*
+*   MAP WEEK           NOTAM
+*   MAP WEEKEND        NO
+*   MAP WEEKEND_LFAG1  NO
+*   MAP WEEKEND_LFAG2  NO
+*   MAP WEEKEND_LFAG5  NO
+*
+* Remarks:
+*
+*   Sauf JF.
+*   LUN : 0730-1000 et 1130-1500.
+*   MAR, JEU : 0730-1000 et 1130 - 2359
+*   MER : 0000-LS-30, 0730-1000 et CS+30-2359.
+*   VEN : 0000-LS-30 et 0730-1000.
+*   HIV : +1HR.
+*
+*   Entrainement très grande vitesse, très basse altitude.
+*   Le pilote n’assure pas la prévention des collisions
+*
+*   Contournement obligatoire pendant les créneaux d’activation.
+*   Gestionnaire : CDPGE Athis-Mons.
+*   Connaissance des créneaux d’activation par :
+*   - Internet www.sia.aviation--civile.gouv.fr
+*     (rubrique Préparation de vol/Cartes AZBA)
+*   - Tél vert 0880 24 54 66
+*   - CIV PARIS
+*   - SIV BALE
+*   - SIV STRASBOURG
+*   - AD Saint-Dizier, Nancy-Ochey et Epinal.
+*   Altitude maximale du plafond 4500 ft AMSL.
+
+AC R
+AN LF R 45 N5 MEUSE
+AH 2700 ft ASFC
+AL  800 ft ASFC
+DP 49:24:30 N 005:04:00 E
+DP 48:10:51 N 005:47:22 E
+DP 48:11:36 N 005:39:04 E
+DP 49:12:10 N 005:02:30 E
+DP 49:19:00 N 004:46:30 E
+DP 49:24:30 N 005:04:00 E

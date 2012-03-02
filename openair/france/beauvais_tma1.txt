@@ -1,0 +1,47 @@
+﻿* Source:
+*
+*   https://www.sia.aviation-civile.gouv.fr/
+*
+*   Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*   ENR 2 ESPACE ATS
+*    ENR 2.3 REGIONS DE CONTROLE TERMINALES (TMA)
+*
+* Last check:
+*
+*   Wim Verhoeve (1 March 2012)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+*
+* Remarks:
+*
+*   ETE : 0515--2100, HIV : + 1 HR
+*   Extension pour tout vol commercial programmé.
+*   Activation connue sur BEAUVAIS APP ou sur ATIS 118.375 MHz et 
+*   tél +33 3 44 11 49 28.
+
+AC D
+AN Beauvais TMA 1
+AH 2500 ft AMSL
+AL 1500 ft AMSL
+DP 49:43:00 N 001:46:43 E
+DP 49:40:00 N 002:01:00 E
+DP 49:28:17 N 002:36:10 E
+DP 49:26:00 N 002:30:00 E
+DP 49:20:26 N 002:14:33 E
+DP 49:18:45 N 002:09:57 E
+DP 49:16:06 N 002:10:21 E
+DP 49:19:12 N 002:03:21 E
+DP 49:23:22 N 001:53:57 E
+DP 49:24:36 N 001:51:09 E
+DP 49:27:14 N 001:45:11 E
+DP 49:29:15 N 001:46:00 E
+DP 49:30:10 N 001:38:29 E
+DP 49:32:13 N 001:39:57 E
+DP 49:37:51 N 001:43:26 E
+DP 49:43:00 N 001:46:43 E

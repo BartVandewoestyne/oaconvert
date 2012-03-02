@@ -1,0 +1,37 @@
+﻿* Source:
+*
+*   https://www.sia.aviation-civile.gouv.fr/
+*
+*   Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*   ENR 2 ESPACE ATS
+*    ENR 2.3 REGIONS DE CONTROLE TERMINALES (TMA)
+*
+* Last check:
+*
+*   Wim Verhoeve (1 March 2012)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+*
+* Remarks:
+*
+*   H24
+*   Déclassable en G pour certaines activités aériennes, selon protocole.
+*   Information des usagers sur LILLE Approche.
+
+AC D
+AN Lille TMA 1.1
+AH FL 65
+AL 1500 ft AMSL
+DP 50:41:38 N 002:53:33 E
+DP 50:40:12 N 003:04:12 E
+DP 50:40:42 N 003:13:30 E
+DP 50:39:29 N 003:06:43 E
+DP 50:39:02 N 003:03:32 E
+DP 50:38:51 N 003:00:24 E
+DP 50:41:38 N 002:53:33 E

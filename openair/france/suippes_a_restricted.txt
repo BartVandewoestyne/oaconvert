@@ -1,0 +1,47 @@
+﻿* Source:
+*
+*   https://www.sia.aviation-civile.gouv.fr/
+*
+*   Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*   ENR 5 AVERTISSEMENTS A LA NAVIGATION AERIENNE
+*    ENR 5.1 Zones interdites, réglementées et dangereuses 
+*
+* Last check:
+*
+*   Wim Verhoeve (1 March 2012)
+*
+* Map list:
+*
+*   MAP WEEK           NOTAM
+*   MAP WEEKEND        NOTAM
+*   MAP WEEKEND_LFAG1  NOTAM
+*   MAP WEEKEND_LFAG2  NOTAM
+*   MAP WEEKEND_LFAG5  NOTAM
+*
+* Remarks:
+*
+*   H24.
+*
+*   Tirs sol/sol, sol/air, air/sol. PJE.
+*   Vols ACFT télépilotés non habités.
+*   Lâchers de ballons sondes.
+*   IFR/VFR : contournement obligatoire pendant l’activité.
+*   A l’exclusion de l’AWY R10.
+*   RAI 118.625 Mhz.
+*   Activité connue de PARIS ACC 131.175 Mhz.
+
+AC R
+AN LF R 175 A SUIPPES
+AH FL 195
+AL SFC
+DP 49:16:41 N 004:43:49 E
+V D=-
+V X=49:16:30 N 004:45:20 E
+DB 49:16:41 N 004:43:49 E, 49:15:31 N 004:45:00 E
+* Radius 1 NM
+DP 49:15:31 N 004:45:00 E
+DP 49:09:18 N 004:45:00 E
+DP 49:02:06 N 004:27:08 E
+DP 49:06:30 N 004:21:30 E
+DP 49:11:30 N 004:25:00 E
+DP 49:16:41 N 004:43:49 E
