@@ -1,0 +1,54 @@
+Why store OpenAir files in UTF-8?
+---------------------------------
+If you cat-append a file of no matter which of these character encodings
+
+  ISO-8859 C++ program text
+  ISO-8859 text
+
+to an UTF-8 file, you get something which is encoded like
+
+  Non-ISO extended-ASCII C++ program text
+  Non-ISO extended-ASCII text
+
+And this gives the weird characters.
+
+=> SOLUTION: ensure everything is encoded in UTF-8.  On Linux, you can do this
+             with the iconv or recode tools.  In vim, you can use the
+
+		:set fileencoding=utf-8
+
+             command.  In Notepad++, you have to make sure that you set the
+             character encoding to 'UTF-8 without BOM'.
+
+
+UTF-8 and Byte Order Mark (BOM)
+-------------------------------
+We follow the recommended practise of NOT using a Byte Order Mark (BOM) for our
+UTF-8 encoded OpenAir files, see
+
+  http://en.wikipedia.org/wiki/Byte_order_mark#cite_note-2
+
+To find files that *do* have a BOM, you can use this one-liner on Linux:
+
+  find . -type f -print0 | xargs -0r awk '/^\xEF\xBB\xBF/ {print FILENAME}
+{nextfile}'
+
+On individual files, you can also use hexdump to check if there's a BOM:
+
+  hexdump -C belgium/casteau_restricted.txt | head -1
+00000000  ef bb bf 2a 20 53 65 65  3a 0a 2a 20 20 20 41 49  |...* See:.*   AI|
+
+Notice the first three bytes 'ef bb bf' which are the BOM.
+
+In vim, you will most likely see the BOM as 'weird characters' in the
+beginning of the file.
+
+To remove the BOM on one file, you can use sed:
+
+  sed -i -e '1s/^\xEF\xBB\xBF//' FILE
+
+See also
+
+  http://muzso.hu/2011/11/08/using-awk-sed-to-detect-remove-the-byte-order-mark-bom
+
+for more info on detecting and removing the BOM.
