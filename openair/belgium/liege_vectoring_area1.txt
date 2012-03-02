@@ -1,4 +1,4 @@
-﻿* Source:
+* Source:
 *
 *   AIP Part 2 EN-ROUTE (ENR)
 *   ENR 2 AIR TRAFFIC SERVICES AIRSPACE
