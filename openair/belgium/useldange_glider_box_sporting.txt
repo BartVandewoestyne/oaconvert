@@ -40,7 +40,7 @@
 AC G
 AN Useldange Glider Box
 AH FL 60
-AL FL60  * CHANGED: glider flying! AL 2500 ft AMSL
+AL FL 60  * CHANGED: glider flying! AL 2500 ft AMSL
 DP 49:54:40 N 005:45:06 E
 DP 49:54:43 N 005:58:06 E
 DP 49:47:47 N 006:02:03 E

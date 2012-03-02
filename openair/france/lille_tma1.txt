@@ -21,7 +21,7 @@
 * Remarks:
 *
 *   H24
-*   Plancher FL065 au-dessus de la TMA LILLE partie 1.1.
+*   Plancher FL 65 au-dessus de la TMA LILLE partie 1.1.
 
 AC D
 AN Lille TMA 1

@@ -21,7 +21,7 @@
 *     Area Golf Two North.
 *
 * Remark for paragliders:
-*   - Above FL55 & coverd by 'LFA G2 N' => not important for paragliding
+*   - Above FL 55 & coverd by 'LFA G2 N' => not important for paragliding
 
 AC C
 AN Brussels TMA 7
