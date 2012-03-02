@@ -235,6 +235,7 @@ double Parser::parseAltitude(const std::string& s) const
     // Examples:
     //   820
     //   7000 ft
+    // Note: we consider these as AMSL altitudes!!!
     if ( regex_match(s, matches, regexMap.find(REGEX_FT)->second) )
     {
         string valuestring( matches[1].first, matches[1].second );
