@@ -24,6 +24,10 @@ LicenseForceSelection checkbox
 ShowInstDetails show
 ShowUnInstDetails show
 
+; With 'user', the files are not copied... probably user has no access to this directory.
+;RequestExecutionLevel user
+RequestExecutionLevel admin
+
 Page license
 Page custom paypal
 Page components
@@ -45,6 +49,7 @@ Function paypal
 FunctionEnd
 
 Function .onInit
+#TODO: call UserInfo plugin to make sure user is admin
 FunctionEnd
 
 Section "License file" SEC01
@@ -90,11 +95,14 @@ Section "Polish Format files" SEC06
 SectionEnd
 
 Section -AdditionalIcons
+  SetShellVarContext all
   CreateDirectory "$SMPROGRAMS\Airspace Maps"
   CreateShortCut "$SMPROGRAMS\Airspace Maps\Uninstall.lnk" "$INSTDIR\uninst.exe"
 SectionEnd
 
 Section -Post
+
+  SetShellVarContext all
   WriteUninstaller "$INSTDIR\uninst.exe"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayName" "$(^Name)"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "UninstallString" "$INSTDIR\uninst.exe"
@@ -118,6 +126,9 @@ Function un.onInit
 FunctionEnd
 
 Section Uninstall
+
+  SetShellVarContext all
+
   Delete "$INSTDIR\uninst.exe"
   
   Delete "$INSTDIR\polish_format\*.*"
@@ -141,5 +152,5 @@ Section Uninstall
   
   !include build\nsis\delete_registry_keys.nsi
   
-  SetAutoClose true
+  ;SetAutoClose true
 SectionEnd
