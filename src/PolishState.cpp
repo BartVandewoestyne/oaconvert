@@ -70,12 +70,15 @@ void PolishState::writeHeader(std::ostream &out) const
 
     // Instead of single byte coding, use full-byte (8-bit) character coding
     // with the specified codepage (depending on the GPS firmware) (optional).
-    // I have found the following values:
-    //   cgpsmapper manual: default 0
-    //   oa2gm:             1250 (probably because the author needed it (see for example
-    //                            http://en.wikipedia.org/wiki/Windows-1250)
-    //   gscripts:          none specified, so default 0
-    out << "Codepage=0" << endl;
+    // 
+    // According to page chapter 6 'National characters - indexing' in the
+    // cGPSmapper usermanual, the only codepage fully supported by all (or most
+    // of) receivers is 1252 (Western European).  Also, only with this codepage
+    // it is possible to use lowercase characters.  No other codepage is
+    // capable to show lowercase characters.  When using any other codepage
+    // than 1252, all labels in the input MP file must be uppercase, or they
+    // will not be correctly presented in the receiver.
+    out << "Codepage=1252" << endl;
 
     // When a transparent map is displayed on a GPS unit, features
     // in the unit's basemap will also be visible.  If your map is not
