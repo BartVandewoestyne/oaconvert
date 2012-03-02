@@ -1,23 +1,22 @@
+# CMake stuff.
 CMakeCache.txt
 CMakeFiles
 cmake_install.cmake
 Makefile
+
+# Compiled stuff in the src and test directory.
 src/*.so
-src/oaconvert
-test/MainTest
-tags
-*.mp
-!third_party_data/cloudmade/*.mp
-!cgpsmapper/mypreview.mp
-*.exe
-.*.swp
-.*.swo
-cgpsmapper/*.TDB
-cgpsmapper/*.reg
-cgpsmapper/*.img
-Setup.exe
-build/*
 src/cygairspace.dll
 src/libairspace.dll.a
+src/oaconvert
 src/oaconvert.exe
+test/MainTest
+
+# Everything from the build directory can be ignored.
+build/*
+
+# GPL text on Barts computer, used for inclusion in all source files.
 gpltext.txt
+
+# ctags
+tags
