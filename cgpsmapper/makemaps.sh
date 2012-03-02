@@ -95,6 +95,7 @@ do
   if [[ $unamestr =~ .*Cygwin.* ]]; then
     mv $MAP_FILENAME.MDX ../build/garmin/$MAP_FILENAME.mdx
   fi
+  rm -f $MAP_FILENAME.mp
 
   # Add necessary stuff to the NSIS installer script.
   printf "!insertmacro writeRegistryEntries \"$MAP_FILENAME\" %x00\n" $FID >> ../build/nsis/create_registry_keys.nsi
