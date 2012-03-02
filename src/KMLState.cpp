@@ -114,10 +114,10 @@ void KMLState::write(std::ostream& stream, const Airspace& airspace) const
           stream << "  <MultiGeometry>" << endl;
 
           stream << "    <Polygon>" << endl;
-          if ( airspace.hasAGLCeiling() || airspace.hasSFCCeiling() ) {
-            stream << "      <altitudeMode>relativeToGround</altitudeMode>" << endl;
-          } else {
+          if ( airspace.hasAbsoluteCeiling() ) {
             stream << "      <altitudeMode>absolute</altitudeMode>" << endl;
+          } else {
+            stream << "      <altitudeMode>relativeToGround</altitudeMode>" << endl;
           }
           stream << "      <outerBoundaryIs>" << endl;
           stream << "        <LinearRing>" << endl;
@@ -132,10 +132,10 @@ void KMLState::write(std::ostream& stream, const Airspace& airspace) const
 
           /* polygon representing floor */
           stream << "    <Polygon>" << endl;
-          if ( airspace.hasAGLFloor() || airspace.hasSFCFloor() || airspace.hasGNDFloor() ) {
-            stream << "      <altitudeMode>relativeToGround</altitudeMode>" << endl;
-          } else {
+          if ( airspace.hasAbsoluteCeiling() ) {
             stream << "      <altitudeMode>absolute</altitudeMode>" << endl;
+          } else {
+            stream << "      <altitudeMode>relativeToGround</altitudeMode>" << endl;
           }
           stream << "      <outerBoundaryIs>" << endl;
           stream << "        <LinearRing>" << endl;
@@ -153,15 +153,11 @@ void KMLState::write(std::ostream& stream, const Airspace& airspace) const
           for (size_t i = 0; i < coords.size(); ++i)
           {
               stream << "    <Polygon>" << endl;
-              // It is maybe best to always use absolute for the sides, because then the only
-              // thing that can happen is a small 'incorrectness' just below the
-              // floor and ceiling polygon???  TO BE INVESTIGATED!
-              stream << "      <altitudeMode>absolute</altitudeMode>" << endl;
-              //if ( airspace.hasAGLFloor() || airspace.hasSFCFloor() ) {
-              //  stream << "      <altitudeMode>relativeToGround</altitudeMode>" << endl;
-              //} else {
-              //  stream << "      <altitudeMode>absolute</altitudeMode>" << endl;
-              //}
+              if (airspace.hasAbsoluteCeiling() || airspace.hasAbsoluteFloor()) {
+                stream << "      <altitudeMode>absolute</altitudeMode>" << endl;
+              } else {
+                stream << "      <altitudeMode>relativeToGround</altitudeMode>" << endl;
+              }
               stream << "      <outerBoundaryIs>" << endl;
               stream << "        <LinearRing>" << endl;
               stream << "          <coordinates>" << endl;
