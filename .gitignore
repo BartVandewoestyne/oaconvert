@@ -7,8 +7,9 @@ src/oaconvert
 test/MainTest
 tags
 *.mp
-*.exe
+!third_party_data/cloudmade/*.mp
 !cgpsmapper/mypreview.mp
+*.exe
 .*.swp
 .*.swo
 cgpsmapper/*.TDB
