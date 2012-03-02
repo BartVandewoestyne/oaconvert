@@ -1,0 +1,37 @@
+﻿* Source:
+*
+*   https://www.sia.aviation-civile.gouv.fr/
+*
+*   Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*   ENR 5 AVERTISSEMENTS A LA NAVIGATION AERIENNE
+*    ENR 5.1 Zones interdites, réglementées et dangereuses 
+*
+* Last check:
+*
+*   Wim Verhoeve (1 March 2012)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        NOTAM
+*   MAP WEEKEND_LFAG1  NOTAM
+*   MAP WEEKEND_LFAG2  NOTAM
+*   MAP WEEKEND_LFAG5  NOTAM
+*
+* Remarks:
+*
+*   LUN--VEN sauf JF: activable H24.
+*   SAM: Activable par NOTAM.
+*
+*   CAG IFR et VFR, CAM: contournement obligatoire pendant l’activité réelle.
+*   Activité réelle connue de:
+*   - ETAIN APP: 120.125 Mhz et RAI
+*   - Bureau de garnison de Verdun: +33 3 29 73 54 61.
+
+AC R
+AN R229A Wavrille 
+AH FL 55
+AL SFC
+V X=49:14:00 N 005:25:00 E
+DC 0.94492440605
+* 1.75 kilometer = 0.94492440605 mile [nautical, international]

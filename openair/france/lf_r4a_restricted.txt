@@ -1,0 +1,43 @@
+﻿* Source:
+*
+*   https://www.sia.aviation-civile.gouv.fr/
+*
+*   Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*   ENR 5 AVERTISSEMENTS A LA NAVIGATION AERIENNE
+*    ENR 5.1 Zones interdites, réglementées et dangereuses 
+*
+* Last check:
+*
+*   Wim Verhoeve (1 March 2012)
+*
+* Map list:
+*
+*   MAP WEEK           NOTAM
+*   MAP WEEKEND        NO
+*   MAP WEEKEND_LFAG1  NO
+*   MAP WEEKEND_LFAG2  NO
+*   MAP WEEKEND_LFAG5  NO
+*
+* Remarks:
+*
+*   LUN, MAR, JEU sauf JF: ETE: 0600--2200
+*   MER sauf JF: ETE: 0600--1600
+*   VEN sauf JF: ETE: 0600--1400
+*   HIV: +1HR.
+*
+*   Procédures de tir air/sol.
+*
+*   IFR/VFR: contournement obligatoirependant l'activité.
+*   Gestionnaire: officier de tir AIR SUIPPES
+*   Tel: 03 26 67 81 66 ou 03 26 67 82 26
+*   Activité connue de PARIS ACC 120.95, RAI 118.625, PARIS ACC 136.75
+
+AC R
+AN LF R 4 A
+AH 800 ft ASFC
+AL SCF
+DP 49:07:20 N 004:40:06 E
+DP 48:54:00 N 004:48:00 E
+DP 48:52:31 N 004:40:10 E
+DP 49:04:19 N 004:32:38 E
+DP 49:07:20 N 004:40:06 E

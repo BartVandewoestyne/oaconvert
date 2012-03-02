@@ -1,0 +1,40 @@
+﻿* Source:
+*
+*   https://www.sia.aviation-civile.gouv.fr/
+*
+*   Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*   ENR 5 AVERTISSEMENTS A LA NAVIGATION AERIENNE
+*    ENR 5.1 Zones interdites, réglementées et dangereuses 
+*
+* Last check:
+*
+*   Wim Verhoeve (1 March 2012)
+*
+* Map list:
+*
+*   MAP WEEK           NOTAM
+*   MAP WEEKEND        NO
+*   MAP WEEKEND_LFAG1  NO
+*   MAP WEEKEND_LFAG2  NO
+*   MAP WEEKEND_LFAG5  NO
+*
+* Remarks:
+*
+*   Activable: LUN 0600 VEN 1500 sauf JF
+*   HIV:+1HR.
+*   Activité connue par RAI 120.125.
+*   Procédures AD MIL. Entraînement VSV. Activités MIL spécifiques.
+*
+*   IFR: sur autorisation ETAIN APP 120.125.
+*   VFR: autorisé après contact radio, suivre instructions de ETAIN APP.
+*   A l’exclusion de la LF-R 208 Regret lorsqu’elle est active.
+
+AC R
+AN LF R 93 B2 ETAIN-ROUVRES
+AH FL 55
+AL 2500 ft AMSL
+DP 49:10:50 N 005:12:20 E
+DP 49:10:50 N 005:31:20 E
+DP 49:06:57 N 005:31:20 E
+DP 48:58:23 N 005:19:38 E
+DP 49:10:50 N 005:12:20 E

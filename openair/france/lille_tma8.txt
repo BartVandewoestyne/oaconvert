@@ -1,0 +1,42 @@
+﻿* Source:
+*
+*   https://www.sia.aviation-civile.gouv.fr/
+*
+*   Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*   ENR 2 ESPACE ATS
+*    ENR 2.3 REGIONS DE CONTROLE TERMINALES (TMA)
+*
+* Last check:
+*
+*   Wim Verhoeve (1 March 2012)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+*
+* Remarks:
+*
+*   H24
+
+AC D
+AN Lille TMA 8
+AH FL 115
+AL 4500 ft AMSL
+DP 50:26:33 N 003:34:25 E
+DP 50:22:24 N 003:39:29 E
+
+* Begin Frontière franco--belge
+* TO DO
+* Begin Frontière franco--belge
+
+DP 50:18:30 N 003:42:17 E
+DP 50:18:30 N 003:30:54 E
+DP 50:16:38 N 003:27:05 E
+DP 50:16:46 N 003:26:04 E
+DP 50:17:26 N 003:21:14 E
+DP 50:19:28 N 003:20:28 E
+DP 50:26:33 N 003:34:25 E
