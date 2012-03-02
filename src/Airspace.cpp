@@ -351,6 +351,15 @@ bool Airspace::hasSFCFloor() const
 
 
 /**
+ * Return true if the AH-record contains a GND ceiling specification.
+ */
+bool Airspace::hasGNDCeiling() const
+{
+    return StringUtils::hasSubstring(ceiling_string, "GND");
+}
+
+
+/**
  * Return true if the AL-record contains a GND floor specification.
  */
 bool Airspace::hasGNDFloor() const
@@ -376,6 +385,34 @@ bool Airspace::hasFLCeiling() const
 bool Airspace::hasFLFloor() const
 {
     return StringUtils::hasSubstring(floor_string, "FL");
+}
+
+
+/**
+ *
+ */
+bool Airspace::hasAbsoluteCeiling() const
+{
+
+  if ( !( hasAGLCeiling() || hasSFCCeiling() || hasGNDCeiling() ) ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+
+/**
+ *
+ */
+bool Airspace::hasAbsoluteFloor() const
+{
+
+  if ( !( hasAGLFloor() || hasSFCFloor() || hasGNDFloor() ) ) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 

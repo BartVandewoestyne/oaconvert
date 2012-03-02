@@ -105,9 +105,12 @@ public:
     bool hasAGLFloor() const;
     bool hasSFCCeiling() const;
     bool hasSFCFloor() const;
+    bool hasGNDCeiling() const;
     bool hasGNDFloor() const;
     bool hasFLCeiling() const;
     bool hasFLFloor() const;
+    bool hasAbsoluteCeiling() const;
+    bool hasAbsoluteFloor() const;
 
     /**
      * Each airspace can have multiple name-labels that each have their location
