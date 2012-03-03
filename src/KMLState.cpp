@@ -103,7 +103,6 @@ void KMLState::write(std::ostream& stream, const Airspace& airspace) const
 
           /* polygon representing ceiling */
           stream << "  <Placemark>" << endl;
-          stream << "    <styleUrl>" << getPolygonType(airspace) << "</styleUrl>" << endl;
           stream << "    <name>";
           stream << getPlacemarkName(airspace);
           stream << "</name>" << endl;
@@ -111,6 +110,7 @@ void KMLState::write(std::ostream& stream, const Airspace& airspace) const
           stream << "Ceiling: " << airspace.getCeilingString() << " (" << ceil(airspace.getCeiling()) << " m)" << endl;
           stream << "Floor  : " << airspace.getFloorString() << " (" << floor(airspace.getFloor()) << " m)" << endl;
           stream << "    </description>" << endl;
+          stream << "    <styleUrl>" << getPolygonType(airspace) << "</styleUrl>" << endl;
           stream << "  <MultiGeometry>" << endl;
 
           stream << "    <Polygon>" << endl;
@@ -174,6 +174,11 @@ void KMLState::write(std::ostream& stream, const Airspace& airspace) const
               stream << endl;
               stream << "          ";
               write(stream, coords[i], airspace.getCeiling());
+              stream << endl;
+              // One extra point, because the KML-requirement that the
+              // last point must be identical to the first one to form a closed figure.
+              stream << "          ";
+              write(stream, coords[i], airspace.getFloor());
               stream << endl;
 
               stream << "          </coordinates>" << endl;
