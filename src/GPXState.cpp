@@ -20,6 +20,7 @@
 #include "GPXState.h"
 
 #include <cassert>
+#include <ctime>
 
 #include "Airspace.h"
 #include "Circle.h"
@@ -49,15 +50,30 @@ GPXState* GPXState::getInstance()
 
 void GPXState::writeHeader(std::ostream &out) const
 {
-    out << "<gpx version=\"1.1\" creator=\"oaconvert\">" << endl;
+    out << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" << endl;
+    out << "<gpx" << endl;
+    out << " version=\"1.1\"" << endl;
+    out << " creator=\"oaconvert - https://github.com/BartVandewoestyne/oaconvert/\"" << endl;
+    out << " xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"" << endl;
+    out << " xmlns=\"http://www.topografix.com/GPX/1/1\"" << endl;
+    out << " xsi:schemaLocation=\"http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd\">" << endl;
     out << "  <metadata>" << endl;
-    out << "    <name>Some Filename</name>" << endl; // TODO
-    out << "    <desc>Some Description</desc>" << endl; // TODO
-    out << "    <author>Bart Vandewoestyne, Yves Frederix</author>" << endl;
-    out << "    <copyright>Some Copyright</copyright>" << endl; // TODO
-    out << "    <link>https://github.com/BartVandewoestyne/oaconvert/</link>" << endl;
-    out << "    <time></time>" << endl; // TODO
-    out << "    <keywords>airspace, AIP, oaconvert</keywords>" << endl; // TODO
+    //out << "    <name>Some Filename</name>" << endl; // TODO
+    //out << "    <desc>Some Description</desc>" << endl; // TODO
+    // TODO: find out how to add multiple authors
+    out << "    <author>" << endl;
+    out << "      <name>Bart Vandewoestyne</name>" << endl;
+    out << "    </author>" << endl;
+    out << "    <copyright author=\"Bart Vandewoestyne\"></copyright>" << endl; // TODO
+    out << "    <link href=\"https://github.com/BartVandewoestyne/oaconvert/\">" << endl;
+    out << "      <text>oaconvert homepage</text>" << endl;
+    out << "    </link>" << endl;
+    time_t now;
+    time(&now);
+    char mytime[sizeof "2011-10-08T07:07:09Z"];
+    strftime(mytime, sizeof mytime, "%FT%TZ", gmtime(&now)); // ISO 8601 format.
+    out << "    <time>" << mytime << "</time>" << endl;
+    out << "    <keywords>airspace, AIP, OpenAir, oaconvert</keywords>" << endl;
     out << "  </metadata>" << endl;
 }
 
@@ -73,11 +89,11 @@ void GPXState::write(std::ostream& stream, const Airspace& airspace) const
     // Write as TRACK
     stream << "  <trk>" << endl;
     stream << "    <name>" << airspace.getName() << "</name>" << endl;
-    stream << "    <cmt>TODO: GPS comment for track</cmt>" << endl;
-    stream << "    <desc>TODO: User description of track</desc>" << endl;
-    stream << "    <src>TODO: Source of data</src>" << endl;
-    stream << "    <link>TODO: link to eAIP</link>" << endl;
-    stream << "    <number>TODO: number</number>" << endl;
+    //stream << "    <cmt>TODO: GPS comment for track</cmt>" << endl;
+    //stream << "    <desc>TODO: User description of track</desc>" << endl;
+    //stream << "    <src>TODO: Source of data</src>" << endl;
+    //stream << "    <link>TODO: link to eAIP</link>" << endl;
+    //stream << "    <number>TODO: number</number>" << endl;
     stream << "    <type>" << airspace.getClass() << "</type>" << endl;
     stream << "    <trkseg>" << endl;
     write(stream, airspace.getCurvedPolygon());
