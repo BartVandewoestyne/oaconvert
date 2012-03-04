@@ -1,0 +1,41 @@
+* Source:
+*
+*   https://www.sia.aviation-civile.gouv.fr/
+*
+*   Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*   ENR 2 ESPACE ATS
+*    ENR 2.3 REGIONS DE CONTROLE TERMINALES (TMA)
+*
+* Last check:
+*
+*   Wim Verhoeve (4 March 2012)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+*
+* Remarks:
+*
+*   H24
+
+AC D
+AN Luxembourg TMA 6
+AH FL 75
+AL 2500 ft AMSL
+DP 49:32:10 N 005:45:30 E
+DP 49:27:10 N 005:47:36 E
+DP 49:27:10 N 006:00:00 E
+
+* begin - Frontière franco--luxembourgeoise
+* TO DO
+* end - Frontière franco--luxembourgeoise
+
+* begin - Frontière franco--belge
+* TO DO
+* end - Frontière franco--belge
+
+DP 49:32:10 N 005:45:30 E
