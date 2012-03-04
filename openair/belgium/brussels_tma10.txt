@@ -1,0 +1,37 @@
+* See:
+*   AIP Part 2 EN-ROUTE (ENR)
+*   ENR 2 AIR TRAFFIC SERVICES AIRSPACE
+*    ENR 2.1 FIR, UIR, TMA
+*     2. LOWER AIRSPACE
+*      2.3 Terminal Control Areas
+*
+* Last check:
+*
+*   Wim Verhoeve (4 March 2012)
+*
+* Remarks:
+*   - New zone as of 12 Jan 2012 (AIRAC 01/2012)
+*
+* Map List:
+* 
+*   None
+*
+* Remark for paragliders:
+*   - Max altitude in Belgium restricted to FL 55 (except for LFA G zones)
+*     => not relevant for paragliding
+
+AC C
+AN Brussels TMA 10
+AH FL 75
+AL FL 55
+DP 50:29:20 N 003:48:40 E
+DP 50:30:39 N 004:01:51 E
+DP 50:38:23 N 004:29:17 E
+DP 50:40:48 N 004:38:01 E
+DP 50:36:40 N 004:56:29 E
+DP 50:33:53 N 005:08:18 E
+DP 50:30:53 N 004:57:43 E
+DP 50:29:00 N 004:51:06 E
+DP 50:23:16 N 004:52:20 E
+DP 50:18:42 N 004:16:27 E
+DP 50:29:20 N 003:48:40 E
