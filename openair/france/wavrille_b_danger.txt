@@ -28,7 +28,7 @@
 *   - ETAIN APP: 120.125 Mhz et RAI
 *   - Bureau de garnison de Verdun: +33 3 29 73 54 61.
 
-AC R
+AC Q
 AN R229B Wavrille 
 AH FL 100
 AL FL 55

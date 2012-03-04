@@ -22,7 +22,7 @@
 *
 *   Tirs et essais d’explosifs (H24)
 
-AC R
+AC Q
 AN D39 Moronvilliers
 AH FL 55
 AL SFC
