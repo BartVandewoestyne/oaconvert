@@ -1,0 +1,35 @@
+* Source:
+*
+*   https://www.sia.aviation-civile.gouv.fr/
+*
+*   VAC aérodromes en vigueur
+*   AD 2 AERODROMES
+*    AD 2. LFAT - LE TOUQUET PARIS PLAGE
+*
+* Last check:
+*
+*   Wim Verhoeve (4 March 2012)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+*
+* Remarks:
+*
+*   Zone coordinates are not described in AIP
+*   Source for coordinates: http://soaringweb.org/SUA/FR
+
+AC CTR
+AN Le Touquet CTR
+AH 1500 ft AMSL
+AL SFC
+DP 50:40:45 N 001:34:10 E
+DP 50:29:30 N 001:52:24 E
+DP 50:22:40 N 001:42:02 E
+DP 50:26:16 N 001:36:06 E
+DP 50:26:16 N 001:33:16 E
+DP 50:32:59 N 001:22:21 E

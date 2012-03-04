@@ -1,0 +1,36 @@
+* Source:
+*
+*   https://www.sia.aviation-civile.gouv.fr/
+*
+*   VAC aérodromes en vigueur
+*   AD 2 AERODROMES
+*    AD 2. LFPC- CREIL
+*
+* Last check:
+*
+*   Wim Verhoeve (4 March 2012)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+*
+* Remarks:
+*
+*   Zone coordinates are not described in AIP
+*   Source for coordinates: http://soaringweb.org/SUA/FR
+
+AC CTR
+AN Creil CTR
+AH 2500 ft AMSL
+AL SFC
+DP 49:26:00 N 002:43:00 E
+DP 49:13:58 N 002:52:00 E
+DP 49:09:35 N 002:25:04 E
+V X=49:12:30 N 002:24:00 E
+DB 49:09:35 N 002:25:04 E,49:11:16 N 002:19:49 E
+DP 49:11:16 N 002:19:49 E
+DP 49:16:00 N 002:16:30 E
