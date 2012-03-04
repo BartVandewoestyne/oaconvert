@@ -12,9 +12,9 @@
 * 
 *   MAP WEEK           NO
 *   MAP WEEKEND        NO
-*   MAP WEEKEND_LFAG1  NO
-*   MAP WEEKEND_LFAG2  NO
-*   MAP WEEKEND_LFAG5  NO
+*   MAP WEEKEND_LFAG1  SEE NOTAM
+*   MAP WEEKEND_LFAG2  SEE NOTAM
+*   MAP WEEKEND_LFAG5  SEE NOTAM
 *
 * Remark for paragliders:
 *   - As we are allowed to fly in the LFA G areas, the AH limit is our AL
