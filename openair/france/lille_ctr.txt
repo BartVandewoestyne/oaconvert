@@ -2,8 +2,7 @@
 *
 *   https://www.sia.aviation-civile.gouv.fr/
 *
-*   Manuel d'information Aéronautique GEN-ENR-AD E
-DPn vigueur
+*   Manuel d'information Aéronautique GEN-ENR-AD en vigueur
 *   AD 2 AERODROMES
 *    AD 2.LFQQ LILLE LESQUIN 
 *
