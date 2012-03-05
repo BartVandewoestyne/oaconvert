@@ -1,0 +1,36 @@
+* Source:
+*
+*   https://www.sia.aviation-civile.gouv.fr/
+*
+*   VAC aérodromes en vigueur
+*   AD 2 AERODROMES
+*    AD 2. HMET - METZ TECHNOPOLE HELISTATION
+*
+* Last check:
+*
+*   Wim Verhoeve (4 March 2012)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+*
+* Remarks:
+*
+*   Zone coordinates are not described in AIP
+*   Source for coordinates: http://soaringweb.org/SUA/FR
+
+AC CTR
+AN Metz CTR
+AH 2000 ft AMSL
+AL SFC
+DP 49:18:00 N 006:00:00 E
+DP 49:18:00 N 006:21:20 E
+DP 49:10:30 N 006:26:20 E
+DP 49:05:00 N 006:27:48 E
+DP 49:05:00 N 006:18:49 E
+DP 48:52:18 N 006:03:16 E
+DP 48:57:30 N 005:54:30 E

@@ -1,0 +1,37 @@
+* Source:
+*
+*   https://www.sia.aviation-civile.gouv.fr/
+*
+*   VAC aérodromes en vigueur
+*   AD 2 AERODROMES
+*    AD 2. LFAC - CALAIS DUNKERQUE
+*
+* Last check:
+*
+*   Wim Verhoeve (4 March 2012)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+*
+* Remarks:
+*
+*   Zone coordinates are not described in AIP
+*   Source for coordinates: http://soaringweb.org/SUA/FR
+
+AC CTR
+AN Calais CTR
+AH 1500 ft AMSL
+AL SFC
+DP 51:05:22 N 002:01:47 E
+DP 51:03:13 N 002:06:42 E
+DP 50:59:49 N 002:09:43 E
+DP 50:54:56 N 002:09:19 E
+DP 50:49:40 N 001:54:50 E
+DP 50:51:24 N 001:48:31 E
+DP 50:55:53 N 001:44:33 E
+DP 50:59:08 N 001:44:38 E

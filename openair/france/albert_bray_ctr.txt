@@ -1,0 +1,35 @@
+* Source:
+*
+*   https://www.sia.aviation-civile.gouv.fr/
+*
+*   VAC aérodromes en vigueur
+*   AD 2 AERODROMES
+*    AD 2. LFAQ - ALBERT BRAY
+*
+* Last check:
+*
+*   Wim Verhoeve (4 March 2012)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+*
+* Remarks:
+*
+*   Zone coordinates are not described in AIP
+*   Source for coordinates: http://soaringweb.org/SUA/FR
+
+AC CTR
+AN Albert Bray CTR
+AH 1700 ft AMSL
+AL SFC
+DP 50:00:00 N 002:32:21 E
+DP 50:00:00 N 002:51:08 E
+DP 49:52:56 N 002:52:06 E
+DP 49:52:00 N 002:35:00 E
+DP 49:56:00 N 002:31:00 E
+DP 49:59:37 N 002:30:31 E
