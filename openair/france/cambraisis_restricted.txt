@@ -10,7 +10,7 @@
 *
 * Map list:
 *
-*   MAP WEEK           NOTAM
+*   MAP WEEK           SEE NOTAM
 *   MAP WEEKEND        NO
 *   MAP WEEKEND_LFAG1  NO
 *   MAP WEEKEND_LFAG2  NO
