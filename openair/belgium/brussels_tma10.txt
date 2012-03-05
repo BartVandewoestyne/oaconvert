@@ -14,7 +14,7 @@
 *
 * Map List:
 * 
-*   None
+*   NONE
 *
 * Remark for paragliders:
 *   - Max altitude in Belgium restricted to FL 55 (except for LFA G zones)
