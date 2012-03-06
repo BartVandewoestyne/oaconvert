@@ -1,6 +1,6 @@
 * Source:
 *
-*   http://www.belgocontrol.be
+*   http://www.belgocontrol.be/
 *
 *   AIP Part 3 AERODROME (AD)
 *   AD 2 AERODROMES

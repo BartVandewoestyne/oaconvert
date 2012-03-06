@@ -1,5 +1,7 @@
 * Source:
 *
+*   http://www.belgocontrol.be/
+*
 *   AIP Part 2 EN-ROUTE (ENR)
 *   ENR 2 AIR TRAFFIC SERVICES AIRSPACE
 *    ENR 2.1 FIR, UIR, TMA
@@ -9,7 +11,6 @@
 *
 * Last check:
 *
-*   Bart Vandewoestyne (23 November 2011)
 *   Wim Verhoeve (18 December 2011)
 *
 * Map List:
