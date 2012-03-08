@@ -1,6 +1,23 @@
 Documentation about the Garmin IMG file format can be found at:
 
   http://pinns.co.uk/osm/RGN.html
+    -> by Nick Willink <nw@pinns.co.uk>
+
   http://sourceforge.net/projects/garmin-img/
+    -> John Mechalas
+
+  http://www.geopainting.com/
+  -> Konstantin Galichsky <kg@geopainting.com>
+
+  QLandkarteGT source code, files:
+    src/CGarmin*.[h|cpp]
+
+  http://libgarmin.sourceforge.net/
+  Alexander Atanasov <aatanasov@gmail.com>
+
+  https://github.com/wuyongzheng/gimgtools/
+  http://code.google.com/p/gimgtools/
+
+  https://github.com/burto/imgdecode-mb
 
 Feel free to help these folks to reverse-engineer it even more!
