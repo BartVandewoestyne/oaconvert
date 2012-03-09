@@ -218,9 +218,15 @@ void KMLState::write(ostream& out, const Coordinate& c, double altitude) const
 /*
  * Return the KML File Polygon type for the given airspace class.
  */
-std::string KMLState::getPolygonType(const Airspace& space) const
-{
-    if (space.isCTR()) {
+std::string KMLState::getPolygonType(const Airspace& space) const {
+
+    // A lot of zones are BY NOTAM.  If they are, they should be colored with
+    // the BY NOTAM color, not with the color for their type.  Therefore, the
+    // isByNOTAM() check needs to come first!
+
+    if (space.isByNOTAM()) {
+        return (string("#bynotam"));
+    } else if (space.isCTR()) {
         return string("#ctr");
     } else if (space.isCTA()) {
         return string("#cta");
@@ -237,23 +243,31 @@ std::string KMLState::getPolygonType(const Airspace& space) const
     } else {
         return string("#default");
     }
+
 }
+
 
 std::string KMLState::getLineType(const Airspace& space) const
 {
-  if (space.isFIR()) {
+
+  // A lot of zones are BY NOTAM.  If they are, they should be colored with the
+  // BY NOTAM color, not with the color of their type.  Therefore, the
+  // isByNOTAM() check needs to come first!
+
+  if (space.isByNOTAM()) {
+      return string("#bynotam");
+  } else if (space.isFIR()) {
       return string("#fir");
+  } else if (space.isMapEdge()) {
+      return string("#mapEdge");
   } else if (space.isDanger()) {
       return string("#danger");
   } else if (space.isRestricted()) {
       return string("#restricted");
-  } else if (space.isByNOTAM()) {
-      return string("#bynotam");
-  } else if (space.isMapEdge()) {
-      return string("#mapEdge");
   } else {
       return string("#default");
   }
+
 }
 
 
