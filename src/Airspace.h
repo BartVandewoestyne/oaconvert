@@ -46,7 +46,11 @@ private:
     // Name of the airspace.
     std::string name;
 
-    // Class of the airspace (CTR, TMA, Prohibited, Restricted, ...)
+    // Class of the airspace (CTR, TMA, Q (Prohibited), R (Restricted), ...)
+    //
+    // Note: some airspaces can have several classes.  In this case, the classes
+    //       are specified with forward slashes in between them and without
+    //       spaces, e.g. 'AC C/E'.
     std::string clss;
 
     // Ceiling string
