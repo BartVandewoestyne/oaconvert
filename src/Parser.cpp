@@ -352,14 +352,9 @@ void Parser::handleLine(const std::string& line)
         return;
     }
 
-    // TODO: fix this!! We need the string and the coordinates!
     if ( regex_match(line, matches, regexMap.find(REGEX_AT)->second) )
     {
-        string airspace_coordinate;
-        for (unsigned int i = 1; i < matches.size(); ++i)
-        {
-            airspace_coordinate.assign(matches[i].first, matches[i].second);
-        }
+        string airspace_coordinate(matches[1].first, matches[1].second);
         getCurrentAirspace()->add( Label(getCurrentAirspace()->getName(), parseCoordinate(airspace_coordinate)) );
         return;
     }
@@ -525,8 +520,11 @@ void Parser::initRegexMap()
 
     // Valid airspace classes (we allow the specification of multiple airspace
     // classes, separated by forward slashes and without spaces in between).
+    // Note: 'TMZ' stands for 'Transponder Mandatory Zone' and is an
+    //       abbreviation found in the Dutch AIP (Part 2 EN ROUTE, ENR 2.2, 4)
+    //       but is not contained in ICAO Doc 8400.
     regexMap[REGEX_AIRSPACE_CLASS] =
-        "\\s*((?:[ABCDEFGPQRW]|GP|CTR)(?:/[ABCDEFGPQRW]|GP|CTR)*)\\s*";
+        "\\s*((?:[ABCDEFGPQRW]|GP|CTR|TMZ)(?:/[ABCDEFGPQRW]|GP|CTR|TMZ)*)\\s*";
 
     // Valid DB arc coordinate specifications.
     // TODO: check if we can make this regex shorter...
