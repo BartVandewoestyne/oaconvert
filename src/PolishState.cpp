@@ -90,8 +90,8 @@ void PolishState::writeHeader(std::ostream &out) const
     // -> In some cases - to have a nice overlapping map it is
     // necessary to use semi-transparency instead of full-transparency.
     //
-    // Note Bart: BaseCamp software has a problem with S, so trying N
-    out << "Transparent=N" << endl;
+    // Note Bart: BaseCamp software has a problem with S, so trying N.
+    out << "Transparent=Y" << endl;
 
     // Subfamily identifier used for locked IMG files only – value
     // between 1 and 255. Each subfamily can be unlocked with
@@ -363,18 +363,18 @@ string PolishState::getPolishLabel(const Airspace& airspace) const
 {
     stringstream pLabel;
 
-    if ( airspace.isTMA() ) {
-        pLabel << "TMA:";
-    }
-    if ( airspace.isCTA() ) {
-        pLabel << "CTA:";
-    }
+    //if ( airspace.isTMA() ) {
+    //    pLabel << "TMA:";
+    //}
+    //if ( airspace.isCTA() ) {
+    //    pLabel << "CTA:";
+    //}
     if ( airspace.isProhibited() ) {
         pLabel << "Prohibited:";
     }
-    if ( airspace.isVectoringArea() ) {
-        pLabel << "Vectoring Area:";
-    }
+    //if ( airspace.isVectoringArea() ) {
+    //    pLabel << "Vectoring Area:";
+    //}
 
     if ( airspace.isByNOTAM() ) {
         pLabel << "By NOTAM:";
@@ -392,11 +392,11 @@ string PolishState::getPolishLabel(const Airspace& airspace) const
         }
 
         if (airspace.hasAGLFloor()) {
-            pLabel << " " << floor(airspace.getFloor()) << " m AGL max";
+            pLabel << " " << floor(airspace.getFloor()) << "m AGL max";
         } else if (airspace.hasFLFloor()) {
-            pLabel << " " << floor(airspace.getFloor()) << " m (+QNH) max";
+            pLabel << " " << floor(airspace.getFloor()) << "m (+QNH) max";
         } else {
-            pLabel << " " << floor(airspace.getFloor()) << " m max";
+            pLabel << " " << floor(airspace.getFloor()) << "m max";
         }
         pLabel << " (" << myName << ")";
 
