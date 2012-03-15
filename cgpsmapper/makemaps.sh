@@ -5,10 +5,10 @@
 # for each map the following files:
 #
 #     <ID>.img
+#     <ID>.TYP
 #     <MAP_NAME>.img
 #     <MAP_NAME>.reg
 #     <MAP_NAME>.TDB
-#     <MAP_NAME>.TYP
 #     <MAP_NAME>.MDX (on Cygwin only)
 
 # Remove old junk and temporary files
@@ -42,7 +42,8 @@ do
   # error info.
   # After this step, we get one extra file:
   #   <ID_from_Polish_file>.img
-  sed -i "s/^ID=.*/ID=$ID/g" $POLISH_FILE
+  sed -i -e "s/^ID=.*/ID=$ID/g" \
+         -e "s/^Name=.*/Name=$MAP_FILENAME/g" $POLISH_FILE
   cgpsmapper -l ac $POLISH_FILE
 
 
@@ -75,14 +76,17 @@ do
   rm -f mypreview_temp.mp
 
 
-  # Create a custom TYP file
+  # Create a custom TYP file.
   # Note:
-  #   We use $ID because filename cannot be longer than 8+3 characters.
+  #   According to cgpsmapper output, TYP-filename cannot be longer than 8+3
+  #   characters... so that is why we use the ID here instead of MAP_FILENAME.
   echo "Generating custom TYP file..."
-  #cgpsmapper typ Airspace.txt $ID.TYP
-  cgpsmapper typ Airspace.txt $MAP_FILENAME.TYP
+  sed -e "s/^FID=.*/FID=$FID/g" Airspace.txt > Airspace_temp.txt
+  cgpsmapper typ Airspace_temp.txt $ID.TYP
+  rm -f Airspace_temp.txt
   echo "done."
   
+
   # Move everything to the garmin build directory.
   mkdir -p ../build/garmin/
 
@@ -90,15 +94,14 @@ do
   mv $MAP_FILENAME.img ../build/garmin/
   mv $MAP_FILENAME.reg ../build/garmin/
   mv $MAP_FILENAME.TDB ../build/garmin/$MAP_FILENAME.tdb
-  #mv $ID.TYP ../build/garmin/$ID.typ
-  mv $MAP_FILENAME.TYP ../build/garmin/$MAP_FILENAME.typ
+  mv $ID.TYP ../build/garmin/$ID.typ
   if [[ $unamestr =~ .*Cygwin.* ]]; then
     mv $MAP_FILENAME.MDX ../build/garmin/$MAP_FILENAME.mdx
   fi
   rm -f $MAP_FILENAME.mp
 
   # Add necessary stuff to the NSIS installer script.
-  printf "!insertmacro writeRegistryEntries \"$MAP_FILENAME\" %x00\n" $FID >> ../build/nsis/create_registry_keys.nsi
+  printf "!insertmacro writeRegistryEntries \"$MAP_FILENAME\" %x00 %d\n" $FID $ID>> ../build/nsis/create_registry_keys.nsi
   printf "DeleteRegKey \"HKLM\" \"Software\Garmin\Mapsource\Families\\$MAP_FILENAME\"\n" >> ../build/nsis/delete_registry_keys.nsi
 
 done

@@ -34,10 +34,10 @@ Page components
 Page directory
 Page instfiles
 
-!macro writeRegistryEntries Name Fid
+!macro writeRegistryEntries Name Fid Id
   WriteRegBin "HKLM" "Software\Garmin\MapSource\Families\${Name}"   "ID"   ${Fid}
   WriteRegStr "HKLM" "Software\Garmin\Mapsource\Families\${Name}"   "IDX"  "$INSTDIR\garmin\${Name}.mdx"
-  WriteRegStr "HKLM" "Software\Garmin\Mapsource\Families\${Name}"   "TYP"  "$INSTDIR\garmin\${Name}.typ"
+  WriteRegStr "HKLM" "Software\Garmin\Mapsource\Families\${Name}"   "TYP"  "$INSTDIR\garmin\${Id}.typ"
   WriteRegStr "HKLM" "Software\Garmin\Mapsource\Families\${Name}\1" "LOC"  "$INSTDIR\garmin"
   WriteRegStr "HKLM" "Software\Garmin\Mapsource\Families\${Name}\1" "BMAP" "$INSTDIR\garmin\${Name}.img"
   WriteRegStr "HKLM" "Software\Garmin\Mapsource\Families\${Name}\1" "TDB"  "$INSTDIR\garmin\${Name}.tdb"
