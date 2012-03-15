@@ -38,6 +38,8 @@
  </rte>
  <rte>
   <name>Levant - Kortrijk</name>
+  <cmt>Bart's dreamroute</cmt>
+  <desc>This is the route that Bart would love to fly one day.</desc>
   <rtept lon="3.902208" lat="50.436116">
    <name>Terril du Levant</name>
    <sym>Pin, Red</sym>
@@ -58,6 +60,19 @@
    <name>Kapel ter Bede</name>
    <cmt>Little chapel</cmt>
    <desc>Little chapel</desc>
+   <sym>Pin, Red</sym>
+  </rtept>
+ </rte>
+ <rte>
+  <name>Grauves - Beauraing</name>
+  <cmt>One of Paul's routes</cmt>
+  <desc>One of Paul's routes</desc>
+  <rtept lon="3.9636" lat="48.9823">
+   <name>Grauves</name>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="5.009863" lat="50.113006">
+   <name>Beauraing</name>
    <sym>Pin, Red</sym>
   </rtept>
  </rte>
