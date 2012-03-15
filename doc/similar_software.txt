@@ -15,6 +15,7 @@ GDAL/OGR
   http://www.gdal.org/ogr/drv_openair.html
   http://www.gdal.org/ogr/
 
+
 Other software that supports Polish Format:
 -------------------------------------------
 GPSMapEdit++:
@@ -56,3 +57,16 @@ http://www.skyfool.de/luftraeume/
 Other projects that claim to be able to visualize airspace
 ----------------------------------------------------------
 http://goworldwind.org/
+
+
+Useful tools for investigating and playing with Garmin IMG files
+----------------------------------------------------------------
+GMapTool:
+  -> http://???
+  -> Lots of functions to manipulate Garmin compatible maps, MapSource
+     integration.
+
+MapSource Maps Compatibility
+  -> http://www.path.cz/forum/viewtopic.php?f=20&t=387
+  -> This tool tests the registry to check whether a MapSource v6.13
+     installation with selfmade maps can be converted to a v6.14 installation.
