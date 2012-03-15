@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1"
+     creator="QLandkarteGT 1.2.2 http://www.qlandkarte.org/"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns="http://www.topografix.com/GPX/1/1"
+     xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+ <metadata>
+  <name>XC Routes</name>
+  <desc>Possible paragliding XC routes, avoiding airspace as much as
+        possible</desc>
+  <author>
+   <name>Bart Vandewoestyne</name>
+   <link href="https://plus.google.com/108476541542561906992/">
+     <text>Google+ Profile</text>
+   </link>
+  </author>
+ </metadata>
+ <rte>
+  <name>Anderlues - Signy-le-Petit</name>
+  <rtept lon="4.295043" lat="50.408241">
+   <name>Terril Anderlues</name>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="4.101396" lat="50.296894">
+   <name>Jeumont</name>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="4.103534" lat="50.059235">
+   <name>Trélon</name>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="4.279491" lat="49.903564">
+   <name>Signy-le-Petit</name>
+   <cmt>Church</cmt>
+   <desc>Church</desc>
+   <sym>Pin, Red</sym>
+  </rtept>
+ </rte>
+</gpx>
