@@ -52,7 +52,9 @@ do
   # a map in QLandkarteGT or MapSource.
 
   sed -e "s/^FileName=SomeFileName/FileName=${MAP_FILENAME}/g" \
-      -e "s/MapsourceName=.*/MapsourceName=Bart's Fantastic Airspace Maps: ${MAP_FILENAME}/g" \
+      -e "s/^MapsourceName=.*/MapsourceName=Bart's Fantastic Airspace Maps: ${MAP_FILENAME}/g" \
+      -e "s/^MapSetName=.*/MapSetName=Bart's Airspace Map Set: ${MAP_FILENAME}/g" \
+      -e "s/^CDSetName=.*/CDSetName=Bart's Airspace CD Set: ${MAP_FILENAME}/g" \
       -e "s/^IMG=.*/IMG=$ID.img/g" \
       -e "s/^FID=.*/FID=$FID/g" mypreview.mp > mypreview_temp.mp
 
