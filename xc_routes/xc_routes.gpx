@@ -36,4 +36,29 @@
    <sym>Pin, Red</sym>
   </rtept>
  </rte>
+ <rte>
+  <name>Levant - Kortrijk</name>
+  <rtept lon="3.902208" lat="50.436116">
+   <name>Terril du Levant</name>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="3.602536" lat="50.534426">
+   <name>E42-N60</name>
+   <cmt>Crossing of the E42 with the N60</cmt>
+   <desc>Crossing of the E42 with the N60</desc>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="3.483632" lat="50.759150">
+   <name>La Sablière</name>
+   <cmt>Hotel</cmt>
+   <desc>Hotel at the border of the Kluisbos</desc>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="3.298916" lat="50.823852">
+   <name>Kapel ter Bede</name>
+   <cmt>Little chapel</cmt>
+   <desc>Little chapel</desc>
+   <sym>Pin, Red</sym>
+  </rtept>
+ </rte>
 </gpx>
