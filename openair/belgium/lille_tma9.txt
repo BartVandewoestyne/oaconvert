@@ -8,8 +8,7 @@
 *
 * Last check: 
 *
-*   Bart Vandewoestyne (24 November 2011)
-*   Wim Verhoeve (18 December 2011)
+*   Bart Vandewoestyne (17 March 2012)
 *
 * Map List:
 * 
