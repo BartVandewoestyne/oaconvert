@@ -76,4 +76,25 @@
    <sym>Pin, Red</sym>
   </rtept>
  </rte>
+ <rte>
+  <name>Dannes - Kortrijk</name>
+  <rtept lon="1.631587" lat="50.579600">
+   <name>Dannes</name>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="2.339160" lat="50.754247">
+   <name>Étang d'Harchelles</name>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="2.486124" lat="50.799909">
+   <name>Cassel</name>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="3.298916" lat="50.823852">
+   <name>Kapel ter Bede</name>
+   <cmt>Little chapel</cmt>
+   <desc>Little chapel</desc>
+   <sym>Pin, Red</sym>
+  </rtept>
+ </rte>
 </gpx>
