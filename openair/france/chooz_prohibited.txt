@@ -42,21 +42,20 @@ AN P38 Chooz
 AH FL 55
 AL SFC
 DP 50:06:07 N 004:43:10 E
-
-* begin Frontière francoDPbelge
-* TODO
-* end Frontière francoDPbelge
-
+* START French-Belgian border
+DP 50.112289 N 4.745944 E
+* END French-Belgian border
 DP 50:07:20 N 004:44:53 E
 V D=+
 V X=50:05:00 N 004:47:00 E
 DB 50:07:20 N 004:44:53 E, 50:05:55 N 004:50:58 E
 * Radius 5 km
 DP 50:05:55 N 004:50:58 E
-
-* begin Frontière francoDPbelge DP
-* TODO
-* end Frontière francoDPbelge 
+* BEGIN French-Belgian border
+DP 50.074802 N 4.839714 E
+DP 50.066994 N 4.825122 E
+DP 50.055107 N 4.826624 E
+* END French-Belgian border
 DP 50:02:57 N 004:49:44 E
 V D=+
 V X=50:05:00 N 004:47:00 E

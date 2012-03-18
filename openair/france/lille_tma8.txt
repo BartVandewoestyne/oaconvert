@@ -28,11 +28,9 @@ AH FL 115
 AL 4500 ft AMSL
 DP 50:26:33 N 003:34:25 E
 DP 50:22:24 N 003:39:29 E
-
-* Begin Frontière franco--belge
-* TODO
-* Begin Frontière franco--belge
-
+* START French-Belgian border
+DP 50.359203 N 3.656795 E
+* END French-Belgian border
 DP 50:18:30 N 003:42:17 E
 DP 50:18:30 N 003:30:54 E
 DP 50:16:38 N 003:27:05 E
