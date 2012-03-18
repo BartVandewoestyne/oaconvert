@@ -1,0 +1,48 @@
+* Source:
+*
+*   http://www.ais-netherlands.nl/
+*
+*   AIP Part 2 EN ROUTE (ENR)
+*   ENR 2 AIR TRAFFIC SERVICES AIRSPACE
+*    ENR 2.1 FIR, CTA, TMA
+*
+* Last check:
+*
+*   Bart Vandewoestyne (16 March 2012)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+*
+* TODO: check if AC-record should be G
+ 
+AC G
+AN Amsterdam FIR
+AH UNL
+AL GND/SEA
+DP 55:00:00.00 N 005:00:00.00 E
+DP 55:00:00.00 N 006:30:00.00 E
+DP 53:40:00.00 N 006:30:00.00 E
+DP 53:33:38.00 N 006:36:24.00 E
+DP 53:31:22.00 N 006:40:20.00 E
+DP 53:30:15.00 N 006:44:30.00 E
+DP 53:29:45.00 N 006:48:59.00 E
+DP 53:28:28.00 N 006:51:49.00 E
+DP 53:23:56.00 N 006:56:58.00 E
+DP 53:20:11.00 N 006:59:37.00 E
+DP 53:19:00.00 N 007:01:30.00 E
+DP 53:18:00.00 N 007:11:30.00 E
+DP 53:12:48.00 N 007:13:01.00 E
+* START Dutch-German border
+* TODO
+* END Dutch-German border
+DP 50:45:15.44 N 006:01:15.63 E
+* START Dutch-Belgien border
+* TODO
+* END Dutch-Belgian border
+DP 51:22:22.76 N 003:21:46.71 E
+DP 51:30:00.00 N 002:00:00.00 E
