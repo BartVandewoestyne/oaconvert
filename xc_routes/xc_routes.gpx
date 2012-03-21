@@ -97,4 +97,107 @@
    <sym>Pin, Red</sym>
   </rtept>
  </rte>
+ <rte>
+  <name>Prayon - Reims</name>
+  <rtept lon="5.656011" lat="50.575936">
+   <name>Prayon</name>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="5.456389" lat="50.352778">
+   <name>Durbuy</name>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="5.344444" lat="50.228611">
+   <name>Marche-en-Famenne</name>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="5.222222" lat="50.161667">
+   <name>Rochefort</name>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="5.145738" lat="50.130335">
+   <name>Lessive</name>
+   <cmt>Antennas</cmt>
+   <desc>Antennas</desc>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="4.720846" lat="49.773548">
+   <name>Charleville-Mézières</name>
+   <cmt>Place Ducale</cmt>
+   <desc>Place Ducale</desc>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="4.366667" lat="49.516667">
+   <name>Rethel</name>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="4.034036" lat="49.253789">
+   <name>Reims</name>
+   <cmt>Cathedral</cmt>
+   <desc>Cathedral</desc>
+   <sym>Pin, Red</sym>
+  </rtept>
+ </rte>
+ <rte>
+  <name>Létanne - Lake Der-Chantecoq</name>
+  <rtept lon="5.060729" lat="49.557166">
+   <name>Létanne</name>
+   <cmt>Take-off</cmt>
+   <desc>Take-off</desc>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="5.05" lat="49.533333">
+   <name>Beaumont-en-Argonne</name>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="4.759167" lat="48.5825">
+   <name>Lake Der-Chantecoq</name>
+   <cmt>Lake</cmt>
+   <desc>Lake</desc>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="4.412452" lat="48.335740">
+   <name>Lac du Temple</name>
+   <cmt>Lake</cmt>
+   <desc>Lake</desc>
+   <sym>Pin, Red</sym>
+  </rtept>
+ </rte>
+ <rte>
+  <name>Volmerange-les-Mines - </name>
+  <rtept lon="6.099787" lat="49.446693">
+   <name>Volmerange-les-Mines</name>
+   <cmt>Take-off</cmt>
+   <desc>Take-off</desc>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="5.933333" lat="49.416667">
+   <name>Aumetz</name>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="5.766667" lat="49.433333">
+   <name>Baslieux</name>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="5.6" lat="49.433333">
+   <name>Longuyon</name>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="5.45" lat="49.45">
+   <name>Marville</name>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="5.333333" lat="49.466667">
+   <name>Juvigny-sur-Loison</name>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="5.183333" lat="49.483333">
+   <name>Stenay</name>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="4.366667" lat="49.516667">
+   <name>Rethel</name>
+   <sym>Pin, Red</sym>
+  </rtept>
+ </rte>
 </gpx>
