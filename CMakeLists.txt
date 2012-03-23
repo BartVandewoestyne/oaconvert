@@ -8,7 +8,7 @@ cmake_minimum_required(VERSION 2.6)
 project(oaconvert)
 
 add_definitions(-DDEBUG)
-set(CMAKE_CXX_FLAGS "-g -Wall -Wextra -Weffc++")
+set(CMAKE_CXX_FLAGS "-g -Wall -Wextra -Weffc++ -pedantic")
 
 add_subdirectory(src)
 add_subdirectory(test)
