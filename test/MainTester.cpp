@@ -24,7 +24,7 @@
 #include <cppunit/TestRunner.h>
 #include <cppunit/BriefTestProgressListener.h>
 
-int main (int argc, char* argv[])
+int main (int , char**)
 {
     // informs test-listener about testresults
     CPPUNIT_NS :: TestResult testresult;

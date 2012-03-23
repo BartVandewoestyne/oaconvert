@@ -12,6 +12,8 @@ ProductCode=1
 ; is used when viewing the custom types in MapSource.
 FID=123
 
+CodePage=1252
+
 [End]
 
 ; At a minimum, your input file must define the draw order for ALL polygon
@@ -93,9 +95,9 @@ Type=0x69,1 ; Undefined
 [_line]
 Type=0x01
 Xpm="32 2 4 1"
-"= c #0000FF" ; Blue
+"= c #0000FF" ; Blue (Daytime foreground color)
 "  c none"
-"3 c #585858"
+"3 c #0000FF" ; Blue (Nighttime foreground color)
 "4 c none"
 "================================"
 "================================"
@@ -109,9 +111,9 @@ String4=0x04,FIR ; 0x04 = English
 [_line]
 Type=0x02
 Xpm="32 3 4 1"
-"= c #FF0000" ; Red
+"= c #FF0000" ; Red (Daytime foreground color)
 "  c none"
-"3 c #585858"
+"3 c #FF0000" ; Red (Nighttime foreground color)
 "4 c none"
 "================================"
 "    =======         =======     "
@@ -126,9 +128,9 @@ String4=0x04,Danger ; 0x04 = English
 [_line]
 Type=0x03
 Xpm="32 3 4 1"
-"= c #FFA500" ; Orange
+"= c #FFA500" ; Orange (Daytime foreground color)
 "  c none"
-"3 c #585858"
+"3 c #FFA500" ; Orange (Nighttime foreground color)
 "4 c none"
 "================================"
 "    =======         =======     "
@@ -143,9 +145,9 @@ String4=0x04,Restricted ; 0x04 = English
 [_line]
 Type=0x04
 Xpm="32 3 4 1"
-"= c #0000FF" ; Blue
+"= c #0000FF" ; Blue (Daytime foreground color)
 "  c none"
-"3 c #585858"
+"3 c #0000FF" ; Blue (Nighttime foreground color)
 "4 c none"
 "================================"
 "    =======         =======     "
@@ -160,9 +162,9 @@ String4=0x04,By NOTAM  ; 0x04 = English
 [_line]
 Type=0x05
 Xpm="32 5 4 1"
-"= c #000000" ; Black
+"= c #000000" ; Black (Daytime foreground color)
 "  c none"
-"3 c #585858"
+"3 c #000000" ; Black (Nighttime foreground color)
 "4 c none"
 "================================"
 "================================"
@@ -179,9 +181,9 @@ String4=0x04,Map edge        ; 0x04 = English
 [_line]
 Type=0x06
 Xpm="32 1 4 1"
-"= c #000000" ; Black
+"= c #000000" ; Black (Daytime foreground color)
 "  c none"
-"3 c #585858"
+"3 c #000000" ; Black (Nighttime foreground color)
 "4 c none"
 "================================"
 [end]
@@ -199,6 +201,9 @@ String4=0x04,FIR ; 0x04 = English
 ExtendedLabels=N
 Xpm="32 32 1 1"
 "  c none"
+"  c none"
+"3 c none"
+"4 c none"
 "                                "
 "                                "
 "                                "
@@ -242,40 +247,42 @@ String3=0x03,CTR ; 0x03 = Dutch
 String4=0x04,CTR ; 0x04 = English
 ExtendedLabels=N
 Xpm="32 32 2 1"
-"R c #FF0000" ; Red
+"R c #FF0000" ; Red (Daytime foreground color)
 "  c none"
+"3 c #FF0000" ; Red (Nighttime foreground color)
+"4 c none"
 "R R R R R R R R R R R R R R R R "
-"                                "
+" R R R R R R R R R R R R R R R R"
 "R R R R R R R R R R R R R R R R "
-"                                "
+" R R R R R R R R R R R R R R R R"
 "R R R R R R R R R R R R R R R R "
-"                                "
+" R R R R R R R R R R R R R R R R"
 "R R R R R R R R R R R R R R R R "
-"                                "
+" R R R R R R R R R R R R R R R R"
 "R R R R R R R R R R R R R R R R "
-"                                "
+" R R R R R R R R R R R R R R R R"
 "R R R R R R R R R R R R R R R R "
-"                                "
+" R R R R R R R R R R R R R R R R"
 "R R R R R R R R R R R R R R R R "
-"                                "
+" R R R R R R R R R R R R R R R R"
 "R R R R R R R R R R R R R R R R "
-"                                "
+" R R R R R R R R R R R R R R R R"
 "R R R R R R R R R R R R R R R R "
-"                                "
+" R R R R R R R R R R R R R R R R"
 "R R R R R R R R R R R R R R R R "
-"                                "
+" R R R R R R R R R R R R R R R R"
 "R R R R R R R R R R R R R R R R "
-"                                "
+" R R R R R R R R R R R R R R R R"
 "R R R R R R R R R R R R R R R R "
-"                                "
+" R R R R R R R R R R R R R R R R"
 "R R R R R R R R R R R R R R R R "
-"                                "
+" R R R R R R R R R R R R R R R R"
 "R R R R R R R R R R R R R R R R "
-"                                "
+" R R R R R R R R R R R R R R R R"
 "R R R R R R R R R R R R R R R R "
-"                                "
+" R R R R R R R R R R R R R R R R"
 "R R R R R R R R R R R R R R R R "
-"                                "
+" R R R R R R R R R R R R R R R R"
 [end]
 
 
@@ -287,40 +294,42 @@ String3=0x03,CTA ; 0x03 = Dutch
 String4=0x04,CTA ; 0x04 = English
 ExtendedLabels=N
 Xpm="32 32 2 1"
-"O c #FFA500" ; Orange
+"O c #FFA500" ; Orange (Daytime foreground color)
 "  c none"
+"3 c #FFA500" ; Orange (Nighttime foreground color)
+"4 c none"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 [end]
 
 
@@ -332,40 +341,42 @@ String3=0x03,TMA; 0x03 = Dutch
 String4=0x04,TMA; 0x04 = English
 ExtendedLabels=N
 Xpm="32 32 2 1"
-"O c #FFA500" ; Orange
+"O c #FFA500" ; Orange (Daytime foreground color)
 "  c none"
+"3 c #FFA500" ; Orange (Nighttime foreground color)
+"4 c none"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 [end]
 
 
@@ -377,42 +388,43 @@ String3=0x03,LFAG ; 0x03 = Dutch
 String4=0x04,LFAG ; 0x04 = English
 ExtendedLabels=N
 Xpm="32 32 2 1"
-"G c #00FF00" ; Green
+"G c #00FF00" ; Green (Daytime foreground color)
 "  c none"
+"3 c #00FF00" ; Green (Nighttime foreground color)
+"4 c none"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 [end]
-
 
 [_polygon]
 Type=0x65
@@ -422,40 +434,42 @@ String3=0x03,Beperkt    ; 0x03 = Dutch
 String4=0x04,Restricted ; 0x04 = English
 ExtendedLabels=N
 Xpm="32 32 2 1"
-"O c #FFA500" ; Orange
+"O c #FFA500" ; Orange (Daytime foreground color)
 "  c none"
+"3 c #FFA500" ; Orange (Nighttime foreground color)
+"4 c none"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 "O O O O O O O O O O O O O O O O "
-"                                "
+" O O O O O O O O O O O O O O O O"
 [end]
 
 
@@ -467,40 +481,42 @@ String3=0x03,Verboden   ; 0x03 = Dutch
 String4=0x04,Prohibited ; 0x04 = English
 ExtendedLabels=N
 Xpm="32 32 2 1"
-"R c #FF0000" ; Red
+"R c #FF0000" ; Red (Daytime foreground color)
 "  c none"
+"3 c #FF0000" ; Red (Nighttime foreground color)
+"4 c none"
 "R R R R R R R R R R R R R R R R "
-"                                "
+" R R R R R R R R R R R R R R R R"
 "R R R R R R R R R R R R R R R R "
-"                                "
+" R R R R R R R R R R R R R R R R"
 "R R R R R R R R R R R R R R R R "
-"                                "
+" R R R R R R R R R R R R R R R R"
 "R R R R R R R R R R R R R R R R "
-"                                "
+" R R R R R R R R R R R R R R R R"
 "R R R R R R R R R R R R R R R R "
-"                                "
+" R R R R R R R R R R R R R R R R"
 "R R R R R R R R R R R R R R R R "
-"                                "
+" R R R R R R R R R R R R R R R R"
 "R R R R R R R R R R R R R R R R "
-"                                "
+" R R R R R R R R R R R R R R R R"
 "R R R R R R R R R R R R R R R R "
-"                                "
+" R R R R R R R R R R R R R R R R"
 "R R R R R R R R R R R R R R R R "
-"                                "
+" R R R R R R R R R R R R R R R R"
 "R R R R R R R R R R R R R R R R "
-"                                "
+" R R R R R R R R R R R R R R R R"
 "R R R R R R R R R R R R R R R R "
-"                                "
+" R R R R R R R R R R R R R R R R"
 "R R R R R R R R R R R R R R R R "
-"                                "
+" R R R R R R R R R R R R R R R R"
 "R R R R R R R R R R R R R R R R "
-"                                "
+" R R R R R R R R R R R R R R R R"
 "R R R R R R R R R R R R R R R R "
-"                                "
+" R R R R R R R R R R R R R R R R"
 "R R R R R R R R R R R R R R R R "
-"                                "
+" R R R R R R R R R R R R R R R R"
 "R R R R R R R R R R R R R R R R "
-"                                "
+" R R R R R R R R R R R R R R R R"
 [end]
 
 
@@ -512,40 +528,42 @@ String3=0x03,Gevaar ; 0x03 = Dutch
 String4=0x04,Danger ; 0x04 = English
 ExtendedLabels=N
 Xpm="32 32 2 1"
-"G c #00FF00" ; Green
+"G c #00FF00" ; Green (Daytime foreground color)
 "  c none"
+"3 c #00FF00" ; Green (Nighttime foreground color)
+"4 c none"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 [end]
 
 
@@ -557,38 +575,40 @@ String3=0x03,Onbepaald   ; 0x03 = Dutch
 String4=0x04,Undefined   ; 0x04 = English
 ExtendedLabels=N
 Xpm="32 32 2 1"
-"G c #808080" ; Gray
+"G c #808080" ; Gray (Daytime foreground color)
 "  c none"
+"3 c #808080" ; Gray (Nighttime foreground color)
+"4 c none"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 "G G G G G G G G G G G G G G G G "
-"                                "
+" G G G G G G G G G G G G G G G G"
 [end]
