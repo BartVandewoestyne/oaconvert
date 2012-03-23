@@ -30,9 +30,10 @@ CurvedPolygon::CurvedPolygon()
 
 CurvedPolygon::~CurvedPolygon()
 {
-    for( size_t i = 0; i < shapes.size(); ++i )
+    std::vector<const GeometricShape*>::iterator it;
+    for ( it=shapes.begin(); it < shapes.end(); it++ )
     {
-        delete shapes[i];
+      delete *it;
     }
     shapes.clear();
 }
