@@ -201,9 +201,6 @@ String4=0x04,FIR ; 0x04 = English
 ExtendedLabels=N
 Xpm="32 32 1 1"
 "  c none"
-"  c none"
-"3 c none"
-"4 c none"
 "                                "
 "                                "
 "                                "

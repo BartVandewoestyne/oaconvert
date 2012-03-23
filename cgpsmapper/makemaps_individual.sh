@@ -82,8 +82,9 @@ do
   # Note:
   #   According to cgpsmapper output, TYP-filename cannot be longer than 8+3
   #   characters... so that is why we use the ID here instead of MAP_FILENAME.
+  TYP_FILE=Airspace_chessboard.txt
   echo "Generating custom TYP file..."
-  sed -e "s/^FID=.*/FID=$FID/g" Airspace.txt > Airspace_temp.txt
+  sed -e "s/^FID=.*/FID=$FID/g" $TYP_FILE > Airspace_temp.txt
   cgpsmapper typ Airspace_temp.txt $ID.TYP
   rm -f Airspace_temp.txt
   echo "done."
