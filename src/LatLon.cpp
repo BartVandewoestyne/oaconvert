@@ -24,6 +24,9 @@
 using namespace std;
 using Constants::pi;
 
+// TODO: what we do here is dangerous.  Angle can indeed be negative, so
+// here we simply create an object with an angle of -1 instead of an angle
+// that does not exist...
 LatLon::LatLon()
     : angle(-1)
 {}
@@ -67,23 +70,25 @@ double LatLon::getAngle() const
  */
 int LatLon::getDegrees() const
 {
-    return abs( (int) angle );
+    return (int) abs(angle);
 }
 
 /**
- * Return the integer value for the minutes (the MM in DD:MM:SS).
+ * Return the (positive) integer value for the minutes (the MM in DD:MM:SS).
+ * This value should be in the positive integer range [0:59].
  */
 int LatLon::getMinutes() const
 {
-    return (int) ((getAngle()-getDegrees())*60.0);
+    return (int) ( ( abs(getAngle()) - getDegrees() )*60.0 );
 }
 
 /**
  * Return the floating point value for the seconds (the SS in DD:MM:SS).
+ * This value should be in the positive range [0:60[.
  */
 double LatLon::getSeconds() const
 {
-    return (getAngle()-getDegrees()-getMinutes()/60.0)*3600;
+    return ( abs(getAngle()) - getDegrees() - getMinutes()/60.0 )*3600;
 }
 
 /**
