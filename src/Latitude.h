@@ -31,7 +31,7 @@ public:
     Latitude(double angle);
     Latitude(double degrees, char direction);
     Latitude(int degrees, double minutes, char direction);
-    Latitude(int degrees, int minutes, int seconds, char direction);
+    Latitude(int degrees, int minutes, double seconds, char direction);
 
     char getDirection() const;
 

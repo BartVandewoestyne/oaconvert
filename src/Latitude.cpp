@@ -45,7 +45,7 @@ Latitude::Latitude(int degrees, double minutes, char direction)
   applyDirection(direction);
 }
 
-Latitude::Latitude(int degrees, int minutes, int seconds, char direction)
+Latitude::Latitude(int degrees, int minutes, double seconds, char direction)
     : LatLon(abs(degrees) + abs(minutes)/60.0 + abs(seconds)/3600.0)
 {
   applyDirection(direction);
