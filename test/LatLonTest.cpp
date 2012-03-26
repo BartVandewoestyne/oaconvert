@@ -35,6 +35,38 @@ LatLonTest::tearDown()
 }
 
 void
+LatLonTest::testGetAngle()
+{
+  double tol = 1e-12;
+  Latitude lat;
+  Longitude lon;
+
+  lat = Latitude(-12.44);
+  CPPUNIT_ASSERT_DOUBLES_EQUAL(-12.44, lat.getAngle(), tol);
+
+  lat = Latitude(14.55);
+  CPPUNIT_ASSERT_DOUBLES_EQUAL(14.55, lat.getAngle(), tol);
+
+  lon = Longitude(-45.44);
+  CPPUNIT_ASSERT_DOUBLES_EQUAL(-45.44, lon.getAngle(), tol);
+
+  lon = Longitude(56.34);
+  CPPUNIT_ASSERT_DOUBLES_EQUAL(56.34, lon.getAngle(), tol);
+
+  lat = Latitude(12, 34, 45.12, 'N');
+  CPPUNIT_ASSERT_DOUBLES_EQUAL(12.5792, lat.getAngle(), tol);
+
+  lat = Latitude(22, 34, 45.12, 'S');
+  CPPUNIT_ASSERT_DOUBLES_EQUAL(-22.5792, lat.getAngle(), tol);
+
+  lon = Longitude(5, 42, 53, 'E');
+  CPPUNIT_ASSERT_DOUBLES_EQUAL(5.71472222222222, lon.getAngle(), tol);
+
+  lon = Longitude(7, 42, 53, 'W');
+  CPPUNIT_ASSERT_DOUBLES_EQUAL(-7.71472222222222, lon.getAngle(), tol);
+}
+
+void
 LatLonTest::testGetDegrees()
 {
   Latitude lat;

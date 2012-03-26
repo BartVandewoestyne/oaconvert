@@ -26,6 +26,7 @@ class LatLonTest : public CppUnit::TestFixture
 {
 
   CPPUNIT_TEST_SUITE( LatLonTest );
+  CPPUNIT_TEST( testGetAngle );
   CPPUNIT_TEST( testGetDegrees );
   CPPUNIT_TEST( testGetMinutes );
   CPPUNIT_TEST( testGetSeconds );
@@ -34,6 +35,7 @@ class LatLonTest : public CppUnit::TestFixture
 public:
   void setUp();
   void tearDown();
+  void testGetAngle();
   void testGetDegrees();
   void testGetMinutes();
   void testGetSeconds();
