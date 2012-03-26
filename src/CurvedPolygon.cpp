@@ -47,6 +47,14 @@ void CurvedPolygon::add( const GeometricShape* s )
 void CurvedPolygon::discretize( std::vector<Coordinate>& coords, double resolution ) const
 {
     coords.clear();
+
+    // TODO: Why doesn't this work???
+    //std::vector<const GeometricShape*>::iterator it;
+    //for ( it=shapes.begin(); it < shapes.end(); it++ )
+    //{
+    //  GeometricShape *s = *it;
+    //  s->discretize( coords, resolution );
+    //}
     for( size_t i = 0; i < shapes.size(); ++i )
     {
         shapes[i]->discretize( coords, resolution );
