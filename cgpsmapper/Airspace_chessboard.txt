@@ -243,7 +243,7 @@ String2=0x02,CTR ; 0x02 = German
 String3=0x03,CTR ; 0x03 = Dutch
 String4=0x04,CTR ; 0x04 = English
 ExtendedLabels=N
-Xpm="32 32 2 1"
+Xpm="32 32 4 1"
 "R c #FF0000" ; Red (Daytime foreground color)
 "  c none"
 "3 c #FF0000" ; Red (Nighttime foreground color)
@@ -290,7 +290,7 @@ String2=0x02,CTA ; 0x02 = German
 String3=0x03,CTA ; 0x03 = Dutch
 String4=0x04,CTA ; 0x04 = English
 ExtendedLabels=N
-Xpm="32 32 2 1"
+Xpm="32 32 4 1"
 "O c #FFA500" ; Orange (Daytime foreground color)
 "  c none"
 "3 c #FFA500" ; Orange (Nighttime foreground color)
@@ -337,7 +337,7 @@ String2=0x02,TMA; 0x02 = German
 String3=0x03,TMA; 0x03 = Dutch
 String4=0x04,TMA; 0x04 = English
 ExtendedLabels=N
-Xpm="32 32 2 1"
+Xpm="32 32 4 1"
 "O c #FFA500" ; Orange (Daytime foreground color)
 "  c none"
 "3 c #FFA500" ; Orange (Nighttime foreground color)
@@ -384,7 +384,7 @@ String2=0x02,LFAG ; 0x02 = German
 String3=0x03,LFAG ; 0x03 = Dutch
 String4=0x04,LFAG ; 0x04 = English
 ExtendedLabels=N
-Xpm="32 32 2 1"
+Xpm="32 32 4 1"
 "G c #00FF00" ; Green (Daytime foreground color)
 "  c none"
 "3 c #00FF00" ; Green (Nighttime foreground color)
@@ -430,7 +430,7 @@ String2=0x02,Beschränkt ; 0x02 = German
 String3=0x03,Beperkt    ; 0x03 = Dutch
 String4=0x04,Restricted ; 0x04 = English
 ExtendedLabels=N
-Xpm="32 32 2 1"
+Xpm="32 32 4 1"
 "O c #FFA500" ; Orange (Daytime foreground color)
 "  c none"
 "3 c #FFA500" ; Orange (Nighttime foreground color)
@@ -477,7 +477,7 @@ String2=0x02,Verboten   ; 0x02 = German
 String3=0x03,Verboden   ; 0x03 = Dutch
 String4=0x04,Prohibited ; 0x04 = English
 ExtendedLabels=N
-Xpm="32 32 2 1"
+Xpm="32 32 4 1"
 "R c #FF0000" ; Red (Daytime foreground color)
 "  c none"
 "3 c #FF0000" ; Red (Nighttime foreground color)
@@ -524,7 +524,7 @@ String2=0x02,Gefahr ; 0x02 = German
 String3=0x03,Gevaar ; 0x03 = Dutch
 String4=0x04,Danger ; 0x04 = English
 ExtendedLabels=N
-Xpm="32 32 2 1"
+Xpm="32 32 4 1"
 "G c #00FF00" ; Green (Daytime foreground color)
 "  c none"
 "3 c #00FF00" ; Green (Nighttime foreground color)
@@ -571,7 +571,7 @@ String2=0x02,Undefiniert ; 0x02 = German
 String3=0x03,Onbepaald   ; 0x03 = Dutch
 String4=0x04,Undefined   ; 0x04 = English
 ExtendedLabels=N
-Xpm="32 32 2 1"
+Xpm="32 32 4 1"
 "G c #808080" ; Gray (Daytime foreground color)
 "  c none"
 "3 c #808080" ; Gray (Nighttime foreground color)
