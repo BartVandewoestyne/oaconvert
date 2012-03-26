@@ -27,12 +27,14 @@ class AirspaceTest : public CppUnit::TestFixture
 
   CPPUNIT_TEST_SUITE( AirspaceTest );
   CPPUNIT_TEST( testSetGetName );
+  CPPUNIT_TEST( testCoutOperator );
   CPPUNIT_TEST_SUITE_END();
 
 public:
   void setUp();
   void tearDown();
   void testSetGetName();
+  void testCoutOperator();
 
 };
 

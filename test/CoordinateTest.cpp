@@ -47,3 +47,11 @@ CoordinateTest::testGetDistance()
   double d = c1.getDistance(c2);
   CPPUNIT_ASSERT_DOUBLES_EQUAL(968900.0, d, tolerance);
 }
+
+void
+CoordinateTest::testCoutOperator()
+{
+  cout << endl;
+  Coordinate c1(Latitude(50,  3, 59, 'N'), Longitude(5, 42, 53, 'W'));
+  cout << c1 << endl;
+}

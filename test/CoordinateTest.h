@@ -27,12 +27,14 @@ class CoordinateTest : public CppUnit::TestFixture
 
   CPPUNIT_TEST_SUITE( CoordinateTest );
   CPPUNIT_TEST( testGetDistance );
+  CPPUNIT_TEST( testCoutOperator );
   CPPUNIT_TEST_SUITE_END();
 
 public:
   void setUp();
   void tearDown();
   void testGetDistance();
+  void testCoutOperator();
 
 };
 

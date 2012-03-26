@@ -19,6 +19,8 @@
 
 #include "AirspaceTest.h"
 #include "Airspace.h"
+#include "Coordinate.h"
+#include "Label.h"
 
 using namespace std;
 
@@ -42,4 +44,16 @@ AirspaceTest::testSetGetName()
   CPPUNIT_ASSERT_EQUAL(string("test"), s.getName());
   //CPPUNIT_ASSERT_EQUAL(false, s.hasCircle()); // older methods
   //CPPUNIT_ASSERT_EQUAL(false, s.hasPolygon()); // older methods
+}
+
+void
+AirspaceTest::testCoutOperator()
+{
+  Airspace s;
+  Coordinate c1(Latitude(50,  3, 59, 'N'), Longitude(5, 42, 53, 'W'));
+
+  s.setName("test");
+  s.add(Label("Testlabel", c1));
+
+  cout << s << endl;
 }
