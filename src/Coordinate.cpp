@@ -19,6 +19,7 @@
 
 #include <iostream>
 #include <math.h>
+#include <iomanip>
 
 #include "Coordinate.h"
 #include "Latitude.h"
@@ -123,20 +124,22 @@ double Coordinate::getDistance(const Coordinate& other) const
 
 }
 
+// TODO: something is wrong here, see AirspaceTest.
 ostream& operator <<(ostream& outputStream, const Coordinate& c)
 {
     outputStream << "Coordinate (";
-    outputStream << c.lat;
+    outputStream << fixed << setprecision(4) << c.lat;
     outputStream << ", ";
-    outputStream << c.lon;
+    outputStream << fixed << setprecision(4) << c.lon;
     outputStream << ") = (";
     outputStream << c.getLatitude().getDegrees() << ":";
-    outputStream << c.getLatitude().getMinutes() << ":";
-    outputStream << c.getLatitude().getSeconds() << " ";
+    outputStream.fill('0');
+    outputStream << setw(2) << c.getLatitude().getMinutes() << ":";
+    outputStream << setw(5) << fixed << setprecision(2) << c.getLatitude().getSeconds() << " ";
     outputStream << c.getLatitude().getDirection() << ", ";
     outputStream << c.getLongitude().getDegrees() << ":";
-    outputStream << c.getLongitude().getMinutes() << ":";
-    outputStream << c.getLongitude().getSeconds() << " ";
+    outputStream << setw(2) << c.getLongitude().getMinutes() << ":";
+    outputStream << setw(5) << fixed << setprecision(2) << c.getLongitude().getSeconds() << " ";
     outputStream << c.getLongitude().getDirection() << ")";
 
     return outputStream;
