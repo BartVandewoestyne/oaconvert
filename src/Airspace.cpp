@@ -438,16 +438,20 @@ void Airspace::clear()
 
 ostream& operator <<(ostream& outputStream, const Airspace& s)
 {
-    outputStream << "Name:    " << s.name << endl;
-    outputStream << "Class:   " << s.clss << endl;
-    outputStream << "Ceiling: " << s.ceiling << endl;
-    outputStream << "Floor:   " << s.floor << endl;
+    outputStream << "Airspace name:    " << s.name << endl;
+    outputStream << "Airspace class:   " << s.clss << endl;
+    outputStream << "Airspace ceiling: " << s.ceiling << endl;
+    outputStream << "Airspace floor:   " << s.floor << endl;
     if (s.labels.size() > 0)
     {
-        outputStream << "Label coordinates:" << endl;
-        for (size_t i=0; i<s.labels.size(); ++i)
+        outputStream << "Airspace label coordinates:" << endl;
+        
+        vector<Label>::const_iterator it;
+        for (it=s.labels.begin(); it < s.labels.end(); ++it)
         {
-            const Label &label = s.labels[i];
+            // TODO: seems like both work here???
+            const Label label = *it;
+            //const Label &label = *it;
             outputStream << "  " << label.getText() << " -- " << label.getCoordinate() << endl;
         }
     }
