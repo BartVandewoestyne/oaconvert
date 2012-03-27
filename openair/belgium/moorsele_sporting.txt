@@ -9,7 +9,7 @@
 *
 * Last check:
 *
-*   Bart Vandewoestyne (26 February 2012)
+*   Bart Vandewoestyne (27 March 2012)
 *
 * Map List:
 * 
@@ -23,12 +23,12 @@
 *   - Parachuting.
 *
 * Time of activity:
-*   - SAT, SUN and HOL, HJ. In JUL and AUG, HJ. On WED from 01 MAY to 30 JUN
-*     and from 01 to 30 SEP, 1300-SS.  In VMC only
+*   - SAT, SUN and HOL, SR-SS + 30 MIN. In JUL and AUG, SR-SS + 30 MIN. On WED
+*     from 01 MAY to 30 JUN and from 01 to 30 SEP, 1300-SS + 30 MIN. In VMC only
 
 AC Q
 AN Moorsele
-AH FL 125 
+AH FL 150
 AL GND
 V X=50:51:10 N 003:08:50 E
 DC 2
