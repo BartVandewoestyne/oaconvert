@@ -9,7 +9,7 @@
 *
 * Last check:
 *
-*   Wim Verhoeve (17 December 2011)
+*   Bart Vandewoestyne (28 March 2012)
 *
 * Map List:
 * 
@@ -23,15 +23,14 @@
 *   - Parachuting and glider activity.
 *
 * Time of activity:
-*   - SAT, SUN and HOL, HJ. In VMC only (2)
-*     (1) Upper limit FL 120 on SUN, 1000-1200.
-*     (2) These periods may be shortened for operational requirements.  In such
+*   - SAT, SUN and HOL, SAT, SUN and HOL, SR-SS + 30 MIN. In VMC only (1)
+*     (1) These periods may be shortened for operational requirements.  In such
 *         case this area becomes prohibited area and a NOTAM will be issued
-*         accordingly (see ENR 5.1, EBP03).
+*         accordingly (see ENR 5.1, EBP03). 
 
 AC Q
 AN Diest
-AH FL 100  * (1)
+AH FL 150  * (1)
 AL GND
 V X=50:59:57 N 005:03:55 E
 DC 1.5
