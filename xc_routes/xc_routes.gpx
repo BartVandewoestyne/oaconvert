@@ -164,7 +164,7 @@
   </rtept>
  </rte>
  <rte>
-  <name>Volmerange-les-Mines - </name>
+  <name>Volmerange-les-Mines - Rethel</name>
   <rtept lon="6.099787" lat="49.446693">
    <name>Volmerange-les-Mines</name>
    <cmt>Take-off</cmt>
@@ -197,6 +197,52 @@
   </rtept>
   <rtept lon="4.366667" lat="49.516667">
    <name>Rethel</name>
+   <sym>Pin, Red</sym>
+  </rtept>
+ </rte>
+ <rte>
+  <name>Beauraing - Reims</name>
+  <rtept lon="5.009897" lat="50.113100">
+   <name>Beauraing</name>
+   <cmt>Take-off</cmt>
+   <desc>Take-off</desc>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="4.936944" lat="49.981389">
+   <name>Gedinne</name>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="4.716667" lat="49.766667">
+   <name>Charleville-Mézières</name>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="4.366667" lat="49.516667">
+   <name>Rethel</name>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="4.034036" lat="49.253789">
+   <name>Reims</name>
+   <cmt>Cathedral</cmt>
+   <desc>Cathedral</desc>
+   <sym>Pin, Red</sym>
+  </rtept>
+ </rte>
+ <rte>
+  <name>Beauraing - Lake Der-Chantecoq</name>
+  <rtept lon="5.009897" lat="50.113100">
+   <name>Beauraing</name>
+   <cmt>Take-off</cmt>
+   <desc>Take-off</desc>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="4.95" lat="49.7">
+   <name>Sedan</name>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="4.759167" lat="48.5825">
+   <name>Lake Der-Chantecoq</name>
+   <cmt>Lake</cmt>
+   <desc>Lake</desc>
    <sym>Pin, Red</sym>
   </rtept>
  </rte>
