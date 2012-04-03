@@ -8,7 +8,7 @@
 *
 * Last check:
 *
-*   Wim Verhoeve (1 March 2012)
+*   Bart Vandewoestyne (3 April 2012)
 *
 * Map list:
 *
@@ -21,17 +21,17 @@
 * Remarks:
 *
 *   Sauf JF.
-*   LUN : 0730-1000 et 1130-1500.
-*   MAR, JEU : 0730-1000 et 1130 - 2359
-*   MER : 0000-LS-30, 0730-1000 et CS+30-2359.
-*   VEN : 0000-LS-30 et 0730-1000.
-*   HIV : +1HR.
+*   LUN: 0730-1000 et 1130-1500.
+*   MAR, JEU: 0730-1000 et 1130 - 2359
+*   MER: 0000-LS-30, 0730-1000 et CS+30-2359.
+*   VEN: 0000-LS-30 et 0730-1000.
+*   HIV: +1HR.
 *
 *   Entrainement très grande vitesse, très basse altitude.
-*   Le pilote n’assure pas la prévention des collisions
+*   Le pilote n’assure pas la prévention des collisions.
 *
 *   Contournement obligatoire pendant les créneaux d’activation.
-*   Gestionnaire : CDPGE Athis-Mons.
+*   Gestionnaire: CDPGE Athis-Mons.
 *   Connaissance des créneaux d’activation par :
 *   - Internet www.sia.aviation--civile.gouv.fr
 *     (rubrique Préparation de vol/Cartes AZBA)
