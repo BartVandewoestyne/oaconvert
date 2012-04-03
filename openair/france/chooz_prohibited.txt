@@ -24,18 +24,19 @@
 *
 *   Pénétration interdite H24 à l’exception des ACFT :
 *   - de la défense, de la gendarmerie, des services de police, des douanes,
-*   de la santé, intervenant au profit d’EDF, de la sécurité civile et de 
-*   surveillance ayant à intervenir dans le cadre de leur mission et ne 
-*   pouvant contourner cette zone, après obtention des éléments de pénétration
+*     de la santé, intervenant au profit d’EDF, de la sécurité civile et de 
+*     surveillance ayant à intervenir dans le cadre de leur mission et ne 
+*     pouvant contourner cette zone, après obtention des éléments de pénétration
 *   - ayant obtenu une autorisation avec un préavis minimum de 48HR, ainsi
-*   que les éléments de pénétration de la zone.
+*     que les éléments de pénétration de la zone.
 *   Organisme à contacter :
-*   Obtention d’une autorisation : Commandement de la Défense Aérienne
-*   et des Opérations Aériennes, : 01 45 52 30 25 ou 01 45 52 30 29
-*   FAX : 01 45 52 49 95.
+*   Obtention d’une autorisation:
+*     Commandement de la Défense Aérienne et des Opérations Aériennes:
+*     TEL: 01 45 52 30 25 ou 01 45 52 30 29
+*     FAX : 01 45 52 49 95.
 *   Obtention des éléments de pénétration (transpondeur, fréquence radio...):
-*   Centre National des Opérations Aériennes : 0800 39 73 75 
-*   ou +33 4 78 14 31 33.
+*     Centre National des Opérations Aériennes:
+*     TEL: 0800 39 73 75 ou +33 4 78 14 31 33.
 
 AC P
 AN P38 Chooz
