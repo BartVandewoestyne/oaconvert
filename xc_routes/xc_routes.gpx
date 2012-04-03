@@ -246,4 +246,25 @@
    <sym>Pin, Red</sym>
   </rtept>
  </rte>
+ <rte>
+  <name>Beauraing - Virton</name>
+  <rtept lon="5.009897" lat="50.113100">
+   <name>Beauraing</name>
+   <cmt>Take-off</cmt>
+   <desc>Take-off</desc>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="5.252778" lat="49.854444">
+   <name>Bertrix</name>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="5.311111" lat="49.7">
+   <name>Florenville</name>
+   <sym>Pin, Red</sym>
+  </rtept>
+  <rtept lon="5.532222" lat="49.5675">
+   <name>Virton</name>
+   <sym>Pin, Red</sym>
+  </rtept>
+ </rte>
 </gpx>
