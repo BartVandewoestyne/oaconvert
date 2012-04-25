@@ -5,7 +5,7 @@
 *
 * Last check:
 *
-*   Wim Verhoeve (19 December 2011)
+*   Bart Vandewoestyne (25 April 2012)
 *
 * Map List:
 * 
