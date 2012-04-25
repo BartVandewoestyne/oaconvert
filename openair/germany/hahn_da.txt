@@ -1,14 +1,11 @@
-**************************************************************************
-* ! ! ! ! NEEDS TO BE VERIFIED WITH OFFICIAL AIP INFORMATION ! ! ! ! ! ! !
-*           - Germany:     http://www.dfs.de/                            *
-**************************************************************************
 * Source:
 *
-*   Soaring Services (http://soaringweb.org)
+*   Deutscher Aero Club e.V.
+*   http://www.daec.de/fachbereiche/luftraum-flugbetrieb/luftraumdaten/
 *
 * Last check:
 *
-*   Wim Verhoeve (24 December 2011)
+*   Bart Vandewoestyne (25 April 2012)
 *
 * Map list:
 *
@@ -17,11 +14,9 @@
 *   MAP WEEKEND_LFAG1  YES
 *   MAP WEEKEND_LFAG2  YES
 *   MAP WEEKEND_LFAG5  YES
-*
-* Remarks for paragliding:
 
 AC D
-AN Hahn DA
+AN Hahn
 AH FL 65
 AL 2500 ft AMSL
 DP 50:03:23 N 007:16:36 E
@@ -29,32 +24,3 @@ DP 50:05:55 N 007:19:05 E
 DP 50:02:44 N 007:27:00 E
 DP 50:00:12 N 007:24:31 E
 DP 50:03:23 N 007:16:36 E
-
-
-* DFC Saarland
-* http://www.dfc-saar.de
-* AC D
-* AN HAHN2
-* AL 2500MSL
-* AH FL65
-* DP 50:03:23 N 007:16:36 E
-* DP 50:05:55 N 007:19:05 E
-* DP 50:02:44 N 007:27:00 E
-* DP 50:00:12 N 007:24:31 E
-
-* SoaringWeb
-* http://soaringweb.org
-* AC D
-* AN Hahn
-* *W N=HahnDA
-* AH FL65
-* AL 2500MSL
-* DP 50:03:23 N 007:16:36 E
-* DP 50:05:55 N 007:19:05 E
-* DP 50:02:44 N 007:27:00 E
-* DP 50:00:12 N 007:24:31 E
-* DP 50:03:23 N 007:16:36 E
-
-* Winpilot
-* http://www.winpilot.com/OpenAir/Europe.asp
-* missing
