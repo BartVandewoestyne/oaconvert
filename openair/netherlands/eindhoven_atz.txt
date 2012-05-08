@@ -1,0 +1,28 @@
+* Source:
+*
+*   http://www.ais-netherlands.nl/
+*
+*   AIP Part 2 EN ROUTE (ENR)
+*   ENR 5  NAVIGATION WARNINGS
+*    11  AERODROME TRAFFIC ZONES
+*    11.2  Military ATZs
+*
+* Last check:
+*
+*   Bart Vandewoestyne (8 May 2012)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+*   MAP PPG_NETHERLANDS YES
+
+AC CTR
+AN Eindhoven ATZ
+AH 1500 ft AAL
+AL GND
+V X=51:26:50.00 N 005:23:24.00 E
+DC 2
