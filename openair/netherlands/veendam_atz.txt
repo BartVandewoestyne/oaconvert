@@ -9,7 +9,7 @@
 *
 * Last check:
 *
-*   Bart Vandewoestyne (8 May 2012)
+*   Bart Vandewoestyne en rené daarna weer (8 May 2012)
 *
 * Map list:
 *
