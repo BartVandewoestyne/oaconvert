@@ -96,6 +96,7 @@ public:
     bool isFIR() const;
     bool isMapEdge() const;
     bool isCTR() const;
+    bool isATZ() const;
     bool isCTA() const;
     bool isTMA() const;
     bool isFloating() const;

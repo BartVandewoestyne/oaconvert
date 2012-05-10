@@ -68,6 +68,7 @@ void KMLState::writeHeader(std::ostream &out) const
     writeStyle(out, "prohibited", red);
 
     writeStyle(out, "cta", orange);
+    writeStyle(out, "atz", orange);
     writeStyle(out, "tma", orange);
     writeStyle(out, "restricted", orange);
 
@@ -226,6 +227,12 @@ std::string KMLState::getPolygonType(const Airspace& space) const {
 
     if (space.isByNOTAM()) {
         return (string("#bynotam"));
+    } else if (space.isATZ()) {
+        if (space.getClass() == "CTR") {
+          return string("#ctr");
+        } else {
+          return string("#atz");
+        }
     } else if (space.isCTR()) {
         return string("#ctr");
     } else if (space.isCTA()) {

@@ -321,6 +321,12 @@ std::string PolishState::getPolygonType(const Airspace& space) const
 {
     if (space.isCTR()) {
         return string("0x61");
+    } else if (space.isATZ()) {
+        if (space.getClass() == "CTR") {
+          return string("0x61"); // same as CTR.
+        } else {
+          return string("0x65"); // same as Restricted.
+        }
     } else if (space.isCTA()) {
         return string("0x62");
     } else if ( space.isFloating() && !space.isLowFlyingAreaGolf() ) {
