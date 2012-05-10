@@ -1,0 +1,28 @@
+* Source:
+*
+*   http://www.ais-netherlands.nl/
+*
+*   AIP Part 2 EN ROUTE (ENR)
+*   ENR 5  NAVIGATION WARNINGS
+*    11  AERODROME TRAFFIC ZONES
+*    11.2  Military ATZs
+*
+* Last check:
+*
+*   René van den Broek (10 May 20112)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+*   MAP PPG_NETHERLANDS YES
+
+AC CTR
+AN De Peel ATZ
+AH 1500 ft AAL
+AL GND
+V X=51:31:02.20 N 005:51:20.30 E
+DC 2
