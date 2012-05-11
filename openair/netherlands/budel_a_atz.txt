@@ -3,7 +3,7 @@
 *   http://www.ais-netherlands.nl/
 *
 *   AIP Part 2 EN ROUTE (ENR)
-*   ENR 5  NAVIGATION WARNINGS
+*   ENR 5 NAVIGATION WARNINGS
 *    11  AERODROME TRAFFIC ZONES
 *    11.1  Civil ATZs
 *
@@ -21,7 +21,7 @@
 *   MAP PPG_NETHERLANDS YES
 
 AC G
-AN Budel_a ATZ
+AN Budel ATZ A
 AH 1200 ft AMSL
 AL GND
 DP 51:17:42.83 N 005:30:56.88 E
@@ -41,9 +41,3 @@ DP 51.266499 N 5.551486 E
 DP 51.292999 N 5.512884 E
 * END Belgian-Dutch border
 51:17:42.83 N 005:30:56.88 E
-
-
-
-
-
-
