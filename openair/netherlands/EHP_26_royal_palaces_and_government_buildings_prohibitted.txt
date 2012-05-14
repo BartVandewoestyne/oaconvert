@@ -1,0 +1,31 @@
+* Source:
+*
+*   http://www.ais-netherlands.nl/
+*
+*   AIP Part 2 EN ROUTE (ENR)
+*    ENR 5  NAVIGATION WARNINGS
+*     6  PROHIBITED, RESTRICTED AND DANGER AREAS
+*
+* Last check:
+*
+*   René van den Broek (14 May 2012)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+*   MAP PPG_NETHERLANDS YES
+
+AC Q
+AN EHP 26 (royal palaces and government buildings)
+AH 2000 ft AMSL
+AL GND
+DP 52:03:43.00 N 004:18:20.00 E
+DP 52:06:25.00 N 004:24:20.00 E
+DP 52:07:37.00 N 004:26:03.00 E
+DP 52:08:36.00 N 004:23:50.00 E
+DP 52:05:17.00 N 004:16:27.00 E
+DP 52:03:43.00 N 004:18:20.00 E
