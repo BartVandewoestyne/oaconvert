@@ -3,9 +3,9 @@
 *   http://www.ais-netherlands.nl/
 *
 *   AIP Part 2 EN ROUTE (ENR)
-*   ENR 5  NAVIGATION WARNINGS
-*    11  AERODROME TRAFFIC ZONES
-*    11.2  Military ATZs
+*    ENR 5 NAVIGATION WARNINGS
+*     11 AERODROME TRAFFIC ZONES
+*      11.2 Military ATZs
 *
 * Last check:
 *
