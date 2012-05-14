@@ -1,0 +1,30 @@
+* Source:
+*
+*   http://www.ais-netherlands.nl/
+*
+*   AIP Part 2 EN ROUTE (ENR)
+*    ENR 5  NAVIGATION WARNINGS
+*     6  PROHIBITED, RESTRICTED AND DANGER AREAS
+*
+* Last check:
+*
+*   René van den Broek (14 May 2012)
+*
+* Map list:
+*
+*   MAP WEEK           SEE AUP
+*   MAP WEEKEND        SEE AUP
+*   MAP WEEKEND_LFAG1  SEE AUP
+*   MAP WEEKEND_LFAG2  SEE AUP
+*   MAP WEEKEND_LFAG5  SEE AUP
+*   MAP PPG_NETHERLANDS SEE AUP
+
+AC R
+AN EHR 3D (Oldebroek)
+AH FL 360
+AL FL 175
+DP 52:23:00.00 N 005:50:00.00 E
+DP 52:21:30.00 N 005:52:30.00 E
+DP 52:24:30.00 N 006:01:00.00 E
+DP 52:27:00.00 N 006:00:00.00 E
+DP 52:23:00.00 N 005:50:00.00 E

@@ -1,0 +1,32 @@
+* Source:
+*
+*   http://www.ais-netherlands.nl/
+*
+*   AIP Part 2 EN ROUTE (ENR)
+*    ENR 5  NAVIGATION WARNINGS
+*     6  PROHIBITED, RESTRICTED AND DANGER AREAS
+*
+* Last check:
+*
+*   René van den Broek (14 May 2012)
+*
+* Map list:
+*
+*   MAP WEEK           SEE NOTAM
+*   MAP WEEKEND        SEE NOTAM
+*   MAP WEEKEND_LFAG1  SEE NOTAM
+*   MAP WEEKEND_LFAG2  SEE NOTAM
+*   MAP WEEKEND_LFAG5  SEE NOTAM
+*   MAP PPG_NETHERLANDS SEE NOTAM
+
+AC R
+AN EHR 2 (Marnewaard)
+AH FL 065
+AL GND
+* remark:  AL following AIP is MSL
+DP 53:24:41.00 N 006:14:09.00 E 
+DP 53:25:33.00 N 006:14:56.00 E 
+DP 53:26:02.00 N 006:19:55.00 E 
+DP 53:24:09.00 N 006:20:08.00 E 
+DP 53:24:03.00 N 006:15:16.00 E 
+DP 53:24:41.00 N 006:14:09.00 E 

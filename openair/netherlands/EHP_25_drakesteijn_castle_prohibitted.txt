@@ -1,0 +1,30 @@
+* Source:
+*
+*   http://www.ais-netherlands.nl/
+*
+*   AIP Part 2 EN ROUTE (ENR)
+*    ENR 5  NAVIGATION WARNINGS
+*     6  PROHIBITED, RESTRICTED AND DANGER AREAS
+*
+* Last check:
+*
+*   René van den Broek (14 May 2012)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+*   MAP PPG_NETHERLANDS YES
+
+AC Q
+AN EHP 25 (Drakensteijn Castle)
+AH 2000 ft AMSL
+AL GND
+DP 52:11:08.00 N 005:12:30.00 E
+DP 52:12:22.00 N 005:17:15.00 E
+DP 52:11:21.00 N 005:17:56.00 E
+DP 52:10:09.00 N 005:13:11.00 E
+DP 52:11:08.00 N 005:12:30.00 E
