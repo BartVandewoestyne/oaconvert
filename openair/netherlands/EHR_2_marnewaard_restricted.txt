@@ -22,8 +22,7 @@
 AC R
 AN EHR 2 (Marnewaard)
 AH FL 065
-AL GND
-* remark:  AL following AIP is MSL
+AL MSL
 DP 53:24:41.00 N 006:14:09.00 E 
 DP 53:25:33.00 N 006:14:56.00 E 
 DP 53:26:02.00 N 006:19:55.00 E 
