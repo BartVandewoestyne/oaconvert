@@ -30,8 +30,7 @@ UTF-8 encoded OpenAir files, see
 
 To find files that *do* have a BOM, you can use this one-liner on Linux:
 
-  find . -type f -print0 | xargs -0r awk '/^\xEF\xBB\xBF/ {print FILENAME}
-{nextfile}'
+  find . -type f -print0 | xargs -0r awk '/^\xEF\xBB\xBF/ {print FILENAME} {nextfile}'
 
 On individual files, you can also use hexdump to check if there's a BOM:
 

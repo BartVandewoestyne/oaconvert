@@ -44,6 +44,7 @@ private:
         REGEX_DD,
         REGEX_FL,
         REGEX_AGL,
+        REGEX_AAL,
         REGEX_MSL,
         REGEX_SFC,
         REGEX_FT,

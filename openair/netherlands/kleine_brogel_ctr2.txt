@@ -3,9 +3,9 @@
 *   http://www.ais-netherlands.nl/
 *
 *   AIP Part 2 EN ROUTE (ENR)
-*   ENR 2  AIR TRAFFIC SERVICES AIRSPACE
-*    ENR 2.1  FIR, CTA, TMA
-*    CONTROL ZONES NOT DESCRIBED IN PART 3 AERODROMES (AD 2.17)
+*    ENR 2 AIR TRAFFIC SERVICES AIRSPACE
+*     ENR 2.1 FIR, CTA, TMA
+*      CONTROL ZONES NOT DESCRIBED IN PART 3 AERODROMES (AD 2.17)
 *
 * Last check:
 *
@@ -20,19 +20,21 @@
 *   MAP WEEKEND_LFAG5  YES
 *   MAP PPG_NETHERLANDS YES
 *
-* remarks:
-*   - For entry Kleine-Brogel CTR above 1200 ft AMSL permission required from TWR. 
+* Remarks:
+*
+*   - For entry Kleine-Brogel CTR above 1200 ft AMSL permission required
+*     from TWR. 
 *   - Outside OPR HR permission required from Dutch MIL FREQ 132.350 MHz.
-*   - Kleine-Brogel CTR one is situated in Belgium (see AIP 
-*     Belgium for details).
+*   - Kleine-Brogel CTR one is situated in Belgium (see AIP Belgium for
+*     details).
 
 AC C
-AN Kleine-Brogel 2  CTR
+AN Kleine-Brogel CTR 2
 AH 3000 ft AMSL
 AL GND
 DP 51:17:42.83 N 005:30:56.88 E
 V D=+
-* Radius 6.5 NM
+* Radius 5 NM
 V X=51:14:21.00 N 005:36:50.00 E
 DB 51:17:42.83 N 005:30:56.88 E, 51:10:51.71 N 005:42:31.43 E
 DP 51:10:51.71 N 005:42:31.43 E

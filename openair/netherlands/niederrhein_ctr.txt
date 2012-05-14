@@ -3,9 +3,9 @@
 *   http://www.ais-netherlands.nl/
 *
 *   AIP Part 2 EN ROUTE (ENR)
-*   ENR 2  AIR TRAFFIC SERVICES AIRSPACE
-*    ENR 2.1  FIR, CTA, TMA
-*    CONTROL ZONES NOT DESCRIBED IN PART 3 AERODROMES (AD 2.17)
+*    ENR 2 AIR TRAFFIC SERVICES AIRSPACE
+*     ENR 2.1 FIR, CTA, TMA
+*      CONTROL ZONES NOT DESCRIBED IN PART 3 AERODROMES (AD 2.17)
 *
 * Last check:
 *
@@ -21,8 +21,10 @@
 *   MAP PPG_NETHERLANDS YES
 * 
 * Remarks:
-*     - For entry or crossing of Niederrhein CTR clearance is required from Niederrhein TWR. 
-*     - Outside OPR HR clearance is required from Dutch MIL FREQ 132.350 MHz.
+*     - For entry or crossing of Niederrhein CTR clearance is required
+*       from Niederrhein TWR. 
+*     - Outside OPR HR clearance is required from Dutch MIL
+*       FREQ 132.350 MHz.
  
 AC C
 AN Nierderrhein CTR
@@ -41,7 +43,7 @@ V X=51:39:25.95 N 005:42:28.17 E
 DB 51:37:09.82 N 005:54:46.89 E, 51:39:19.76 N 005:55:18.85 E
 DP 51:39:19.76 N 005:55:18.85 E
 DP 51:39:05.03 N 006:06:59.48 E
-* along Dutch-German border Begin
+* START Dutch-German border
 DP 51.649368 N 6.113987 E
 DP 51.629925 N 6.108914 E
 DP 51.622650 N 6.105618 E
@@ -53,9 +55,5 @@ DP 51.592529 N 6.116271 E
 DP 51.592930 N 6.122408 E
 DP 51.582359 N 6.130080 E
 DP 51.569240 N 6.156869 E
-* along Dutch-German border End
+* END Dutch-German border
 DP 51:33:15.33 N 006:09:56.74 E
-
-
-
-

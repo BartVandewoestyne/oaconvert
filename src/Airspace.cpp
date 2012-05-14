@@ -175,6 +175,16 @@ bool Airspace::isCTR() const
 
 
 /**
+ * Return true if this airspace is an ATZ (Aerodrome Traffic Zone).  The
+ * will be an ATZ if its name contains the case sensitive string 'ATZ'.
+*/
+bool Airspace::isATZ() const
+{
+    return StringUtils::hasSubstring(name, "ATZ");
+}
+
+
+/**
   * Return true if this airspace is a CTA.  The airspace
   * will be a CTA if its name contains the case sensitive
   * string 'CTA'.

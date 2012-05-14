@@ -3,7 +3,7 @@
 *   http://www.ais-netherlands.nl/
 *
 *   AIP Part 2 EN ROUTE (ENR)
-*   ENR 5  NAVIGATION WARNINGS
+*   ENR 5 NAVIGATION WARNINGS
 *    11  AERODROME TRAFFIC ZONES
 *    11.1  Civil ATZs
 *
@@ -21,7 +21,7 @@
 *   MAP PPG_NETHERLANDS YES
 
 AC G
-AN Budel_b ATZ
+AN Budel ATZ B
 AH 600 ft AMSL
 AL GND
 51:15:20.70 N 005:33:24.49 E

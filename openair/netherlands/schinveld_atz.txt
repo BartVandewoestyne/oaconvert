@@ -3,9 +3,10 @@
 *   http://www.ais-netherlands.nl/
 *
 *   AIP Part 2 EN ROUTE (ENR)
-*   ENR 5  NAVIGATION WARNINGS
-*    11  AERODROME TRAFFIC ZONES
-*    11.1  Civil ATZs
+*    ENR 5 NAVIGATION WARNINGS
+*     ENR 5.1 PROHIBITED, RESTRICTED AND DANGER AREAS
+*      11 AERODROME TRAFFIC ZONES
+*       11.1  Civil ATZs
 *
 * Last check:
 *
@@ -26,15 +27,15 @@ AH 3000 ft AMSL
 AL GND
 DP 50:58:33.93 N 005:58:18.01 E
 DP 50:58:48.48 N 005:58:18.84 E
-* along Dutch-German 
+* START Dutch-German border
 DP 50:58:59.50 N 005:58:51.99 E
+* END Dutch-German border
 DP 50:58:59.57 N 006:01:35.71 E
-* along Dutch-German (not implemented)
+* START Dutch-German border
+* TODO
+* END Dutch-German border
 DP 50:58:54.15 N 006:01:36.92 E
 DP 50:58:55.93 N 006:01:17.09 E
 DP 50:58:49.93 N 006:00:58.09 E
 DP 50:58:32.94 N 006:00:20.10 E
 DP 50:58:33.93 N 005:58:18.01 E
-
-
-

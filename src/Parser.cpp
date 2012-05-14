@@ -208,6 +208,21 @@ double Parser::parseAltitude(const std::string& s) const
         return atof(valuestring.c_str())*feet_in_meter;
     }
 
+    // AAL means 'Above Aerodrome Level', which means that this altitude is measured
+    // with respect to a reference point on the aerodrome.
+    //
+    // See also:
+    //   http://nl.wikipedia.org/wiki/Above_Aerodrome_Level
+    //
+    // Examples:
+    //   820 AAL
+    //   7000 ft AAL
+    if ( regex_match(s, matches, regexMap.find(REGEX_AGL)->second) )
+    {
+        string valuestring( matches[1].first, matches[1].second );
+        return atof(valuestring.c_str())*feet_in_meter;
+    }
+
     // AMSL means 'Above Mean Sea Level' and refers to the altitude relative to the average sea level datum.
     //
     // See also:
@@ -508,7 +523,8 @@ void Parser::initRegexMap()
     // Altitude specification stuff.
     regexMap[REGEX_FT]             = regex("\\s*(\\d+)\\s*('|ft)?.*",          boost::regex_constants::icase);
     regexMap[REGEX_FL]             = regex("\\s*FL\\s*(\\d+).*",               boost::regex_constants::icase);
-    regexMap[REGEX_AGL]            = regex("\\s*(\\d+)\\s*('|ft)?\\s*AGL.*",   boost::regex_constants::icase);
+    regexMap[REGEX_AGL]            = regex("\\s*(\\d+)\\s*('|ft)?\\s*AGL.*", boost::regex_constants::icase);
+    regexMap[REGEX_AAL]            = regex("\\s*(\\d+)\\s*('|ft)?\\s*AAL.*", boost::regex_constants::icase);
     regexMap[REGEX_MSL]            = regex("\\s*(\\d+)\\s*('|ft)?\\s*A?MSL.*", boost::regex_constants::icase);
     // TODO: REGEX_SFC incorrectly matches 'ft ASFC'.  If there is 'ft', then there should be a number in front of it!  But simply 'SFC' should also be allowed...
     regexMap[REGEX_SFC]            = regex("\\s*(\\d*)\\s*('|ft)?\\s*A?SFC.*", boost::regex_constants::icase);
