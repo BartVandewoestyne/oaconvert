@@ -3,13 +3,13 @@
 *   http://www.ais-netherlands.nl/
 *
 *   AIP Part 2 EN ROUTE (ENR)
-*   ENR 5  NAVIGATION WARNINGS
-*    11  AERODROME TRAFFIC ZONES
-*    11.2  Military ATZs
+*    ENR 5 NAVIGATION WARNINGS
+*     11 AERODROME TRAFFIC ZONES
+*      11.2 Military ATZs
 *
 * Last check:
 *
-*   René van den Broek (10 May 20112)
+*   Bart Vandewoestyne (14 May 2012)
 *
 * Map list:
 *
@@ -21,7 +21,7 @@
 *   MAP PPG_NETHERLANDS YES
 
 AC CTR
-AN Twente ATZ
+AN Twenthe ATZ
 AH 1500 ft AAL
 AL GND
 V X=52:16:32.99 N 006:53:20.76 E
