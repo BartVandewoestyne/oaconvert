@@ -19,7 +19,7 @@
 *   MAP WEEKEND_LFAG5  YES
 *   MAP PPG_NETHERLANDS YES
 
-AC Q
+AC P
 AN EHP 26 (royal palaces and government buildings)
 AH 2000 ft AMSL
 AL GND
