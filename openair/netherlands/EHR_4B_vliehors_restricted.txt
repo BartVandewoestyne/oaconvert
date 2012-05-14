@@ -13,12 +13,12 @@
 *
 * Map list:
 *
-*   MAP WEEK           SEE NOTAM
+*   MAP WEEK           YES
 *   MAP WEEKEND        SEE NOTAM
 *   MAP WEEKEND_LFAG1  SEE NOTAM
 *   MAP WEEKEND_LFAG2  SEE NOTAM
 *   MAP WEEKEND_LFAG5  SEE NOTAM
-*   MAP PPG_NETHERLANDS SEE NOTAM
+*   MAP PPG_NETHERLANDS YES
 *
 * Remarks:
 *
@@ -26,7 +26,6 @@
 *     activated by NOTAM.  Prohibited, unless permission from AOCS Nieuw
 *     Milligen.  Air to ground firing.  From SS-2230 (SS-2130) flares may
 *     be dropped.
-*
 
 AC R
 AN EHR 4B (Vliehors)

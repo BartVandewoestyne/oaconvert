@@ -1,0 +1,31 @@
+* Source:
+*
+*   http://www.ais-netherlands.nl/
+*
+*   AIP Part 2 EN ROUTE (ENR)
+*    ENR 5  NAVIGATION WARNINGS
+*     6  PROHIBITED, RESTRICTED AND DANGER AREAS
+*
+* Last check:
+*
+*   René van den Broek (14 May 2012)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        SEE NOTAM
+*   MAP WEEKEND_LFAG1  SEE NOTAM
+*   MAP WEEKEND_LFAG2  SEE NOTAM
+*   MAP WEEKEND_LFAG5  SEE NOTAM
+*   MAP PPG_NETHERLANDS YES
+*
+
+AC R
+AN EHR 4C (Vliehors)
+AH 2000 AMSL
+AL 1000 aMSL
+DP 53:02:40.00 N 005:15:00.00 E
+DP 52:52:40.00 N 005:21:30.00 E
+DP 52:51:30.00 N 005:15:30.00 E
+DP 52:59:05.07 N 005:08:08.93 E
+DP 53:02:40.00 N 005:15:00.00 E
