@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+
+  <Style id="ctr">
+      <LineStyle>
+          <color>820000ff</color>
+      </LineStyle>
+      <PolyStyle>
+          <color>820000ff</color>
+      </PolyStyle>
+  </Style>
+  <Style id="prohibited">
+      <LineStyle>
+          <color>820000ff</color>
+      </LineStyle>
+      <PolyStyle>
+          <color>820000ff</color>
+      </PolyStyle>
+  </Style>
+  <Style id="cta">
+      <LineStyle>
+          <color>820066ff</color>
+      </LineStyle>
+      <PolyStyle>
+          <color>820066ff</color>
+      </PolyStyle>
+  </Style>
+  <Style id="atz">
+      <LineStyle>
+          <color>820066ff</color>
+      </LineStyle>
+      <PolyStyle>
+          <color>820066ff</color>
+      </PolyStyle>
+  </Style>
+  <Style id="tma">
+      <LineStyle>
+          <color>820066ff</color>
+      </LineStyle>
+      <PolyStyle>
+          <color>820066ff</color>
+      </PolyStyle>
+  </Style>
+  <Style id="restricted">
+      <LineStyle>
+          <color>820066ff</color>
+      </LineStyle>
+      <PolyStyle>
+          <color>820066ff</color>
+      </PolyStyle>
+  </Style>
+  <Style id="lfag">
+      <LineStyle>
+          <color>8200ff00</color>
+      </LineStyle>
+      <PolyStyle>
+          <color>8200ff00</color>
+      </PolyStyle>
+  </Style>
+  <Style id="danger">
+      <LineStyle>
+          <color>8200ff00</color>
+      </LineStyle>
+      <PolyStyle>
+          <color>8200ff00</color>
+      </PolyStyle>
+  </Style>
+  <Style id="bynotam">
+      <LineStyle>
+          <color>82ff0000</color>
+      </LineStyle>
+      <PolyStyle>
+          <color>82ff0000</color>
+      </PolyStyle>
+  </Style>
+  <Style id="default">
+      <LineStyle>
+          <color>82c0c0c0</color>
+      </LineStyle>
+      <PolyStyle>
+          <color>82c0c0c0</color>
+      </PolyStyle>
+  </Style>
+
+  <Placemark>
+    <name>EHD 42A</name>
+    <description>
+Ceiling: FL 055 (1677 m)
+Floor  : MSL (0 m)
+    </description>
+    <styleUrl>#danger</styleUrl>
+  <MultiGeometry>
+    <Polygon>
+      <altitudeMode>absolute</altitudeMode>
+      <outerBoundaryIs>
+        <LinearRing>
+          <coordinates>
+          4.76667,54,1676.4
+          6.10722,54,1676.4
+          6.23278,53.8517,1676.4
+          5.1,53.6272,1676.4
+          4.76667,53.6,1676.4
+          4.76667,54,1676.4
+          </coordinates>
+        </LinearRing>
+      </outerBoundaryIs>
+    </Polygon>
+    <Polygon>
+      <altitudeMode>absolute</altitudeMode>
+      <outerBoundaryIs>
+        <LinearRing>
+          <coordinates>
+          4.76667,54,0
+          6.10722,54,0
+          6.23278,53.8517,0
+          5.1,53.6272,0
+          4.76667,53.6,0
+          4.76667,54,0
+          </coordinates>
+        </LinearRing>
+      </outerBoundaryIs>
+    </Polygon>
+    <Polygon>
+      <altitudeMode>absolute</altitudeMode>
+      <outerBoundaryIs>
+        <LinearRing>
+          <coordinates>
+          4.76667,54,0
+          6.10722,54,0
+          6.10722,54,1676.4
+          4.76667,54,1676.4
+          4.76667,54,0
+          </coordinates>
+        </LinearRing>
+      </outerBoundaryIs>
+    </Polygon>
+    <Polygon>
+      <altitudeMode>absolute</altitudeMode>
+      <outerBoundaryIs>
+        <LinearRing>
+          <coordinates>
+          6.10722,54,0
+          6.23278,53.8517,0
+          6.23278,53.8517,1676.4
+          6.10722,54,1676.4
+          6.10722,54,0
+          </coordinates>
+        </LinearRing>
+      </outerBoundaryIs>
+    </Polygon>
+    <Polygon>
+      <altitudeMode>absolute</altitudeMode>
+      <outerBoundaryIs>
+        <LinearRing>
+          <coordinates>
+          6.23278,53.8517,0
+          5.1,53.6272,0
+          5.1,53.6272,1676.4
+          6.23278,53.8517,1676.4
+          6.23278,53.8517,0
+          </coordinates>
+        </LinearRing>
+      </outerBoundaryIs>
+    </Polygon>
+    <Polygon>
+      <altitudeMode>absolute</altitudeMode>
+      <outerBoundaryIs>
+        <LinearRing>
+          <coordinates>
+          5.1,53.6272,0
+          4.76667,53.6,0
+          4.76667,53.6,1676.4
+          5.1,53.6272,1676.4
+          5.1,53.6272,0
+          </coordinates>
+        </LinearRing>
+      </outerBoundaryIs>
+    </Polygon>
+    <Polygon>
+      <altitudeMode>absolute</altitudeMode>
+      <outerBoundaryIs>
+        <LinearRing>
+          <coordinates>
+          4.76667,53.6,0
+          4.76667,54,0
+          4.76667,54,1676.4
+          4.76667,53.6,1676.4
+          4.76667,53.6,0
+          </coordinates>
+        </LinearRing>
+      </outerBoundaryIs>
+    </Polygon>
+    <Polygon>
+      <altitudeMode>absolute</altitudeMode>
+      <outerBoundaryIs>
+        <LinearRing>
+          <coordinates>
+          4.76667,54,0
+          4.76667,54,0
+          4.76667,54,1676.4
+          4.76667,54,1676.4
+          4.76667,54,0
+          </coordinates>
+        </LinearRing>
+      </outerBoundaryIs>
+    </Polygon>
+    </MultiGeometry>
+  </Placemark>
+
+</Document>
+</kml>
