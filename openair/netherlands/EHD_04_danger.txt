@@ -1,0 +1,30 @@
+* Source:
+*
+*   http://www.ais-netherlands.nl/
+*
+*   AIP Part 2 EN ROUTE (ENR)
+*    ENR 5  NAVIGATION WARNINGS
+*     6  PROHIBITED, RESTRICTED AND DANGER AREAS
+*
+* Last check:
+*
+*   René van den Broek (15 May 2012)
+*
+* Map list:
+*
+*   MAP WEEK           SEE AUP
+*   MAP WEEKEND        SEE AUP
+*   MAP WEEKEND_LFAG1  SEE AUP
+*   MAP WEEKEND_LFAG2  SEE AUP
+*   MAP WEEKEND_LFAG5  SEE AUP
+*   MAP PPG_NETHERLANDS NO
+
+AC Q
+AN EHD 04
+AH FL 285
+AL FL 055
+DP 54:30:00.00 N 004:46:00.00 E 
+DP 54:30:00.00 N 005:34:00.00 E 
+DP 54:00:00.00 N 005:34:00.00 E 
+DP 54:00:00.00 N 004:46:00.00 E 
+DP 54:30:00.00 N 004:46:00.00 E 
