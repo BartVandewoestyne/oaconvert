@@ -1,0 +1,27 @@
+* Source:
+*
+*   http://www.ais-netherlands.nl/
+*
+*   AIP Part 2 EN ROUTE (ENR)
+*    ENR 5  NAVIGATION WARNINGS
+*     6  PROHIBITED, RESTRICTED AND DANGER AREAS
+*
+* Last check:
+*
+*   René van den Broek (21 May 2012)
+*
+* Map list:
+*
+*   MAP WEEK           SEE NOTAM
+*   MAP WEEKEND        SEE NOTAM
+*   MAP WEEKEND_LFAG1  SEE NOTAM
+*   MAP WEEKEND_LFAG2  SEE NOTAM
+*   MAP WEEKEND_LFAG5  SEE NOTAM
+*   MAP PPG_NETHERLANDS SEE NOTAM
+
+AC R
+EHR 19 (Rhenen/Grebbeberg)
+AH FL 055
+AL GND
+V X=51:57:30.00 N 005:35:30.00 E
+DC 2
