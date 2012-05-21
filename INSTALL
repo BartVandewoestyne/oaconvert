@@ -26,15 +26,15 @@ and run the extract_maps.sh script.
   ./extract_maps.sh
 
 => Under the root directory, you now have a build directory with the different
-   maps in OpenAir, Polish and GPX file format.
+   maps in OpenAir, KML, Polish and GPX file format.
 
 Step 4: generate the Garmin maps
 --------------------------------
 To generate the Garmin maps, change into the cgpsmapper directory and run
-the makemaps.sh script:
+the makemaps_individual.sh script:
 
   cd ../cgpsmapper
-  ./makemaps.sh
+  ./makemaps_individual.sh
 
 => Under the build directory, you now also have a garmin directory with the
    Garmin maps.
