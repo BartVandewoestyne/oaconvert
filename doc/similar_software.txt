@@ -4,7 +4,7 @@ oa2gm:
 
   http://buteo.szm.com/oa2gm/ 
 
-Scripts from ondrap@penguin.cz :
+Scripts from Ondřej Palkovský (ondrap@penguin.cz):
 
   http://www.penguin.cz/~ondrap/paragliding.php
 
