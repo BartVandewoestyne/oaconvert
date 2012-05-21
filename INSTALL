@@ -30,8 +30,12 @@ and run the extract_maps.sh script.
 
 Step 4: generate the Garmin maps
 --------------------------------
-To generate the Garmin maps, change into the cgpsmapper directory and run
-the makemaps_individual.sh script:
+
+To generate the Garmin maps, you need the cgpsmapper command-line tool.  If you
+plan to generate the maps on Windows, you also need the cpreview tool.  You can
+find both at the cGPSmapper website (http://www.cgpsmapper.com/).  Once these
+are properly installed, change into the cgpsmapper directory and run the
+makemaps_individual.sh script:
 
   cd ../cgpsmapper
   ./makemaps_individual.sh
