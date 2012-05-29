@@ -20,7 +20,7 @@
 *   MAP PPG_NETHERLANDS SEE NOTAM
 
 AC R
-EHR 18 (Bloemendaal/Overveen)
+AN EHR 18 (Bloemendaal/Overveen)
 AH FL 055
 AL GND
 V X=52:24:00.00 N 004:37:00.00 E

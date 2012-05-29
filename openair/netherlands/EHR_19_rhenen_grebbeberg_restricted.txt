@@ -20,7 +20,7 @@
 *   MAP PPG_NETHERLANDS SEE NOTAM
 
 AC R
-EHR 19 (Rhenen/Grebbeberg)
+AN EHR 19 (Rhenen/Grebbeberg)
 AH FL 055
 AL GND
 V X=51:57:30.00 N 005:35:30.00 E
