@@ -41,7 +41,7 @@ DP 53:12:48.00 N 007:13:01.00 E
 * TODO
 * END Dutch-German border
 DP 50:45:15.44 N 006:01:15.63 E
-* START Dutch-Belgien border
+* START Dutch-Belgian border
 * TODO
 * END Dutch-Belgian border
 DP 51:22:22.76 N 003:21:46.71 E

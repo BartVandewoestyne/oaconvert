@@ -45,8 +45,12 @@ makemaps_individual.sh script:
 
 Step 5 (only Windows): install the Garmin maps
 ----------------------------------------------
-Startup Windows and open and run the create_setup.nsi NSIS installer script
-with the 'HM NIS Edit' program, available from http://hmne.sourceforge.net/
+Make sure you have a working installation of NSIS (Nullsoft Scriptable Install
+System), available from http://nsis.sourceforge.net/.  Start up Windows and
+open and run the create_setup.nsi NSIS installer script with the 'HM NIS Edit'
+program, available from http://hmne.sourceforge.net/
 
 => You now have have a <somefilename>.exe setup file that you can run
-   to install the maps.
+   to install the maps.  The installer will copy the maps to a directory of
+   the user's choice and will also make the necessary changes in the Windows
+   registry so that everything works nicely with MapSource and BaseCamp.
