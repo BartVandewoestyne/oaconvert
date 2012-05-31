@@ -10,6 +10,7 @@
 * Last check:
 *
 *   Bart Vandewoestyne (27 February 2012)
+*   René van den Broek (30 May 2012)
 *
 * Map list:
 *
@@ -18,6 +19,7 @@
 *   MAP WEEKEND_LFAG1  YES
 *   MAP WEEKEND_LFAG2  YES
 *   MAP WEEKEND_LFAG5  YES
+*   MAP PPG_NETHERLANDS YES
 *
 * Remarks:
 *
