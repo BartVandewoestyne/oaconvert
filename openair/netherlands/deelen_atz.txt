@@ -9,7 +9,7 @@
 *
 * Last check:
 *
-*   Bart Vandewoestyne (8 May 2012)
+*   René van den Broek (31 May 2012)
 *
 * Map list:
 *
@@ -22,7 +22,7 @@
 
 AC CTR
 AN Deelen ATZ
-AH 1500 ft AAL
+AH 2500 AMSL
 AL GND
 V X=52:03:35.02 N 005:52:18.97 E
 DC 2

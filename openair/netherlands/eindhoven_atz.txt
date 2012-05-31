@@ -9,7 +9,7 @@
 *
 * Last check:
 *
-*   Bart Vandewoestyne (8 May 2012)
+*   René van den Broek (31 May 2012)
 *
 * Map list:
 *
@@ -22,7 +22,7 @@
 
 AC CTR
 AN Eindhoven ATZ
-AH 1500 ft AAL
+AH 2500 AMSL
 AL GND
 V X=51:26:50.00 N 005:23:24.00 E
 DC 2
