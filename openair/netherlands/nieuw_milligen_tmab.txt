@@ -19,8 +19,9 @@
 *   MAP WEEKEND_LFAG5  YES
 *   MAP PPG_NETHERLANDS NO
 *
-*   remark:
-*          Parts overlapping Schiphol TMA 3, Schiphol TMA 4 and Schiphol TMA 5 are excluded.
+* Remarks:
+*
+*   - Parts overlapping Schiphol TMA 3, Schiphol TMA 4 and Schiphol TMA 5 are excluded.
  
 AC E
 AN Nieuw Milligen TMA B

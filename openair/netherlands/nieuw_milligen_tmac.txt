@@ -19,8 +19,9 @@
 *   MAP WEEKEND_LFAG5  YES
 *   MAP PPG_NETHERLANDS NO
 *
-*   remark:
-*          see AIP for exeptions
+* Remarks:
+*
+*   - See AIP for exeptions
  
 AC B
 AN Nieuw Milligen TMA C

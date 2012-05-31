@@ -19,9 +19,10 @@
 *   MAP WEEKEND_LFAG5  YES
 *   MAP PPG_NETHERLANDS NO
 *
-*   remark:
-*          see AIP for exeptions
-*          Parts overlapping CTA South 2, Schiphol TMA 3, Schiphol TMA 4 and Schiphol TMA 5 are excluded.
+* Remarks:
+*
+*   - See AIP for exeptions
+*   - Parts overlapping CTA South 2, Schiphol TMA 3, Schiphol TMA 4 and Schiphol TMA 5 are excluded.
  
 AC B
 AN Nieuw Milligen TMA D Part 1

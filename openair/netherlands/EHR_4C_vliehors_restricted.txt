@@ -8,7 +8,7 @@
 *
 * Last check:
 *
-*   René van den Broek (14 May 2012)
+*   René van den Broek (31 May 2012)
 *
 * Map list:
 *
