@@ -9,7 +9,7 @@
 *
 * Last check:
 *
-*   René van den Broek (10 May 2012)
+*   René van den Broek (31 May 2012)
 *
 * Map list:
 *
@@ -22,7 +22,7 @@
 
 AC CTR
 AN De Peel ATZ
-AH 1500 ft AAL
+AH 2500 AMSL
 AL GND
 V X=51:31:02.20 N 005:51:20.30 E
 DC 2
