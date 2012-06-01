@@ -9,7 +9,9 @@
 *
 * Last check:
 *
+*   René van den Broek (30 May 2012)
 *   Bart Vandewoestyne (27 February 2012)
+*
 *
 * Map list:
 *
@@ -18,13 +20,15 @@
 *   MAP WEEKEND_LFAG1  YES
 *   MAP WEEKEND_LFAG2  YES
 *   MAP WEEKEND_LFAG5  YES
+*   MAP PPG_NETHERLANDS YES
 *
 * Remarks:
 *
 *   - Restricted to ACFT capable of maintaining two-way radio communication
 *     with Schiphol TWR, unless prior permission from Aerodrome Control has
 *     been obtained. Such permission will only be given in extraordinary cases.
- 
+*
+
 AC C
 AN SCHIPHOL CTR 3
 AH 3000 ft AMSL

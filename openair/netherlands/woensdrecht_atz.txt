@@ -9,7 +9,7 @@
 *
 * Last check:
 *
-*   René van den Broek (10 May 2012)
+*   René van den Broek (31 May 2012)
 *
 * Map list:
 *
@@ -19,10 +19,11 @@
 *   MAP WEEKEND_LFAG2  YES
 *   MAP WEEKEND_LFAG5  YES
 *   MAP PPG_NETHERLANDS YES
+*
 
 AC CTR
 AN Woensdrecht ATZ
-AH 1500 ft AAL
+AH 2500 ft AMSL
 AL GND
 V X=51:26:56.40 N 004:20:31.71 E
 DC 2
