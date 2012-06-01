@@ -11,6 +11,13 @@
 #     <MAP_NAME>.TDB
 #     <MAP_NAME>.MDX (on Cygwin only)
 
+if [ $# -ne 1 ]
+then
+  echo "ERROR: you forgot to specify the TYP-file!"
+  echo "Usage: ./`basename $0` YOUR_TYP_FILE.txt "
+  exit $E_BADARGS
+fi
+
 # Remove old junk and temporary files
 rm -f *.reg *.img *.TDB
 
@@ -84,8 +91,8 @@ do
   # Note:
   #   According to cgpsmapper output, TYP-filename cannot be longer than 8+3
   #   characters... so that is why we use the ID here instead of MAP_FILENAME.
-  TYP_FILE=Airspace_chessboard.txt
-  echo "Generating custom TYP file..."
+  TYP_FILE=$1
+  echo "Generating custom TYP file from $1..."
   sed -e "s/^FID=.*/FID=$FID/g" $TYP_FILE > Airspace_temp.txt
   cgpsmapper typ Airspace_temp.txt $ID.TYP
   rm -f Airspace_temp.txt
