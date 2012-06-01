@@ -49,15 +49,19 @@ do
     for file in $AIRSPACE_FILES
     do
     
-      SHOW_STATUS=`grep "MAP $name " $file | awk '{print $4}'`
+      SHOW_STATUS=`grep "MAP $name " $file | awk '{printf "%s%s", $4, $5 }'`
     
       if [[ "$SHOW_STATUS" == 'YES' ]]; then
         echo -n "Adding $(basename $file) to $(basename $OUTPUTFILE) airspace file... "
         cat $file >> $OUTPUTFILE
         echo "done."
-      elif [[ "$SHOW_STATUS" == 'SEE' ]]; then
+      elif [[ "$SHOW_STATUS" == 'SEENOTAM' ]]; then
         echo -n "Adding $(basename $file) to $(basename $OUTPUTFILE) airspace file (NOTAM version)... "
         sed 's/^AN /AN By NOTAM: /g' $file >> $OUTPUTFILE
+        echo "done."
+      elif [[ "$SHOW_STATUS" == 'SEEAUP' ]]; then
+        echo -n "Adding $(basename $file) to $(basename $OUTPUTFILE) airspace file (AUP version)... "
+        sed 's/^AN /AN By AUP: /g' $file >> $OUTPUTFILE
         echo "done."
       fi
       echo -ne "\n\n" >> $OUTPUTFILE

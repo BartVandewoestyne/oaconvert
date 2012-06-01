@@ -243,6 +243,17 @@ bool Airspace::isByNOTAM() const
 
 
 /**
+  * Return true if the activity of this airspace depends on an AUP (Airspace
+  * Use Plan).  This will be the case if its name contains the case sensitive
+  * string 'AUP' in its AN-record.
+  */
+bool Airspace::isByAUP() const
+{
+    return StringUtils::hasSubstring(name, "AUP");
+}
+
+
+/**
   * Return true if this airspace is a FIR.  The airspace
   * will be a FIR if its name contains the case sensitive
   * string 'FIR'.

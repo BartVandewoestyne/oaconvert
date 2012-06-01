@@ -102,6 +102,7 @@ public:
     bool isFloating() const;
     bool isVectoringArea() const;
     bool isByNOTAM() const;
+    bool isByAUP() const;
     bool isLowFlyingAreaGolf() const;
     bool isProhibited() const;
     bool isRestricted() const;

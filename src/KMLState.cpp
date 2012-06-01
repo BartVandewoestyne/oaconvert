@@ -52,11 +52,21 @@ KMLState* KMLState::getInstance()
 void KMLState::writeHeader(std::ostream &out) const
 {
 
+    // Colors are specified as aabbggrr where
+    //
+    //   aa = alpha (transparency)
+    //   bb = blue
+    //   gg = green
+    //   rr = red
+    //
+    // See also https://developers.google.com/kml/documentation/kmlreference#colorstyle
     const string gray   = "82c0c0c0";
     const string orange = "820066ff";
     const string red    = "820000ff";
     const string green  = "8200ff00";
     const string blue   = "82ff0000";
+    const string darkblue  = "828b0000";
+    const string lightblue = "82e6d8ad";
 
     out << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" << endl;
     out << "<kml xmlns=\"http://www.opengis.net/kml/2.2\">" << endl;
@@ -75,7 +85,8 @@ void KMLState::writeHeader(std::ostream &out) const
     writeStyle(out, "lfag", green);
     writeStyle(out, "danger", green);
 
-    writeStyle(out, "bynotam", blue);
+    writeStyle(out, "bynotam", darkblue);
+    writeStyle(out, "byaup", lightblue);
 
     writeStyle(out, "default", gray);
 
@@ -227,6 +238,8 @@ std::string KMLState::getPolygonType(const Airspace& space) const {
 
     if (space.isByNOTAM()) {
         return (string("#bynotam"));
+    } else if (space.isByAUP()) {
+        return (string("#byaup"));
     } else if (space.isATZ()) {
         if (space.getClass() == "CTR") {
           return string("#ctr");
@@ -263,6 +276,8 @@ std::string KMLState::getLineType(const Airspace& space) const
 
   if (space.isByNOTAM()) {
       return string("#bynotam");
+  } else if (space.isByAUP()) {
+      return string("#byaup");
   } else if (space.isFIR()) {
       return string("#fir");
   } else if (space.isMapEdge()) {

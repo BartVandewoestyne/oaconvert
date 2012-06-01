@@ -232,7 +232,8 @@ void PolishState::write(std::ostream& stream, const Airspace& airspace) const
             || airspace.isRestricted()
             || airspace.isFIR()
             || airspace.isMapEdge()
-            || airspace.isByNOTAM()) ) {
+            || airspace.isByNOTAM()
+            || airspace.isByAUP()) ) {
 
         stream << "[POLYGON]" << endl;
         stream << "Type=" << getPolygonType(airspace) << endl;
@@ -354,6 +355,8 @@ std::string PolishState::getLineType(const Airspace& space) const
       return string("0x03");
   } else if (space.isByNOTAM()) {
       return string("0x04");
+  } else if (space.isByAUP()) {
+      return string("0x04");
   } else if (space.isMapEdge()) {
       return string("0x05");
   } else {
@@ -386,15 +389,23 @@ string PolishState::getPolishLabel(const Airspace& airspace) const
         pLabel << "By NOTAM:";
     }
 
+    if ( airspace.isByAUP() ) {
+        pLabel << "By AUP:";
+    }
+
     if ( (   airspace.isTMA()
           || airspace.isCTA()
           || airspace.isVectoringArea()
           || airspace.isByNOTAM()
+          || airspace.isByAUP()
           || airspace.isProhibited() ) && (airspace.getFloor() > 0) ) {
 
         string myName(airspace.getName());
         if (airspace.isByNOTAM()) {
-          myName = myName.substr(10);
+          myName = myName.substr(10); // TODO: remove this hardcoded value!
+        }
+        if (airspace.isByAUP()) {
+          myName = myName.substr(8); // TODO: remove this hardcoded value!
         }
 
         if (airspace.hasAGLFloor()) {
