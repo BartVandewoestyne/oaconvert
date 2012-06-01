@@ -9,7 +9,7 @@
 *
 * Last check:
 *
-*   René van den Broek (11 May 2012)
+*   René van den Broek (31 May 2012)
 *
 * Map list:
 *
@@ -19,6 +19,7 @@
 *   MAP WEEKEND_LFAG2  YES
 *   MAP WEEKEND_LFAG5  YES
 *   MAP PPG_NETHERLANDS YES
+*
 
 AC G
 AN Budel ATZ A
@@ -34,10 +35,10 @@ DP 51:10:51.71 N 005:42:31.43 E
 DP 51.186398 N 5.655363 E
 DP 51.199894 N 5.651565 E
 * END Belgian-Dutch border 
-51:11:51.61 N 005:39:09.88 E
-51:15:20.70 N 005:33:24.49 E
+DP 51:11:51.61 N 005:39:09.88 E
+DP 51:15:20.70 N 005:33:24.49 E
 * START Belgian-Dutch border
 DP 51.266499 N 5.551486 E
 DP 51.292999 N 5.512884 E
 * END Belgian-Dutch border
-51:17:42.83 N 005:30:56.88 E
+DP 51:17:42.83 N 005:30:56.88 E
