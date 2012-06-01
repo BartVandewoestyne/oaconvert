@@ -125,6 +125,7 @@ void KMLState::write(std::ostream& stream, const Airspace& airspace) const
           stream << "    <styleUrl>" << getPolygonType(airspace) << "</styleUrl>" << endl;
           stream << "  <MultiGeometry>" << endl;
 
+          /* polygon representing ceiling */
           stream << "    <Polygon>" << endl;
           if ( airspace.hasAbsoluteCeiling() ) {
             stream << "      <altitudeMode>absolute</altitudeMode>" << endl;
