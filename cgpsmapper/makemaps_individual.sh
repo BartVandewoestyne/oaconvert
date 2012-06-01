@@ -42,15 +42,18 @@ do
   # error info.
   # After this step, we get one extra file:
   #   <ID_from_Polish_file>.img
+  echo "Creating IMG file from $POLISH_FILE..."
   sed -i -e "s/^ID=.*/ID=$ID/g" \
          -e "s/^Name=.*/Name=$MAP_FILENAME/g" $POLISH_FILE
   cgpsmapper -l ac $POLISH_FILE
+  echo "done."
 
 
   # Secondly, use our preview control file (mypreview.mp) to generate all the
   # necessary files (.TDB, .REG, .IMG) so that we can load all the stuff as
   # a map in QLandkarteGT or MapSource.
 
+  echo "Doing the preview control file thingy..."
   sed -e "s/^FileName=SomeFileName/FileName=${MAP_FILENAME}/g" \
       -e "s/^MapsourceName=.*/MapsourceName=Bart's Fantastic Airspace Maps: ${MAP_FILENAME}/g" \
       -e "s/^MapSetName=.*/MapSetName=Bart's Airspace Map Set: ${MAP_FILENAME}/g" \
@@ -70,12 +73,11 @@ do
     #   <MAP_FILENAME>.img
     #   <MAP_FILENAME>.reg
     #   <MAP_FILENAME>.TDB
-    echo "Doing the preview thing..."
     cgpsmapper -l pv mypreview_temp.mp
-    echo "done."
   
   fi
   rm -f mypreview_temp.mp
+  echo "done."
 
 
   # Create a custom TYP file.
