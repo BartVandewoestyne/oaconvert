@@ -228,12 +228,7 @@ void PolishState::write(std::ostream& stream, const Airspace& airspace) const
 
     // First, draw all things that need to be a POLYGON.  Only
     // Danger and Restricted zones are not POLYGONs.
-    if ( !(    airspace.isDanger()
-            || airspace.isRestricted()
-            || airspace.isFIR()
-            || airspace.isMapEdge()
-            || airspace.isByNOTAM()
-            || airspace.isByAUP()) ) {
+    if (needsPolygon(airspace)) {
 
         stream << "[POLYGON]" << endl;
         stream << "Type=" << getPolygonType(airspace) << endl;
@@ -423,4 +418,18 @@ string PolishState::getPolishLabel(const Airspace& airspace) const
 
     return pLabel.str();
 
+}
+
+/**
+ * Return true if this airspace needs a polygon in its Polish file
+ * representation.
+ */
+bool PolishState::needsPolygon(const Airspace& airspace) const
+{
+  return !(    airspace.isDanger()
+            || airspace.isRestricted()
+            || airspace.isFIR()
+            || airspace.isMapEdge()
+            || airspace.isByNOTAM()
+            || airspace.isByAUP() );
 }

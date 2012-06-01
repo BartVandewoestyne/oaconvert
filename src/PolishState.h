@@ -55,6 +55,7 @@ private:
     std::string getPolygonType(const Airspace& space) const;
     std::string getLineType(const Airspace& space) const;
     std::string getPolishLabel(const Airspace& space) const;
+    bool needsPolygon(const Airspace& space) const;
 
 };
 
