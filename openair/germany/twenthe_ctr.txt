@@ -1,0 +1,29 @@
+* Source:
+*
+*   Deutscher Aero Club e.V.
+*   http://www.daec.de/fachbereiche/luftraum-flugbetrieb/luftraumdaten/
+*
+* Last check:
+*
+*   Bart Vandewoestyne (1 June 2012)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+
+AC CTR
+AN TWENTHE CTR
+AL GND
+AH 3000 MSL
+DP 52:24:27 N 007:04:40 E
+DP 52:19:21 N 007:09:50 E
+DP 52:18:00 N 007:06:15 E
+V D=+
+V X=52:16:37 N 006:53:24 E
+* RADIUS=8.0
+DB 52:18:00 N 007:06:15 E, 52:08:37 N 006:52:38 E
+DP 52:24:02 N 007:03:34 E
