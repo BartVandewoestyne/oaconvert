@@ -8,16 +8,16 @@
 *
 * Last check:
 *
-*   René van den Broek (14 May 2012)
+*   René van den Broek (4 June 2012)
 *
 * Map list:
 *
-*   MAP WEEK           AUP
-*   MAP WEEKEND        AUP
-*   MAP WEEKEND_LFAG1  AUP
-*   MAP WEEKEND_LFAG2  AUP
-*   MAP WEEKEND_LFAG5  AUP
-*   MAP PPG_NETHERLANDS AUP
+*   MAP WEEK           NO
+*   MAP WEEKEND        NO
+*   MAP WEEKEND_LFAG1  SEE AUP
+*   MAP WEEKEND_LFAG2  SEE AUP
+*   MAP WEEKEND_LFAG5  SEE AUP
+*   
 *
 
 AC R

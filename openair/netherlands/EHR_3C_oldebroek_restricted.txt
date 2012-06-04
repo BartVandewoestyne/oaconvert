@@ -8,16 +8,16 @@
 *
 * Last check:
 *
-*   René van den Broek (14 May 2012)
+*   René van den Broek (4 June 2012)
 *
 * Map list:
 *
-*   MAP WEEK           SEE AUP
-*   MAP WEEKEND        SEE AUP
+*   MAP WEEK           NO
+*   MAP WEEKEND        NO
 *   MAP WEEKEND_LFAG1  SEE AUP
 *   MAP WEEKEND_LFAG2  SEE AUP
 *   MAP WEEKEND_LFAG5  SEE AUP
-*   MAP PPG_NETHERLANDS SEE AUP
+*   
 
 AC R
 AN EHR 3C (Oldebroek)

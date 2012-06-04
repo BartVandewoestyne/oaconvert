@@ -9,6 +9,7 @@
 *
 * Last check:
 *
+*   René van den Broek (4 June 2012)
 *   Bart Vandewoestyne (28 February 2012)
 *
 * Map list:
@@ -18,8 +19,8 @@
 *   MAP WEEKEND_LFAG1  YES
 *   MAP WEEKEND_LFAG2  YES
 *   MAP WEEKEND_LFAG5  YES
-*   MAP PPG_NETHERLANDS YES
- 
+*   
+
 AC C
 AN EINDHOVEN CTR 1
 AH 3000 ft AMSL
