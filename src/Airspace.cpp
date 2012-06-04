@@ -174,6 +174,19 @@ bool Airspace::isCTR() const
 }
 
 
+
+/**
+ * Return true if this airspace is an TMZ (Aerodrome Traffic Zone).  The
+ * will be an TMZ if its name contains the case sensitive string 'TMZ'.
+ * Added by René 3 June 2012
+*/
+bool Airspace::isTMZ() const
+{
+    return StringUtils::hasSubstring(name, "TMZ");
+}
+
+
+
 /**
  * Return true if this airspace is an ATZ (Aerodrome Traffic Zone).  The
  * will be an ATZ if its name contains the case sensitive string 'ATZ'.
@@ -283,6 +296,26 @@ bool Airspace::isMapEdge() const
 bool Airspace::isLowFlyingAreaGolf() const
 {
     return StringUtils::hasSubstring(name, "LOW FLYING AREA GOLF");
+}
+
+/**
+  * Return true if this airspace is a Low Flying Area.  The airspace
+  * will be a Low Flying Area if its name contains the case sensitive
+  * string 'LFA'.
+  */
+bool Airspace::isLowFlyingArea() const
+{
+    return StringUtils::hasSubstring(name, "LFA");
+}
+
+/**
+  * Return true if this airspace is a Low Flying Route.  The airspace
+  * will be a Low Flying Area Route if its name contains the case sensitive
+  * string 'LFR'.
+  */
+bool Airspace::isLowFlyingRoute() const
+{
+    return StringUtils::hasSubstring(name, "LFR");
 }
 
 
