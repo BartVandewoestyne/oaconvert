@@ -80,16 +80,16 @@ CodePage=1252
 ;Type=0x51,6 ; Wetland/swamp
 ;Type=0x52,4 ; Tundra
 ;Type=0x53,5 ; Sand/tidal/mud flat
-Type=0x66,7 ; Prohibited
-Type=0x61,6 ; CTR
-Type=0x65,5 ; Restricted
-Type=0x67,5 ; Danger
-Type=0x62,4 ; CTA
-Type=0x63,4 ; CTR with floor
-Type=0x64,3 ; LOW FLYING AREA GOLF
-Type=0x60,2 ; FIR
+Type=0x66,7 ; ATZ_CTR | PROHIBITED
+Type=0x61,6 ; ATZ | CTR_FROM_GROUND | DANGER | RESTRICTED
+Type=0x65,5 ; ???
+Type=0x67,5 ; ???
+Type=0x62,4 ; ???
+Type=0x63,4 ; CTR_ABOVE_GROUND
+Type=0x64,3 ; ???
+Type=0x60,2 ; BY_AUP | BY_NOTAM | CTA | LFAG | NON_LFAG_ABOVE_GROUND | TMZ
 Type=0x68,1 ; LFA
-Type=0x69,1 ; Undefined
+Type=0x69,1 ; DEFAULT
 [end]
 
 
