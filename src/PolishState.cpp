@@ -435,23 +435,14 @@ string PolishState::getPolishLabel(const Airspace& airspace) const
     //if ( airspace.isVectoringArea() ) {
     //    pLabel << "Vectoring Area:";
     //}
-
     if ( airspace.isByNOTAM() ) {
         pLabel << "By NOTAM:";
     }
-
     if ( airspace.isByAUP() ) {
         pLabel << "By AUP:";
     }
 
-    if ( (   airspace.isTMA()
-          || airspace.isCTA()
-		  || airspace.isCTR()
-          || airspace.isVectoringArea()
-          || airspace.isByNOTAM()
-          || airspace.isByAUP()
-		  || airspace.isTMZ()
-          || airspace.isProhibited() ) && (airspace.getFloor() > 0) ) {
+    if ( needsAltitudeInLabel(airspace) ) {
 
         string myName(airspace.getName());
         if (airspace.isByNOTAM()) {
@@ -514,4 +505,22 @@ bool PolishState::needsPolyline(const Airspace& airspace) const
   res = res || needsPolygon(airspace);
 
   return res;
+}
+
+
+/**
+ * Return true if this airspace needs an altitude specification in
+ * its Polish label.
+ */
+bool PolishState::needsAltitudeInLabel(const Airspace& airspace) const
+{
+  return (   airspace.isTMA()
+          || airspace.isCTA()
+          || airspace.isCTR()
+          || airspace.isVectoringArea()
+          || airspace.isByNOTAM()
+          || airspace.isByAUP()
+          || airspace.isTMZ()
+          || airspace.isAirway()
+          || airspace.isProhibited() ) && (airspace.getFloor() > 0);
 }

@@ -93,6 +93,7 @@ private:
     std::string getPolishLabel(const Airspace& space) const;
     bool needsPolygon(const Airspace& space) const;
     bool needsPolyline(const Airspace& space) const;
+    bool needsAltitudeInLabel(const Airspace& space) const;
 
 };
 

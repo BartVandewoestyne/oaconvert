@@ -308,6 +308,17 @@ bool Airspace::isLowFlyingRoute() const
 
 
 /**
+ * Return true if this airspace is an airway.  The airspace
+ * will be an airway if its name contains the case sensitive
+ * string 'Airway'.
+ */
+bool Airspace::isAirway() const
+{
+    return StringUtils::hasSubstring(name, "Airway");
+}
+
+
+/**
   * Return true if this airspace is a Prohibited area.  The airspace
   * will be a Prohibited area if its class is the case sensitive
   * character 'P'.

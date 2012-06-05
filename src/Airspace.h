@@ -104,6 +104,7 @@ public:
     bool isByNOTAM() const;
     bool isByAUP() const;
     bool isLowFlyingRoute() const;
+    bool isAirway() const;
     bool isLowFlyingArea() const;
     bool isLowFlyingAreaGolf() const;
     bool isProhibited() const;
