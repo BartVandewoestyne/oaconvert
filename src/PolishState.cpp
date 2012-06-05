@@ -44,7 +44,6 @@ const string PolishState::LINETYPE_DEFAULT          = "0x07";
 const string PolishState::LINETYPE_FIR              = "0x01";
 const string PolishState::LINETYPE_LOW_FLYING_AREA  = "0x03";
 const string PolishState::LINETYPE_LOW_FLYING_ROUTE = "0x10";
-const string PolishState::LINETYPE_MAP_EDGE         = "0x05";
 const string PolishState::LINETYPE_PROHIBITED       = "0x08";
 const string PolishState::LINETYPE_RESTRICTED       = "0x08";
 const string PolishState::LINETYPE_TMA              = "0x06";
@@ -400,8 +399,6 @@ std::string PolishState::getLineType(const Airspace& space) const
       return LINETYPE_PROHIBITED; 
   } else if (space.isRestricted()) {
       return LINETYPE_RESTRICTED;
-  } else if (space.isMapEdge()) {
-      return LINETYPE_MAP_EDGE;
   } else if (space.isCTA()) {
       return LINETYPE_CTA;
   } else if (space.isTMA()) {
@@ -496,7 +493,6 @@ bool PolishState::needsPolygon(const Airspace& airspace) const
   return !(    airspace.isDanger()
             || airspace.isRestricted()
             || airspace.isFIR()
-            || airspace.isMapEdge()
             || airspace.isLowFlyingRoute()
             || airspace.isByNOTAM()
             || airspace.isByAUP() );

@@ -94,7 +94,6 @@ public:
     void add(const GeometricShape* s);
 
     bool isFIR() const;
-    bool isMapEdge() const;
     bool isCTR() const;
     bool isATZ() const;
     bool isCTA() const;

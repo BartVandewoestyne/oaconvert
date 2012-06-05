@@ -105,7 +105,7 @@ void KMLState::writeFooter(std::ostream &out) const
 void KMLState::write(std::ostream& stream, const Airspace& airspace) const
 {
 
-    if ( !( airspace.isFIR() || airspace.isMapEdge() ) )
+    if ( !( airspace.isFIR() ) )
     {
         std::vector<Coordinate> coords;
         airspace.getCurvedPolygon().discretize( coords, RESOLUTION );
@@ -281,8 +281,6 @@ std::string KMLState::getLineType(const Airspace& space) const
       return string("#byaup");
   } else if (space.isFIR()) {
       return string("#fir");
-  } else if (space.isMapEdge()) {
-      return string("#mapEdge");
   } else if (space.isDanger()) {
       return string("#danger");
   } else if (space.isRestricted()) {

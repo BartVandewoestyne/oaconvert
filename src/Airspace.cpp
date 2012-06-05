@@ -275,17 +275,6 @@ bool Airspace::isFIR() const
 
 
 /**
-  * Return true if this 'airspace' represents the edges
-  * of the map.  An airspace is the map edge if it contains
-  * the case sensitive string 'Map edge'.
-  */
-bool Airspace::isMapEdge() const
-{
-    return StringUtils::hasSubstring(name, "Map edge");
-}
-
-
-/**
   * Return true if this airspace is a Low Flying Area.  The airspace
   * will be a Low Flying Area if its name contains the case sensitive
   * string 'LFA'.
