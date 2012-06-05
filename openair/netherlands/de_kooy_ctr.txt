@@ -9,6 +9,7 @@
 *
 * Last check:
 *
+*   René van den Broek (4 June 2012)
 *   Bart Vandewoestyne (28 February 2012)
 *
 * Map list:
@@ -18,13 +19,13 @@
 *   MAP WEEKEND_LFAG1  YES
 *   MAP WEEKEND_LFAG2  YES
 *   MAP WEEKEND_LFAG5  YES
-*   MAP PPG_NETHERLANDS YES
+*   
 *
 * Remarks:
 *
 *   Caution: EHR 8 active MON-THU: 0700-1900 (0600-1800), FRI: 0700-1500
 *   (0600-1400).  When necessary also during hours as published by NOTAM.
- 
+
 AC C
 AN DE KOOY CTR
 AH 3000 ft AMSL

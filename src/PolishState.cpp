@@ -226,8 +226,8 @@ void PolishState::write(std::ostream& stream, const Airspace& airspace) const
     // See section 4.2.4.2 in
     //   http://cgpsmapper.com/download/cGPSmapper-UsrMan-v02.1.pdf
 
-    // First, draw all things that need to be a POLYGON.  Only
-    // Danger and Restricted zones are not POLYGONs.
+    /* First, draw all things that need to have a POLYGON. */
+
     if (needsPolygon(airspace)) {
 
         stream << "[POLYGON]" << endl;
@@ -242,8 +242,7 @@ void PolishState::write(std::ostream& stream, const Airspace& airspace) const
 
     }
 
-
-    // Now, write out all things that also need to have a POLYLINE.
+    /* Now, write out all things that also need to have a POLYLINE. */
 
     stream << "[POLYLINE]" << endl;
     stream << "Type=" << getLineType(airspace) << endl;
@@ -315,49 +314,79 @@ void PolishState::write(ostream& out, const Coordinate& c) const
  */
 std::string PolishState::getPolygonType(const Airspace& space) const
 {
-    if (space.isCTR()) {
-        return string("0x61");
-    } else if (space.isATZ()) {
-        if (space.getClass() == "CTR") {
-          return string("0x61"); // same as CTR.
-        } else {
-          return string("0x65"); // same as Restricted.
-        }
-    } else if (space.isCTA()) {
-        return string("0x62");
-    } else if ( space.isFloating() && !space.isLowFlyingAreaGolf() ) {
-        return string("0x63");
-    } else if (space.isLowFlyingAreaGolf()) {
-        return string("0x64");
-    } else if (space.isRestricted()) {
-        return string("0x65");
-    } else if (space.isProhibited()) {
-        return string("0x66");
-    } else if (space.isDanger()) {
-        return string("0x67");
+  if (space.isCTR()) {
+    if (space.getFloor() > 0) {
+      return string("0x63"); // orange if Floor
     } else {
-        return string("0x69");
+      return string("0x61"); // same as CTR.
     }
+  } else if (space.isATZ()) {
+    if (space.getClass() == "CTR") {
+      return string("0x66"); // same as Prohibited.
+    } else {
+      return string("0x61"); // same as CTR.
+    }
+  } else if (space.isLowFlyingArea()) {
+    return string("0x68"); // striped orange
+  } else if (space.isCTA()) {
+    return string("0x60"); //was 62
+  } else if (space.isTMZ()) {
+    return string("0x60"); // was 62
+  } else if ( space.isFloating() && !space.isLowFlyingAreaGolf() ) {
+    return string("0x60"); // was 63
+  } else if (space.isLowFlyingAreaGolf()) {
+    return string("0x60"); // was 64
+  } else if (space.isByNOTAM()) {
+    return string("0x60"); // empty space
+  } else if (space.isByAUP()) {
+    return string("0x60"); // empty space		
+  } else if (space.isRestricted()) {
+    return string("0x61"); // same as CTR.
+  } else if (space.isProhibited()) {
+    return string("0x66");
+  } else if (space.isDanger()) {
+    return string("0x61"); // same as CTR.
+  } else {
+    return string("0x69");
+  }
 }
+
 
 std::string PolishState::getLineType(const Airspace& space) const
 {
   if (space.isFIR()) {
       return string("0x01");
   } else if (space.isDanger()) {
-      return string("0x02");
-  } else if (space.isRestricted()) {
-      return string("0x03");
+      return string("0x08"); 
   } else if (space.isByNOTAM()) {
       return string("0x04");
   } else if (space.isByAUP()) {
       return string("0x04");
+  } else if (space.isProhibited()) {
+      return string("0x08"); 
+  } else if (space.isRestricted()) {
+      return string("0x08");
   } else if (space.isMapEdge()) {
       return string("0x05");
-  } else {
+  } else if (space.isCTA()) {
       return string("0x06");
+  } else if (space.isTMA()) {
+      return string("0x06");  	  
+  } else if (space.isCTR()) {
+      return string("0x06");
+  } else if (space.isATZ()) {
+      return string("0x06");
+  } else if (space.isTMZ()) {
+      return string("0x06");
+  } else if (space.isLowFlyingRoute()) {
+      return string("0x10");
+  } else if (space.isLowFlyingArea()) {
+      return string("0x03");
+  } else {
+      return string("0x07");
   }
 }
+
 
 
 /**
@@ -390,9 +419,11 @@ string PolishState::getPolishLabel(const Airspace& airspace) const
 
     if ( (   airspace.isTMA()
           || airspace.isCTA()
+		  || airspace.isCTR()
           || airspace.isVectoringArea()
           || airspace.isByNOTAM()
           || airspace.isByAUP()
+		  || airspace.isTMZ()
           || airspace.isProhibited() ) && (airspace.getFloor() > 0) ) {
 
         string myName(airspace.getName());
@@ -420,16 +451,19 @@ string PolishState::getPolishLabel(const Airspace& airspace) const
 
 }
 
+
 /**
  * Return true if this airspace needs a polygon in its Polish file
  * representation.
  */
 bool PolishState::needsPolygon(const Airspace& airspace) const
 {
+  // The following zones DON'T need a polygon.
   return !(    airspace.isDanger()
             || airspace.isRestricted()
             || airspace.isFIR()
             || airspace.isMapEdge()
+            || airspace.isLowFlyingRoute()
             || airspace.isByNOTAM()
             || airspace.isByAUP() );
 }

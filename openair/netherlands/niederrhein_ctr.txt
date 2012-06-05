@@ -9,7 +9,7 @@
 *
 * Last check:
 *
-*   René van den Broek (11 May 2012)
+*   René van den Broek (4 June 2012)
 *
 * Map list:
 *
@@ -18,18 +18,21 @@
 *   MAP WEEKEND_LFAG1  YES
 *   MAP WEEKEND_LFAG2  YES
 *   MAP WEEKEND_LFAG5  YES
-*   MAP PPG_NETHERLANDS YES
+*   
 * 
 * Remarks:
 *     - For entry or crossing of Niederrhein CTR clearance is required
 *       from Niederrhein TWR. 
 *     - Outside OPR HR clearance is required from Dutch MIL
 *       FREQ 132.350 MHz.
+*     - This is the complete CTR, Dutch and German part
  
 AC C
 AN Nierderrhein CTR
 AH 3000 ft AMSL
 AL GND
+DP 51:38:54 N 006:19:23 E
+DP 51:32:54 N 006:19:01 E
 DP 51:33:15.33 N 006:09:56.74 E
 DP 51:33:26.97 N 006:01:00.15 E
 V D=-
@@ -43,17 +46,4 @@ V X=51:39:25.95 N 005:42:28.17 E
 DB 51:37:09.82 N 005:54:46.89 E, 51:39:19.76 N 005:55:18.85 E
 DP 51:39:19.76 N 005:55:18.85 E
 DP 51:39:05.03 N 006:06:59.48 E
-* START Dutch-German border
-DP 51.649368 N 6.113987 E
-DP 51.629925 N 6.108914 E
-DP 51.622650 N 6.105618 E
-DP 51.622773 N 6.098206 E
-DP 51.620288 N 6.095029 E
-DP 51.616649 N 6.095439 E
-DP 51.605221 N 6.090958 E
-DP 51.592529 N 6.116271 E
-DP 51.592930 N 6.122408 E
-DP 51.582359 N 6.130080 E
-DP 51.569240 N 6.156869 E
-* END Dutch-German border
-DP 51:33:15.33 N 006:09:56.74 E
+DP 51:38:54 N 006:19:23 E

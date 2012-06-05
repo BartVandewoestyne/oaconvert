@@ -99,10 +99,13 @@ public:
     bool isATZ() const;
     bool isCTA() const;
     bool isTMA() const;
+    bool isTMZ() const;
     bool isFloating() const;
     bool isVectoringArea() const;
     bool isByNOTAM() const;
     bool isByAUP() const;
+    bool isLowFlyingRoute() const;
+    bool isLowFlyingArea() const;
     bool isLowFlyingAreaGolf() const;
     bool isProhibited() const;
     bool isRestricted() const;

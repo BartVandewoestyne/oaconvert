@@ -1,0 +1,32 @@
+* Source:
+*
+*   http://www.ais-netherlands.nl/
+*
+*   AIP Part 2 EN ROUTE (ENR)
+*    ENR 5  NAVIGATION WARNINGS
+*     ENR 5.2  MILITARY EXERCISE AND TRAINING AREAS AND ADIZ
+*
+*
+* Last check:
+*
+*   René van den Broek (4 June 2012)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+*   
+*
+
+AC G
+AN LFA GLV V
+AH 1000 ft AGL
+AL 100 ft AGL
+DP 51:30:30.00 N 005:18:45.00 E
+DP 51:29:45.00 N 005:23:30.00 E
+DP 51:28:30.00 N 005:23:30.00 E
+DP 51:28:00.00 N 005:18:45.00 E
+DP 51:30:30.00 N 005:18:45.00 E

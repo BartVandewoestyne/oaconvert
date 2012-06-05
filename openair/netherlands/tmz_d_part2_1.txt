@@ -1,0 +1,48 @@
+* Source:
+*
+*   http://www.ais-netherlands.nl/
+*
+*   AIP Part 2 EN ROUTE (ENR)
+*   ENR 2 AIR TRAFFIC SERVICES AIRSPACE
+*    ENR 2.2  OTHER REGULATED AIRSPACE
+*
+* Last check:
+*
+*   René van den Broek (4 June 2012)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        NO
+*   MAP WEEKEND_LFAG1  NO
+*   MAP WEEKEND_LFAG2  NO
+*   MAP WEEKEND_LFAG5  NO
+*   
+*
+* Remarks:
+*
+*   - See AIP for exeptions
+*   - MON-FRI 0800-1600 (0700-1500), EXC HOL: lower limit 1200 ft AMSL.
+*
+
+AC TMZ
+AN TMZ D Part 2 1
+AH FL 095
+AL 1200 ft AMSL
+DP 51:11:00.01 N 005:46:04.08 E 
+DP 51:11:00.23 N 005:50:00.21 E 
+DP 51:09:40.57 N 005:50:00.20 E 
+* START Dutch-Belgian border
+DP 51.168716 N 5.828010 E
+DP 51.165318 N 5.822773 E
+DP 51.162629 N 5.821729 E
+DP 51.159912 N 5.782737 E
+DP 51.165455 N 5.786122 E
+DP 51.169633 N 5.780561 E
+DP 51.174603 N 5.784116 E
+DP 51.177730 N 5.781662 E
+* END Dutch-Belgian border
+DP 51:11:00.01 N 005:46:04.08 E
+
+
+

@@ -8,8 +8,9 @@
 *
 * Last check:
 *
+*   RenÃ© van den Broek (4 June 2012)
 *   Bart Vandewoestyne (16 March 2012)
-*   René van den Broek (29 May 2012) 
+*
 * Map list:
 *
 *   MAP WEEK           NO
@@ -17,7 +18,7 @@
 *   MAP WEEKEND_LFAG1  NO
 *   MAP WEEKEND_LFAG2  NO
 *   MAP WEEKEND_LFAG5  NO
-*   MAP PPG_NETHERLANDS NO
+*   
 *
 * Remarks:
 *

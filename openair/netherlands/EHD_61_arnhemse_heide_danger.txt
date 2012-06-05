@@ -8,7 +8,7 @@
 *
 * Last check:
 *
-*   René van den Broek (15 May 2012)
+*   René van den Broek (4 June 2012)
 *
 * Map list:
 *
@@ -17,7 +17,7 @@
 *   MAP WEEKEND_LFAG1  SEE NOTAM
 *   MAP WEEKEND_LFAG2  SEE NOTAM
 *   MAP WEEKEND_LFAG5  SEE NOTAM
-*   MAP PPG_NETHERLANDS YES
+*   
 
 AC Q
 AN EHD 61 (Arnhemse heide)

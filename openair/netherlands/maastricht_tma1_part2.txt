@@ -8,17 +8,16 @@
 *
 * Last check:
 *
+*   RenÃ© van den Broek (4 June 2012)
 *   Bart Vandewoestyne (17 March 2012)
-*   René van den Broek (29 May 2012)
 *
 * Map list:
 *
-*   MAP WEEK            YES
-*   MAP WEEKEND         YES
+*   MAP WEEK            NO
+*   MAP WEEKEND         NO
 *   MAP WEEKEND_LFAG1   YES
 *   MAP WEEKEND_LFAG2   YES
 *   MAP WEEKEND_LFAG5   YES
-*   MAP PPG_NETHERLANDS	 NO
  
 AC B
 AN Maastricht TMA 1 Part 2
