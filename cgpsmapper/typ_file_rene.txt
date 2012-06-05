@@ -80,8 +80,8 @@ CodePage=1252
 ;Type=0x51,6 ; Wetland/swamp
 ;Type=0x52,4 ; Tundra
 ;Type=0x53,5 ; Sand/tidal/mud flat
-Type=0x61,6 ; CTR
 Type=0x66,7 ; Prohibited
+Type=0x61,6 ; CTR
 Type=0x65,5 ; Restricted
 Type=0x67,5 ; Danger
 Type=0x62,4 ; CTA
@@ -196,7 +196,6 @@ String4=0x04,CTR ATZ  ; 0x04 = English
 [end]
 
 
-
 [_line]
 Type=0x07
 Xpm="32 1 4 1"
@@ -207,7 +206,7 @@ Xpm="32 1 4 1"
 "================================"
 [end]
 
-; added bij René van den Broek
+
 [_line]
 Type=0x08
 Xpm="32 3 4 1"
@@ -223,6 +222,7 @@ String2=0x02,Beschränkt ; 0x02 = German
 String3=0x03,Beperkt    ; 0x03 = Dutch
 String4=0x04,Restricted ; 0x04 = English
 [end]
+
 
 [_line]
 Type=0x09
@@ -404,6 +404,7 @@ Xpm="32 32 4 1"
 " O O O O O O O O O O O O O O O O"
 [end]
 
+
 [_polygon]
 Type=0x62
 String1=0x01,CTA ; 0x01 = French
@@ -499,8 +500,6 @@ Xpm="32 32 4 1"
 [end]
 
 
-
-
 [_polygon]
 Type=0x63
 String1=0x01,CTR; 0x01 = French
@@ -593,6 +592,7 @@ Xpm="32 32 4 1"
 "G G G G G G G G G G G G G G G G "
 " G G G G G G G G G G G G G G G G"
 [end]
+
 
 [_polygon]
 Type=0x65
@@ -734,6 +734,7 @@ Xpm="32 32 4 1"
 "                                "
 [end]
 
+
 [_polygon]
 Type=0x68
 String1=0x01,LFA; 0x01 = French
@@ -779,6 +780,7 @@ Xpm="32 32 4 1"
 "      O       O       O       O "
 "       O       O       O       O"
 [end]
+
 
 [_polygon]
 ; Old type 69
@@ -826,6 +828,7 @@ Xpm="32 32 4 1"
 "G G G G G G G G G G G G G G G G "
 " G G G G G G G G G G G G G G G G"
 [end]
+
 
 [_polygon]
 Type=0x69
