@@ -259,8 +259,6 @@ void PolishState::write(std::ostream& stream, const Airspace& airspace) const
     // See section 4.2.4.2 in
     //   http://cgpsmapper.com/download/cGPSmapper-UsrMan-v02.1.pdf
 
-    /* First, draw all things that need to have a POLYGON. */
-
     if (needsPolygon(airspace)) {
 
         stream << "[POLYGON]" << endl;
@@ -275,17 +273,19 @@ void PolishState::write(std::ostream& stream, const Airspace& airspace) const
 
     }
 
-    /* Now, write out all things that also need to have a POLYLINE. */
+    if (needsPolyline(airspace)) {
 
-    stream << "[POLYLINE]" << endl;
-    stream << "Type=" << getLineType(airspace) << endl;
-    stream << "Label=" << getPolishLabel(airspace) << endl;
+      stream << "[POLYLINE]" << endl;
+      stream << "Type=" << getLineType(airspace) << endl;
+      stream << "Label=" << getPolishLabel(airspace) << endl;
 
-    // The EndLevel number must not be higher than the highest X from the
-    // LevelX records in the Polish header.
-    stream << "EndLevel=4" << endl;
-    write(stream, airspace.getCurvedPolygon());
-    stream << "[END]\n" << endl;
+      // The EndLevel number must not be higher than the highest X from the
+      // LevelX records in the Polish header.
+      stream << "EndLevel=4" << endl;
+      write(stream, airspace.getCurvedPolygon());
+      stream << "[END]\n" << endl;
+
+    }
 
 }
 
@@ -369,10 +369,6 @@ std::string PolishState::getPolygonType(const Airspace& space) const
     return POLYGONTYPE_NON_LFAG_ABOVE_GROUND;
   } else if (space.isLowFlyingAreaGolf()) {
     return POLYGONTYPE_LFAG;
-  } else if (space.isByNOTAM()) {
-    return POLYGONTYPE_BY_NOTAM;
-  } else if (space.isByAUP()) {
-    return POLYGONTYPE_BY_AUP;
   } else if (space.isRestricted()) {
     return POLYGONTYPE_RESTRICTED;
   } else if (space.isProhibited()) {
@@ -489,11 +485,33 @@ string PolishState::getPolishLabel(const Airspace& airspace) const
  */
 bool PolishState::needsPolygon(const Airspace& airspace) const
 {
-  // The following zones DON'T need a polygon.
-  return !(    airspace.isDanger()
-            || airspace.isRestricted()
-            || airspace.isFIR()
-            || airspace.isLowFlyingRoute()
-            || airspace.isByNOTAM()
-            || airspace.isByAUP() );
+  return (   airspace.isATZ()
+          || airspace.isCTA()
+          || airspace.isCTR()
+          || airspace.isDanger()
+          || airspace.isLowFlyingArea()
+          || airspace.isLowFlyingAreaGolf()
+          || airspace.isProhibited()
+          || airspace.isRestricted()
+          || airspace.isTMZ() );
+}
+
+
+/**
+ * Return true if this airspace needs a polyline in its Polish file
+ * representation.
+ */
+bool PolishState::needsPolyline(const Airspace& airspace) const
+{
+  // The obvious ones (the ones that don't have a polygon).
+  bool res =    airspace.isFIR()
+             || airspace.isLowFlyingRoute()
+             || airspace.isByNOTAM()
+             || airspace.isByAUP()
+             || airspace.isTMA();
+
+  // The less obvious ones (the ones that also have a polygon).
+  res = res || needsPolygon(airspace);
+
+  return res;
 }
