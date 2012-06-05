@@ -60,11 +60,11 @@ void KMLState::writeHeader(std::ostream &out) const
     //   rr = red
     //
     // See also https://developers.google.com/kml/documentation/kmlreference#colorstyle
-    const string gray   = "82c0c0c0";
-    const string orange = "820066ff";
-    const string red    = "820000ff";
-    const string green  = "8200ff00";
-    const string blue   = "82ff0000";
+    const string gray      = "82c0c0c0";
+    const string orange    = "820066ff";
+    const string red       = "820000ff";
+    const string green     = "8200ff00";
+    const string blue      = "82ff0000";
     const string darkblue  = "828b0000";
     const string lightblue = "82e6d8ad";
 
@@ -105,7 +105,7 @@ void KMLState::writeFooter(std::ostream &out) const
 void KMLState::write(std::ostream& stream, const Airspace& airspace) const
 {
 
-    if ( !( airspace.isFIR() ) )
+    if ( needs3DZone(airspace) )
     {
         std::vector<Coordinate> coords;
         airspace.getCurvedPolygon().discretize( coords, RESOLUTION );
@@ -113,7 +113,6 @@ void KMLState::write(std::ostream& stream, const Airspace& airspace) const
         if (coords.size() > 0)
         {
 
-          /* polygon representing ceiling */
           stream << "  <Placemark>" << endl;
           stream << "    <name>";
           stream << getPlacemarkName(airspace);
@@ -125,85 +124,19 @@ void KMLState::write(std::ostream& stream, const Airspace& airspace) const
           stream << "    <styleUrl>" << getPolygonType(airspace) << "</styleUrl>" << endl;
           stream << "  <MultiGeometry>" << endl;
 
-          /* polygon representing ceiling */
-          stream << "    <Polygon>" << endl;
-          if ( airspace.hasAbsoluteCeiling() ) {
-            stream << "      <altitudeMode>absolute</altitudeMode>" << endl;
-          } else {
-            stream << "      <altitudeMode>relativeToGround</altitudeMode>" << endl;
-          }
-          stream << "      <outerBoundaryIs>" << endl;
-          stream << "        <LinearRing>" << endl;
-          stream << "          <coordinates>" << endl;
-
-          write( stream, coords, airspace.getCeiling());
-
-          stream << "          </coordinates>" << endl;
-          stream << "        </LinearRing>" << endl;
-          stream << "      </outerBoundaryIs>" << endl;
-          stream << "    </Polygon>" << endl;
-
-          /* polygon representing floor */
-          stream << "    <Polygon>" << endl;
-          if ( airspace.hasAbsoluteCeiling() ) {
-            stream << "      <altitudeMode>absolute</altitudeMode>" << endl;
-          } else {
-            stream << "      <altitudeMode>relativeToGround</altitudeMode>" << endl;
-          }
-          stream << "      <outerBoundaryIs>" << endl;
-          stream << "        <LinearRing>" << endl;
-          stream << "          <coordinates>" << endl;
-
-          write( stream, coords, airspace.getFloor());
-
-          stream << "          </coordinates>" << endl;
-          stream << "        </LinearRing>" << endl;
-          stream << "      </outerBoundaryIs>" << endl;
-          stream << "    </Polygon>" << endl;
-
-          /* Polygon borders: loop over all coordinates and draw a 'side-rectangle' for each coordinate. */
-
-          for (size_t i = 0; i < coords.size(); ++i)
-          {
-              stream << "    <Polygon>" << endl;
-              if (airspace.hasAbsoluteCeiling() || airspace.hasAbsoluteFloor()) {
-                stream << "      <altitudeMode>absolute</altitudeMode>" << endl;
-              } else {
-                stream << "      <altitudeMode>relativeToGround</altitudeMode>" << endl;
-              }
-              stream << "      <outerBoundaryIs>" << endl;
-              stream << "        <LinearRing>" << endl;
-              stream << "          <coordinates>" << endl;
-
-              /* Draw the 'side-rectangle' (4 points) */
-              stream << "          ";
-              write(stream, coords[i], airspace.getFloor());
-              stream << endl;
-              stream << "          ";
-              write(stream, coords[(i+1)%coords.size()], airspace.getFloor());
-              stream << endl;
-              stream << "          ";
-              write(stream, coords[(i+1)%coords.size()], airspace.getCeiling());
-              stream << endl;
-              stream << "          ";
-              write(stream, coords[i], airspace.getCeiling());
-              stream << endl;
-              // One extra point, because the KML-requirement that the
-              // last point must be identical to the first one to form a closed figure.
-              stream << "          ";
-              write(stream, coords[i], airspace.getFloor());
-              stream << endl;
-
-              stream << "          </coordinates>" << endl;
-              stream << "        </LinearRing>" << endl;
-              stream << "      </outerBoundaryIs>" << endl;
-              stream << "    </Polygon>" << endl;
-          }
+          writeTopBottomPolygon(stream, airspace, coords, airspace.getCeiling());
+          writeTopBottomPolygon(stream, airspace, coords, airspace.getFloor());
+          writeSidePolygons(stream, airspace, coords);
 
           stream << "    </MultiGeometry>" << endl;
           stream << "  </Placemark>\n" << endl;
 
        }
+    } /* end if-test needs3DZone() */
+
+    if ( needs2DLine(airspace) )
+    {
+     // TODO
     }
 }
 
@@ -317,4 +250,92 @@ void KMLState::writeStyle(std::ostream &out, std::string id, std::string color) 
     out << "          <color>" + color + "</color>" << endl;
     out << "      </PolyStyle>" << endl;
     out << "  </Style>" << endl;
+}
+
+
+/**
+ * Return true if this airspace needs to be represented by a 3D zone
+ * in the output KML file.
+ */
+bool KMLState::needs3DZone(const Airspace& airspace) const
+{
+  return ( !airspace.isFIR() );
+}
+
+
+/**
+ * Return true if this airspace needs to be represented by a 2D polyline
+ * in the output KM file.
+ */
+bool KMLState::needs2DLine(const Airspace& airspace) const
+{
+  return airspace.isFIR();
+}
+
+
+/*
+ * Draw the top or bottom polygon for the 3D zone.
+ */
+void KMLState::writeTopBottomPolygon(std::ostream &out, const Airspace& airspace, const std::vector<Coordinate>& coords, double altitude) const
+{
+    out << "    <Polygon>" << endl;
+    if ( airspace.hasAbsoluteCeiling() ) {
+      out << "      <altitudeMode>absolute</altitudeMode>" << endl;
+    } else {
+      out << "      <altitudeMode>relativeToGround</altitudeMode>" << endl;
+    }
+    out << "      <outerBoundaryIs>" << endl;
+    out << "        <LinearRing>" << endl;
+    out << "          <coordinates>" << endl;
+    
+    write( out, coords, altitude);
+    
+    out << "          </coordinates>" << endl;
+    out << "        </LinearRing>" << endl;
+    out << "      </outerBoundaryIs>" << endl;
+    out << "    </Polygon>" << endl;
+}
+
+
+/*
+ * Draw the sides of the 3D zone: loop over all coordinates and draw a 'side-rectangle' for each coordinate.
+ */
+void KMLState::writeSidePolygons(std::ostream &out, const Airspace& airspace, const std::vector<Coordinate>& coords) const
+{
+    for (size_t i = 0; i < coords.size(); ++i)
+    {
+        out << "    <Polygon>" << endl;
+        if (airspace.hasAbsoluteCeiling() || airspace.hasAbsoluteFloor()) {
+          out << "      <altitudeMode>absolute</altitudeMode>" << endl;
+        } else {
+          out << "      <altitudeMode>relativeToGround</altitudeMode>" << endl;
+        }
+        out << "      <outerBoundaryIs>" << endl;
+        out << "        <LinearRing>" << endl;
+        out << "          <coordinates>" << endl;
+    
+        /* Draw the 'side-rectangle' (4 points) */
+        out << "          ";
+        write(out, coords[i], airspace.getFloor());
+        out << endl;
+        out << "          ";
+        write(out, coords[(i+1)%coords.size()], airspace.getFloor());
+        out << endl;
+        out << "          ";
+        write(out , coords[(i+1)%coords.size()], airspace.getCeiling());
+        out << endl;
+        out << "          ";
+        write(out, coords[i], airspace.getCeiling());
+        out << endl;
+        // One extra point, because the KML-requirement that the
+        // last point must be identical to the first one to form a closed figure.
+        out << "          ";
+        write(out, coords[i], airspace.getFloor());
+        out << endl;
+    
+        out << "          </coordinates>" << endl;
+        out << "        </LinearRing>" << endl;
+        out << "      </outerBoundaryIs>" << endl;
+        out << "    </Polygon>" << endl;
+    }
 }

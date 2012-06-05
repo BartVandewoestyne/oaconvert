@@ -52,10 +52,14 @@ private:
     void write(std::ostream& stream, const std::vector<Coordinate>& coords, double altitude) const;
     void write(std::ostream& out, const Coordinate& c, double altitude) const;
     void writeStyle(std::ostream &out, std::string id, std::string color) const;
+    void writeTopBottomPolygon(std::ostream &out, const Airspace& airspace, const std::vector<Coordinate>& coords, double altitude) const;
+    void writeSidePolygons(std::ostream &out, const Airspace& airspace, const std::vector<Coordinate>& coords) const;
 
     std::string getPlacemarkName(const Airspace& airspace) const;
     std::string getPolygonType(const Airspace& space) const;
     std::string getLineType(const Airspace& space) const;
+    bool needs3DZone(const Airspace& space) const;
+    bool needs2DLine(const Airspace& space) const;
 
 };
 
