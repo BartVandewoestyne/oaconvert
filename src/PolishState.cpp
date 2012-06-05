@@ -493,6 +493,7 @@ bool PolishState::needsPolygon(const Airspace& airspace) const
           || airspace.isLowFlyingAreaGolf()
           || airspace.isProhibited()
           || airspace.isRestricted()
+          || airspace.isTMA()
           || airspace.isTMZ() );
 }
 
@@ -507,8 +508,7 @@ bool PolishState::needsPolyline(const Airspace& airspace) const
   bool res =    airspace.isFIR()
              || airspace.isLowFlyingRoute()
              || airspace.isByNOTAM()
-             || airspace.isByAUP()
-             || airspace.isTMA();
+             || airspace.isByAUP();
 
   // The less obvious ones (the ones that also have a polygon).
   res = res || needsPolygon(airspace);
