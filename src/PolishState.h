@@ -21,6 +21,7 @@
 #define POLISHSTATE_H
 
 #include <vector>
+#include <string>
 #include "OutputState.h"
 #include "Constants.h"
 #include "Coordinate.h"
@@ -45,6 +46,41 @@ protected:
     PolishState();
 
 private:
+
+    // Line types for the different airspaces, sorted alphabetically.
+    static const std::string LINETYPE_ATZ;
+    static const std::string LINETYPE_BY_AUP;
+    static const std::string LINETYPE_BY_NOTAM;
+    static const std::string LINETYPE_CTA;
+    static const std::string LINETYPE_CTR;
+    static const std::string LINETYPE_DANGER;
+    static const std::string LINETYPE_DEFAULT;
+    static const std::string LINETYPE_FIR;
+    static const std::string LINETYPE_LOW_FLYING_AREA;
+    static const std::string LINETYPE_LOW_FLYING_ROUTE;
+    static const std::string LINETYPE_MAP_EDGE;
+    static const std::string LINETYPE_PROHIBITED;
+    static const std::string LINETYPE_RESTRICTED;
+    static const std::string LINETYPE_TMA;
+    static const std::string LINETYPE_TMZ;
+
+    // Polygon types for the different airspaces, sorted alphabetically.
+    static const std::string POLYGONTYPE_ATZ;
+    static const std::string POLYGONTYPE_ATZ_CTR;
+    static const std::string POLYGONTYPE_BY_AUP;
+    static const std::string POLYGONTYPE_BY_NOTAM;
+    static const std::string POLYGONTYPE_CTA;
+    static const std::string POLYGONTYPE_CTR_ABOVE_GROUND;
+    static const std::string POLYGONTYPE_CTR_FROM_GROUND;
+    static const std::string POLYGONTYPE_DANGER;
+    static const std::string POLYGONTYPE_DEFAULT;
+    static const std::string POLYGONTYPE_LFA;
+    static const std::string POLYGONTYPE_LFAG;
+    static const std::string POLYGONTYPE_NON_LFAG_ABOVE_GROUND;
+    static const std::string POLYGONTYPE_PROHIBITED;
+    static const std::string POLYGONTYPE_RESTRICTED;
+    static const std::string POLYGONTYPE_TMZ;
+
     static PolishState* _instance;
 
     //! Helper method to write out an airspace

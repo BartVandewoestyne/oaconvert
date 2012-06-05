@@ -32,6 +32,40 @@
 using namespace std;
 using namespace Constants;
 
+// Note: if you change a value here, you *must* also
+//       change the value in every TYP-file where it occurs!
+const string PolishState::LINETYPE_ATZ              = "0x06";
+const string PolishState::LINETYPE_BY_AUP           = "0x04";
+const string PolishState::LINETYPE_BY_NOTAM         = "0x04";
+const string PolishState::LINETYPE_CTA              = "0x06";
+const string PolishState::LINETYPE_CTR              = "0x06";
+const string PolishState::LINETYPE_DANGER           = "0x08";
+const string PolishState::LINETYPE_DEFAULT          = "0x07";
+const string PolishState::LINETYPE_FIR              = "0x01";
+const string PolishState::LINETYPE_LOW_FLYING_AREA  = "0x03";
+const string PolishState::LINETYPE_LOW_FLYING_ROUTE = "0x10";
+const string PolishState::LINETYPE_MAP_EDGE         = "0x05";
+const string PolishState::LINETYPE_PROHIBITED       = "0x08";
+const string PolishState::LINETYPE_RESTRICTED       = "0x08";
+const string PolishState::LINETYPE_TMA              = "0x06";
+const string PolishState::LINETYPE_TMZ              = "0x06";
+
+const string PolishState::POLYGONTYPE_ATZ                   = "0x61";
+const string PolishState::POLYGONTYPE_ATZ_CTR               = "0x66";
+const string PolishState::POLYGONTYPE_BY_AUP                = "0x60";
+const string PolishState::POLYGONTYPE_BY_NOTAM              = "0x60";
+const string PolishState::POLYGONTYPE_CTA                   = "0x60";
+const string PolishState::POLYGONTYPE_CTR_ABOVE_GROUND      = "0x63";
+const string PolishState::POLYGONTYPE_CTR_FROM_GROUND       = "0x61";
+const string PolishState::POLYGONTYPE_DANGER                = "0x61";
+const string PolishState::POLYGONTYPE_DEFAULT               = "0x69";
+const string PolishState::POLYGONTYPE_LFA                   = "0x68";
+const string PolishState::POLYGONTYPE_LFAG                  = "0x60";
+const string PolishState::POLYGONTYPE_NON_LFAG_ABOVE_GROUND = "0x60";
+const string PolishState::POLYGONTYPE_PROHIBITED            = "0x66";
+const string PolishState::POLYGONTYPE_RESTRICTED            = "0x61";
+const string PolishState::POLYGONTYPE_TMZ                   = "0x60";
+
 PolishState* PolishState::_instance = 0;
 
 
@@ -316,38 +350,38 @@ std::string PolishState::getPolygonType(const Airspace& space) const
 {
   if (space.isCTR()) {
     if (space.getFloor() > 0) {
-      return string("0x63"); // orange if Floor
+      return POLYGONTYPE_CTR_ABOVE_GROUND;
     } else {
-      return string("0x61"); // same as CTR.
+      return POLYGONTYPE_CTR_FROM_GROUND;
     }
   } else if (space.isATZ()) {
     if (space.getClass() == "CTR") {
-      return string("0x66"); // same as Prohibited.
+      return POLYGONTYPE_ATZ_CTR;
     } else {
-      return string("0x61"); // same as CTR.
+      return POLYGONTYPE_ATZ;
     }
   } else if (space.isLowFlyingArea()) {
-    return string("0x68"); // striped orange
+    return POLYGONTYPE_LFA;
   } else if (space.isCTA()) {
-    return string("0x60"); //was 62
+    return POLYGONTYPE_CTA;
   } else if (space.isTMZ()) {
-    return string("0x60"); // was 62
+    return POLYGONTYPE_TMZ;
   } else if ( space.isFloating() && !space.isLowFlyingAreaGolf() ) {
-    return string("0x60"); // was 63
+    return POLYGONTYPE_NON_LFAG_ABOVE_GROUND;
   } else if (space.isLowFlyingAreaGolf()) {
-    return string("0x60"); // was 64
+    return POLYGONTYPE_LFAG;
   } else if (space.isByNOTAM()) {
-    return string("0x60"); // empty space
+    return POLYGONTYPE_BY_NOTAM;
   } else if (space.isByAUP()) {
-    return string("0x60"); // empty space		
+    return POLYGONTYPE_BY_AUP;
   } else if (space.isRestricted()) {
-    return string("0x61"); // same as CTR.
+    return POLYGONTYPE_RESTRICTED;
   } else if (space.isProhibited()) {
-    return string("0x66");
+    return POLYGONTYPE_PROHIBITED;
   } else if (space.isDanger()) {
-    return string("0x61"); // same as CTR.
+    return POLYGONTYPE_DANGER;
   } else {
-    return string("0x69");
+    return POLYGONTYPE_DEFAULT;
   }
 }
 
@@ -355,35 +389,35 @@ std::string PolishState::getPolygonType(const Airspace& space) const
 std::string PolishState::getLineType(const Airspace& space) const
 {
   if (space.isFIR()) {
-      return string("0x01");
+      return LINETYPE_FIR;
   } else if (space.isDanger()) {
-      return string("0x08"); 
+      return LINETYPE_DANGER; 
   } else if (space.isByNOTAM()) {
-      return string("0x04");
+      return LINETYPE_BY_NOTAM;
   } else if (space.isByAUP()) {
-      return string("0x04");
+      return LINETYPE_BY_AUP;
   } else if (space.isProhibited()) {
-      return string("0x08"); 
+      return LINETYPE_PROHIBITED; 
   } else if (space.isRestricted()) {
-      return string("0x08");
+      return LINETYPE_RESTRICTED;
   } else if (space.isMapEdge()) {
-      return string("0x05");
+      return LINETYPE_MAP_EDGE;
   } else if (space.isCTA()) {
-      return string("0x06");
+      return LINETYPE_CTA;
   } else if (space.isTMA()) {
-      return string("0x06");  	  
+      return LINETYPE_TMA;  	  
   } else if (space.isCTR()) {
-      return string("0x06");
+      return LINETYPE_CTR;
   } else if (space.isATZ()) {
-      return string("0x06");
+      return LINETYPE_ATZ;
   } else if (space.isTMZ()) {
-      return string("0x06");
+      return LINETYPE_TMZ;
   } else if (space.isLowFlyingRoute()) {
-      return string("0x10");
+      return LINETYPE_LOW_FLYING_ROUTE;
   } else if (space.isLowFlyingArea()) {
-      return string("0x03");
+      return LINETYPE_LOW_FLYING_AREA;
   } else {
-      return string("0x07");
+      return LINETYPE_DEFAULT;
   }
 }
 
