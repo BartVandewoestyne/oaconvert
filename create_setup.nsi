@@ -85,7 +85,6 @@ Section "OpenAir files" SEC05
   File /r "openair\france\*.*"
   File /r "openair\germany\*.*"
   File /r "openair\luxembourg\*.*"
-  File /r "openair\map_edges.txt"
 SectionEnd
 
 Section "Polish Format files" SEC06
