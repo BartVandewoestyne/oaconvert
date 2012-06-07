@@ -21,8 +21,6 @@
 *
 * Remarks:
 *
-*   - SRZ not yet supported 
-*   - temporary defined as TMZ to show it on maps
 *
 
 AC TMZ
