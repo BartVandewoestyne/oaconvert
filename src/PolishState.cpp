@@ -65,7 +65,7 @@ const string PolishState::POLYGONTYPE_LFAG                  = "0x60";
 const string PolishState::POLYGONTYPE_NON_LFAG_ABOVE_GROUND = "0x60";
 const string PolishState::POLYGONTYPE_PROHIBITED            = "0x66";
 const string PolishState::POLYGONTYPE_RESTRICTED            = "0x61";
-const string PolishState::POLYGONTYPE_SRZ                   = "0x60";
+const string PolishState::POLYGONTYPE_SRZ                   = "0x63";
 const string PolishState::POLYGONTYPE_TMZ                   = "0x60";
 
 
@@ -369,14 +369,16 @@ std::string PolishState::getPolygonType(const Airspace& space) const
     return POLYGONTYPE_CTA;
   } else if (space.isTMA()) {
     return POLYGONTYPE_TMA;
+  } else if (space.isByNOTAM()) {
+    return POLYGONTYPE_BY_NOTAM;
+  } else if (space.isSRZ()) {
+    return POLYGONTYPE_SRZ;
   } else if (space.isTMZ()) {
     return POLYGONTYPE_TMZ;
   } else if ( space.isFloating() && !space.isLowFlyingAreaGolf() ) {
     return POLYGONTYPE_NON_LFAG_ABOVE_GROUND;
   } else if (space.isLowFlyingAreaGolf()) {
     return POLYGONTYPE_LFAG;
-  } else if (space.isByNOTAM()) {
-    return POLYGONTYPE_BY_NOTAM;
   } else if (space.isRestricted()) {
     return POLYGONTYPE_RESTRICTED;
   } else if (space.isProhibited()) {
@@ -413,6 +415,8 @@ std::string PolishState::getLineType(const Airspace& space) const
       return LINETYPE_ATZ;
   } else if (space.isTMZ()) {
       return LINETYPE_TMZ;
+  } else if (space.isSRZ()) {
+      return LINETYPE_SRZ;
   } else if (space.isLowFlyingRoute()) {
       return LINETYPE_LOW_FLYING_ROUTE;
   } else if (space.isLowFlyingArea()) {
@@ -516,7 +520,7 @@ bool PolishState::needsPolyline(const Airspace& airspace) const
           || airspace.isLowFlyingAreaGolf()
           || airspace.isProhibited()
           || airspace.isRestricted()
-//         || airspace.isTMA()
+          || airspace.isSRZ()
           || airspace.isTMZ() );
 }
 
@@ -535,6 +539,7 @@ bool PolishState::needsAltitudeInLabel(const Airspace& airspace) const
           || airspace.isByNOTAM()
           || airspace.isByAUP()
           || airspace.isTMZ()
+		  || airspace.isSRZ()
           || airspace.isAirway()
           || airspace.isProhibited() ) && (airspace.getFloor() > 0);
 }
