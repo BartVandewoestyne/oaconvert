@@ -98,6 +98,7 @@ public:
     bool isATZ() const;
     bool isCTA() const;
     bool isTMA() const;
+    bool isSRZ() const;
     bool isTMZ() const;
     bool isFloating() const;
     bool isVectoringArea() const;

@@ -217,6 +217,16 @@ bool Airspace::isTMA() const
 
 
 /**
+  * Return true if this airspace is a Special Rule Zone (SRZ).  The airspace
+  * is considered as a SRZ if its name contains the case sensitive string 'SRZ'.
+  */
+bool Airspace::isSRZ() const
+{
+    return StringUtils::hasSubstring(name, "SRZ");
+}
+
+
+/**
   * Return true if this airspace is 'floating', by which
   * we mean that its floor is above 0 m AMSL.
   */
