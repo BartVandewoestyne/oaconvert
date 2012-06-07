@@ -136,8 +136,14 @@ void KMLState::write(std::ostream& stream, const Airspace& airspace) const
 
     if ( needs2DLine(airspace) )
     {
-     // TODO
+      // TODO
     }
+
+    if ( needs3DLine(airspace) )
+    {
+      // TODO
+    }
+
 }
 
 
@@ -265,11 +271,22 @@ bool KMLState::needs3DZone(const Airspace& airspace) const
 
 /**
  * Return true if this airspace needs to be represented by a 2D polyline
- * in the output KM file.
+ * in the output KML file.
  */
 bool KMLState::needs2DLine(const Airspace& airspace) const
 {
   return airspace.isFIR();
+}
+
+
+/**
+ * Return true if this airspace needs to be represented by a (possibly
+ * non-closed) 3D 'polyline' in the output KML.  Examples are military
+ * Low Flying Routes.
+ */
+bool KMLState::needs3DLine(const Airspace& airspace) const
+{
+  return airspace.isLowFlyingRoute();
 }
 
 
