@@ -60,6 +60,7 @@ private:
     std::string getLineType(const Airspace& space) const;
     bool needs3DZone(const Airspace& space) const;
     bool needs2DLine(const Airspace& space) const;
+    bool needs3DLine(const Airspace& airspace) const;
 
 };
 

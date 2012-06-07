@@ -46,6 +46,7 @@ const string PolishState::LINETYPE_LOW_FLYING_AREA  = "0x03";
 const string PolishState::LINETYPE_LOW_FLYING_ROUTE = "0x10";
 const string PolishState::LINETYPE_PROHIBITED       = "0x08";
 const string PolishState::LINETYPE_RESTRICTED       = "0x08";
+const string PolishState::LINETYPE_SRZ              = "0x07";
 const string PolishState::LINETYPE_TMA              = "0x06";
 const string PolishState::LINETYPE_TMZ              = "0x06";
 
@@ -63,6 +64,7 @@ const string PolishState::POLYGONTYPE_LFAG                  = "0x60";
 const string PolishState::POLYGONTYPE_NON_LFAG_ABOVE_GROUND = "0x60";
 const string PolishState::POLYGONTYPE_PROHIBITED            = "0x66";
 const string PolishState::POLYGONTYPE_RESTRICTED            = "0x61";
+const string PolishState::POLYGONTYPE_SRZ                   = "0x69";
 const string PolishState::POLYGONTYPE_TMZ                   = "0x60";
 
 PolishState* PolishState::_instance = 0;
@@ -485,6 +487,7 @@ bool PolishState::needsPolygon(const Airspace& airspace) const
           || airspace.isProhibited()
           || airspace.isRestricted()
           || airspace.isTMA()
+          || airspace.isSRZ()
           || airspace.isTMZ() );
 }
 

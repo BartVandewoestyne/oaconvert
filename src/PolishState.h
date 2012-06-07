@@ -61,6 +61,7 @@ private:
     static const std::string LINETYPE_MAP_EDGE;
     static const std::string LINETYPE_PROHIBITED;
     static const std::string LINETYPE_RESTRICTED;
+    static const std::string LINETYPE_SRZ;
     static const std::string LINETYPE_TMA;
     static const std::string LINETYPE_TMZ;
 
@@ -79,6 +80,7 @@ private:
     static const std::string POLYGONTYPE_NON_LFAG_ABOVE_GROUND;
     static const std::string POLYGONTYPE_PROHIBITED;
     static const std::string POLYGONTYPE_RESTRICTED;
+    static const std::string POLYGONTYPE_SRZ;
     static const std::string POLYGONTYPE_TMZ;
 
     static PolishState* _instance;
