@@ -12,15 +12,15 @@
 *
 * Map list:
 *
-*   MAP WEEK           NO
-*   MAP WEEKEND        NO
+*   MAP WEEK           SEE AUP
+*   MAP WEEKEND        SEE AUP
 *   MAP WEEKEND_LFAG1  SEE AUP
 *   MAP WEEKEND_LFAG2  SEE AUP
 *   MAP WEEKEND_LFAG5  SEE AUP
 *   
 
 AC R
-AN EHR 4 (Vliehors)
+AN EHR 4A (Vliehors)
 AH FL 285
 AL FL 065
 DP 53:10:12.59 N 004:46:21.14 E

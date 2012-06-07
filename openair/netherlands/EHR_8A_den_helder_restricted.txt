@@ -12,8 +12,8 @@
 *
 * Map list:
 *
-*   MAP WEEK           NO
-*   MAP WEEKEND        NO
+*   MAP WEEK           SEE AUP
+*   MAP WEEKEND        SEE AUP
 *   MAP WEEKEND_LFAG1  SEE NOTAM
 *   MAP WEEKEND_LFAG2  SEE NOTAM
 *   MAP WEEKEND_LFAG5  SEE NOTAM
