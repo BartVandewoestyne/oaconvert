@@ -1,0 +1,31 @@
+* Source:
+*
+*   http://www.ais-netherlands.nl/
+*
+*   AIP Part 2 EN ROUTE (ENR)
+*    ENR 5 NAVIGATION WARNINGS
+*     9  SPECIAL RULES ZONES (SRZ)
+*
+* Last check:
+*
+*   René van den Broek (7 June 2012)
+*
+* Map list:
+*
+*   MAP WEEK           SEE NOTAM
+*   MAP WEEKEND        SEE NOTAM
+*   MAP WEEKEND_LFAG1  SEE NOTAM
+*   MAP WEEKEND_LFAG2  SEE NOTAM
+*   MAP WEEKEND_LFAG5  SEE NOTAM
+*   
+*
+* Remarks:
+*
+*
+
+AC P
+AN SRZ Regte Heide
+AH 18500 ft AMSL
+AL GND
+V X=51:30:45.00 N 005:01:40.00 E
+DC 2
