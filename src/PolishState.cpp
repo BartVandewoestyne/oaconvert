@@ -37,7 +37,7 @@ using namespace Constants;
 const string PolishState::LINETYPE_ATZ              = "0x06";
 const string PolishState::LINETYPE_BY_AUP           = "0x04";
 const string PolishState::LINETYPE_BY_NOTAM         = "0x04";
-const string PolishState::LINETYPE_CTA              = "0x06";
+const string PolishState::LINETYPE_CTA              = "0x11";
 const string PolishState::LINETYPE_CTR              = "0x06";
 const string PolishState::LINETYPE_DANGER           = "0x08";
 const string PolishState::LINETYPE_DEFAULT          = "0x07";
@@ -46,15 +46,16 @@ const string PolishState::LINETYPE_LOW_FLYING_AREA  = "0x03";
 const string PolishState::LINETYPE_LOW_FLYING_ROUTE = "0x10";
 const string PolishState::LINETYPE_PROHIBITED       = "0x08";
 const string PolishState::LINETYPE_RESTRICTED       = "0x08";
-const string PolishState::LINETYPE_SRZ              = "0x07";
-const string PolishState::LINETYPE_TMA              = "0x06";
+const string PolishState::LINETYPE_SRZ              = "0x06";
+const string PolishState::LINETYPE_TMA              = "0x11";
 const string PolishState::LINETYPE_TMZ              = "0x06";
 
 const string PolishState::POLYGONTYPE_ATZ                   = "0x61";
 const string PolishState::POLYGONTYPE_ATZ_CTR               = "0x66";
 const string PolishState::POLYGONTYPE_BY_AUP                = "0x60";
 const string PolishState::POLYGONTYPE_BY_NOTAM              = "0x60";
-const string PolishState::POLYGONTYPE_CTA                   = "0x60";
+const string PolishState::POLYGONTYPE_CTA                   = "0x62";
+const string PolishState::POLYGONTYPE_TMA                   = "0x64";
 const string PolishState::POLYGONTYPE_CTR_ABOVE_GROUND      = "0x63";
 const string PolishState::POLYGONTYPE_CTR_FROM_GROUND       = "0x61";
 const string PolishState::POLYGONTYPE_DANGER                = "0x61";
@@ -64,8 +65,9 @@ const string PolishState::POLYGONTYPE_LFAG                  = "0x60";
 const string PolishState::POLYGONTYPE_NON_LFAG_ABOVE_GROUND = "0x60";
 const string PolishState::POLYGONTYPE_PROHIBITED            = "0x66";
 const string PolishState::POLYGONTYPE_RESTRICTED            = "0x61";
-const string PolishState::POLYGONTYPE_SRZ                   = "0x69";
+const string PolishState::POLYGONTYPE_SRZ                   = "0x63";
 const string PolishState::POLYGONTYPE_TMZ                   = "0x60";
+
 
 PolishState* PolishState::_instance = 0;
 
@@ -365,6 +367,12 @@ std::string PolishState::getPolygonType(const Airspace& space) const
     return POLYGONTYPE_LFA;
   } else if (space.isCTA()) {
     return POLYGONTYPE_CTA;
+  } else if (space.isTMA()) {
+    return POLYGONTYPE_TMA;
+  } else if (space.isByNOTAM()) {
+    return POLYGONTYPE_BY_NOTAM;
+  } else if (space.isSRZ()) {
+    return POLYGONTYPE_SRZ;
   } else if (space.isTMZ()) {
     return POLYGONTYPE_TMZ;
   } else if ( space.isFloating() && !space.isLowFlyingAreaGolf() ) {
@@ -407,6 +415,8 @@ std::string PolishState::getLineType(const Airspace& space) const
       return LINETYPE_ATZ;
   } else if (space.isTMZ()) {
       return LINETYPE_TMZ;
+  } else if (space.isSRZ()) {
+      return LINETYPE_SRZ;
   } else if (space.isLowFlyingRoute()) {
       return LINETYPE_LOW_FLYING_ROUTE;
   } else if (space.isLowFlyingArea()) {
@@ -495,17 +505,22 @@ bool PolishState::needsPolygon(const Airspace& airspace) const
  */
 bool PolishState::needsPolyline(const Airspace& airspace) const
 {
-  // The obvious ones (the ones that don't have a polygon).
-  bool res =    airspace.isFIR()
-             || airspace.isLowFlyingRoute()
-             || airspace.isByNOTAM()
-             || airspace.isByAUP();
-
-  // The less obvious ones (the ones that also have a polygon).
-  res = res || needsPolygon(airspace);
-
-  return res;
+  return (   airspace.isFIR()
+          || airspace.isLowFlyingRoute()
+          || airspace.isByNOTAM()
+          || airspace.isByAUP()
+		  ||  airspace.isATZ()
+//         || airspace.isCTA()
+          || airspace.isCTR()
+          || airspace.isDanger()
+          || airspace.isLowFlyingArea()
+          || airspace.isLowFlyingAreaGolf()
+          || airspace.isProhibited()
+          || airspace.isRestricted()
+          || airspace.isSRZ()
+          || airspace.isTMZ() );
 }
+
 
 
 /**
@@ -521,6 +536,7 @@ bool PolishState::needsAltitudeInLabel(const Airspace& airspace) const
           || airspace.isByNOTAM()
           || airspace.isByAUP()
           || airspace.isTMZ()
+		  || airspace.isSRZ()
           || airspace.isAirway()
           || airspace.isProhibited() ) && (airspace.getFloor() > 0);
 }

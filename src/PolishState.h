@@ -71,6 +71,7 @@ private:
     static const std::string POLYGONTYPE_BY_AUP;
     static const std::string POLYGONTYPE_BY_NOTAM;
     static const std::string POLYGONTYPE_CTA;
+	static const std::string POLYGONTYPE_TMA;
     static const std::string POLYGONTYPE_CTR_ABOVE_GROUND;
     static const std::string POLYGONTYPE_CTR_FROM_GROUND;
     static const std::string POLYGONTYPE_DANGER;
