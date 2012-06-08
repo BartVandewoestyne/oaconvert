@@ -417,42 +417,38 @@ std::string PolishState::getLineType(const Airspace& space) const
 }
 
 
-
 /**
  * Return a label for this airspace for a 2D map representation.
  */
 string PolishState::getPolishLabel(const Airspace& airspace) const
 {
     stringstream pLabel;
+    string spaceName(airspace.getName());
 
-    //if ( airspace.isTMA() ) {
-    //    pLabel << "TMA:";
-    //}
-    //if ( airspace.isCTA() ) {
-    //    pLabel << "CTA:";
-    //}
     if ( airspace.isProhibited() ) {
         pLabel << "Prohibited:";
     }
-    //if ( airspace.isVectoringArea() ) {
-    //    pLabel << "Vectoring Area:";
-    //}
+
     if ( airspace.isByNOTAM() ) {
+
+        // Add prefix to Polish label.
         pLabel << "By NOTAM:";
+
+        // Remove prefix from real name to avoid having it twice (TODO).
+        //airspace.setName(spaceName.substr(10));
+
     }
+
     if ( airspace.isByAUP() ) {
+
+        // Add prefix to Polish label.
         pLabel << "By AUP:";
+
+        // Remove prefix from real name to avoid having it twice (TODO).
+        //airspace.setName(spaceName.substr(8));
     }
 
     if ( needsAltitudeInLabel(airspace) ) {
-
-        string myName(airspace.getName());
-        if (airspace.isByNOTAM()) {
-          myName = myName.substr(10); // TODO: remove this hardcoded value!
-        }
-        if (airspace.isByAUP()) {
-          myName = myName.substr(8); // TODO: remove this hardcoded value!
-        }
 
         if (airspace.hasAGLFloor()) {
             pLabel << " " << floor(airspace.getFloor()) << "m AGL max";
@@ -461,7 +457,8 @@ string PolishState::getPolishLabel(const Airspace& airspace) const
         } else {
             pLabel << " " << floor(airspace.getFloor()) << "m max";
         }
-        pLabel << " (" << myName << ")";
+
+        pLabel << " (" << spaceName << ")";
 
     } else {
       pLabel << airspace.getName();
