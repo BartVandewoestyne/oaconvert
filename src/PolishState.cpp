@@ -453,31 +453,38 @@ string PolishState::getPolishLabel(const Airspace& airspace) const
     //if ( airspace.isVectoringArea() ) {
     //    pLabel << "Vectoring Area:";
     //}
-    if ( airspace.isByNOTAM() ) {
-        pLabel << "By NOTAM:";
-    }
-    if ( airspace.isByAUP() ) {
-        pLabel << "By AUP:";
-    }
+ //   if ( airspace.isByNOTAM() ) {
+ //       pLabel << "By NOTAM:";
+ //   }
+ //   if ( airspace.isByAUP() ) {
+ //       pLabel << "By AUP:";
+ //   }
 
     if ( needsAltitudeInLabel(airspace) ) {
 
         string myName(airspace.getName());
-        if (airspace.isByNOTAM()) {
-          myName = myName.substr(10); // TODO: remove this hardcoded value!
-        }
-        if (airspace.isByAUP()) {
-          myName = myName.substr(8); // TODO: remove this hardcoded value!
-        }
+//        if (airspace.isByNOTAM()) {
+//          myName = myName.substr(10); // TODO: remove this hardcoded value!
+//        }
+//        if (airspace.isByAUP()) {
+//          myName = myName.substr(8); // TODO: remove this hardcoded value!
+//        }
 
         if (airspace.hasAGLFloor()) {
-            pLabel << " " << floor(airspace.getFloor()) << "m AGL max";
+            pLabel << " " << floor(airspace.getFloor()) << "m";
+  
         } else if (airspace.hasFLFloor()) {
-            pLabel << " " << floor(airspace.getFloor()) << "m (+QNH) max";
+            pLabel << " " << floor(airspace.getFloor()) << "m FL";
         } else {
-            pLabel << " " << floor(airspace.getFloor()) << "m max";
+            pLabel << " " << floor(airspace.getFloor()) << "m";
         }
-        pLabel << " (" << myName << ")";
+		if (airspace.isLowFlyingArea()) {
+            pLabel << "-" << floor(airspace.getCeiling()) << "m";
+		}
+		if (airspace.isLowFlyingRoute()) {
+            pLabel << "-" << floor(airspace.getCeiling()) << "m";
+		}
+		pLabel << " (" << myName << ")";
 
     } else {
       pLabel << airspace.getName();
@@ -549,5 +556,7 @@ bool PolishState::needsAltitudeInLabel(const Airspace& airspace) const
           || airspace.isTMZ()
 		  || airspace.isSRZ()
           || airspace.isAirway()
+		  || airspace.isLowFlyingArea()
+		  || airspace.isLowFlyingRoute()
           || airspace.isProhibited() ) && (airspace.getFloor() > 0);
 }
