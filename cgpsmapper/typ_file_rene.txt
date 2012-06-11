@@ -86,8 +86,8 @@ Type=0x63,6 ; CTR_ABOVE_GROUND |  SRZ
 Type=0x65,5 ; ???
 Type=0x67,5 ; ???
 Type=0x60,4 ; BY_AUP | BY_NOTAM |  LFAG | NON_LFAG_ABOVE_GROUND | TMZ
-Type=0x62,3 ; CTA
-Type=0x64,2 ; TMA
+Type=0x64,3 ; TMA
+Type=0x62,2 ; CTA
 Type=0x68,1 ; LFA
 Type=0x69,1 ; DEFAULT
 [end]
