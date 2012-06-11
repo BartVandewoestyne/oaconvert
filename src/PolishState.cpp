@@ -373,22 +373,30 @@ std::string PolishState::getPolygonType(const Airspace& space) const
     return POLYGONTYPE_TMA;
   } else if (space.isByNOTAM()) {
     return POLYGONTYPE_BY_NOTAM;
+  } else if (space.isByAUP()) {
+    return POLYGONTYPE_BY_AUP;
   } else if (space.isSRZ()) {
     return POLYGONTYPE_SRZ;
   } else if (space.isTMZ()) {
     return POLYGONTYPE_TMZ;
   } else if (space.isAirway()) {
     return POLYGONTYPE_AIRWAY;
-  } else if ( space.isFloating() && !space.isLowFlyingAreaGolf() ) {
-    return POLYGONTYPE_NON_LFAG_ABOVE_GROUND;
-  } else if (space.isLowFlyingAreaGolf()) {
-    return POLYGONTYPE_LFAG;
   } else if (space.isRestricted()) {
     return POLYGONTYPE_RESTRICTED;
   } else if (space.isProhibited()) {
     return POLYGONTYPE_PROHIBITED;
   } else if (space.isDanger()) {
     return POLYGONTYPE_DANGER;
+  } else if ( space.isFloating() && !space.isLowFlyingAreaGolf() ) {
+    return POLYGONTYPE_NON_LFAG_ABOVE_GROUND;
+  } else if (space.isLowFlyingAreaGolf()) {
+    return POLYGONTYPE_LFAG;
+ // } else if (space.isRestricted()) {
+ //   return POLYGONTYPE_RESTRICTED;
+ // } else if (space.isProhibited()) {
+ //   return POLYGONTYPE_PROHIBITED;
+ // } else if (space.isDanger()) {
+ //   return POLYGONTYPE_DANGER;
   } else {
     return POLYGONTYPE_DEFAULT;
   }
@@ -399,12 +407,12 @@ std::string PolishState::getLineType(const Airspace& space) const
 {
   if (space.isFIR()) {
       return LINETYPE_FIR;
-  } else if (space.isDanger()) {
-      return LINETYPE_DANGER; 
   } else if (space.isByNOTAM()) {
       return LINETYPE_BY_NOTAM;
   } else if (space.isByAUP()) {
       return LINETYPE_BY_AUP;
+  } else if (space.isDanger()) {
+      return LINETYPE_DANGER; 
   } else if (space.isProhibited()) {
       return LINETYPE_PROHIBITED; 
   } else if (space.isRestricted()) {
