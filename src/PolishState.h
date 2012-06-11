@@ -64,13 +64,16 @@ private:
     static const std::string LINETYPE_SRZ;
     static const std::string LINETYPE_TMA;
     static const std::string LINETYPE_TMZ;
+	static const std::string LINETYPE_AIRWAY;
 
     // Polygon types for the different airspaces, sorted alphabetically.
-    static const std::string POLYGONTYPE_ATZ;
+    static const std::string POLYGONTYPE_AIRWAY;
+	static const std::string POLYGONTYPE_ATZ;
     static const std::string POLYGONTYPE_ATZ_CTR;
     static const std::string POLYGONTYPE_BY_AUP;
     static const std::string POLYGONTYPE_BY_NOTAM;
     static const std::string POLYGONTYPE_CTA;
+	static const std::string POLYGONTYPE_TMA;
     static const std::string POLYGONTYPE_CTR_ABOVE_GROUND;
     static const std::string POLYGONTYPE_CTR_FROM_GROUND;
     static const std::string POLYGONTYPE_DANGER;

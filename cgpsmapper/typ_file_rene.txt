@@ -80,14 +80,14 @@ CodePage=1252
 ;Type=0x51,6 ; Wetland/swamp
 ;Type=0x52,4 ; Tundra
 ;Type=0x53,5 ; Sand/tidal/mud flat
-Type=0x66,7 ; ATZ_CTR | PROHIBITED
-Type=0x61,6 ; ATZ | CTR_FROM_GROUND | DANGER | RESTRICTED
+Type=0x66,8 ; ATZ_CTR | PROHIBITED
+Type=0x61,7 ; ATZ | CTR_FROM_GROUND | DANGER | RESTRICTED
 Type=0x65,5 ; ???
 Type=0x67,5 ; ???
-Type=0x62,4 ; ???
-Type=0x63,4 ; CTR_ABOVE_GROUND
-Type=0x64,3 ; ???
-Type=0x60,2 ; BY_AUP | BY_NOTAM | CTA | LFAG | NON_LFAG_ABOVE_GROUND | TMZ
+Type=0x62,3 ; CTA
+Type=0x63,6 ; CTR_ABOVE_GROUND |  SRZ
+Type=0x64,2 ; TMA
+Type=0x60,4 ; BY_AUP | BY_NOTAM |  LFAG | NON_LFAG_ABOVE_GROUND | TMZ
 Type=0x68,1 ; LFA
 Type=0x69,1 ; DEFAULT
 [end]
@@ -248,19 +248,33 @@ Xpm="32 8 4 1"
 "  c none"
 "3 c #FFA500" ; Orange (Nighttime foreground color)
 "4 c none"
-"      ====                      "
-"==     =====                    "
-" ===    ======                  "
-"===================             "
-"===================             "
-" ===    ======                  "
-"==     =====                    "
-"      ====                      "
+"     =                          "
+" =    ==                        "
+"  ==   ====                     "
+" ================               "
+" ================               "
+"  ==   ====                     "
+" =    ==                        "
+"     =                          "
 String1=0x01,Restreint  ; 0x01 = French
 String2=0x02,Beschränkt ; 0x02 = German
 String3=0x03,Beperkt    ; 0x03 = Dutch
 String4=0x04,Restricted ; 0x04 = English
 [end]
+
+[_line]
+Type=0x11
+Xpm="32 1 1 1"
+"  c none"
+"                                "
+String1=0x01,TMA ; 0x01 = French
+String2=0x02,TMA ; 0x02 = German
+String3=0x03,TMA ; 0x03 = Dutch
+String4=0x04,TMA ; 0x04 = English
+[end]
+
+
+
 
 
 ; Polygon definitions are limited to 32x32 xpm bitmaps using using 2 colors
@@ -358,146 +372,48 @@ Xpm="32 32 4 1"
 
 
 [_polygon]
-;  old type 62
-Type=0x99
-String1=0x01,CTA ; 0x01 = French
-String2=0x02,CTA ; 0x02 = German
-String3=0x03,CTA ; 0x03 = Dutch
-String4=0x04,CTA ; 0x04 = English
-ExtendedLabels=N
-Xpm="32 32 4 1"
-"O c #FFA500" ; Orange (Daytime foreground color)
-"  c none"
-"3 c #FFA500" ; Orange (Nighttime foreground color)
-"4 c none"
-"O O O O O O O O O O O O O O O O "
-" O O O O O O O O O O O O O O O O"
-"O O O O O O O O O O O O O O O O "
-" O O O O O O O O O O O O O O O O"
-"O O O O O O O O O O O O O O O O "
-" O O O O O O O O O O O O O O O O"
-"O O O O O O O O O O O O O O O O "
-" O O O O O O O O O O O O O O O O"
-"O O O O O O O O O O O O O O O O "
-" O O O O O O O O O O O O O O O O"
-"O O O O O O O O O O O O O O O O "
-" O O O O O O O O O O O O O O O O"
-"O O O O O O O O O O O O O O O O "
-" O O O O O O O O O O O O O O O O"
-"O O O O O O O O O O O O O O O O "
-" O O O O O O O O O O O O O O O O"
-"O O O O O O O O O O O O O O O O "
-" O O O O O O O O O O O O O O O O"
-"O O O O O O O O O O O O O O O O "
-" O O O O O O O O O O O O O O O O"
-"O O O O O O O O O O O O O O O O "
-" O O O O O O O O O O O O O O O O"
-"O O O O O O O O O O O O O O O O "
-" O O O O O O O O O O O O O O O O"
-"O O O O O O O O O O O O O O O O "
-" O O O O O O O O O O O O O O O O"
-"O O O O O O O O O O O O O O O O "
-" O O O O O O O O O O O O O O O O"
-"O O O O O O O O O O O O O O O O "
-" O O O O O O O O O O O O O O O O"
-"O O O O O O O O O O O O O O O O "
-" O O O O O O O O O O O O O O O O"
-[end]
-
-
-[_polygon]
 Type=0x62
 String1=0x01,CTA ; 0x01 = French
 String2=0x02,CTA ; 0x02 = German
 String3=0x03,CTA ; 0x03 = Dutch
 String4=0x04,CTA ; 0x04 = English
 ExtendedLabels=N
-Xpm="32 32 4 1"
-"O c #FFA500" ; Orange (Daytime foreground color)
+Xpm="32 32 1 1"
 "  c none"
-"3 c #FFA500" ; Orange (Nighttime foreground color)
-"4 c none"
-"O   O   O   O   O   O   O   O   "
+"   .                            "
 "                                "
 "                                "
 "                                "
-"O   O   O   O   O   O   O   O   "
 "                                "
 "                                "
 "                                "
-"O   O   O   O   O   O   O   O   "
 "                                "
 "                                "
 "                                "
-"O   O   O   O   O   O   O   O   "
 "                                "
 "                                "
 "                                "
-"O   O   O   O   O   O   O   O   "
 "                                "
 "                                "
 "                                "
-"O   O   O   O   O   O   O   O   "
 "                                "
 "                                "
 "                                "
-"O   O   O   O   O   O   O   O   "
 "                                "
 "                                "
 "                                "
-"O   O   O   O   O   O   O   O   "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
 "                                "
 "                                "
 "                                "
 [end]
 
-
-[_polygon]
-; old 63
-Type=0x96
-String1=0x01,TMA; 0x01 = French
-String2=0x02,TMA; 0x02 = German
-String3=0x03,TMA; 0x03 = Dutch
-String4=0x04,TMA; 0x04 = English
-ExtendedLabels=N
-Xpm="32 32 4 1"
-"O c #FFA500" ; Orange (Daytime foreground color)
-"  c none"
-"3 c #FFA500" ; Orange (Nighttime foreground color)
-"4 c none"
-"O O O O O O O O O O O O O O O O "
-" O O O O O O O O O O O O O O O O"
-"O O O O O O O O O O O O O O O O "
-" O O O O O O O O O O O O O O O O"
-"O O O O O O O O O O O O O O O O "
-" O O O O O O O O O O O O O O O O"
-"O O O O O O O O O O O O O O O O "
-" O O O O O O O O O O O O O O O O"
-"O O O O O O O O O O O O O O O O "
-" O O O O O O O O O O O O O O O O"
-"O O O O O O O O O O O O O O O O "
-" O O O O O O O O O O O O O O O O"
-"O O O O O O O O O O O O O O O O "
-" O O O O O O O O O O O O O O O O"
-"O O O O O O O O O O O O O O O O "
-" O O O O O O O O O O O O O O O O"
-"O O O O O O O O O O O O O O O O "
-" O O O O O O O O O O O O O O O O"
-"O O O O O O O O O O O O O O O O "
-" O O O O O O O O O O O O O O O O"
-"O O O O O O O O O O O O O O O O "
-" O O O O O O O O O O O O O O O O"
-"O O O O O O O O O O O O O O O O "
-" O O O O O O O O O O O O O O O O"
-"O O O O O O O O O O O O O O O O "
-" O O O O O O O O O O O O O O O O"
-"O O O O O O O O O O O O O O O O "
-" O O O O O O O O O O O O O O O O"
-"O O O O O O O O O O O O O O O O "
-" O O O O O O O O O O O O O O O O"
-"O O O O O O O O O O O O O O O O "
-" O O O O O O O O O O O O O O O O"
-[end]
 
 
 [_polygon]
@@ -512,86 +428,84 @@ Xpm="32 32 4 1"
 "  c none"
 "3 c #FFA500" ; Orange (Nighttime foreground color)
 "4 c none"
-"OO  OO  OO  OO  OO  OO  OO  OO  "
-"OO  OO  OO  OO  OO  OO  OO  OO  "
 "                                "
 "                                "
-"OO  OO  OO  OO  OO  OO  OO  OO  "
-"OO  OO  OO  OO  OO  OO  OO  OO  "
+"  OO  OO  OO  OO  OO  OO  OO  OO"
+"  OO  OO  OO  OO  OO  OO  OO  OO"
 "                                "
 "                                "
-"OO  OO  OO  OO  OO  OO  OO  OO  "
-"OO  OO  OO  OO  OO  OO  OO  OO  "
+"  OO  OO  OO  OO  OO  OO  OO  OO"
+"  OO  OO  OO  OO  OO  OO  OO  OO"
 "                                "
 "                                "
-"OO  OO  OO  OO  OO  OO  OO  OO  "
-"OO  OO  OO  OO  OO  OO  OO  OO  "
+"  OO  OO  OO  OO  OO  OO  OO  OO"
+"  OO  OO  OO  OO  OO  OO  OO  OO"
 "                                "
 "                                "
-"OO  OO  OO  OO  OO  OO  OO  OO  "
-"OO  OO  OO  OO  OO  OO  OO  OO  "
+"  OO  OO  OO  OO  OO  OO  OO  OO"
+"  OO  OO  OO  OO  OO  OO  OO  OO"
 "                                "
 "                                "
-"OO  OO  OO  OO  OO  OO  OO  OO  "
-"OO  OO  OO  OO  OO  OO  OO  OO  "
+"  OO  OO  OO  OO  OO  OO  OO  OO"
+"  OO  OO  OO  OO  OO  OO  OO  OO"
 "                                "
 "                                "
-"OO  OO  OO  OO  OO  OO  OO  OO  "
-"OO  OO  OO  OO  OO  OO  OO  OO  "
+"  OO  OO  OO  OO  OO  OO  OO  OO"
+"  OO  OO  OO  OO  OO  OO  OO  OO"
 "                                "
 "                                "
-"OO  OO  OO  OO  OO  OO  OO  OO  "
-"OO  OO  OO  OO  OO  OO  OO  OO  "
+"  OO  OO  OO  OO  OO  OO  OO  OO"
+"  OO  OO  OO  OO  OO  OO  OO  OO"
 "                                "
 "                                "
+"  OO  OO  OO  OO  OO  OO  OO  OO"
+"  OO  OO  OO  OO  OO  OO  OO  OO"
 [end]
 
 
 [_polygon]
 Type=0x64
-String1=0x01,LFAG ; 0x01 = French
-String2=0x02,LFAG ; 0x02 = German
-String3=0x03,LFAG ; 0x03 = Dutch
-String4=0x04,LFAG ; 0x04 = English
+String1=0x01,TMA ; 0x01 = French
+String2=0x02,TMA ; 0x02 = German
+String3=0x03,TMA ; 0x03 = Dutch
+String4=0x04,TMA ; 0x04 = English
 ExtendedLabels=N
-Xpm="32 32 4 1"
-"G c #00FF00" ; Green (Daytime foreground color)
+Xpm="32 32 1 1"
 "  c none"
-"3 c #00FF00" ; Green (Nighttime foreground color)
-"4 c none"
-"G G G G G G G G G G G G G G G G "
-" G G G G G G G G G G G G G G G G"
-"G G G G G G G G G G G G G G G G "
-" G G G G G G G G G G G G G G G G"
-"G G G G G G G G G G G G G G G G "
-" G G G G G G G G G G G G G G G G"
-"G G G G G G G G G G G G G G G G "
-" G G G G G G G G G G G G G G G G"
-"G G G G G G G G G G G G G G G G "
-" G G G G G G G G G G G G G G G G"
-"G G G G G G G G G G G G G G G G "
-" G G G G G G G G G G G G G G G G"
-"G G G G G G G G G G G G G G G G "
-" G G G G G G G G G G G G G G G G"
-"G G G G G G G G G G G G G G G G "
-" G G G G G G G G G G G G G G G G"
-"G G G G G G G G G G G G G G G G "
-" G G G G G G G G G G G G G G G G"
-"G G G G G G G G G G G G G G G G "
-" G G G G G G G G G G G G G G G G"
-"G G G G G G G G G G G G G G G G "
-" G G G G G G G G G G G G G G G G"
-"G G G G G G G G G G G G G G G G "
-" G G G G G G G G G G G G G G G G"
-"G G G G G G G G G G G G G G G G "
-" G G G G G G G G G G G G G G G G"
-"G G G G G G G G G G G G G G G G "
-" G G G G G G G G G G G G G G G G"
-"G G G G G G G G G G G G G G G G "
-" G G G G G G G G G G G G G G G G"
-"G G G G G G G G G G G G G G G G "
-" G G G G G G G G G G G G G G G G"
+"  .                             "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
 [end]
+
 
 
 [_polygon]

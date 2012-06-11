@@ -23,7 +23,7 @@
 *
 *
 
-AC TMZ
+AC D
 AN SRZ Eindhoven
 AH FL 095
 AL 1500 ft AMSL
