@@ -214,9 +214,9 @@ Xpm="32 3 4 1"
 "  c none"
 "3 c #FFFFFF" ; White (Nighttime foreground color)
 "4 c none"
-"================================"
 "    =======         =======     "
-"================================"
+"    =======         =======     "
+"    =======         =======     "
 String1=0x01,Restreint  ; 0x01 = French
 String2=0x02,Beschränkt ; 0x02 = German
 String3=0x03,Beperkt    ; 0x03 = Dutch
@@ -417,7 +417,8 @@ Xpm="32 32 1 1"
 
 
 [_polygon]
-Type=0x63
+old 63
+Type=0x99
 String1=0x01,CTR; 0x01 = French
 String2=0x02,CTR; 0x02 = German
 String3=0x03,CTR; 0x03 = Dutch
@@ -461,6 +462,54 @@ Xpm="32 32 4 1"
 "  OO  OO  OO  OO  OO  OO  OO  OO"
 "  OO  OO  OO  OO  OO  OO  OO  OO"
 [end]
+
+[_polygon]
+Type=0x63
+String1=0x01,CTR; 0x01 = French
+String2=0x02,CTR; 0x02 = German
+String3=0x03,CTR; 0x03 = Dutch
+String4=0x04,CTR; 0x04 = English
+ExtendedLabels=N
+Xpm="32 32 4 1"
+"O c #FFA500" ; Orange (Daytime foreground color)
+"  c none"
+"3 c #FFA500" ; Orange (Nighttime foreground color)
+"4 c none"
+"                                "
+"                                "
+"                                "
+"  OO  OO  OO  OO  OO  OO  OO  OO"
+"                                "
+"                                "
+"                                "
+"  OO  OO  OO  OO  OO  OO  OO  OO"
+"                                "
+"                                "
+"                                "
+"  OO  OO  OO  OO  OO  OO  OO  OO"
+"                                "
+"                                "
+"                                "
+"  OO  OO  OO  OO  OO  OO  OO  OO"
+"                                "
+"                                "
+"                                "
+"  OO  OO  OO  OO  OO  OO  OO  OO"
+"                                "
+"                                "
+"                                "
+"  OO  OO  OO  OO  OO  OO  OO  OO"
+"                                "
+"                                "
+"                                "
+"  OO  OO  OO  OO  OO  OO  OO  OO"
+"                                "
+"                                "
+"                                "
+"  OO  OO  OO  OO  OO  OO  OO  OO"
+[end]
+
+
 
 
 [_polygon]
