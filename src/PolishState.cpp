@@ -406,12 +406,6 @@ std::string PolishState::getPolygonType(const Airspace& space) const
     return POLYGONTYPE_NON_LFAG_ABOVE_GROUND;
   } else if (space.isLowFlyingAreaGolf()) {
     return POLYGONTYPE_LFAG;
- // } else if (space.isRestricted()) {
- //   return POLYGONTYPE_RESTRICTED;
- // } else if (space.isProhibited()) {
- //   return POLYGONTYPE_PROHIBITED;
- // } else if (space.isDanger()) {
- //   return POLYGONTYPE_DANGER;
   } else {
     return POLYGONTYPE_DEFAULT;
   }
@@ -476,22 +470,9 @@ string PolishState::getPolishLabel(const Airspace& airspace) const
     //if ( airspace.isVectoringArea() ) {
     //    pLabel << "Vectoring Area:";
     //}
- //   if ( airspace.isByNOTAM() ) {
- //       pLabel << "By NOTAM:";
- //   }
- //   if ( airspace.isByAUP() ) {
- //       pLabel << "By AUP:";
- //   }
-
     if ( needsAltitudeInLabel(airspace) ) {
 
         string myName(airspace.getName());
-//        if (airspace.isByNOTAM()) {
-//          myName = myName.substr(10); // TODO: remove this hardcoded value!
-//        }
-//        if (airspace.isByAUP()) {
-//          myName = myName.substr(8); // TODO: remove this hardcoded value!
-//        }
 
         if (airspace.hasAGLFloor()) {
             pLabel << " " << floor(airspace.getFloor()) << "m";
@@ -549,8 +530,7 @@ bool PolishState::needsPolyline(const Airspace& airspace) const
           || airspace.isLowFlyingRoute()
           || airspace.isByNOTAM()
           || airspace.isByAUP()
-		  ||  airspace.isATZ()
-//         || airspace.isCTA()
+          || airspace.isATZ()
           || airspace.isCTR()
           || airspace.isDanger()
           || airspace.isLowFlyingArea()
@@ -577,11 +557,11 @@ bool PolishState::needsAltitudeInLabel(const Airspace& airspace) const
           || airspace.isByNOTAM()
           || airspace.isByAUP()
           || airspace.isTMZ()
-		  || airspace.isSRZ()
+          || airspace.isSRZ()
           || airspace.isAirway()
-		  || airspace.isLowFlyingArea()
-		  || airspace.isLowFlyingRoute()
-		  || airspace.isDanger()
-		  || airspace.isRestricted()
+          || airspace.isLowFlyingArea()
+          || airspace.isLowFlyingRoute()
+          || airspace.isDanger()
+          || airspace.isRestricted()
           || airspace.isProhibited() ) && (airspace.getFloor() > 0);
 }
