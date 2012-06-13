@@ -64,25 +64,28 @@ private:
     static const std::string LINETYPE_SRZ;
     static const std::string LINETYPE_TMA;
     static const std::string LINETYPE_TMZ;
-	static const std::string LINETYPE_AIRWAY;
+    static const std::string LINETYPE_AIRWAY;
 
     // Polygon types for the different airspaces, sorted alphabetically.
     static const std::string POLYGONTYPE_AIRWAY;
-	static const std::string POLYGONTYPE_ATZ;
+    static const std::string POLYGONTYPE_ATZ;
     static const std::string POLYGONTYPE_ATZ_CTR;
     static const std::string POLYGONTYPE_BY_AUP;
     static const std::string POLYGONTYPE_BY_NOTAM;
     static const std::string POLYGONTYPE_CTA;
-	static const std::string POLYGONTYPE_TMA;
+    static const std::string POLYGONTYPE_TMA;
     static const std::string POLYGONTYPE_CTR_ABOVE_GROUND;
     static const std::string POLYGONTYPE_CTR_FROM_GROUND;
-    static const std::string POLYGONTYPE_DANGER;
+    static const std::string POLYGONTYPE_DANGER_ABOVE_GROUND;
+    static const std::string POLYGONTYPE_DANGER_FROM_GROUND;	
     static const std::string POLYGONTYPE_DEFAULT;
     static const std::string POLYGONTYPE_LFA;
     static const std::string POLYGONTYPE_LFAG;
     static const std::string POLYGONTYPE_NON_LFAG_ABOVE_GROUND;
-    static const std::string POLYGONTYPE_PROHIBITED;
-    static const std::string POLYGONTYPE_RESTRICTED;
+    static const std::string POLYGONTYPE_PROHIBITED_ABOVE_GROUND;
+    static const std::string POLYGONTYPE_PROHIBITED_FROM_GROUND;
+    static const std::string POLYGONTYPE_RESTRICTED_ABOVE_GROUND;
+    static const std::string POLYGONTYPE_RESTRICTED_FROM_GROUND;
     static const std::string POLYGONTYPE_SRZ;
     static const std::string POLYGONTYPE_TMZ;
 

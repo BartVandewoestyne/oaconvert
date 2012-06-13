@@ -51,24 +51,27 @@ const string PolishState::LINETYPE_TMA              = "0x11";
 const string PolishState::LINETYPE_TMZ              = "0x06";
 const string PolishState::LINETYPE_AIRWAY           = "0x06";
 
-const string PolishState::POLYGONTYPE_AIRWAY                = "0x60";
-const string PolishState::POLYGONTYPE_ATZ                   = "0x61";
-const string PolishState::POLYGONTYPE_ATZ_CTR               = "0x66";
-const string PolishState::POLYGONTYPE_BY_AUP                = "0x60";
-const string PolishState::POLYGONTYPE_BY_NOTAM              = "0x60";
-const string PolishState::POLYGONTYPE_CTA                   = "0x62";
-const string PolishState::POLYGONTYPE_TMA                   = "0x64";
-const string PolishState::POLYGONTYPE_CTR_ABOVE_GROUND      = "0x63";
-const string PolishState::POLYGONTYPE_CTR_FROM_GROUND       = "0x61";
-const string PolishState::POLYGONTYPE_DANGER                = "0x61";
-const string PolishState::POLYGONTYPE_DEFAULT               = "0x69";
-const string PolishState::POLYGONTYPE_LFA                   = "0x68";
-const string PolishState::POLYGONTYPE_LFAG                  = "0x60";
-const string PolishState::POLYGONTYPE_NON_LFAG_ABOVE_GROUND = "0x60";
-const string PolishState::POLYGONTYPE_PROHIBITED            = "0x66";
-const string PolishState::POLYGONTYPE_RESTRICTED            = "0x61";
-const string PolishState::POLYGONTYPE_SRZ                   = "0x63";
-const string PolishState::POLYGONTYPE_TMZ                   = "0x60";
+const string PolishState::POLYGONTYPE_AIRWAY                  = "0x60";
+const string PolishState::POLYGONTYPE_ATZ                     = "0x61";
+const string PolishState::POLYGONTYPE_ATZ_CTR                 = "0x66";
+const string PolishState::POLYGONTYPE_BY_AUP                  = "0x60";
+const string PolishState::POLYGONTYPE_BY_NOTAM                = "0x60";
+const string PolishState::POLYGONTYPE_CTA                     = "0x62";
+const string PolishState::POLYGONTYPE_TMA                     = "0x64";
+const string PolishState::POLYGONTYPE_CTR_ABOVE_GROUND        = "0x63";
+const string PolishState::POLYGONTYPE_CTR_FROM_GROUND         = "0x61";
+const string PolishState::POLYGONTYPE_DANGER_ABOVE_GROUND     = "0x63";
+const string PolishState::POLYGONTYPE_DANGER_FROM_GROUND      = "0x61";
+const string PolishState::POLYGONTYPE_DEFAULT                 = "0x69";
+const string PolishState::POLYGONTYPE_LFA                     = "0x68";
+const string PolishState::POLYGONTYPE_LFAG                    = "0x60";
+const string PolishState::POLYGONTYPE_NON_LFAG_ABOVE_GROUND   = "0x60";
+const string PolishState::POLYGONTYPE_PROHIBITED_FROM_GROUND  = "0x66";
+const string PolishState::POLYGONTYPE_PROHIBITED_ABOVE_GROUND = "0x63";
+const string PolishState::POLYGONTYPE_RESTRICTED_FROM_GROUND  = "0x61";
+const string PolishState::POLYGONTYPE_RESTRICTED_ABOVE_GROUND = "0x63";
+const string PolishState::POLYGONTYPE_SRZ                     = "0x63";
+const string PolishState::POLYGONTYPE_TMZ                     = "0x60";
 
 
 PolishState* PolishState::_instance = 0;
@@ -382,21 +385,27 @@ std::string PolishState::getPolygonType(const Airspace& space) const
   } else if (space.isAirway()) {
     return POLYGONTYPE_AIRWAY;
   } else if (space.isRestricted()) {
-    return POLYGONTYPE_RESTRICTED;
+    if (space.getFloor() > 0) {
+      return POLYGONTYPE_RESTRICTED_ABOVE_GROUND;
+    } else {
+      return POLYGONTYPE_RESTRICTED_FROM_GROUND;
+    }
   } else if (space.isProhibited()) {
-    return POLYGONTYPE_PROHIBITED;
+    if (space.getFloor() > 0) {
+      return POLYGONTYPE_PROHIBITED_ABOVE_GROUND;
+    } else {
+      return POLYGONTYPE_PROHIBITED_FROM_GROUND;
+    }
   } else if (space.isDanger()) {
-    return POLYGONTYPE_DANGER;
+    if (space.getFloor() > 0) {
+      return POLYGONTYPE_DANGER_ABOVE_GROUND;
+    } else {
+      return POLYGONTYPE_DANGER_FROM_GROUND;
+    }
   } else if ( space.isFloating() && !space.isLowFlyingAreaGolf() ) {
     return POLYGONTYPE_NON_LFAG_ABOVE_GROUND;
   } else if (space.isLowFlyingAreaGolf()) {
     return POLYGONTYPE_LFAG;
- // } else if (space.isRestricted()) {
- //   return POLYGONTYPE_RESTRICTED;
- // } else if (space.isProhibited()) {
- //   return POLYGONTYPE_PROHIBITED;
- // } else if (space.isDanger()) {
- //   return POLYGONTYPE_DANGER;
   } else {
     return POLYGONTYPE_DEFAULT;
   }
@@ -461,22 +470,9 @@ string PolishState::getPolishLabel(const Airspace& airspace) const
     //if ( airspace.isVectoringArea() ) {
     //    pLabel << "Vectoring Area:";
     //}
- //   if ( airspace.isByNOTAM() ) {
- //       pLabel << "By NOTAM:";
- //   }
- //   if ( airspace.isByAUP() ) {
- //       pLabel << "By AUP:";
- //   }
-
     if ( needsAltitudeInLabel(airspace) ) {
 
         string myName(airspace.getName());
-//        if (airspace.isByNOTAM()) {
-//          myName = myName.substr(10); // TODO: remove this hardcoded value!
-//        }
-//        if (airspace.isByAUP()) {
-//          myName = myName.substr(8); // TODO: remove this hardcoded value!
-//        }
 
         if (airspace.hasAGLFloor()) {
             pLabel << " " << floor(airspace.getFloor()) << "m";
@@ -534,8 +530,7 @@ bool PolishState::needsPolyline(const Airspace& airspace) const
           || airspace.isLowFlyingRoute()
           || airspace.isByNOTAM()
           || airspace.isByAUP()
-		  ||  airspace.isATZ()
-//         || airspace.isCTA()
+          || airspace.isATZ()
           || airspace.isCTR()
           || airspace.isDanger()
           || airspace.isLowFlyingArea()
@@ -562,9 +557,11 @@ bool PolishState::needsAltitudeInLabel(const Airspace& airspace) const
           || airspace.isByNOTAM()
           || airspace.isByAUP()
           || airspace.isTMZ()
-		  || airspace.isSRZ()
+          || airspace.isSRZ()
           || airspace.isAirway()
-		  || airspace.isLowFlyingArea()
-		  || airspace.isLowFlyingRoute()
+          || airspace.isLowFlyingArea()
+          || airspace.isLowFlyingRoute()
+          || airspace.isDanger()
+          || airspace.isRestricted()
           || airspace.isProhibited() ) && (airspace.getFloor() > 0);
 }
