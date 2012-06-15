@@ -32,8 +32,15 @@
 using namespace std;
 using namespace Constants;
 
-// Note: if you change a value here, you *must* also
-//       change the value in every TYP-file where it occurs!
+/*
+ * Types for the polylines and polygons from the TYP-file.
+ *
+ * Note:
+ *   If you change a value here, you *must* also change the value in every
+ *   TYP-file where it occurs!  Please also keep the types ordered
+ *   alphabetically.
+ */
+const string PolishState::LINETYPE_AIRWAY           = "0x06";
 const string PolishState::LINETYPE_ATZ              = "0x06";
 const string PolishState::LINETYPE_BY_AUP           = "0x04";
 const string PolishState::LINETYPE_BY_NOTAM         = "0x04";
@@ -50,23 +57,26 @@ const string PolishState::LINETYPE_SRZ              = "0x06";
 const string PolishState::LINETYPE_TMA              = "0x11";
 const string PolishState::LINETYPE_TMZ              = "0x06";
 
+const string PolishState::POLYGONTYPE_AIRWAY                  = "0x60";
 const string PolishState::POLYGONTYPE_ATZ                     = "0x61";
 const string PolishState::POLYGONTYPE_ATZ_CTR                 = "0x66";
 const string PolishState::POLYGONTYPE_BY_AUP                  = "0x60";
 const string PolishState::POLYGONTYPE_BY_NOTAM                = "0x60";
 const string PolishState::POLYGONTYPE_CTA                     = "0x62";
-const string PolishState::POLYGONTYPE_TMA                     = "0x64";
 const string PolishState::POLYGONTYPE_CTR_ABOVE_GROUND        = "0x63";
 const string PolishState::POLYGONTYPE_CTR_FROM_GROUND         = "0x61";
-const string PolishState::POLYGONTYPE_DANGER                  = "0x61";
+const string PolishState::POLYGONTYPE_DANGER_ABOVE_GROUND     = "0x63";
+const string PolishState::POLYGONTYPE_DANGER_FROM_GROUND      = "0x61";
 const string PolishState::POLYGONTYPE_DEFAULT                 = "0x69";
 const string PolishState::POLYGONTYPE_LFA                     = "0x68";
 const string PolishState::POLYGONTYPE_LFAG                    = "0x60";
 const string PolishState::POLYGONTYPE_NON_LFAG_ABOVE_GROUND   = "0x60";
-const string PolishState::POLYGONTYPE_PROHIBITED              = "0x66";
+const string PolishState::POLYGONTYPE_PROHIBITED_ABOVE_GROUND = "0x63";
+const string PolishState::POLYGONTYPE_PROHIBITED_FROM_GROUND  = "0x66";
+const string PolishState::POLYGONTYPE_RESTRICTED_ABOVE_GROUND = "0x63";
 const string PolishState::POLYGONTYPE_RESTRICTED_FROM_GROUND  = "0x61";
-const string PolishState::POLYGONTYPE_RESTRICTED_ABOVE_GROUND = "0x00";
 const string PolishState::POLYGONTYPE_SRZ                     = "0x63";
+const string PolishState::POLYGONTYPE_TMA                     = "0x64";
 const string PolishState::POLYGONTYPE_TMZ                     = "0x60";
 
 
@@ -381,11 +391,27 @@ std::string PolishState::getPolygonType(const Airspace& space) const
   } else if (space.isLowFlyingAreaGolf()) {
     return POLYGONTYPE_LFAG;
   } else if (space.isRestricted()) {
-    return POLYGONTYPE_RESTRICTED;
+    if (space.getFloor() > 0) {
+      return POLYGONTYPE_RESTRICTED_ABOVE_GROUND;
+    } else {
+      return POLYGONTYPE_RESTRICTED_FROM_GROUND;
+    }
   } else if (space.isProhibited()) {
-    return POLYGONTYPE_PROHIBITED;
+    if (space.getFloor() > 0) {
+      return POLYGONTYPE_PROHIBITED_ABOVE_GROUND;
+    } else {
+      return POLYGONTYPE_PROHIBITED_FROM_GROUND;
+    }
   } else if (space.isDanger()) {
-    return POLYGONTYPE_DANGER;
+    if (space.getFloor() > 0) {
+      return POLYGONTYPE_DANGER_ABOVE_GROUND;
+    } else {
+      return POLYGONTYPE_DANGER_FROM_GROUND;
+    }
+  } else if ( space.isFloating() && !space.isLowFlyingAreaGolf() ) {
+    return POLYGONTYPE_NON_LFAG_ABOVE_GROUND;
+  } else if (space.isLowFlyingAreaGolf()) {
+    return POLYGONTYPE_LFAG;
   } else {
     return POLYGONTYPE_DEFAULT;
   }
@@ -440,25 +466,6 @@ string PolishState::getPolishLabel(const Airspace& airspace) const
         pLabel << "Prohibited:";
     }
 
-    if ( airspace.isByNOTAM() ) {
-
-        // Add prefix to Polish label.
-        pLabel << "By NOTAM:";
-
-        // Remove prefix from real name to avoid having it twice (TODO).
-        //airspace.setName(spaceName.substr(10));
-
-    }
-
-    if ( airspace.isByAUP() ) {
-
-        // Add prefix to Polish label.
-        pLabel << "By AUP:";
-
-        // Remove prefix from real name to avoid having it twice (TODO).
-        //airspace.setName(spaceName.substr(8));
-    }
-
     if ( needsAltitudeInLabel(airspace) ) {
 
         if (airspace.hasAGLFloor()) {
@@ -486,6 +493,7 @@ string PolishState::getPolishLabel(const Airspace& airspace) const
  */
 bool PolishState::needsPolygon(const Airspace& airspace) const
 {
+  // Please keep these ordered alphabetically.
   return (   airspace.isATZ()
           || airspace.isCTA()
           || airspace.isCTR()
@@ -494,8 +502,8 @@ bool PolishState::needsPolygon(const Airspace& airspace) const
           || airspace.isLowFlyingAreaGolf()
           || airspace.isProhibited()
           || airspace.isRestricted()
-          || airspace.isTMA()
           || airspace.isSRZ()
+          || airspace.isTMA()
           || airspace.isTMZ() );
 }
 
@@ -506,22 +514,21 @@ bool PolishState::needsPolygon(const Airspace& airspace) const
  */
 bool PolishState::needsPolyline(const Airspace& airspace) const
 {
-  return (   airspace.isFIR()
-          || airspace.isLowFlyingRoute()
-          || airspace.isByNOTAM()
+  // Please keep these ordered alphabetically.
+  return (   airspace.isATZ()
           || airspace.isByAUP()
-		  ||  airspace.isATZ()
-//         || airspace.isCTA()
+          || airspace.isByNOTAM()
           || airspace.isCTR()
           || airspace.isDanger()
+          || airspace.isFIR()
           || airspace.isLowFlyingArea()
           || airspace.isLowFlyingAreaGolf()
+          || airspace.isLowFlyingRoute()
           || airspace.isProhibited()
           || airspace.isRestricted()
           || airspace.isSRZ()
           || airspace.isTMZ() );
 }
-
 
 
 /**
@@ -530,14 +537,20 @@ bool PolishState::needsPolyline(const Airspace& airspace) const
  */
 bool PolishState::needsAltitudeInLabel(const Airspace& airspace) const
 {
-  return (   airspace.isTMA()
-          || airspace.isCTA()
-          || airspace.isCTR()
-          || airspace.isVectoringArea()
-          || airspace.isByNOTAM()
-          || airspace.isByAUP()
-          || airspace.isTMZ()
-		  || airspace.isSRZ()
-          || airspace.isAirway()
-          || airspace.isProhibited() ) && (airspace.getFloor() > 0);
+  // Please keep these ordered alphabetically.
+  return (airspace.getFloor() > 0)
+         && (   airspace.isAirway()
+             || airspace.isCTA()
+             || airspace.isCTR()
+             || airspace.isByNOTAM()
+             || airspace.isByAUP()
+             || airspace.isTMZ()
+             || airspace.isSRZ()
+             || airspace.isLowFlyingArea()
+             || airspace.isLowFlyingRoute()
+             || airspace.isDanger()
+             || airspace.isRestricted()
+             || airspace.isTMA()
+             || airspace.isVectoringArea()
+             || airspace.isProhibited() );
 }
