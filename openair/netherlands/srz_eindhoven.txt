@@ -4,7 +4,7 @@
 *
 *   AIP Part 2 EN ROUTE (ENR)
 *    ENR 5 NAVIGATION WARNINGS
-*     9  SPECIAL RULES ZONES (SRZ)
+*     9 SPECIAL RULES ZONES (SRZ)
 *
 * Last check:
 *
@@ -17,11 +17,6 @@
 *   MAP WEEKEND_LFAG1  YES
 *   MAP WEEKEND_LFAG2  YES
 *   MAP WEEKEND_LFAG5  YES
-*   
-*
-* Remarks:
-*
-*
 
 AC D
 AN SRZ Eindhoven
