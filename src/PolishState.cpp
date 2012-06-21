@@ -34,6 +34,7 @@ using namespace Constants;
 
 // Note: if you change a value here, you *must* also
 //       change the value in every TYP-file where it occurs!
+const string PolishState::LINETYPE_AIRWAY           = "0x06";
 const string PolishState::LINETYPE_ATZ              = "0x06";
 const string PolishState::LINETYPE_BY_AUP           = "0x04";
 const string PolishState::LINETYPE_BY_NOTAM         = "0x04";
@@ -49,15 +50,14 @@ const string PolishState::LINETYPE_RESTRICTED       = "0x08";
 const string PolishState::LINETYPE_SRZ              = "0x06";
 const string PolishState::LINETYPE_TMA              = "0x11";
 const string PolishState::LINETYPE_TMZ              = "0x06";
-const string PolishState::LINETYPE_AIRWAY           = "0x06";
+
 
 const string PolishState::POLYGONTYPE_AIRWAY                  = "0x60";
 const string PolishState::POLYGONTYPE_ATZ                     = "0x61";
 const string PolishState::POLYGONTYPE_ATZ_CTR                 = "0x66";
-const string PolishState::POLYGONTYPE_BY_AUP                  = "0x60";
-const string PolishState::POLYGONTYPE_BY_NOTAM                = "0x60";
+const string PolishState::POLYGONTYPE_BY_AUP                  = "0x62";
+const string PolishState::POLYGONTYPE_BY_NOTAM                = "0x62";
 const string PolishState::POLYGONTYPE_CTA                     = "0x62";
-const string PolishState::POLYGONTYPE_TMA                     = "0x64";
 const string PolishState::POLYGONTYPE_CTR_ABOVE_GROUND        = "0x63";
 const string PolishState::POLYGONTYPE_CTR_FROM_GROUND         = "0x61";
 const string PolishState::POLYGONTYPE_DANGER_ABOVE_GROUND     = "0x63";
@@ -66,11 +66,12 @@ const string PolishState::POLYGONTYPE_DEFAULT                 = "0x69";
 const string PolishState::POLYGONTYPE_LFA                     = "0x68";
 const string PolishState::POLYGONTYPE_LFAG                    = "0x60";
 const string PolishState::POLYGONTYPE_NON_LFAG_ABOVE_GROUND   = "0x60";
-const string PolishState::POLYGONTYPE_PROHIBITED_FROM_GROUND  = "0x66";
 const string PolishState::POLYGONTYPE_PROHIBITED_ABOVE_GROUND = "0x63";
-const string PolishState::POLYGONTYPE_RESTRICTED_FROM_GROUND  = "0x61";
+const string PolishState::POLYGONTYPE_PROHIBITED_FROM_GROUND  = "0x66";
 const string PolishState::POLYGONTYPE_RESTRICTED_ABOVE_GROUND = "0x63";
+const string PolishState::POLYGONTYPE_RESTRICTED_FROM_GROUND  = "0x61";
 const string PolishState::POLYGONTYPE_SRZ                     = "0x63";
+const string PolishState::POLYGONTYPE_TMA                     = "0x64";
 const string PolishState::POLYGONTYPE_TMZ                     = "0x60";
 
 
@@ -457,19 +458,9 @@ std::string PolishState::getLineType(const Airspace& space) const
 string PolishState::getPolishLabel(const Airspace& airspace) const
 {
     stringstream pLabel;
-
-    //if ( airspace.isTMA() ) {
-    //    pLabel << "TMA:";
-    //}
-    //if ( airspace.isCTA() ) {
-    //    pLabel << "CTA:";
-    //}
     if ( airspace.isProhibited() ) {
         pLabel << "Prohibited:";
     }
-    //if ( airspace.isVectoringArea() ) {
-    //    pLabel << "Vectoring Area:";
-    //}
     if ( needsAltitudeInLabel(airspace) ) {
 
         string myName(airspace.getName());
