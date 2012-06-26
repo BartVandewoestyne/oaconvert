@@ -1,0 +1,37 @@
+Flight Information Region (FIR)
+  Garmin: only show a polyline
+  KML: only show a polyline
+
+Control Zone (CTR)
+  Some CTR's are from the ground, others are floating.
+  Cannot fly in here, so always color them red.
+
+Aerodrome Traffic Zone (ATZ)
+
+Control Area (CTA)
+
+Terminal Control Area (TMA)
+
+Transponder Mandatory Zone (TMZ)
+
+Special Rules Zone (SRZ)
+
+Vectoring Area
+
+By NOTAM
+
+By AUP
+
+Low Flying Area (LFA)
+
+Low Flying Area Golf (LFAG)
+
+Low Flying Route (LFR)
+
+Prohibited (P)
+
+Restricted (R)
+
+Danger (D)
+
+Airway

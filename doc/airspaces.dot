@@ -1,0 +1,49 @@
+/*
+ * To compile this dot-file, you need the 'dot' tool which is part of Graphviz,
+ * available from http://www.graphviz.org/
+ * 
+ * Compile with:
+ *
+ *   dot airspaces.dot -Tpng -o airspaces.png
+ */
+digraph AirSpaces {
+
+  node [label="Start"] start;
+  node [label="End"] end;
+
+  node [label="FIR?" shape=diamond] isFIR;
+  node [label="CTR?" shape=diamond] isCTR;
+  node [label="By NOTAM?" shape=diamond] isByNOTAM;
+  node [label="By AUP?" shape=diamond] isByAUP;
+  node [label="Floating?" shape=diamond] isFloatingCTR;
+
+  node [label="Yellow polyline" shape=box color=yellow] FIR;
+  node [label="Blue polyline" shape=box color=blue] NOTAM;
+  node [label="Blue polyline" shape=box color=blue] AUP;
+  node [label="Darkred polygon\nDarkred polyline" shape=box style=filled color=red] floatingCTR;
+  node [label="Lightred polygon\nLightred polyline" shape=box style=filled color=red] CTR;
+
+  start -> isFIR;
+
+  isFIR -> isByNOTAM [ label = "No" ];
+  isFIR -> FIR [ label = "Yes" ];
+
+  isByNOTAM -> NOTAM [ label = "Yes" ];
+  isByNOTAM -> isByAUP [ label = "No" ];
+
+  isByAUP -> AUP [ label = "Yes" ];
+  isByAUP -> isCTR [ label = "No" ];
+
+  isCTR -> isFloatingCTR [ label = "Yes" ];
+  isCTR -> end [ label = "No" ];
+
+  isFloatingCTR -> floatingCTR [ label = "Yes" ];
+  isFloatingCTR -> CTR [ label = "No" ];
+
+  FIR -> end;
+  NOTAM -> end;
+  AUP -> end;
+  floatingCTR -> end;
+  CTR -> end;
+
+}
