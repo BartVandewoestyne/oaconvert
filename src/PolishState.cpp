@@ -60,8 +60,8 @@ const string PolishState::LINETYPE_TMZ              = "0x06";
 const string PolishState::POLYGONTYPE_AIRWAY                  = "0x60";
 const string PolishState::POLYGONTYPE_ATZ                     = "0x61";
 const string PolishState::POLYGONTYPE_ATZ_CTR                 = "0x66";
-const string PolishState::POLYGONTYPE_BY_AUP                  = "0x60";
-const string PolishState::POLYGONTYPE_BY_NOTAM                = "0x60";
+const string PolishState::POLYGONTYPE_BY_AUP                  = "0x62";
+const string PolishState::POLYGONTYPE_BY_NOTAM                = "0x62";
 const string PolishState::POLYGONTYPE_CTA                     = "0x62";
 const string PolishState::POLYGONTYPE_CTR_ABOVE_GROUND        = "0x63";
 const string PolishState::POLYGONTYPE_CTR_FROM_GROUND         = "0x61";
@@ -479,7 +479,7 @@ string PolishState::getPolishLabel(const Airspace& airspace) const
         pLabel << " (" << spaceName << ")";
 
     } else {
-      pLabel << airspace.getName();
+      pLabel << spaceName;
     }
 
     return pLabel.str();
