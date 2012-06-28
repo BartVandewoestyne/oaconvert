@@ -32,14 +32,8 @@
 using namespace std;
 using namespace Constants;
 
-/*
- * Types for the polylines and polygons from the TYP-file.
- *
- * Note:
- *   If you change a value here, you *must* also change the value in every
- *   TYP-file where it occurs!  Please also keep the types ordered
- *   alphabetically.
- */
+// Note: if you change a value here, you *must* also
+//       change the value in every TYP-file where it occurs!
 const string PolishState::LINETYPE_AIRWAY           = "0x06";
 const string PolishState::LINETYPE_ATZ              = "0x06";
 const string PolishState::LINETYPE_BY_AUP           = "0x04";
@@ -56,6 +50,7 @@ const string PolishState::LINETYPE_RESTRICTED       = "0x08";
 const string PolishState::LINETYPE_SRZ              = "0x06";
 const string PolishState::LINETYPE_TMA              = "0x11";
 const string PolishState::LINETYPE_TMZ              = "0x06";
+
 
 const string PolishState::POLYGONTYPE_AIRWAY                  = "0x60";
 const string PolishState::POLYGONTYPE_ATZ                     = "0x61";
@@ -382,14 +377,14 @@ std::string PolishState::getPolygonType(const Airspace& space) const
     return POLYGONTYPE_TMA;
   } else if (space.isByNOTAM()) {
     return POLYGONTYPE_BY_NOTAM;
+  } else if (space.isByAUP()) {
+    return POLYGONTYPE_BY_AUP;
   } else if (space.isSRZ()) {
     return POLYGONTYPE_SRZ;
   } else if (space.isTMZ()) {
     return POLYGONTYPE_TMZ;
-  } else if ( space.isFloating() && !space.isLowFlyingAreaGolf() ) {
-    return POLYGONTYPE_NON_LFAG_ABOVE_GROUND;
-  } else if (space.isLowFlyingAreaGolf()) {
-    return POLYGONTYPE_LFAG;
+  } else if (space.isAirway()) {
+    return POLYGONTYPE_AIRWAY;
   } else if (space.isRestricted()) {
     if (space.getFloor() > 0) {
       return POLYGONTYPE_RESTRICTED_ABOVE_GROUND;
@@ -422,12 +417,12 @@ std::string PolishState::getLineType(const Airspace& space) const
 {
   if (space.isFIR()) {
       return LINETYPE_FIR;
-  } else if (space.isDanger()) {
-      return LINETYPE_DANGER; 
   } else if (space.isByNOTAM()) {
       return LINETYPE_BY_NOTAM;
   } else if (space.isByAUP()) {
       return LINETYPE_BY_AUP;
+  } else if (space.isDanger()) {
+      return LINETYPE_DANGER; 
   } else if (space.isProhibited()) {
       return LINETYPE_PROHIBITED; 
   } else if (space.isRestricted()) {
@@ -442,6 +437,8 @@ std::string PolishState::getLineType(const Airspace& space) const
       return LINETYPE_ATZ;
   } else if (space.isTMZ()) {
       return LINETYPE_TMZ;
+  } else if (space.isAirway()) {
+      return LINETYPE_AIRWAY;
   } else if (space.isSRZ()) {
       return LINETYPE_SRZ;
   } else if (space.isLowFlyingRoute()) {
@@ -454,32 +451,38 @@ std::string PolishState::getLineType(const Airspace& space) const
 }
 
 
+
 /**
  * Return a label for this airspace for a 2D map representation.
  */
 string PolishState::getPolishLabel(const Airspace& airspace) const
 {
     stringstream pLabel;
-    string spaceName(airspace.getName());
-
     if ( airspace.isProhibited() ) {
         pLabel << "Prohibited:";
     }
-
     if ( needsAltitudeInLabel(airspace) ) {
 
-        if (airspace.hasAGLFloor()) {
-            pLabel << " " << floor(airspace.getFloor()) << "m AGL max";
-        } else if (airspace.hasFLFloor()) {
-            pLabel << " " << floor(airspace.getFloor()) << "m (+QNH) max";
-        } else {
-            pLabel << " " << floor(airspace.getFloor()) << "m max";
-        }
+        string myName(airspace.getName());
 
-        pLabel << " (" << spaceName << ")";
+        if (airspace.hasAGLFloor()) {
+            pLabel << " " << floor(airspace.getFloor()) << "m";
+  
+        } else if (airspace.hasFLFloor()) {
+            pLabel << " " << floor(airspace.getFloor()) << "m FL";
+        } else {
+            pLabel << " " << floor(airspace.getFloor()) << "m";
+        }
+		if (airspace.isLowFlyingArea()) {
+            pLabel << "-" << floor(airspace.getCeiling()) << "m";
+		}
+		if (airspace.isLowFlyingRoute()) {
+            pLabel << "-" << floor(airspace.getCeiling()) << "m";
+		}
+		pLabel << " (" << myName << ")";
 
     } else {
-      pLabel << spaceName;
+      pLabel << airspace.getName();
     }
 
     return pLabel.str();
@@ -493,7 +496,6 @@ string PolishState::getPolishLabel(const Airspace& airspace) const
  */
 bool PolishState::needsPolygon(const Airspace& airspace) const
 {
-  // Please keep these ordered alphabetically.
   return (   airspace.isATZ()
           || airspace.isCTA()
           || airspace.isCTR()
@@ -502,9 +504,10 @@ bool PolishState::needsPolygon(const Airspace& airspace) const
           || airspace.isLowFlyingAreaGolf()
           || airspace.isProhibited()
           || airspace.isRestricted()
-          || airspace.isSRZ()
           || airspace.isTMA()
-          || airspace.isTMZ() );
+          || airspace.isSRZ()
+          || airspace.isTMZ()
+          || airspace.isAirway() );
 }
 
 
@@ -514,21 +517,22 @@ bool PolishState::needsPolygon(const Airspace& airspace) const
  */
 bool PolishState::needsPolyline(const Airspace& airspace) const
 {
-  // Please keep these ordered alphabetically.
-  return (   airspace.isATZ()
-          || airspace.isByAUP()
+  return (   airspace.isFIR()
+          || airspace.isLowFlyingRoute()
           || airspace.isByNOTAM()
+          || airspace.isByAUP()
+          || airspace.isATZ()
           || airspace.isCTR()
           || airspace.isDanger()
-          || airspace.isFIR()
           || airspace.isLowFlyingArea()
           || airspace.isLowFlyingAreaGolf()
-          || airspace.isLowFlyingRoute()
           || airspace.isProhibited()
           || airspace.isRestricted()
           || airspace.isSRZ()
+          || airspace.isAirway()
           || airspace.isTMZ() );
 }
+
 
 
 /**
@@ -537,20 +541,18 @@ bool PolishState::needsPolyline(const Airspace& airspace) const
  */
 bool PolishState::needsAltitudeInLabel(const Airspace& airspace) const
 {
-  // Please keep these ordered alphabetically.
-  return (airspace.getFloor() > 0)
-         && (   airspace.isAirway()
-             || airspace.isCTA()
-             || airspace.isCTR()
-             || airspace.isByNOTAM()
-             || airspace.isByAUP()
-             || airspace.isTMZ()
-             || airspace.isSRZ()
-             || airspace.isLowFlyingArea()
-             || airspace.isLowFlyingRoute()
-             || airspace.isDanger()
-             || airspace.isRestricted()
-             || airspace.isTMA()
-             || airspace.isVectoringArea()
-             || airspace.isProhibited() );
+  return (   airspace.isTMA()
+          || airspace.isCTA()
+          || airspace.isCTR()
+          || airspace.isVectoringArea()
+          || airspace.isByNOTAM()
+          || airspace.isByAUP()
+          || airspace.isTMZ()
+          || airspace.isSRZ()
+          || airspace.isAirway()
+          || airspace.isLowFlyingArea()
+          || airspace.isLowFlyingRoute()
+          || airspace.isDanger()
+          || airspace.isRestricted()
+          || airspace.isProhibited() ) && (airspace.getFloor() > 0);
 }
