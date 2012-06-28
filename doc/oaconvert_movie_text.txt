@@ -1,0 +1,39 @@
+For air sports, knowledge of airspace is very important.  There are a lot of
+areas where it is forbidden to fly or where there are certain limitations.  The
+detailed information of airspaces is described in a country's Aeronautical
+Information Pages (or AIP in short).
+
+A group of enthusiastic pilots, with initiator Bart Vandewoestyne from Belgium,
+has built a tool called 'oaconvert' to translate the airspace descriptions in
+the AIP files to files that allow visualization of these airspaces in Google
+Earth and on your Garmin GPS.
+
+The coordinates and characteristics of a certain airspace are first described
+in a so-called OpenAir file, which is a textual standard language for
+specifying airspace.
+
+Once the OpenAir files are declared, oaconvert (which stands for 'Openair
+Convert') allows you to translate the OpenAir file into various other formats,
+for example Google Earth's KML file type which is shown here.
+
+Unfortunately, it is quite unpractical to use Google Earth when flying.
+Oaconvert therefore also allows you to translate the OpenAir files into a file
+format that you can upload to your Garmin GPS, as can be seen in this picture.
+
+On your GPS it looks like this.
+
+Depending on your flight position, you get information about the airspace on
+your screen.
+
+Besides a visual indication about the places where you are not allowed to fly,
+you also get information about the maximum permitted altitude.
+
+Areas which may be activated by NOTAM or AUP, will be shown in a separate line
+type.
+
+At this moment, airspaces of Belgium, the Netherlands, Luxembourg and parts of
+Germany and France are available.
+
+OAconvert is an Open Source project, available to an international public via
+the GitHub social coding website.  Everyone can contribute to the code and add
+more airspace files.  You are cordially invited to participate!
