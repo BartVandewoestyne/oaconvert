@@ -4,46 +4,142 @@
  * 
  * Compile with:
  *
- *   dot airspaces.dot -Tpng -o airspaces.png
+ *   dot airspace_coloring.dot -Tpng -o airspace_coloring.png
  */
 digraph AirSpaces {
 
   node [label="Start"] start;
   node [label="End"] end;
 
-  node [label="FIR?" shape=diamond] isFIR;
-  node [label="CTR?" shape=diamond] isCTR;
-  node [label="By NOTAM?" shape=diamond] isByNOTAM;
-  node [label="By AUP?" shape=diamond] isByAUP;
-  node [label="Floating?" shape=diamond] isFloatingCTR;
+  node [shape=diamond label="By NOTAM?"] isByNOTAM;
+  node [shape=diamond label="By AUP?"] isByAUP;
+  node [shape=diamond label="FIR?"] isFIR;
+  node [shape=diamond label="CTR?"] isCTR;
+  node [shape=diamond label="ATZ?"] isATZ;
+  node [shape=diamond label="CTA?"] isCTA;
+  node [shape=diamond label="LFA?"] isLFA;
+  node [shape=diamond label="LFAG?"] isLFAG;
+  node [shape=diamond label="LFR?"] isLFR;
+  node [shape=diamond label="TMA?"] isTMA;
+  node [shape=diamond label="TMZ?"] isTMZ;
+  node [shape=diamond label="SRZ?"] isSRZ;
+  node [shape=diamond label="Airway"] isAirway;
+  node [shape=diamond label="Danger?"] isDanger;
+  node [shape=diamond label="Restricted?"] isRestricted;
+  node [shape=diamond label="Prohibited?"] isProhibited;
+  node [shape=diamond label="ATZ in CTR?"] isATZ_in_CTR;
+  node [shape=diamond label="Floating?"] isFloatingCTR;
+  node [shape=diamond label="Floating?"] isFloatingDanger;
+  node [shape=diamond label="Floating?"] isFloatingRestricted;
+  node [shape=diamond label="Floating?"] isFloatingProhibited;
 
-  node [label="Yellow polyline" shape=box color=yellow] FIR;
-  node [label="Blue polyline" shape=box color=blue] NOTAM;
-  node [label="Blue polyline" shape=box color=blue] AUP;
-  node [label="Darkred polygon\nDarkred polyline" shape=box style=filled color=red] floatingCTR;
-  node [label="Lightred polygon\nLightred polyline" shape=box style=filled color=red] CTR;
+  node [shape=oval label="Start"] start;
+  node [shape=oval label="End"] end;
+  node [shape=box label="FIR"] FIR;
+  node [shape=box label="NOTAM"] NOTAM;
+  node [shape=box label="AUP"] AUP;
+  //node [shape=box label="CTR"] CTR;
+  node [shape=box image="CTR.png" label=""] CTR;
+  node [shape=box image="" label="ATZ"] ATZ;
+  node [shape=box image="" label="CTA"] CTA;
+  node [shape=box image="" label="LFA"] LFA;
+  node [shape=box image="" label="LFAG"] LFAG;
+  node [shape=box image="" label="LFR"] LFR;
+  node [shape=box image="" label="TMA"] TMA;
+  node [shape=box image="" label="SRZ"] SRZ;
+  node [shape=box image="" label="TMZ"] TMZ;
+  node [shape=box image="" label="Airway"] Airway;
+  node [shape=box image="" label="Danger"] Danger;
+  node [shape=box image="" label="Restricted"] Restricted;
+  node [shape=box image="" label="Prohibited"] Prohibited;
+  node [shape=box image="" label="Default"] Default;
+  node [shape=box image="" label="floatingCTR"] floatingCTR;
+  node [shape=box image="" label="ATZ in CTR"] ATZ_in_CTR;
+  node [shape=box image="" label="floatingDanger"] floatingDanger;
+  node [shape=box image="" label="floatingRestricted"] floatingRestricted;
+  node [shape=box image="" label="floatingProhibited"] floatingProhibited;
 
   start -> isFIR;
-
   isFIR -> isByNOTAM [ label = "No" ];
   isFIR -> FIR [ label = "Yes" ];
+  FIR -> end;
 
   isByNOTAM -> NOTAM [ label = "Yes" ];
   isByNOTAM -> isByAUP [ label = "No" ];
+  NOTAM -> end;
 
   isByAUP -> AUP [ label = "Yes" ];
   isByAUP -> isCTR [ label = "No" ];
+  AUP -> end;
 
   isCTR -> isFloatingCTR [ label = "Yes" ];
-  isCTR -> end [ label = "No" ];
-
+  isCTR -> isATZ [ label = "No" ];
   isFloatingCTR -> floatingCTR [ label = "Yes" ];
   isFloatingCTR -> CTR [ label = "No" ];
-
-  FIR -> end;
-  NOTAM -> end;
-  AUP -> end;
   floatingCTR -> end;
   CTR -> end;
+
+  isATZ -> isATZ_in_CTR [ label = "Yes" ];
+  isATZ -> isDanger [ label = "No" ];
+  isATZ_in_CTR -> ATZ_in_CTR [ label = "Yes" ];
+  isATZ_in_CTR -> ATZ [ label = "No" ];
+  ATZ_in_CTR -> end;
+  ATZ -> end;
+
+  isDanger -> isFloatingDanger [ label= "Yes" ];
+  isDanger -> isRestricted [ label = "No" ];
+  isFloatingDanger -> floatingDanger [ label = "Yes" ];
+  isFloatingDanger -> Danger [ label = "No" ];
+  floatingDanger -> end;
+  Danger -> end;
+
+  isRestricted -> isFloatingRestricted [ label="Yes" ];
+  isRestricted -> isProhibited [ label = "No" ];
+  isFloatingRestricted -> floatingRestricted [ label = "Yes" ];
+  isFloatingRestricted -> Restricted [ label = "No" ];
+  floatingRestricted -> end;
+  Restricted -> end;
+
+  isProhibited -> isFloatingProhibited [ label="Yes" ];
+  isProhibited -> isAirway [ label="No" ];
+  isFloatingProhibited -> floatingProhibited [ label = "Yes" ];
+  isFloatingProhibited -> Prohibited [ label = "No" ];
+  floatingProhibited -> end;
+  Prohibited -> end;
+
+  isAirway -> Airway [ label = "Yes" ];
+  isAirway -> isCTA [ label = "No" ];
+  Airway -> end;
+
+  isCTA -> CTA [ label = "Yes" ];
+  isCTA -> isLFA [ label = "No" ];
+  CTA -> end;
+
+  isLFA -> LFA [ label = "Yes" ];
+  isLFA -> isLFAG [ label = "No" ];
+  LFA -> end;
+
+  isLFAG -> LFAG [ label = "Yes" ];
+  isLFAG -> isLFR [ label = "No" ];
+  LFAG -> end;
+
+  isLFR -> LFR [ label = "Yes" ];
+  isLFR -> isSRZ [ label = "No" ];
+  LFR -> end;
+
+  isSRZ -> SRZ [ label = "Yes" ];
+  isSRZ -> isTMA [ label = "No" ];
+  SRZ -> end;
+
+  isTMA -> TMA [ label = "Yes" ];
+  isTMA -> isTMZ [ label = "No" ];
+  TMA -> end;
+
+  isTMZ -> TMZ [ label = "Yes" ];
+  isTMZ -> Default [ label = "No" ];
+  TMZ -> end;
+
+  Default -> end;
+
 
 }
