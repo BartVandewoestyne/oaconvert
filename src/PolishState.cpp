@@ -32,8 +32,14 @@
 using namespace std;
 using namespace Constants;
 
-// Note: if you change a value here, you *must* also
-//       change the value in every TYP-file where it occurs!
+/*
+ * Types for the polylines and polygons from the TYP-file.
+ *
+ * Note:
+ *   If you change a value here, you *must* also change the value in every
+ *   TYP-file where it occurs!  Please also keep the types ordered
+ *   alphabetically.
+ */
 const string PolishState::LINETYPE_AIRWAY           = "0x06";
 const string PolishState::LINETYPE_ATZ              = "0x06";
 const string PolishState::LINETYPE_BY_AUP           = "0x04";
@@ -252,8 +258,8 @@ void PolishState::writeHeader(std::ostream &out) const
     //out << "Level1=14\n";
     //out << "Zoom0=0\n";
     //out << "Zoom1=1\n";
-
     // Section terminator (mandatory)
+
     out << "[END-IMG ID]\n" << endl;
 }
 
@@ -270,33 +276,25 @@ void PolishState::write(std::ostream& stream, const Airspace& airspace) const
     //   http://cgpsmapper.com/download/cGPSmapper-UsrMan-v02.1.pdf
 
     if (needsPolygon(airspace)) {
-
         stream << "[POLYGON]" << endl;
         stream << "Type=" << getPolygonType(airspace) << endl;
         stream << "Label=" << getPolishLabel(airspace) << endl;
-
         // The EndLevel number must not be higher than the highest X from the
         // LevelX records in the Polish header.
         stream << "EndLevel=4" << endl;
         write(stream, airspace.getCurvedPolygon());
         stream << "[END]\n" << endl;
-
     }
-
     if (needsPolyline(airspace)) {
-
       stream << "[POLYLINE]" << endl;
       stream << "Type=" << getLineType(airspace) << endl;
       stream << "Label=" << getPolishLabel(airspace) << endl;
-
       // The EndLevel number must not be higher than the highest X from the
       // LevelX records in the Polish header.
       stream << "EndLevel=4" << endl;
       write(stream, airspace.getCurvedPolygon());
       stream << "[END]\n" << endl;
-
     }
-
 }
 
 
@@ -357,7 +355,11 @@ void PolishState::write(ostream& out, const Coordinate& c) const
  */
 std::string PolishState::getPolygonType(const Airspace& space) const
 {
-  if (space.isCTR()) {
+  if (space.isByAUP()) {
+    return POLYGONTYPE_BY_AUP;
+  } else if (space.isByNOTAM()) {
+    return POLYGONTYPE_BY_NOTAM;
+  } else if (space.isCTR()) {
     if (space.getFloor() > 0) {
       return POLYGONTYPE_CTR_ABOVE_GROUND;
     } else {
@@ -375,10 +377,6 @@ std::string PolishState::getPolygonType(const Airspace& space) const
     return POLYGONTYPE_CTA;
   } else if (space.isTMA()) {
     return POLYGONTYPE_TMA;
-  } else if (space.isByNOTAM()) {
-    return POLYGONTYPE_BY_NOTAM;
-  } else if (space.isByAUP()) {
-    return POLYGONTYPE_BY_AUP;
   } else if (space.isSRZ()) {
     return POLYGONTYPE_SRZ;
   } else if (space.isTMZ()) {
@@ -462,31 +460,25 @@ string PolishState::getPolishLabel(const Airspace& airspace) const
         pLabel << "Prohibited:";
     }
     if ( needsAltitudeInLabel(airspace) ) {
-
         string myName(airspace.getName());
-
         if (airspace.hasAGLFloor()) {
             pLabel << " " << floor(airspace.getFloor()) << "m";
-  
         } else if (airspace.hasFLFloor()) {
             pLabel << " " << floor(airspace.getFloor()) << "m FL";
         } else {
             pLabel << " " << floor(airspace.getFloor()) << "m";
         }
-		if (airspace.isLowFlyingArea()) {
+        if (airspace.isLowFlyingArea()) {
             pLabel << "-" << floor(airspace.getCeiling()) << "m";
-		}
-		if (airspace.isLowFlyingRoute()) {
+        }
+        if (airspace.isLowFlyingRoute()) {
             pLabel << "-" << floor(airspace.getCeiling()) << "m";
-		}
-		pLabel << " (" << myName << ")";
-
+        }
+            pLabel << " (" << myName << ")";
     } else {
-      pLabel << airspace.getName();
+        pLabel << airspace.getName();
     }
-
     return pLabel.str();
-
 }
 
 
