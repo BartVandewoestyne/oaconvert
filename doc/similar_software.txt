@@ -15,6 +15,9 @@ GDAL/OGR
   http://www.gdal.org/ogr/drv_openair.html
   http://www.gdal.org/ogr/
 
+Convertor from OpenAir to TNP and inverse
+  http://notaminfo.com/php/openair-tnp.php
+
 
 Other software that supports Polish Format:
 -------------------------------------------
@@ -52,6 +55,15 @@ Maps from René van den Broek <rene.van.den.broek at gmail.com>
 
   http://www.yvin.mijnwebserver.nl/paramotor/viewtopic.php?f=9&t=4662&hilit=airspace
 
+Maps for the UK:
+  http://ukgarminairmap.wikispaces.com/
+
+Dave Massie's UK and France files <davemassie@btinternet.com>
+  http://notaminfo.com/
+
+SoaringWeb
+  http://soaringweb.org/Airspace/
+
 
 OpenAir to KML conversion projects
 ----------------------------------
@@ -61,6 +73,8 @@ http://www.skyfool.de/luftraeume/
 Other projects that claim to be able to visualize airspace
 ----------------------------------------------------------
 http://goworldwind.org/
+http://code.google.com/p/openaviationmap/wiki/Downloads
+http://sourceforge.net/projects/aixm-j/
 
 
 Useful tools for investigating and playing with Garmin IMG files

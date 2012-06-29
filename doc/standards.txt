@@ -1,1 +1,15 @@
-http://en.wikipedia.org/wiki/DAFIF
+The following file types seem like 'standards' for specifying airspace
+----------------------------------------------------------------------
+
+Aeronautical Information Exchange Model (AIXM)
+
+  http://www.aixm.aero/
+
+
+The following file types seem to be more 'amateuristic' standards
+-----------------------------------------------------------------
+Digital Aeronautical Flight Information File (DAFIF)
+
+  http://en.wikipedia.org/wiki/DAFIF
+
+-> Seems not publicly available anymore since October 2006.
