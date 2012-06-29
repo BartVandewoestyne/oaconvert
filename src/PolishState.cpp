@@ -57,6 +57,7 @@ const string PolishState::LINETYPE_SRZ              = "0x06";
 const string PolishState::LINETYPE_TMA              = "0x11";
 const string PolishState::LINETYPE_TMZ              = "0x06";
 
+
 const string PolishState::POLYGONTYPE_AIRWAY                  = "0x60";
 const string PolishState::POLYGONTYPE_ATZ                     = "0x61";
 const string PolishState::POLYGONTYPE_ATZ_CTR                 = "0x66";
@@ -257,8 +258,8 @@ void PolishState::writeHeader(std::ostream &out) const
     //out << "Level1=14\n";
     //out << "Zoom0=0\n";
     //out << "Zoom1=1\n";
-
     // Section terminator (mandatory)
+
     out << "[END-IMG ID]\n" << endl;
 }
 
@@ -275,33 +276,25 @@ void PolishState::write(std::ostream& stream, const Airspace& airspace) const
     //   http://cgpsmapper.com/download/cGPSmapper-UsrMan-v02.1.pdf
 
     if (needsPolygon(airspace)) {
-
         stream << "[POLYGON]" << endl;
         stream << "Type=" << getPolygonType(airspace) << endl;
         stream << "Label=" << getPolishLabel(airspace) << endl;
-
         // The EndLevel number must not be higher than the highest X from the
         // LevelX records in the Polish header.
         stream << "EndLevel=4" << endl;
         write(stream, airspace.getCurvedPolygon());
         stream << "[END]\n" << endl;
-
     }
-
     if (needsPolyline(airspace)) {
-
       stream << "[POLYLINE]" << endl;
       stream << "Type=" << getLineType(airspace) << endl;
       stream << "Label=" << getPolishLabel(airspace) << endl;
-
       // The EndLevel number must not be higher than the highest X from the
       // LevelX records in the Polish header.
       stream << "EndLevel=4" << endl;
       write(stream, airspace.getCurvedPolygon());
       stream << "[END]\n" << endl;
-
     }
-
 }
 
 
@@ -362,7 +355,11 @@ void PolishState::write(ostream& out, const Coordinate& c) const
  */
 std::string PolishState::getPolygonType(const Airspace& space) const
 {
-  if (space.isCTR()) {
+  if (space.isByAUP()) {
+    return POLYGONTYPE_BY_AUP;
+  } else if (space.isByNOTAM()) {
+    return POLYGONTYPE_BY_NOTAM;
+  } else if (space.isCTR()) {
     if (space.getFloor() > 0) {
       return POLYGONTYPE_CTR_ABOVE_GROUND;
     } else {
@@ -380,16 +377,12 @@ std::string PolishState::getPolygonType(const Airspace& space) const
     return POLYGONTYPE_CTA;
   } else if (space.isTMA()) {
     return POLYGONTYPE_TMA;
-  } else if (space.isByNOTAM()) {
-    return POLYGONTYPE_BY_NOTAM;
   } else if (space.isSRZ()) {
     return POLYGONTYPE_SRZ;
   } else if (space.isTMZ()) {
     return POLYGONTYPE_TMZ;
-  } else if ( space.isFloating() && !space.isLowFlyingAreaGolf() ) {
-    return POLYGONTYPE_NON_LFAG_ABOVE_GROUND;
-  } else if (space.isLowFlyingAreaGolf()) {
-    return POLYGONTYPE_LFAG;
+  } else if (space.isAirway()) {
+    return POLYGONTYPE_AIRWAY;
   } else if (space.isRestricted()) {
     if (space.getFloor() > 0) {
       return POLYGONTYPE_RESTRICTED_ABOVE_GROUND;
@@ -422,12 +415,12 @@ std::string PolishState::getLineType(const Airspace& space) const
 {
   if (space.isFIR()) {
       return LINETYPE_FIR;
-  } else if (space.isDanger()) {
-      return LINETYPE_DANGER; 
   } else if (space.isByNOTAM()) {
       return LINETYPE_BY_NOTAM;
   } else if (space.isByAUP()) {
       return LINETYPE_BY_AUP;
+  } else if (space.isDanger()) {
+      return LINETYPE_DANGER; 
   } else if (space.isProhibited()) {
       return LINETYPE_PROHIBITED; 
   } else if (space.isRestricted()) {
@@ -442,6 +435,8 @@ std::string PolishState::getLineType(const Airspace& space) const
       return LINETYPE_ATZ;
   } else if (space.isTMZ()) {
       return LINETYPE_TMZ;
+  } else if (space.isAirway()) {
+      return LINETYPE_AIRWAY;
   } else if (space.isSRZ()) {
       return LINETYPE_SRZ;
   } else if (space.isLowFlyingRoute()) {
@@ -454,36 +449,36 @@ std::string PolishState::getLineType(const Airspace& space) const
 }
 
 
+
 /**
  * Return a label for this airspace for a 2D map representation.
  */
 string PolishState::getPolishLabel(const Airspace& airspace) const
 {
     stringstream pLabel;
-    string spaceName(airspace.getName());
-
     if ( airspace.isProhibited() ) {
         pLabel << "Prohibited:";
     }
-
     if ( needsAltitudeInLabel(airspace) ) {
-
+        string myName(airspace.getName());
         if (airspace.hasAGLFloor()) {
-            pLabel << " " << floor(airspace.getFloor()) << "m AGL max";
+            pLabel << " " << floor(airspace.getFloor()) << "m";
         } else if (airspace.hasFLFloor()) {
-            pLabel << " " << floor(airspace.getFloor()) << "m (+QNH) max";
+            pLabel << " " << floor(airspace.getFloor()) << "m FL";
         } else {
-            pLabel << " " << floor(airspace.getFloor()) << "m max";
+            pLabel << " " << floor(airspace.getFloor()) << "m";
         }
-
-        pLabel << " (" << spaceName << ")";
-
+        if (airspace.isLowFlyingArea()) {
+            pLabel << "-" << floor(airspace.getCeiling()) << "m";
+        }
+        if (airspace.isLowFlyingRoute()) {
+            pLabel << "-" << floor(airspace.getCeiling()) << "m";
+        }
+            pLabel << " (" << myName << ")";
     } else {
-      pLabel << spaceName;
+        pLabel << airspace.getName();
     }
-
     return pLabel.str();
-
 }
 
 
@@ -494,7 +489,8 @@ string PolishState::getPolishLabel(const Airspace& airspace) const
 bool PolishState::needsPolygon(const Airspace& airspace) const
 {
   // Please keep these ordered alphabetically.
-  return (   airspace.isATZ()
+  return (   airspace.isAirway()
+          || airspace.isATZ()
           || airspace.isCTA()
           || airspace.isCTR()
           || airspace.isDanger()
@@ -515,7 +511,8 @@ bool PolishState::needsPolygon(const Airspace& airspace) const
 bool PolishState::needsPolyline(const Airspace& airspace) const
 {
   // Please keep these ordered alphabetically.
-  return (   airspace.isATZ()
+  return (   airspace.isAirway()
+          || airspace.isATZ()
           || airspace.isByAUP()
           || airspace.isByNOTAM()
           || airspace.isCTR()
@@ -531,6 +528,7 @@ bool PolishState::needsPolyline(const Airspace& airspace) const
 }
 
 
+
 /**
  * Return true if this airspace needs an altitude specification in
  * its Polish label.
@@ -540,17 +538,17 @@ bool PolishState::needsAltitudeInLabel(const Airspace& airspace) const
   // Please keep these ordered alphabetically.
   return (airspace.getFloor() > 0)
          && (   airspace.isAirway()
+             || airspace.isByAUP()
+             || airspace.isByNOTAM()
              || airspace.isCTA()
              || airspace.isCTR()
-             || airspace.isByNOTAM()
-             || airspace.isByAUP()
-             || airspace.isTMZ()
-             || airspace.isSRZ()
+             || airspace.isDanger()
              || airspace.isLowFlyingArea()
              || airspace.isLowFlyingRoute()
-             || airspace.isDanger()
+             || airspace.isProhibited()
              || airspace.isRestricted()
+             || airspace.isSRZ()
              || airspace.isTMA()
-             || airspace.isVectoringArea()
-             || airspace.isProhibited() );
+             || airspace.isTMZ()
+             || airspace.isVectoringArea() );
 }
