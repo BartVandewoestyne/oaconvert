@@ -1,0 +1,33 @@
+* Source:
+*
+*   http://www.belgocontrol.be/
+*
+*   AIP Part 2 EN-ROUTE (ENR)
+*    ENR 5 NAVIGATION WARNINGS
+*     ENR 5.2 Military exercise and training areas and air defence
+*             identification zone
+*      1 TEMPORARY RESERVED AREAS AND TEMPORARY SEGREGATED AREAS
+*
+* Last check:
+*
+*   Bart Vandewoestyne (29 June 2012)
+*
+* Map List:
+*
+*   MAP WEEK           SEE NOTAM
+*   MAP WEEKEND        SEE NOTAM
+*   MAP WEEKEND_LFAG1  SEE NOTAM
+*   MAP WEEKEND_LFAG2  SEE NOTAM
+*   MAP WEEKEND_LFAG5  SEE NOTAM
+
+AC R
+AN TSA27C Hotton
+AH FL 95
+AL 4500 ft AMSL
+DP 50:21:25 N 005:12:09 E
+DP 50:24:41 N 005:24:49 E
+DP 50:22:36 N 005:33:14 E
+DP 50:06:18 N 005:42:51 E
+DP 50:06:13 N 005:35:16 E
+DP 50:14:16 N 005:23:04 E
+DP 50:21:25 N 005:12:09 E
