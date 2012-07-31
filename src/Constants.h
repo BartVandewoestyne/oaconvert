@@ -29,8 +29,10 @@ const double feet_in_meter = 0.3048;
 const int NBPOINTS = 100;
 
 /* Resolution in Nautical Miles */
-/* For circles and arcs, we put a point at each nautical mile ( = each 1852 * m). */
-// TODO: find a good value for RESOLUTION that leads to nice results.
+// For circles and arcs, we put a point at each nautical mile ( = each 1852 * m).
+// TODO: find a good value for RESOLUTION that leads to nice results.  The
+// smallest circle I have encountered so far is EHD 61 from the Netherlands and
+// it has a radius of 300m.
 const double RESOLUTION = 0.5;
 }
 
