@@ -74,8 +74,8 @@ void Circle::discretize( std::vector<Coordinate>& coords, double resolution ) co
     // one from the EHD 61 danger zone in the Netherlands. For this circle with
     // a radius of 300m, it turned out that with 435 points the top-polygon has
     // a weird color, while with 436 and more points it does not...
-    const int min_nb_points = 436;
-    int nbPoints = max( static_cast<int>(2*pi*radius/resolution), min_nb_points );
+    const unsigned int min_nb_points = 436;
+    unsigned int nbPoints = max( static_cast<unsigned int>(2*pi*radius/resolution), min_nb_points );
 
     coords.clear();
     coords.reserve(nbPoints);
@@ -91,7 +91,7 @@ void Circle::discretize( std::vector<Coordinate>& coords, double resolution ) co
     double arcdegree_lat = lat.getArcDegree();
     double arcdegree_lon = lon.getArcDegree(lat);
 
-    for (int i = 0; i < nbPoints; ++i)
+    for (unsigned int i = 0; i < nbPoints; ++i)
     {
         angle = 2*pi*i/nbPoints;
 
