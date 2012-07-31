@@ -9,7 +9,6 @@
 * Last check:
 *
 *   René van den Broek (4 June 2012)
-*   Bart Vandewoestyne (16 March 2012)
 *
 * Map list:
 *
@@ -19,8 +18,9 @@
 *   MAP WEEKEND_LFAG2  YES
 *   MAP WEEKEND_LFAG5  YES
 *   
+* TODO:
 *
-* TODO: check if AC-record should be G
+*   * check if AC-record should be G
 
 AC G
 AN Amsterdam FIR
