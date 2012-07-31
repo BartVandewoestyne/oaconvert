@@ -149,14 +149,12 @@ void KMLState::write(std::ostream& stream, const Airspace& airspace) const
 
 void KMLState::write(std::ostream& out, const std::vector<Coordinate>& coords, double altitude) const
 {
-    if (coords.size() > 0)
+    std::vector<Coordinate>::const_iterator it;
+    for (it = coords.begin(); it < coords.end(); it++)
     {
-        for (size_t i = 0; i < coords.size(); ++i)
-        {
-            out << "          ";
-            write(out, coords[i], altitude);
-            out << endl;
-        }
+        out << "          ";
+        write(out, *it, altitude);
+        out << endl;
     }
 }
 
@@ -333,22 +331,24 @@ void KMLState::writeSidePolygons(std::ostream &out, const Airspace& airspace, co
         out << "          <coordinates>" << endl;
     
         /* Draw the 'side-rectangle' (4 points) */
+        Coordinate current = coords.at(i);
+        Coordinate next = coords.at( (i+1)%coords.size() );
         out << "          ";
-        write(out, coords[i], airspace.getFloor());
+        write(out, current, airspace.getFloor());
         out << endl;
         out << "          ";
-        write(out, coords[(i+1)%coords.size()], airspace.getFloor());
+        write(out, next, airspace.getFloor());
         out << endl;
         out << "          ";
-        write(out , coords[(i+1)%coords.size()], airspace.getCeiling());
+        write(out , next, airspace.getCeiling());
         out << endl;
         out << "          ";
-        write(out, coords[i], airspace.getCeiling());
+        write(out, current, airspace.getCeiling());
         out << endl;
         // One extra point, because the KML-requirement that the
         // last point must be identical to the first one to form a closed figure.
         out << "          ";
-        write(out, coords[i], airspace.getFloor());
+        write(out, current, airspace.getFloor());
         out << endl;
     
         out << "          </coordinates>" << endl;
