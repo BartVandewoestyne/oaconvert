@@ -3,12 +3,12 @@
 *   http://www.ais-netherlands.nl/
 *
 *   AIP Part 2 EN ROUTE (ENR)
-*    ENR 5  NAVIGATION WARNINGS
-*     6  PROHIBITED, RESTRICTED AND DANGER AREAS
+*    ENR 5 NAVIGATION WARNINGS
+*     6 PROHIBITED, RESTRICTED AND DANGER AREAS
 *
 * Last check:
 *
-*   René van den Broek (4 June 2012)
+*   Bart Vandewoestyne (31 July 2012)
 *
 * Map list:
 *
@@ -17,7 +17,6 @@
 *   MAP WEEKEND_LFAG1  SEE NOTAM
 *   MAP WEEKEND_LFAG2  SEE NOTAM
 *   MAP WEEKEND_LFAG5  SEE NOTAM
-*   
 
 AC Q
 AN EHD 62 (Reek)
