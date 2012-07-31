@@ -28,6 +28,7 @@ CurvedPolygon::CurvedPolygon()
     : shapes()
 {}
 
+
 CurvedPolygon::~CurvedPolygon()
 {
     std::vector<const GeometricShape*>::iterator it;
@@ -37,6 +38,7 @@ CurvedPolygon::~CurvedPolygon()
     }
     shapes.clear();
 }
+
 
 void CurvedPolygon::add( const GeometricShape* s )
 {
@@ -48,26 +50,24 @@ void CurvedPolygon::discretize( std::vector<Coordinate>& coords, double resoluti
 {
     coords.clear();
 
-    // TODO: Why doesn't this work???
-    //std::vector<const GeometricShape*>::iterator it;
-    //for ( it=shapes.begin(); it < shapes.end(); it++ )
-    //{
-    //  GeometricShape *s = *it;
-    //  s->discretize( coords, resolution );
-    //}
-    for( size_t i = 0; i < shapes.size(); ++i )
+    std::vector<const GeometricShape*>::const_iterator it;
+    for ( it = shapes.begin(); it < shapes.end(); it++ )
     {
-        shapes[i]->discretize( coords, resolution );
+      const GeometricShape *s = *it;
+      s->discretize( coords, resolution );
     }
+
 }
 
 
 std::ostream& operator <<(std::ostream& outputStream, const CurvedPolygon& p)
 {
     outputStream << "Curved Polygon:";
-    for( size_t i = 0; i < p.shapes.size(); ++i )
+
+    std::vector<const GeometricShape*>::const_iterator it;
+    for ( it = p.shapes.begin(); it < p.shapes.end(); it++ )
     {
-        outputStream << "  " << p.shapes[i] << std::endl;
+      outputStream << "  " << *it << std::endl;
     }
 
     return outputStream;
