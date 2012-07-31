@@ -57,7 +57,6 @@ const string PolishState::LINETYPE_SRZ              = "0x06";
 const string PolishState::LINETYPE_TMA              = "0x11";
 const string PolishState::LINETYPE_TMZ              = "0x06";
 
-
 const string PolishState::POLYGONTYPE_AIRWAY                  = "0x60";
 const string PolishState::POLYGONTYPE_ATZ                     = "0x61";
 const string PolishState::POLYGONTYPE_ATZ_CTR                 = "0x66";
@@ -313,7 +312,7 @@ void PolishState::write(std::ostream& out, const std::vector<Coordinate>& coords
         out << "Data0=";
         for (size_t i = 0; i < coords.size()-1; ++i)
         {
-            write(out, coords[i]);
+            write(out, coords.at(i));
             out << ",";
         }
         write(out, coords.back());
@@ -449,7 +448,6 @@ std::string PolishState::getLineType(const Airspace& space) const
 }
 
 
-
 /**
  * Return a label for this airspace for a 2D map representation.
  */
@@ -526,7 +524,6 @@ bool PolishState::needsPolyline(const Airspace& airspace) const
           || airspace.isSRZ()
           || airspace.isTMZ() );
 }
-
 
 
 /**
