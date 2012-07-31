@@ -9,7 +9,7 @@ cmake_minimum_required(VERSION 2.6)
 project(oaconvert)
 
 add_definitions(-DDEBUG)
-set(CMAKE_CXX_FLAGS "-g -Wall -Wextra -Weffc++ -Wold-style-cast -Werror -pedantic")
+set(CMAKE_CXX_FLAGS "-g -Wall -Wextra -Weffc++ -Wold-style-cast -Woverloaded-virtual -Wsign-promo -Wabi -Wmissing-declarations -Wconversion -Wcast-align -Wredundant-decls -Werror -Werror -pedantic")
 
 add_subdirectory(src)
 add_subdirectory(test)
