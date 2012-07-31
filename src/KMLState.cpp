@@ -263,9 +263,10 @@ void KMLState::writeStyle(std::ostream &out, std::string id, std::string color) 
  * Return true if this airspace needs to be represented by a 3D zone
  * in the output KML file.
  */
-bool KMLState::needs3DZone(const Airspace& airspace) const
+bool KMLState::needs3DZone(const Airspace&) const
 {
-  return ( !airspace.isFIR() );
+  // Currently, all airspaces are shown as 3D zones, including FIR's.
+  return true;
 }
 
 
