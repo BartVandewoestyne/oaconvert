@@ -125,13 +125,11 @@ void GPXState::write(std::ostream& stream, const CurvedPolygon& p) const
 
 void GPXState::write(std::ostream& out, const std::vector<Coordinate>& coords) const
 {
-    if (coords.size() > 0)
+    std::vector<Coordinate>::const_iterator it;
+    for ( it = coords.begin(); it < coords.end(); it++ )
     {
-        for (size_t i = 0; i < coords.size(); ++i)
-        {
-            write(out, coords[i]);
-            out << endl;
-        }
+      write(out, *it);
+      out << endl;
     }
 }
 
