@@ -307,10 +307,13 @@ void PolishState::write(std::ostream& stream, const CurvedPolygon& p) const
 
 void PolishState::write(std::ostream& out, const std::vector<Coordinate>& coords) const
 {
-    if (coords.size() > 0)
+    std::vector<Coordinate>::size_type nbCoords = coords.size();
+
+    if (nbCoords > 0)
     {
         out << "Data0=";
-        for (size_t i = 0; i < coords.size()-1; ++i)
+        std::vector<Coordinate>::size_type i;
+        for (i = 0; i < nbCoords-1; ++i)
         {
             write(out, coords.at(i));
             out << ",";

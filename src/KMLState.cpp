@@ -318,7 +318,9 @@ void KMLState::writeTopBottomPolygon(std::ostream &out, const Airspace& airspace
  */
 void KMLState::writeSidePolygons(std::ostream &out, const Airspace& airspace, const std::vector<Coordinate>& coords) const
 {
-    for (size_t i = 0; i < coords.size(); ++i)
+    std::vector<Coordinate>::size_type nbCoords = coords.size();
+    std::vector<Coordinate>::size_type i;
+    for (i = 0; i < nbCoords; ++i)
     {
         out << "    <Polygon>" << endl;
         if (airspace.hasAbsoluteCeiling() || airspace.hasAbsoluteFloor()) {
