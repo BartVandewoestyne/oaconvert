@@ -66,9 +66,15 @@ const Point& Circle::getCenter() const
 void Circle::discretize( std::vector<Coordinate>& coords, double resolution ) const
 {
 
-    // Each circle must have *at least* 360 points (or more if the specified resolution is
-    // not satisfied when taking 360 points).
-    const int min_nb_points = 360;
+    // Each circle must have *at least* min_nb_points points.  If the specified
+    // resolution is not satisfied with min_nb_points, then even more points
+    // will be used.  The value of 436 appears to be the smallest value for
+    // which we don't have any weird coloring behavior for the top-polygon of
+    // small circles.  The smallest circle we have in our OpenAir files is the
+    // one from the EHD 61 danger zone in the Netherlands. For this circle with
+    // a radius of 300m, it turned out that with 435 points the top-polygon has
+    // a weird color, while with 436 and more points it does not...
+    const int min_nb_points = 436;
     int nbPoints = max( static_cast<int>(2*pi*radius/resolution), min_nb_points );
 
     coords.clear();
