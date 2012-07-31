@@ -69,7 +69,7 @@ void Circle::discretize( std::vector<Coordinate>& coords, double resolution ) co
     // Each circle must have *at least* 360 points (or more if the specified resolution is
     // not satisfied when taking 360 points).
     const int min_nb_points = 360;
-    int nbPoints = max((int)(2*pi*radius/resolution), min_nb_points);
+    int nbPoints = max( static_cast<int>(2*pi*radius/resolution), min_nb_points );
 
     coords.clear();
     coords.reserve(nbPoints);

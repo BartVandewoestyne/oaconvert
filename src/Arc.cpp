@@ -137,7 +137,7 @@ void Arc::discretize( std::vector<Coordinate>& coords, double resolution ) const
 
     // Compute the number of points of the discretization.
     //size_t nbPoints = (size_t) ( 2 * pi * ( interval / 360.0 ) * radiusNM / resolution );
-    int nbPoints = (int) abs( 2 * pi * ( interval / 360.0 ) * radiusNM / resolution );
+    int nbPoints = static_cast<int> ( abs( 2 * pi * ( interval / 360.0 ) * radiusNM / resolution ) );
 
     // Generate all points of the arc.
     for (int i = 0; i < nbPoints; ++i)

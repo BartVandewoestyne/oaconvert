@@ -70,7 +70,7 @@ double LatLon::getAngle() const
  */
 int LatLon::getDegrees() const
 {
-    return (int) abs(angle);
+    return static_cast<int>( abs(angle) );
 }
 
 /**
@@ -79,7 +79,7 @@ int LatLon::getDegrees() const
  */
 int LatLon::getMinutes() const
 {
-    return (int) ( ( abs(getAngle()) - getDegrees() )*60.0 );
+    return static_cast<int>( ( abs(getAngle()) - getDegrees() )*60.0 );
 }
 
 /**
