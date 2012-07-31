@@ -45,7 +45,6 @@ public:
     double getRadiusM() const;
 
     virtual void discretize( std::vector<Coordinate>& coords, double resolution ) const;
-    virtual std::ostream& print( std::ostream &stream );
 
     friend std::ostream& operator <<( std::ostream& outputStream, const Circle& c );
 };

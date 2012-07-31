@@ -65,7 +65,6 @@ const Point& Circle::getCenter() const
  */
 void Circle::discretize( std::vector<Coordinate>& coords, double resolution ) const
 {
-
     // Each circle must have *at least* min_nb_points points.  If the specified
     // resolution is not satisfied with min_nb_points, then even more points
     // will be used.  The value of 436 appears to be the smallest value for
@@ -77,12 +76,6 @@ void Circle::discretize( std::vector<Coordinate>& coords, double resolution ) co
     const unsigned int min_nb_points = 436;
     unsigned int nbPoints = max( static_cast<unsigned int>(2*pi*radius/resolution), min_nb_points );
 
-    coords.clear();
-    coords.reserve(nbPoints);
-
-    double deg_lat, deg_lon;
-    double angle;
-
     Coordinate centerCoord = center.getCoordinate();
     Latitude lat = centerCoord.getLatitude();
     Longitude lon = centerCoord.getLongitude();
@@ -91,6 +84,11 @@ void Circle::discretize( std::vector<Coordinate>& coords, double resolution ) co
     double arcdegree_lat = lat.getArcDegree();
     double arcdegree_lon = lon.getArcDegree(lat);
 
+    coords.clear();
+    coords.reserve(nbPoints);
+
+    double deg_lat, deg_lon;
+    double angle;
     for (unsigned int i = 0; i < nbPoints; ++i)
     {
         angle = 2*pi*i/nbPoints;
@@ -102,16 +100,11 @@ void Circle::discretize( std::vector<Coordinate>& coords, double resolution ) co
 }
 
 
-std::ostream& Circle::print( std::ostream &stream )
-{
-    return ( stream << *this );
-}
-
-
 ostream& operator <<(ostream& outputStream, const Circle& c)
 {
     outputStream << "Circle:" << endl;
     outputStream << "  " << c.center << endl;
-    outputStream << "  Radius in NM: " << c.radius;
+    outputStream << "  Radius in meter         : " << c.getRadiusM();
+    outputStream << "  Radius in nautical miles: " << c.getRadiusNM();
     return outputStream;
 }
