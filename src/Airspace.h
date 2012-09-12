@@ -130,7 +130,7 @@ public:
 
     void clear();
 
-    friend std::ostream& operator <<(std::ostream& outputStream, const Airspace& l);
+    friend std::ostream& operator<<(std::ostream& out, const Airspace& s);
 
 };
 

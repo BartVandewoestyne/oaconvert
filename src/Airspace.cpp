@@ -499,15 +499,15 @@ void Airspace::clear()
 }
 
 
-ostream& operator <<(ostream& outputStream, const Airspace& s)
+std::ostream& operator<<(std::ostream& out, const Airspace& s)
 {
-    outputStream << "Airspace name:    " << s.name << endl;
-    outputStream << "Airspace class:   " << s.clss << endl;
-    outputStream << "Airspace ceiling: " << s.ceiling << endl;
-    outputStream << "Airspace floor:   " << s.floor << endl;
+    out << "Airspace name:    " << s.name << endl;
+    out << "Airspace class:   " << s.clss << endl;
+    out << "Airspace ceiling: " << s.ceiling << endl;
+    out << "Airspace floor:   " << s.floor << endl;
     if (s.labels.size() > 0)
     {
-        outputStream << "Airspace label coordinates:" << endl;
+        out << "Airspace label coordinates:" << endl;
         
         vector<Label>::const_iterator it;
         for (it=s.labels.begin(); it < s.labels.end(); ++it)
@@ -515,9 +515,9 @@ ostream& operator <<(ostream& outputStream, const Airspace& s)
             // TODO: seems like both work here???
             const Label label = *it;
             //const Label &label = *it;
-            outputStream << "  " << label.getText() << " -- " << label.getCoordinate() << endl;
+            out << "  " << label.getText() << " -- " << label.getCoordinate() << endl;
         }
     }
-    // TODO outputStream  << "CurvedPolygon: " << s.p << endl;
-    return outputStream;
+    // TODO out  << "CurvedPolygon: " << s.p << endl;
+    return out;
 }
