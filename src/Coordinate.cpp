@@ -27,6 +27,7 @@
 
 using namespace std;
 
+// TOOD: this should not exist
 Coordinate::Coordinate()
     : lat()
     , lon()

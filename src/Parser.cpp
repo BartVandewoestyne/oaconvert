@@ -39,7 +39,6 @@ Parser::Parser()
     , airspaces()
     , currentDirection('+')
     , currentCoordinate()
-    , curved_polygon(0)
     , regexMap()
 {
     initRegexMap();
@@ -50,7 +49,6 @@ Parser::Parser(const std::string& outfile)
     , airspaces()
     , currentDirection('+')
     , currentCoordinate()
-    , curved_polygon(0)
     , regexMap()
 {
 
@@ -346,7 +344,6 @@ void Parser::handleLine(const std::string& line)
 
         // Reset the current direction and the helper curved_polygon.
         setCurrentDirection('+');
-        curved_polygon = 0;
         // TODO: also invalidate current coordinate here.
 
         // Assign the parsed class to the current airspace.
@@ -498,7 +495,6 @@ void Parser::initialize()
 
 void Parser::finalize()
 {
-    curved_polygon = 0;
     _writer.writeFooter();
 }
 

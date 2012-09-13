@@ -27,7 +27,7 @@ class Longitude : public LatLon
 {
 
 public:
-    Longitude();
+    Longitude(); // TODO: this should not exist.
     Longitude(double angle);
     Longitude(double degrees, char direction);
     Longitude(int degrees, double minutes, char direction);

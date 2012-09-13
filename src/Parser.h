@@ -77,16 +77,23 @@ private:
     std::list<Airspace*> airspaces;
 
     char currentDirection;
+
+    // The last read center point for an DA, DB or DC record.
+    // TODO: this variable name is confusing... better name it something
+    //       like currentArcCenter or so...
+    // Since this private member can be null, we should probably make it
+    // a pointer..., but then we also need a decent destructor, copy constructor
+    // and assignment operator.
     Coordinate currentCoordinate;
-    CurvedPolygon *curved_polygon;
 
     std::map<ERegex,boost::regex> regexMap;
 
-    // We only declare, but do not implement the copy constructor
-    // and assignment operator.  See [Meyers 2005], Item 11, second last
-    // paragraph.
+    // To prevent clients from calling these, and to prevent compilers from
+    // generating these, we only declare, but do not implement the copy
+    // constructor and assignment operator.  See [Meyers 2005], Item 11, second
+    // last paragraph.
     Parser(const Parser& p);
-    Parser operator=(const Parser& p);
+    Parser operator=(const Parser& p); // TODO: the output argument should be ref!
 
 public:
 

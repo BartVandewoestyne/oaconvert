@@ -18,11 +18,9 @@
 */
 
 #include "Circle.h"
+#include "Constants.h"
 
 #include <cmath>
-
-#include "Constants.h"
-#include "OutputState.h"
 
 using namespace std;
 using Constants::pi;

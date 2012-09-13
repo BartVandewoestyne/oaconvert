@@ -37,6 +37,7 @@ public:
      *       to enforce this?  In Java-terminology: how to make this an
      *       'abstract' class?
      */
+    // TODO: this should not exist.
     LatLon();
 
     /**
