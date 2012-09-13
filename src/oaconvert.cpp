@@ -43,7 +43,7 @@ int main (int argc, char* argv[])
     }
 
     // By default, if no output file is given, write to stdout.
-    int write_to_stdout = 1;
+    bool write_to_stdout = true;
     std::string outfilename;
 
     static struct option long_options[] =
@@ -92,7 +92,7 @@ int main (int argc, char* argv[])
 
         case 'o':
             outfilename = optarg;
-            write_to_stdout = 0;
+            write_to_stdout = false;
             break;
 
         case 'd':
