@@ -10,6 +10,7 @@ project(oaconvert)
 
 add_definitions(-DDEBUG)
 set(CMAKE_CXX_FLAGS "-g -Wall -Wextra -Weffc++ -Wold-style-cast -Woverloaded-virtual -Wsign-promo -Wabi -Wmissing-declarations -Wconversion -Wcast-align -Wredundant-decls -Werror -Werror -pedantic")
+#set(CMAKE_CXX_FLAGS "-pg")
 
 add_subdirectory(src)
 add_subdirectory(test)
