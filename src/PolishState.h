@@ -22,9 +22,11 @@
 
 #include <vector>
 #include <string>
+
 #include "OutputState.h"
 #include "Constants.h"
 #include "Coordinate.h"
+#include "CurvedPolygon.h"
 
 
 class PolishState : public OutputState

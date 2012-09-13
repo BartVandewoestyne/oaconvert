@@ -21,9 +21,11 @@
 #define KMLSTATE_H
 
 #include <vector>
+
 #include "OutputState.h"
 #include "Constants.h"
 #include "Coordinate.h"
+#include "CurvedPolygon.h"
 
 
 class KMLState : public OutputState

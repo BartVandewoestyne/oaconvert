@@ -21,11 +21,8 @@
 #define OUTPUTSTATE_H
 
 #include <iostream>
-#include "CurvedPolygon.h"
 
 class Airspace;
-class Circle;
-class CurvedPolygon;
 
 class OutputState
 {

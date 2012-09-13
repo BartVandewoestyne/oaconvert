@@ -72,7 +72,7 @@ private:
 private:
     typedef std::pair<ERegex,boost::regex> pairtype;
 
-    OutputWriter _writer;
+    OutputWriter _writer; // TODO: rename this with other naming convention.
 
     std::list<Airspace*> airspaces;
 
