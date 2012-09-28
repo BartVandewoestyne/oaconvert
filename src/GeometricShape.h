@@ -32,7 +32,7 @@ public:
 
     virtual void discretize( std::vector<Coordinate>& coords, double resolution ) const = 0;
 
-    friend std::ostream& operator <<(std::ostream& outputStream, const GeometricShape& c);
+    friend std::ostream& operator <<(std::ostream& out, const GeometricShape& shape);
 
 };
 

@@ -26,39 +26,42 @@ using namespace std;
 using Constants::pi;
 
 Circle::Circle(const Point& center, double radius)
-    : center( center )
-    , radius( radius )
+    : m_center( center )
+    , m_radiusInNM( radius )
 {
 }
+
 
 /**
  * Return the radius in nautical miles.
  */
-double Circle::getRadiusNM() const
+double Circle::getRadiusInNauticalMiles() const
 {
-    return radius;
+    return m_radiusInNM;
 }
 
+
 /**
- * Return the radius in metres (1 NM = 1852 m).
+ * Return the radius in meter (1 NM = 1852 m).
  */
-double Circle::getRadiusM() const
+double Circle::getRadiusInMeter() const
 {
-    return radius*1852.0;
+    return m_radiusInNM*1852.0;
 }
+
 
 const Point& Circle::getCenter() const
 {
-    return center;
+    return m_center;
 }
 
 
 /**
  * See http://en.wikipedia.org/wiki/Latitude#Degree_length
  *
- * TODO: check if these calculatiosn (based on the oa2gm source code) are
+ * TODO: check if these calculations (based on the oa2gm source code) are
  *       correct.  I guess not, because they both use 6371e3 for computing
- *       new latitudinal and longitudinal points.  This is not 100% correct.
+ *       new latitude and longitude points.  This is not 100% correct.
  *       We should probably follow WGS84 or IERS 2003 ellipsoids.
  */
 void Circle::discretize( std::vector<Coordinate>& coords, double resolution ) const
@@ -72,9 +75,9 @@ void Circle::discretize( std::vector<Coordinate>& coords, double resolution ) co
     // a radius of 300m, it turned out that with 435 points the top-polygon has
     // a weird color, while with 436 and more points it does not...
     const unsigned int min_nb_points = 436;
-    unsigned int nbPoints = max( static_cast<unsigned int>(2*pi*radius/resolution), min_nb_points );
+    unsigned int nbPoints = max( static_cast<unsigned int>(2*pi*m_radiusInNM/resolution), min_nb_points );
 
-    Coordinate centerCoord = center.getCoordinate();
+    Coordinate centerCoord = m_center.getCoordinate();
     Latitude lat = centerCoord.getLatitude();
     Longitude lon = centerCoord.getLongitude();
 
@@ -91,18 +94,18 @@ void Circle::discretize( std::vector<Coordinate>& coords, double resolution ) co
     {
         angle = 2*pi*i/nbPoints;
 
-        deg_lon = lon.getAngle() + getRadiusM()*cos(angle)/arcdegree_lon;
-        deg_lat = lat.getAngle() + getRadiusM()*sin(angle)/arcdegree_lat;
+        deg_lon = lon.getAngle() + getRadiusInMeter()*cos(angle)/arcdegree_lon;
+        deg_lat = lat.getAngle() + getRadiusInMeter()*sin(angle)/arcdegree_lat;
         coords.push_back( Coordinate( deg_lat, deg_lon ) );
     }
 }
 
 
-ostream& operator <<(ostream& outputStream, const Circle& c)
+ostream& operator<<(ostream& out, const Circle& c)
 {
-    outputStream << "Circle:" << endl;
-    outputStream << "  " << c.center << endl;
-    outputStream << "  Radius in meter         : " << c.getRadiusM();
-    outputStream << "  Radius in nautical miles: " << c.getRadiusNM();
-    return outputStream;
+  out << "Circle:" << endl;
+  out << "  " << c.getCenter() << endl;
+  out << "  Radius in meter         : " << c.getRadiusInMeter();
+  out << "  Radius in nautical miles: " << c.getRadiusInNauticalMiles();
+	return out;
 }

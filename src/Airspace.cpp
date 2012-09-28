@@ -38,10 +38,10 @@ Airspace::Airspace()
 : name(""),
   clss(""),
   ceiling_string(""),
-  ceiling(-1),
+  altitude_ceiling_in_meter(-1),
   floor_string(""),
-  floor(-1),
-  p(),
+  altitude_floor_in_meter(-1),
+  curved_poly(),
   labels()
 {}
 
@@ -78,18 +78,18 @@ const string& Airspace::getFloorString() const
 /**
   * Return the ceiling altitude in METER.
   */
-double Airspace::getCeiling() const
+double Airspace::getCeilingInMeter() const
 {
-    return ceiling;
+    return altitude_ceiling_in_meter;
 }
 
 
 /**
   * Return the floor altitude in METER.
   */
-double Airspace::getFloor() const
+double Airspace::getFloorInMeter() const
 {
-    return floor;
+    return altitude_floor_in_meter;
 }
 
 
@@ -116,7 +116,7 @@ void Airspace::setCeilingString(const string& ceiling_string)
   */
 void Airspace::setCeiling(const double ceiling)
 {
-    this->ceiling = ceiling;
+    this->altitude_ceiling_in_meter = ceiling;
 }
 
 
@@ -131,7 +131,7 @@ void Airspace::setFloorString(const string& floor_string)
   */
 void Airspace::setFloor(const double floor)
 {
-    this->floor = floor;
+    this->altitude_floor_in_meter = floor;
 }
 
 
@@ -147,7 +147,7 @@ void Airspace::setFloor(const double floor)
   */
 void Airspace::add(const GeometricShape* s)
 {
-    p.add(s);
+    curved_poly.add(s);
 }
 
 
@@ -232,7 +232,7 @@ bool Airspace::isSRZ() const
   */
 bool Airspace::isFloating() const
 {
-    if ( getFloor() > 0 ) {
+    if ( getFloorInMeter() > 0 ) {
       return true;
     } else {
       return false;
@@ -485,7 +485,7 @@ bool Airspace::hasAbsoluteFloor() const
   */
 const CurvedPolygon& Airspace::getCurvedPolygon() const
 {
-    return p;
+    return curved_poly;
 }
 
 
@@ -493,18 +493,18 @@ void Airspace::clear()
 {
     name = "";
     clss = "";
-    ceiling = -1.0;
-    floor = -1.0;
+    altitude_ceiling_in_meter = -1.0;
+    altitude_floor_in_meter = -1.0;
     labels.clear();
 }
 
 
 std::ostream& operator<<(std::ostream& out, const Airspace& s)
 {
-    out << "Airspace name:    " << s.name << endl;
-    out << "Airspace class:   " << s.clss << endl;
-    out << "Airspace ceiling: " << s.ceiling << endl;
-    out << "Airspace floor:   " << s.floor << endl;
+    out << "Airspace name:    " << s.getName() << endl;
+    out << "Airspace class:   " << s.getClass() << endl;
+    out << "Airspace ceiling: " << s.getCeilingInMeter() << endl;
+    out << "Airspace floor:   " << s.getFloorInMeter() << endl;
     if (s.labels.size() > 0)
     {
         out << "Airspace label coordinates:" << endl;

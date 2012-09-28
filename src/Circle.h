@@ -29,10 +29,10 @@ class Circle : public GeometricShape
 {
 private:
 
-    Point center;
+    Point m_center;
 
     /* Radius in Nautical Miles */
-    double radius;
+    double m_radiusInNM;
 
 public:
     //! Create a circle around given point and given radius
@@ -41,12 +41,14 @@ public:
     Circle(const Point& center, double radius);
 
     const Point& getCenter() const;
-    double getRadiusNM() const;
-    double getRadiusM() const;
+    double getRadiusInNauticalMiles() const;
+    double getRadiusInMeter() const;
 
     virtual void discretize( std::vector<Coordinate>& coords, double resolution ) const;
 
-    friend std::ostream& operator <<( std::ostream& outputStream, const Circle& c );
 };
+
+
+std::ostream& operator<<(std::ostream& out, const Circle& c);
 
 #endif /* CIRCLE_H */

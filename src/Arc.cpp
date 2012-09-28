@@ -28,20 +28,20 @@ using Constants::pi;
 // TODO: I don't like -1 and -1 as start and end angle as these are plausible
 // values... how to solve this?
 Arc::Arc()
-    : radiusNM(-1.0)
-    , center()
-    , angleStart(-1.0)
-    , angleEnd(-1.0)
-    , direction('+')
+    : m_radiusInNauticalMiles(-1.0)
+    , m_center()
+    , m_start_angle(-1.0)
+    , m_end_angle(-1.0)
+    , m_clockdirection('+')
 {
 }
 
 Arc::Arc(const Point& center, double radius, double angleStart, double angleEnd, char direction)
-    : radiusNM(radius)
-    , center(center)
-    , angleStart(angleStart)
-    , angleEnd(angleEnd)
-    , direction(direction)
+    : m_radiusInNauticalMiles(radius)
+    , m_center(center)
+    , m_start_angle(angleStart)
+    , m_end_angle(angleEnd)
+    , m_clockdirection(direction)
 {
 }
 
@@ -49,23 +49,23 @@ Arc::Arc(const Point& center, double radius, double angleStart, double angleEnd,
 /**
  * Return the radius in nautical miles.
  */
-double Arc::getRadiusNM() const
+double Arc::getRadiusInNauticalMiles() const
 {
-    return radiusNM;
+    return m_radiusInNauticalMiles;
 }
 
 /**
  * Return the radius in metres (1 NM = 1852 m).
  */
-double Arc::getRadiusM() const
+double Arc::getRadiusInMeters() const
 {
-    return radiusNM*1852.0;
+    return m_radiusInNauticalMiles*1852.0;
 }
 
 
-char Arc::getDirection() const
+char Arc::getAngleDirection() const
 {
-    return direction;
+    return m_clockdirection;
 }
 
 
@@ -74,7 +74,7 @@ char Arc::getDirection() const
   */
 double Arc::getStartAngle() const
 {
-    return angleStart;
+    return m_start_angle;
 }
 
 /**
@@ -82,12 +82,12 @@ double Arc::getStartAngle() const
   */
 double Arc::getEndAngle() const
 {
-    return angleEnd;
+    return m_end_angle;
 }
 
 const Point& Arc::getCenter() const
 {
-    return center;
+    return m_center;
 }
 
 /**
@@ -103,7 +103,7 @@ void Arc::discretize( std::vector<Coordinate>& coords, double resolution ) const
     double deg_lat, deg_lon;
     double angle;
 
-    Coordinate centerCoord = center.getCoordinate();
+    Coordinate centerCoord = m_center.getCoordinate();
     Latitude lat = centerCoord.getLatitude();
     Longitude lon = centerCoord.getLongitude();
 
@@ -122,7 +122,7 @@ void Arc::discretize( std::vector<Coordinate>& coords, double resolution ) const
     }
 
     double interval;
-    if (getDirection() == '-')
+    if (getAngleDirection() == '-')
     {
         interval = -( 360-(endAngle-startAngle) );
     }
@@ -137,7 +137,7 @@ void Arc::discretize( std::vector<Coordinate>& coords, double resolution ) const
 
     // Compute the number of points of the discretization.
     //size_t nbPoints = (size_t) ( 2 * pi * ( interval / 360.0 ) * radiusNM / resolution );
-    int nbPoints = static_cast<int> ( abs( 2 * pi * ( interval / 360.0 ) * radiusNM / resolution ) );
+    int nbPoints = static_cast<int> ( abs( 2 * pi * ( interval / 360.0 ) * m_radiusInNauticalMiles / resolution ) );
 
     // Generate all points of the arc.
     for (int i = 0; i < nbPoints; ++i)
@@ -165,8 +165,8 @@ void Arc::discretize( std::vector<Coordinate>& coords, double resolution ) const
         // TODO: note that delta_lon uses arcdegree_lat and delta_lat uses arcdegree_lon... this
         //       is strange, but it seems to work... check out why!/
         angle = startAngle + (interval*i)/(nbPoints-1);
-        double delta_lon = getRadiusM()*cos(pi*angle/180.0)/arcdegree_lat; // TODO: why arcdegree_lat here???
-        double delta_lat = getRadiusM()*sin(pi*angle/180.0)/arcdegree_lon; // TODO: why arcdegree_lon here???
+        double delta_lon = getRadiusInMeters()*cos(pi*angle/180.0)/arcdegree_lat; // TODO: why arcdegree_lat here???
+        double delta_lat = getRadiusInMeters()*sin(pi*angle/180.0)/arcdegree_lon; // TODO: why arcdegree_lon here???
 
         // Transform points to standard coordinate frame:
         //
@@ -195,10 +195,16 @@ void Arc::discretize( std::vector<Coordinate>& coords, double resolution ) const
 }
 
 
-ostream& operator <<(ostream& outputStream, const Arc& c)
+ostream& operator<<(ostream& out, const Arc& arc)
 {
-    outputStream << "Arc:" << endl;
-    //TODO outputStream << "  " << c.center << endl;
-    outputStream << "  Radius in NM: " << c.radiusNM;
-    return outputStream;
+    out << "Arc of "
+        << arc.getRadiusInNauticalMiles()
+        << " NM in "
+        << arc.getAngleDirection()
+        << " direction from "
+        << arc.getStartAngle()
+        << " to "
+        << arc.getEndAngle()
+        << " degrees and centered at " << arc.getCenter();
+    return out;
 }

@@ -23,6 +23,7 @@
 #include <boost/regex.hpp>
 #include <list>
 #include <map>
+#include <memory>
 #include <string>
 
 #include "Airspace.h"
@@ -78,13 +79,11 @@ private:
 
     char currentDirection;
 
-    // The last read center point for an DA, DB or DC record.
-    // TODO: this variable name is confusing... better name it something
-    //       like currentArcCenter or so...
-    // Since this private member can be null, we should probably make it
+    // The last parsed center point for a DA, DB or DC record.
+    // TODO: since this private member can be null, we should probably make it
     // a pointer..., but then we also need a decent destructor, copy constructor
     // and assignment operator.
-    Coordinate currentCoordinate;
+    std::shared_ptr<Coordinate> currentArcCenter;
 
     std::map<ERegex,boost::regex> regexMap;
 
@@ -105,7 +104,7 @@ public:
 
     char getCurrentDirection() const;
     Airspace* getCurrentAirspace();
-    const Coordinate& getCurrentCoordinate() const;
+    const std::shared_ptr<Coordinate> getCurrentArcCenter() const;
 
     Coordinate parseCoordinate(const std::string& s) const;
     double parseAltitude(const std::string& s) const;

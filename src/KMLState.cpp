@@ -118,14 +118,14 @@ void KMLState::write(std::ostream& stream, const Airspace& airspace) const
           stream << getPlacemarkName(airspace);
           stream << "</name>" << endl;
           stream << "    <description>" << endl;
-          stream << "Ceiling: " << airspace.getCeilingString() << " (" << ceil(airspace.getCeiling()) << " m)" << endl;
-          stream << "Floor  : " << airspace.getFloorString() << " (" << floor(airspace.getFloor()) << " m)" << endl;
+          stream << "Ceiling: " << airspace.getCeilingString() << " (" << ceil(airspace.getCeilingInMeter()) << " m)" << endl;
+          stream << "Floor  : " << airspace.getFloorString() << " (" << floor(airspace.getFloorInMeter()) << " m)" << endl;
           stream << "    </description>" << endl;
           stream << "    <styleUrl>" << getPolygonType(airspace) << "</styleUrl>" << endl;
           stream << "  <MultiGeometry>" << endl;
 
-          writeTopBottomPolygon(stream, airspace, coords, airspace.getCeiling());
-          writeTopBottomPolygon(stream, airspace, coords, airspace.getFloor());
+          writeTopBottomPolygon(stream, airspace, coords, airspace.getCeilingInMeter());
+          writeTopBottomPolygon(stream, airspace, coords, airspace.getFloorInMeter());
           writeSidePolygons(stream, airspace, coords);
 
           stream << "    </MultiGeometry>" << endl;
@@ -336,21 +336,21 @@ void KMLState::writeSidePolygons(std::ostream &out, const Airspace& airspace, co
         Coordinate current = coords.at(i);
         Coordinate next = coords.at( (i+1)%coords.size() );
         out << "          ";
-        write(out, current, airspace.getFloor());
+        write(out, current, airspace.getFloorInMeter());
         out << endl;
         out << "          ";
-        write(out, next, airspace.getFloor());
+        write(out, next, airspace.getFloorInMeter());
         out << endl;
         out << "          ";
-        write(out , next, airspace.getCeiling());
+        write(out , next, airspace.getCeilingInMeter());
         out << endl;
         out << "          ";
-        write(out, current, airspace.getCeiling());
+        write(out, current, airspace.getCeilingInMeter());
         out << endl;
         // One extra point, because the KML-requirement that the
         // last point must be identical to the first one to form a closed figure.
         out << "          ";
-        write(out, current, airspace.getFloor());
+        write(out, current, airspace.getFloorInMeter());
         out << endl;
     
         out << "          </coordinates>" << endl;

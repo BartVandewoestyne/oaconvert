@@ -39,8 +39,6 @@ class Region;
 class Airspace
 {
 
-public:
-
 private:
 
     // Name of the airspace.
@@ -57,16 +55,16 @@ private:
     std::string ceiling_string;
 
     //! Ceiling altitude in METER.
-    double ceiling;
+    double altitude_ceiling_in_meter;
 
     // Floor string
     std::string floor_string;
 
     //! Floor altitude in METER.
-    double floor;
+    double altitude_floor_in_meter;
 
     //! Closed curved polygon defining the airspace.
-    CurvedPolygon p;
+    CurvedPolygon curved_poly;
 
     //! Collection of string labels with associated position.
     std::vector<Label> labels;
@@ -80,8 +78,8 @@ public:
     const std::string& getClass() const;
     const std::string& getCeilingString() const;
     const std::string& getFloorString() const;
-    double getCeiling() const;
-    double getFloor() const;
+    double getCeilingInMeter() const;
+    double getFloorInMeter() const;
     const CurvedPolygon& getCurvedPolygon() const;
 
     void setName(const std::string& mystring);

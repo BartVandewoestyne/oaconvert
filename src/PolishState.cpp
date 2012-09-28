@@ -362,7 +362,7 @@ std::string PolishState::getPolygonType(const Airspace& space) const
   } else if (space.isByNOTAM()) {
     return POLYGONTYPE_BY_NOTAM;
   } else if (space.isCTR()) {
-    if (space.getFloor() > 0) {
+    if (space.getFloorInMeter() > 0) {
       return POLYGONTYPE_CTR_ABOVE_GROUND;
     } else {
       return POLYGONTYPE_CTR_FROM_GROUND;
@@ -386,19 +386,19 @@ std::string PolishState::getPolygonType(const Airspace& space) const
   } else if (space.isAirway()) {
     return POLYGONTYPE_AIRWAY;
   } else if (space.isRestricted()) {
-    if (space.getFloor() > 0) {
+    if (space.getFloorInMeter() > 0) {
       return POLYGONTYPE_RESTRICTED_ABOVE_GROUND;
     } else {
       return POLYGONTYPE_RESTRICTED_FROM_GROUND;
     }
   } else if (space.isProhibited()) {
-    if (space.getFloor() > 0) {
+    if (space.getFloorInMeter() > 0) {
       return POLYGONTYPE_PROHIBITED_ABOVE_GROUND;
     } else {
       return POLYGONTYPE_PROHIBITED_FROM_GROUND;
     }
   } else if (space.isDanger()) {
-    if (space.getFloor() > 0) {
+    if (space.getFloorInMeter() > 0) {
       return POLYGONTYPE_DANGER_ABOVE_GROUND;
     } else {
       return POLYGONTYPE_DANGER_FROM_GROUND;
@@ -463,17 +463,17 @@ string PolishState::getPolishLabel(const Airspace& airspace) const
     if ( needsAltitudeInLabel(airspace) ) {
         string myName(airspace.getName());
         if (airspace.hasAGLFloor()) {
-            pLabel << " " << floor(airspace.getFloor()) << "m";
+            pLabel << " " << floor(airspace.getFloorInMeter()) << "m";
         } else if (airspace.hasFLFloor()) {
-            pLabel << " " << floor(airspace.getFloor()) << "m FL";
+            pLabel << " " << floor(airspace.getFloorInMeter()) << "m FL";
         } else {
-            pLabel << " " << floor(airspace.getFloor()) << "m";
+            pLabel << " " << floor(airspace.getFloorInMeter()) << "m";
         }
         if (airspace.isLowFlyingArea()) {
-            pLabel << "-" << floor(airspace.getCeiling()) << "m";
+            pLabel << "-" << floor(airspace.getCeilingInMeter()) << "m";
         }
         if (airspace.isLowFlyingRoute()) {
-            pLabel << "-" << floor(airspace.getCeiling()) << "m";
+            pLabel << "-" << floor(airspace.getCeilingInMeter()) << "m";
         }
             pLabel << " (" << myName << ")";
     } else {
@@ -536,7 +536,7 @@ bool PolishState::needsPolyline(const Airspace& airspace) const
 bool PolishState::needsAltitudeInLabel(const Airspace& airspace) const
 {
   // Please keep these ordered alphabetically.
-  return (airspace.getFloor() > 0)
+  return (airspace.getFloorInMeter() > 0)
          && (   airspace.isAirway()
              || airspace.isByAUP()
              || airspace.isByNOTAM()

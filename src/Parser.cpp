@@ -20,6 +20,7 @@
 #include "Parser.h"
 
 #include <iostream>
+#include <memory>
 
 #include "Airspace.h"
 #include "Arc.h"
@@ -38,7 +39,7 @@ Parser::Parser()
     : _writer()
     , airspaces()
     , currentDirection('+')
-    , currentCoordinate()
+    , currentArcCenter()
     , regexMap()
 {
     initRegexMap();
@@ -48,7 +49,7 @@ Parser::Parser(const std::string& outfile)
     : _writer( outfile )
     , airspaces()
     , currentDirection('+')
-    , currentCoordinate()
+    , currentArcCenter()
     , regexMap()
 {
 
@@ -76,9 +77,9 @@ Parser::~Parser()
     airspaces.clear();
 }
 
-const Coordinate& Parser::getCurrentCoordinate() const
+const std::shared_ptr<Coordinate> Parser::getCurrentArcCenter() const
 {
-    return currentCoordinate;
+    return currentArcCenter;
 }
 
 char Parser::getCurrentDirection() const
@@ -88,7 +89,7 @@ char Parser::getCurrentDirection() const
 
 void Parser::setCurrentCoordinate(const Coordinate& c)
 {
-    currentCoordinate = c;
+    *currentArcCenter = c;
 }
 
 void Parser::setCurrentDirection(char d)
@@ -414,7 +415,7 @@ void Parser::handleLine(const std::string& line)
         string angleStart( matches[2].first, matches[2].second );
         string angleEnd(   matches[3].first, matches[3].second );
 
-        Arc arc( getCurrentCoordinate(), atof(radiusNM.c_str()),
+        Arc arc( *(getCurrentArcCenter()), atof(radiusNM.c_str()),
                  atof(angleStart.c_str()), atof(angleEnd.c_str()), getCurrentDirection());
 
         getCurrentAirspace()->add( &arc );
@@ -433,9 +434,11 @@ void Parser::handleLine(const std::string& line)
             Coordinate c1 = parseCoordinate(coord1);
             Coordinate c2 = parseCoordinate(coord2);
 
+            std::shared_ptr<Coordinate> currentArcCenter = getCurrentArcCenter();
+
             // Retrieve latitude and longitude of the arc-center.
-            Latitude lat = getCurrentCoordinate().getLatitude();
-            Longitude lon = getCurrentCoordinate().getLongitude();
+            Latitude lat = currentArcCenter->getLatitude();
+            Longitude lon = currentArcCenter->getLongitude();
 
             // Compute arcdegree of latitude respectively longitude, based on the center's coordinates.
             double arcdegree_lat = lat.getArcDegree();
@@ -443,10 +446,10 @@ void Parser::handleLine(const std::string& line)
 
             // Compute start and end angle (in standard coordinate frame!)
             // Note that we have to take into account the arcdegrees here!!!
-            double dLat1 = ( c1.getLatitude().getAngle()  - getCurrentCoordinate().getLatitude().getAngle()  )*arcdegree_lat;
-            double dLon1 = ( c1.getLongitude().getAngle() - getCurrentCoordinate().getLongitude().getAngle() )*arcdegree_lon;
-            double dLat2 = ( c2.getLatitude().getAngle()  - getCurrentCoordinate().getLatitude().getAngle()  )*arcdegree_lat;
-            double dLon2 = ( c2.getLongitude().getAngle() - getCurrentCoordinate().getLongitude().getAngle() )*arcdegree_lon;
+            double dLat1 = ( c1.getLatitude().getAngle()  - currentArcCenter->getLatitude().getAngle()  )*arcdegree_lat;
+            double dLon1 = ( c1.getLongitude().getAngle() - currentArcCenter->getLongitude().getAngle() )*arcdegree_lon;
+            double dLat2 = ( c2.getLatitude().getAngle()  - currentArcCenter->getLatitude().getAngle()  )*arcdegree_lat;
+            double dLon2 = ( c2.getLongitude().getAngle() - currentArcCenter->getLongitude().getAngle() )*arcdegree_lon;
             double startAngle = 180.0*atan2(dLat1, dLon1)/pi;
             double endAngle   = 180.0*atan2(dLat2, dLon2)/pi;
 
@@ -459,10 +462,10 @@ void Parser::handleLine(const std::string& line)
             // Use minimum of the two radii.
             //double radius = min( c1.getDistance(getCurrentCoordinate()), c2.getDistance(getCurrentCoordinate()) );
             // Use average of the two radii.
-            double radius = ( c1.getDistance(getCurrentCoordinate()) + c2.getDistance(getCurrentCoordinate()) )*0.5;
+            double radius = ( c1.getDistance(*currentArcCenter) + c2.getDistance(*currentArcCenter) )*0.5;
 
             // Add the arc points to this space's Polygon.
-            getCurrentAirspace()->add( new Arc(getCurrentCoordinate(),
+            getCurrentAirspace()->add( new Arc(*currentArcCenter,
                                                radius/1852.0, startAngle, endAngle, getCurrentDirection()) );
         }
         else
@@ -480,7 +483,7 @@ void Parser::handleLine(const std::string& line)
         radiusNM.assign(matches[1].first, matches[1].second);
 
         // Add circle to this Airspace.
-        Point center(getCurrentCoordinate());
+        Point center(*(getCurrentArcCenter()));
         getCurrentAirspace()->add(new Circle(center, atof(radiusNM.c_str())));
 
     }

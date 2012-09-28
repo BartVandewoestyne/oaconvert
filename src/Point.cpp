@@ -27,15 +27,17 @@ Point::Point()
     : m_coordinate()
 {}
 
+
 Point::Point( const Coordinate& c )
     : m_coordinate( c )
-{
-}
+{}
+
 
 const Coordinate& Point::getCoordinate() const
 {
     return m_coordinate;
 }
+
 
 void Point::discretize( std::vector<Coordinate>& coords, double ) const
 {
@@ -43,11 +45,8 @@ void Point::discretize( std::vector<Coordinate>& coords, double ) const
 }
 
 
-ostream& operator <<(ostream& outputStream, const Point& p)
+ostream& operator<<(ostream& out, const Point& point)
 {
-    outputStream << "Point (";
-    outputStream << p.getCoordinate();
-    outputStream << ")";
-
-    return outputStream;
+    out << "Point (" << point.getCoordinate() << ")";
+    return out;
 }
