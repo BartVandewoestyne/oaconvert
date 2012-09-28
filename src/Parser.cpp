@@ -87,9 +87,9 @@ char Parser::getCurrentDirection() const
     return currentDirection;
 }
 
-void Parser::setCurrentCoordinate(const Coordinate& c)
+void Parser::setCurrentArcCenter(const Coordinate& c)
 {
-    *currentArcCenter = c;
+    currentArcCenter = std::make_shared<Coordinate>(c);
 }
 
 void Parser::setCurrentDirection(char d)
@@ -333,23 +333,16 @@ void Parser::handleLine(const std::string& line)
         return;
     }
 
-    // Although not specified in the OpenAir specs at
-    //
-    //    http://www.winpilot.com/usersguide/userairspace.asp
-    //
-    // we *do* accept ICAO airspace classes E, F and G as valid input.
     if ( regex_match(line, matches, regexMap.find(REGEX_AC)->second) )
     {
-        // Add a new airspace to the list.
         airspaces.push_back(new Airspace);
 
-        // Reset the current direction and the helper curved_polygon.
         setCurrentDirection('+');
-        // TODO: also invalidate current coordinate here.
+        currentArcCenter.reset();
 
         // Assign the parsed class to the current airspace.
-        string airspace_class( matches[1].first, matches[1].second );
-        getCurrentAirspace()->setClass( parseAirspaceClass(airspace_class) );
+        string matched_text( matches[1].first, matches[1].second );
+        getCurrentAirspace()->setClass( parseAirspaceClass(matched_text) );
         return;
     }
 
@@ -385,8 +378,8 @@ void Parser::handleLine(const std::string& line)
 
     if ( regex_match(line, matches, regexMap.find(REGEX_VX)->second) )
     {
-        string coordinate(matches[1].first, matches[1].second);
-        setCurrentCoordinate(parseCoordinate(coordinate));
+        string matched_text(matches[1].first, matches[1].second);
+        setCurrentArcCenter(parseCoordinate(matched_text));
         return;
     }
 
@@ -545,8 +538,14 @@ void Parser::initRegexMap()
     regexMap[REGEX_ASK]            = regex("\\s*Ask.*",                        boost::regex_constants::icase);
     regexMap[REGEX_COMMENT]        = "\\s*\\*.*";
 
-    // Valid airspace classes (we allow the specification of multiple airspace
-    // classes, separated by forward slashes and without spaces in between).
+    // Valid airspace classes.  Although not specified in the OpenAir specs at
+    //
+    //    http://www.winpilot.com/usersguide/userairspace.asp
+    //
+    // we *do* accept some other ICAO airspace classes as valid input.  We also
+    // allow the specification of multiple airspace classes, separated by
+    // forward slashes and without spaces in between).
+    //
     // Note: 'TMZ' stands for 'Transponder Mandatory Zone' and is an
     //       abbreviation found in the Dutch AIP (Part 2 EN ROUTE, ENR 2.2, 4)
     //       but is not contained in ICAO Doc 8400.

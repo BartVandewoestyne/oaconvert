@@ -113,7 +113,7 @@ public:
 
     void setCurrentDirection(const char d);
     void setCurrentAirspace(const Airspace &s);
-    void setCurrentCoordinate(const Coordinate &c);
+    void setCurrentArcCenter(const Coordinate &c);
 
     void initialize();
     void writeAirspaces();
