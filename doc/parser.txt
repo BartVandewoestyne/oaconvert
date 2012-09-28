@@ -1,0 +1,25 @@
+Flex (at least in recent versions) produces output that can be compiled
+as C++.  In fact, with the "-+" flag, it'll produce real C++ output
+(i.e. the parser as a class instead of just C that happens to be
+compilable as C++).
+
+BYACC produces output that can be compiled as C++, and I've used C++
+specific "stuff" in actions, including using a map for a symbol table,
+much as you've mentioned.
+
+Flex++/Bison++/byacc
+different versions on the net, lot of experience with
+flex/bison so probably the most easy to use, more code than with spirit but
+very likely more compatible with any compiler arround..
+
+
+Boost Spirit?
+http://boost-spirit.com/home/about-2/
+very tight code, is C++ code, no extra dependecies, know how it
+works, unfortunately only got very small, simple command line parsers
+working (migh be due to my VC6 version, certainly have to buy vc7.1 then)
+
+http://www.benhanson.net/lexertl.html
+
+http://www.antlr.org/
+steep learning curve
