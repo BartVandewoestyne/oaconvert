@@ -154,8 +154,10 @@ void Arc::discretize( std::vector<Coordinate>& coords, double resolution ) const
         // TODO: note that delta_lon uses arcdegree_lat and delta_lat uses arcdegree_lon... this
         //       is strange, but it seems to work... check out why!/
         angle = startAngle + (interval*i)/(nbPoints-1);
-        double delta_lon = getRadiusInMeters()*cos(pi*angle/180.0)/arcdegree_lat; // TODO: why arcdegree_lat here???
-        double delta_lat = getRadiusInMeters()*sin(pi*angle/180.0)/arcdegree_lon; // TODO: why arcdegree_lon here???
+        double delta_lon =
+          getRadiusInMeters()*cos(pi*angle/180.0)/arcdegree_lat; // TODO: why arcdegree_lat here??? (because afterwards we swap x and y coordinates???)
+        double delta_lat =
+          getRadiusInMeters()*sin(pi*angle/180.0)/arcdegree_lon; // TODO: why arcdegree_lon here??? (because afterwards we swap x and y coordinates???)
 
         // Transform points to standard coordinate frame:
         //
