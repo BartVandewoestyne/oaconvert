@@ -35,7 +35,7 @@ private:
     Longitude lon;
 
 public:
-    Coordinate();
+    //Coordinate();
     Coordinate(std::string);
     Coordinate(const Latitude& lat, const Longitude& lon);
     Coordinate(double degrees_lat, double degrees_lon);

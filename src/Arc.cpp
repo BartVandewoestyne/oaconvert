@@ -25,17 +25,6 @@
 using namespace std;
 using Constants::pi;
 
-// TODO: I don't like -1 and -1 as start and end angle as these are plausible
-// values... how to solve this?
-Arc::Arc()
-    : m_radiusInNauticalMiles(-1.0)
-    , m_center()
-    , m_start_angle(-1.0)
-    , m_end_angle(-1.0)
-    , m_clockdirection('+')
-{
-}
-
 Arc::Arc(const Point& center, double radius, double angleStart, double angleEnd, char direction)
     : m_radiusInNauticalMiles(radius)
     , m_center(center)

@@ -31,16 +31,6 @@ class LatLon
 public:
 
     /**
-     * Construct a LatLon object without angle nor direction.
-     *
-     * TODO: we shouldn't be able to construct these kind of objects.  How
-     *       to enforce this?  In Java-terminology: how to make this an
-     *       'abstract' class?
-     */
-    // TODO: this should not exist.
-    LatLon();
-
-    /**
      * Construct a LatLon object with the specified angle in decimal degrees.
      *
      * @param degrees Angle in degrees.

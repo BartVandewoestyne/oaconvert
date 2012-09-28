@@ -30,8 +30,6 @@ class Point : public GeometricShape
 {
 public:
 
-    Point(); // TODO: disallow this constructor!
-
     Point( const Coordinate& c );
     virtual ~Point() {};
 

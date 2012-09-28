@@ -27,9 +27,6 @@
 using Constants::pi;
 using namespace std;
 
-Longitude::Longitude() : LatLon()
-{}
-
 Longitude::Longitude(double angle) : LatLon(angle)
 {}
 

@@ -44,10 +44,6 @@ private:
 
 public:
 
-	/* Create an (invalid) arc. */
-  // TODO: disallow this constructor.
-	Arc();
-
 	virtual ~Arc() {
 	}
 	;

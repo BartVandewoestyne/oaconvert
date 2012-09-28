@@ -24,14 +24,6 @@
 using namespace std;
 using Constants::pi;
 
-// TODO: what we do here is dangerous.  Angle can indeed be negative, so
-// here we simply create an object with an angle of -1 instead of an angle
-// that does not exist...
-LatLon::LatLon()
-    : angle(-1)
-{}
-
-
 LatLon::LatLon(double angle)
     : angle(angle)
 {

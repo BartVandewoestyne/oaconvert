@@ -28,10 +28,10 @@
 using namespace std;
 
 // TOOD: this should not exist
-Coordinate::Coordinate()
-    : lat()
-    , lon()
-{}
+//Coordinate::Coordinate()
+//    : lat()
+//    , lon()
+//{}
 
 Coordinate::Coordinate(const Latitude& lat, const Longitude& lon)
     : lat( lat )

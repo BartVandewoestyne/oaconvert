@@ -105,8 +105,6 @@ void Parser::setCurrentDirection(char d)
 Coordinate Parser::parseCoordinate(const std::string& s) const
 {
     smatch matches;
-    Latitude lat;
-    Longitude lon;
 
     // Example: 101:20:32 S 102:32:12 W
     if ( regex_match(s, matches, regexMap.find(REGEX_DDMMSS)->second) )
@@ -120,12 +118,12 @@ Coordinate Parser::parseCoordinate(const std::string& s) const
         string secondsLon(   matches[7].first, matches[7].second );
         string directionLon( matches[8].first, matches[8].second );
 
-        lat = Latitude(atoi(degreesLat.c_str()),
-                       atoi(minutesLat.c_str()),
-                       atof(secondsLat.c_str()), directionLat[0]);
-        lon = Longitude(atoi(degreesLon.c_str()),
-                        atoi(minutesLon.c_str()),
-                        atof(secondsLon.c_str()), directionLon[0]);
+        Latitude lat = Latitude(atoi(degreesLat.c_str()),
+                                atoi(minutesLat.c_str()),
+                                atof(secondsLat.c_str()), directionLat[0]);
+        Longitude lon = Longitude(atoi(degreesLon.c_str()),
+                                  atoi(minutesLon.c_str()),
+                                  atof(secondsLon.c_str()), directionLon[0]);
         return Coordinate(lat, lon);
     }
 
