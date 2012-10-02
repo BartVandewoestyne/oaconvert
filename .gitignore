@@ -4,6 +4,10 @@ CMakeFiles
 cmake_install.cmake
 Makefile
 
+# Eclipse project files
+.cproject
+.project
+
 # Compiled stuff in the src and test directory.
 src/*.so
 src/cygairspace.dll
