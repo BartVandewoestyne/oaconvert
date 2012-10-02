@@ -1,0 +1,44 @@
+* Source:
+*
+*   http://www.belgocontrol.be/
+*
+*   AIP Part 2 EN-ROUTE (ENR)
+*    ENR 5 NAVIGATION WARNINGS
+*     ENR 5.2 Military exercise and training areas and air defence
+*             identification zone
+*      1 TEMPORARY RESERVED AREAS AND TEMPORARY SEGREGATED AREAS
+*
+* Last check:
+*
+*   Bart Vandewoestyne (2 October 2012)
+*
+* Map List:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+* 
+* Type of restriction / nature of hazard:
+*
+*   Training sector for EBBE based aircraft.  Flights in this area shall
+*   maintain two-way radio contact with Semmerzake ATCC.
+*
+* Time of activity:
+*
+*   HX (May be active during MIL OPR HR. Activation can be checked with
+*       Semmerzake ATCC or ATCC Supervisor (TEL +32 (0) 9 389 25 55).)
+
+AC R
+AN TRA23 Tienen Area
+AH FL 90
+AL 4500 ft AMSL
+DP 50:23:23 N 005:13:22 E
+DP 50:21:12 N 004:52:47 E
+DP 50:23:16 N 004:52:20 E
+DP 50:29:00 N 004:51:06 E
+DP 50:30:53 N 004:57:43 E
+DP 50:33:53 N 005:08:18 E
+DP 50:32:31 N 005:13:26 E
+DP 50:23:23 N 005:13:22 E

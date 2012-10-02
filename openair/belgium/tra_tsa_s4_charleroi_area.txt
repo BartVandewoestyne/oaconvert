@@ -1,0 +1,46 @@
+* Source:
+*
+*   http://www.belgocontrol.be/
+*
+*   AIP Part 2 EN-ROUTE (ENR)
+*    ENR 5 NAVIGATION WARNINGS
+*     ENR 5.2 Military exercise and training areas and air defence
+*             identification zone
+*      1 TEMPORARY RESERVED AREAS AND TEMPORARY SEGREGATED AREAS
+*
+* Last check:
+*
+*   Bart Vandewoestyne (2 October 2012)
+*
+* Map List:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+* 
+* Type of restriction / nature of hazard:
+*
+*   Aerobatic area.
+*
+* Time of activity:
+*
+*   HX (Activation can be checked pre-flight with Semmerzake ATCC
+*      (TEL +32 (0)9 389 25 55).
+*
+* Remarks:
+*
+*   * Lower limit FL 80 above Brussels TMA Ten.
+
+AC R
+AN TRA/TSA S4 Charleroi Area
+AH UNL
+AL 4500 ft AMSL
+DP 50:32:05 N 004:06:55 E
+DP 50:33:35 N 004:12:14 E
+DP 50:37:05 N 004:30:24 E
+DP 50:12:08 N 004:40:21 E
+DP 50:07:03 N 004:10:11 E
+DP 50:08:53 N 004:10:28 E
+DP 50:32:05 N 004:06:55 E
