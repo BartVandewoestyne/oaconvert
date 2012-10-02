@@ -1,0 +1,42 @@
+* Source:
+*
+*   http://www.belgocontrol.be/
+*
+*   AIP Part 2 EN-ROUTE (ENR)
+*    ENR 5 NAVIGATION WARNINGS
+*     ENR 5.2 Military exercise and training areas and air defence
+*             identification zone
+*      1 TEMPORARY RESERVED AREAS AND TEMPORARY SEGREGATED AREAS
+*
+*   Belgian border data was extracted from
+*   http://downloads.cloudmade.com/europe/western_europe/belgium/belgium.poly
+*
+* Last check:
+*
+*   Bart Vandewoestyne (2 October 2012)
+*
+* Map List:
+* 
+*   NONE
+
+AC R
+AN TRA South Alpha
+AH FL 195
+AL 4500 ft AMSL
+DP 50:30:19 N 003:58:34 E
+DP 50:30:39 N 004:01:51 E
+DP 50:40:48 N 004:38:01 E
+DP 50:30:01 N 005:24:56 E
+DP 50:26:27 N 005:39:20 E
+DP 50:04:26 N 005:52:10 E
+* START Belgian-Luxembourg border
+* TODO
+* END Belgian-Luxembourg border
+DP 49:47:38 N 005:47:29 E
+DP 49:41:06 N 005:31:16 E
+DP 49:40:38 N 005:17:41 E
+* START Belgian-French border
+* TODO
+* END Belgian-French border
+DP 50:21:01 N 004:00:08 E
+DP 50:30:19 N 003:58:34 E
