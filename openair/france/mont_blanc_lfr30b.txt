@@ -16,12 +16,10 @@
 * Map list:
 *
 *   MAP FRANCE         YES
-*   MAP WEEK           YES
-*   MAP WEEKEND        YES
 *
 * HOR:
 *
-*   H24
+*   H24 du 01/07 au 31/08.
 *
 * Type of restriction:
 *
@@ -33,11 +31,26 @@
 *   Contournement obligatoire pour les PUL.
 
 AC R
-AN LF R 30 A MONT-BLANC
-AH FL115
+AN LF R 30 B MONT-BLANC
+AH FL115 * TODO: or 3300 ft ASFC ???
 AL SFC
+DP 45:58:24 N 006:59:32 E
+DP 45:58:08 N 007:00:07 E
+DP 45:58:09 N 007:00:33 E
+* START French-Swiss border
+* TODO
+* END French-Swiss border
+DP 45:55:20 N 007:02:41 E
+* START French-Italian border
+* TODO
+* END French-Italian border
+DP 45:50:09 N 006:49:10 E
+DP 45:50:46 N 006:46:56 E
+DP 45:52:05 N 006:47:48 E
+DP 45:52:46 N 006:50:07 E
+DP 45:54:46 N 006:50:56 E
 DP 45:57:02 N 006:53:57 E
 DP 45:56:54 N 006:55:01 E
-DP 45:55:53 N 006:55:02 E
-DP 45:55:34 N 006:53:32 E
-DP 45:56:25 N 006:53:20 E
+DP 45:55:57 N 006:57:24 E
+DP 45:56:35 N 006:57:59 E
+DP 45:58:24 N 006:59:32 E
