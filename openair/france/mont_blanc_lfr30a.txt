@@ -1,0 +1,42 @@
+* Source:
+*
+*   https://www.sia.aviation-civile.gouv.fr/
+*     AIP-Cartes
+*     Publication d'information aéronautique (AIP)
+*       Manuel d'Information Aéronautique (GEN, ENR, AD)
+*         Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*           EN-ROUTE (ENR)
+*             ENR 5 AVERTISSEMENTS A LA NAVIGATION AERIENNE
+*               ENR 5.1 Zones interdites, réglementées et dangereuses
+*
+* Last check:
+*
+*   Bart Vandewoestyne (2 October 2012)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*
+* HOR:
+*
+*   H24
+*
+* Type of restriction:
+*
+*   Opérations des aéronefs en mission de secours en montagne. 
+*
+* Operating authority, penetrating conditions:
+*
+*   Gestionnaire:NIL
+*   Contournement obligatoire pour les PUL.
+
+AC R
+AN LFR 30A MONT-BLANC
+AH FL115 * TODO: or 3300 ft ASFC???
+AL SFC
+DP 45:57:02 N 006:53:57 E
+DP 45:56:54 N 006:55:01 E
+DP 45:55:53 N 006:55:02 E
+DP 45:55:34 N 006:53:32 E
+DP 45:56:25 N 006:53:20 E
