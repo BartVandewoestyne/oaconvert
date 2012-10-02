@@ -498,6 +498,8 @@ void Parser::finalize()
   */
 void Parser::writeAirspaces()
 {
+    airspaces.sort();
+
     for( std::list<Airspace*>::iterator it = airspaces.begin(); it != airspaces.end(); ++it )
     {
         // TODO: we could check if the airspace is valid before writing

@@ -57,3 +57,18 @@ AirspaceTest::testCoutOperator()
 
   cout << s << endl;
 }
+
+void
+AirspaceTest::testComparison()
+{
+  Airspace s1, s2;
+
+  s1.setName("Antwerpen");
+  s2.setName("Brussels");
+  CPPUNIT_ASSERT(s1 < s2);
+
+  s1.setName("Wevelgem");
+  s2.setName("Kortrijk");
+  CPPUNIT_ASSERT(s2 < s1);
+
+}

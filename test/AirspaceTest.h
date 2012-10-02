@@ -28,6 +28,7 @@ class AirspaceTest : public CppUnit::TestFixture
   CPPUNIT_TEST_SUITE( AirspaceTest );
   CPPUNIT_TEST( testSetGetName );
   CPPUNIT_TEST( testCoutOperator );
+  CPPUNIT_TEST( testComparison );
   CPPUNIT_TEST_SUITE_END();
 
 public:
@@ -35,6 +36,7 @@ public:
   void tearDown();
   void testSetGetName();
   void testCoutOperator();
+  void testComparison();
 
 };
 
