@@ -1,0 +1,8 @@
+DISCLAIMER:
+-----------
+The Excel fie in this directory contains Belgian border data.  It was sent to
+me by people from Belgocontrol.  I got permission to publish this file online,
+but it should be mentioned that by no means this file can be considered as an
+official Belgocontrol publication.  Me, nor Belgocontrol, can be held
+responsible for the consequences of the use of this file.  USE AT YOUR OWN
+RISK!
