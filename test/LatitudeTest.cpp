@@ -36,10 +36,7 @@ LatitudeTest::tearDown()
 void
 LatitudeTest::testConstructors()
 {
-  Latitude lat;
-
-
-  lat = Latitude(12.34);
+  Latitude lat = Latitude(12.34);
   CPPUNIT_ASSERT_EQUAL('N', lat.getDirection());
 
   lat = Latitude(-12.34);
@@ -88,9 +85,7 @@ LatitudeTest::testConstructors()
 void
 LatitudeTest::testGetDegrees()
 {
-  Latitude lat;
-
-  lat = Latitude(-12.34);
+  Latitude lat = Latitude(-12.34);
   CPPUNIT_ASSERT_EQUAL(12, lat.getDegrees());
 
   lat = Latitude(12.34);
@@ -117,9 +112,7 @@ LatitudeTest::testGetArcDegree()
   // Longitude doesn't really matter.
   Longitude lon(45, 0, 0, 'N');
 
-  Latitude lat;
-
-  lat = Latitude(45, 0, 0, 'N');
+  Latitude lat = Latitude(45, 0, 0, 'N');
   CPPUNIT_ASSERT_DOUBLES_EQUAL(111131.745, lat.getArcDegree(), tol);
 
   lat = Latitude(20, 0, 0, 'N');

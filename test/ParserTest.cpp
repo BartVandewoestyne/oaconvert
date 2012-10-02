@@ -40,15 +40,12 @@ ParserTest::tearDown()
 void
 ParserTest::testParseCoordinate()
 {
-  Latitude lat;
-  Longitude lon;
   Parser p;
-  Coordinate c1, c2;
 
-  lat = Latitude(12, 34, 56, 'N');
-  lon = Longitude(56, 34, 12, 'W');
-  c1 = Coordinate(lat, lon);
-  c2 = p.parseCoordinate("12:34:56 N 56:34:12 W    c34");
+  Latitude lat = Latitude(12, 34, 56, 'N');
+  Longitude lon = Longitude(56, 34, 12, 'W');
+  Coordinate c1 = Coordinate(lat, lon);
+  Coordinate c2 = p.parseCoordinate("12:34:56 N 56:34:12 W    c34");
   CPPUNIT_ASSERT_EQUAL(c1, c2);
 
   lat = Latitude(12, 34, 56.3, 'N');

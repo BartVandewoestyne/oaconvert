@@ -38,16 +38,14 @@ void
 LatLonTest::testGetAngle()
 {
   double tol = 1e-12;
-  Latitude lat;
-  Longitude lon;
 
-  lat = Latitude(-12.44);
+  Latitude lat(-12.44);
   CPPUNIT_ASSERT_DOUBLES_EQUAL(-12.44, lat.getAngle(), tol);
 
   lat = Latitude(14.55);
   CPPUNIT_ASSERT_DOUBLES_EQUAL(14.55, lat.getAngle(), tol);
 
-  lon = Longitude(-45.44);
+  Longitude lon(-45.44);
   CPPUNIT_ASSERT_DOUBLES_EQUAL(-45.44, lon.getAngle(), tol);
 
   lon = Longitude(56.34);
@@ -69,16 +67,13 @@ LatLonTest::testGetAngle()
 void
 LatLonTest::testGetDegrees()
 {
-  Latitude lat;
-  Longitude lon;
-
-  lat = Latitude(12, 34, 45.12, 'N');
+  Latitude lat = Latitude(12, 34, 45.12, 'N');
   CPPUNIT_ASSERT_EQUAL(12, lat.getDegrees());
 
   lat = Latitude(22, 34, 45.12, 'S');
   CPPUNIT_ASSERT_EQUAL(22, lat.getDegrees());
 
-  lon = Longitude(5, 42, 53, 'E');
+  Longitude lon = Longitude(5, 42, 53, 'E');
   CPPUNIT_ASSERT_EQUAL(5, lon.getDegrees());
 
   lon = Longitude(7, 42, 53, 'W');
@@ -88,16 +83,13 @@ LatLonTest::testGetDegrees()
 void
 LatLonTest::testGetMinutes()
 {
-  Latitude lat;
-  Longitude lon;
-
-  lat = Latitude(12, 23, 45.12, 'N');
+  Latitude lat = Latitude(12, 23, 45.12, 'N');
   CPPUNIT_ASSERT_EQUAL(23, lat.getMinutes());
 
   lat = Latitude(12, 34, 45.12, 'S');
   CPPUNIT_ASSERT_EQUAL(34, lat.getMinutes());
 
-  lon = Longitude(34, 42, 53.23, 'E');
+  Longitude lon = Longitude(34, 42, 53.23, 'E');
   CPPUNIT_ASSERT_EQUAL(42, lon.getMinutes());
 
   lon = Longitude(5, 56, 53.54, 'W');
@@ -108,16 +100,14 @@ void
 LatLonTest::testGetSeconds()
 {
   double tol = 1e-12;
-  Latitude lat;
-  Longitude lon;
 
-  lat = Latitude(12, 34, 45.12, 'N');
+  Latitude lat = Latitude(12, 34, 45.12, 'N');
   CPPUNIT_ASSERT_DOUBLES_EQUAL(45.12, lat.getSeconds(), tol);
 
   lat = Latitude(2, 48, 32.45, 'S');
   CPPUNIT_ASSERT_DOUBLES_EQUAL(32.45, lat.getSeconds(), tol);
 
-  lon = Longitude(8, 45, 26.45, 'E');
+  Longitude lon = Longitude(8, 45, 26.45, 'E');
   CPPUNIT_ASSERT_DOUBLES_EQUAL(26.45, lon.getSeconds(), tol);
 
   lon = Longitude(2, 48, 32.45, 'W');

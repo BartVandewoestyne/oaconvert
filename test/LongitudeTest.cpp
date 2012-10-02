@@ -37,53 +37,50 @@ LongitudeTest::tearDown()
 void
 LongitudeTest::testConstructors()
 {
-  Longitude lat;
+  Longitude lon = Longitude(12.34);
+  CPPUNIT_ASSERT_EQUAL('E', lon.getDirection());
+
+  lon = Longitude(-12.34);
+  CPPUNIT_ASSERT_EQUAL('W', lon.getDirection());
 
 
-  lat = Longitude(12.34);
-  CPPUNIT_ASSERT_EQUAL('E', lat.getDirection());
+  lon = Longitude(12.34, 'E');
+  CPPUNIT_ASSERT_EQUAL('E', lon.getDirection());
 
-  lat = Longitude(-12.34);
-  CPPUNIT_ASSERT_EQUAL('W', lat.getDirection());
+  lon = Longitude(-12.34, 'E');
+  CPPUNIT_ASSERT_EQUAL('E', lon.getDirection());
 
+  lon = Longitude(12.34, 'w');
+  CPPUNIT_ASSERT_EQUAL('W', lon.getDirection());
 
-  lat = Longitude(12.34, 'E');
-  CPPUNIT_ASSERT_EQUAL('E', lat.getDirection());
-
-  lat = Longitude(-12.34, 'E');
-  CPPUNIT_ASSERT_EQUAL('E', lat.getDirection());
-
-  lat = Longitude(12.34, 'w');
-  CPPUNIT_ASSERT_EQUAL('W', lat.getDirection());
-
-  lat = Longitude(-12.34, 'w');
-  CPPUNIT_ASSERT_EQUAL('W', lat.getDirection());
+  lon = Longitude(-12.34, 'w');
+  CPPUNIT_ASSERT_EQUAL('W', lon.getDirection());
 
 
-  lat = Longitude(12, 34.56, 'E');
-  CPPUNIT_ASSERT_EQUAL('E', lat.getDirection());
+  lon = Longitude(12, 34.56, 'E');
+  CPPUNIT_ASSERT_EQUAL('E', lon.getDirection());
 
-  lat = Longitude(-12, 34.56, 'E');
-  CPPUNIT_ASSERT_EQUAL('E', lat.getDirection());
+  lon = Longitude(-12, 34.56, 'E');
+  CPPUNIT_ASSERT_EQUAL('E', lon.getDirection());
 
-  lat = Longitude(12, 34.56, 'w');
-  CPPUNIT_ASSERT_EQUAL('W', lat.getDirection());
+  lon = Longitude(12, 34.56, 'w');
+  CPPUNIT_ASSERT_EQUAL('W', lon.getDirection());
 
-  lat = Longitude(-12, 34.56, 'w');
-  CPPUNIT_ASSERT_EQUAL('W', lat.getDirection());
+  lon = Longitude(-12, 34.56, 'w');
+  CPPUNIT_ASSERT_EQUAL('W', lon.getDirection());
 
 
-  lat = Longitude(12, 34, 56.78, 'E');
-  CPPUNIT_ASSERT_EQUAL('E', lat.getDirection());
+  lon = Longitude(12, 34, 56.78, 'E');
+  CPPUNIT_ASSERT_EQUAL('E', lon.getDirection());
 
-  lat = Longitude(-12, 34, 56.78, 'E');
-  CPPUNIT_ASSERT_EQUAL('E', lat.getDirection());
+  lon = Longitude(-12, 34, 56.78, 'E');
+  CPPUNIT_ASSERT_EQUAL('E', lon.getDirection());
 
-  lat = Longitude(12, 34, 56.78, 'w');
-  CPPUNIT_ASSERT_EQUAL('W', lat.getDirection());
+  lon = Longitude(12, 34, 56.78, 'w');
+  CPPUNIT_ASSERT_EQUAL('W', lon.getDirection());
 
-  lat = Longitude(-12, 34, 56.78, 'w');
-  CPPUNIT_ASSERT_EQUAL('W', lat.getDirection());
+  lon = Longitude(-12, 34, 56.78, 'w');
+  CPPUNIT_ASSERT_EQUAL('W', lon.getDirection());
 }
 
 
@@ -100,9 +97,7 @@ LongitudeTest::testGetArcDegree()
   // Longitude doesn't really matter.
   Longitude lon(45, 00, 00, 'N');
 
-  Latitude lat;
-
-  lat = Latitude(45, 00, 00, 'N');
+  Latitude lat = Latitude(45, 00, 00, 'N');
   CPPUNIT_ASSERT_DOUBLES_EQUAL(78846.80572069259, lon.getArcDegree(lat), tol);
 
   lat = Latitude(20, 00, 00, 'N');
