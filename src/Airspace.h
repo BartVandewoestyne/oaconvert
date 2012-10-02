@@ -128,6 +128,8 @@ public:
 
     void clear();
 
+    bool operator<(const Airspace& s) const;
+
     friend std::ostream& operator<<(std::ostream& out, const Airspace& s);
 
 };

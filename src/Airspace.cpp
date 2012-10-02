@@ -499,6 +499,14 @@ void Airspace::clear()
 }
 
 
+bool Airspace::operator<(const Airspace& s) const
+{
+  std::string s1 = getName();
+  std::string s2 = s.getName();
+  return s1.compare(s2);
+}
+
+
 std::ostream& operator<<(std::ostream& out, const Airspace& s)
 {
     out << "Airspace name:    " << s.getName() << endl;
