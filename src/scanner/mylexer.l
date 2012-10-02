@@ -5,11 +5,11 @@
 
 %%
 \*				return COMMENTTOK;
-AC				return ACTOK;
-[ABCDEFGPQRW]|GP|CTR|TMZ	return AIRSPACE_CLASS;
-[a-z][a-z]* 			return TEXT;
-AN 				return ANTOK;
+AC				{ printf("Detected AC-token"); return ACTOK; }
+AN 				{ printf("Detected AN-token"); return ANTOK; }
 AH 				return AHTOK;
 AL 				return ALTOK;
+[ABCDEFGPQRW]|GP|CTR|TMZ	return AIRSPACE_CLASS;
 DP 				return DPTOK;
+[a-z][a-z]* 			return TEXT;
 %%
