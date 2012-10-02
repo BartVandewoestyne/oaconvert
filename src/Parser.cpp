@@ -498,7 +498,7 @@ void Parser::finalize()
   */
 void Parser::writeAirspaces()
 {
-    airspaces.sort();
+    airspaces.sort(Airspace_ptr_cmp());
 
     for( std::list<Airspace*>::iterator it = airspaces.begin(); it != airspaces.end(); ++it )
     {

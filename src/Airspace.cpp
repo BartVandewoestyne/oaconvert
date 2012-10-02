@@ -503,7 +503,7 @@ bool Airspace::operator<(const Airspace& s) const
 {
   std::string s1 = getName();
   std::string s2 = s.getName();
-  return s1.compare(s2);
+  return s1 < s2;
 }
 
 

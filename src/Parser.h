@@ -34,6 +34,12 @@ class Arc;
 class Coordinate;
 class CurvedPolygon;
 
+struct Airspace_ptr_cmp {
+  bool operator()(Airspace* lhs, Airspace* rhs) const {
+    return *lhs < *rhs;
+  }
+};
+
 
 class Parser
 {
