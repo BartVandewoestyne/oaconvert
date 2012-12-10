@@ -73,8 +73,16 @@ http://www.skyfool.de/luftraeume/
 Other projects that claim to be able to visualize airspace
 ----------------------------------------------------------
 http://goworldwind.org/
-http://code.google.com/p/openaviationmap/wiki/Downloads
-http://sourceforge.net/projects/aixm-j/
+
+OpenAviationMap:
+  http://code.google.com/p/openaviationmap/wiki/Downloads
+  http://mortenlysgaard.com/?p=119
+  http://www.openaviationmap.org/
+  https://github.com/OpenAviationMap
+
+AIXM-J
+  http://aixm-j.sourceforge.net/
+  http://sourceforge.net/projects/aixm-j/
 
 
 Useful tools for investigating and playing with Garmin IMG files

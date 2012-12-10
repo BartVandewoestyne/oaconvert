@@ -1,4 +1,0 @@
-On the Open Aviation Map website, it seems like they parse the eAIP as XML
-and transfer it to other data:
-
-http://code.google.com/p/openaviationmap/wiki/eAIPToOAM
