@@ -4,6 +4,8 @@ The following file types seem like 'standards' for specifying airspace
 Aeronautical Information Exchange Model (AIXM)
 
   http://www.aixm.aero/
+  -> Visualize with http://www.luciad.com/products/luciadlightspeed-aviation/aixm5
+                    http://www.aixm.aero/public/standard_page/aixm_viewer.html
 
 
 The following file types seem to be more 'amateuristic' standards
