@@ -8,7 +8,7 @@
 *
 * Last check:
 *
-*   René van den Broek (4 June 2012)
+*   René van den Broek (20 December 2012)
 *
 * Map list:
 *
@@ -19,7 +19,7 @@
 *   MAP WEEKEND_LFAG5  YES
 *   
 
-AC Q
+AC P
 AN EHR 3 (Oldebroek)
 AH 1000 ft AMSL
 AL GND
