@@ -8,11 +8,11 @@
 *
 * Last check:
 *
-*   René van den Broek (4 June 2012)
+*   René van den Broek (19 December 2012)
 *
 * Map list:
 *
-*   MAP WEEK           YES
+*   MAP WEEK           SEE NOTAM
 *   MAP WEEKEND        SEE NOTAM
 *   MAP WEEKEND_LFAG1  SEE NOTAM
 *   MAP WEEKEND_LFAG2  SEE NOTAM

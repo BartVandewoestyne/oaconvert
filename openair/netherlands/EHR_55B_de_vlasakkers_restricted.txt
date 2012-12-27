@@ -8,11 +8,11 @@
 *
 * Last check:
 *
-*   René van den Broek (4 June 2012)
+*   René van den Broek (19 December 2012)
 *
 * Map list:
 *
-*   MAP WEEK           YES
+*   MAP WEEK           SEE NOTAM
 *   MAP WEEKEND        SEE NOTAM
 *   MAP WEEKEND_LFAG1  SEE NOTAM
 *   MAP WEEKEND_LFAG2  SEE NOTAM
@@ -20,8 +20,13 @@
 *   
 
 AC R
-AN EHR 55 (De Vlasakkers)
+AN EHR 55B (De Vlasakkers)
 AH 600 ft AMSL
 AL GND
+DP 52:08:55.83 N 005:17:47.18 E
+DP 52:07:22.59 N 005:18:14.73 E
+v D=+
+* Radius 1.0 NM
 V X=52:08:15.77 N 005:18:59.60 E
-DC 1
+DB 52:07:22.59 N 005:18:14.73 E, 52:08:55.83 N 005:17:47.18 E
+DP 52:08:55.83 N 005:17:47.18 E
