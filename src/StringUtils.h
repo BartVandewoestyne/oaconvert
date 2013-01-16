@@ -27,7 +27,6 @@ class StringUtils
 {
 
 public:
-    bool startsWith(const std::string& src, const std::string& token) const;
     void trim(std::string& str);
     static bool hasSubstring(const std::string& sfull, const std::string& ssub);
 

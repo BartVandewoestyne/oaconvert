@@ -126,7 +126,7 @@ void GPXState::write(std::ostream& stream, const CurvedPolygon& p) const
 void GPXState::write(std::ostream& out, const std::vector<Coordinate>& coords) const
 {
     std::vector<Coordinate>::const_iterator it;
-    for ( it = coords.begin(); it < coords.end(); it++ )
+    for ( it = coords.begin(); it < coords.end(); ++it )
     {
       write(out, *it);
       out << endl;

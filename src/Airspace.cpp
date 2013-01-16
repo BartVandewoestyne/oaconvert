@@ -432,16 +432,6 @@ bool Airspace::hasGNDFloor() const
 
 
 /**
- * Return true if the AH-record contains a ceiling specification
- * in Flight Level.
- */
-bool Airspace::hasFLCeiling() const
-{
-    return StringUtils::hasSubstring(ceiling_string, "FL");
-}
-
-
-/**
  * Return true if the AL-record contains a floor specification
  * in Flight Level.
  */
@@ -513,7 +503,7 @@ std::ostream& operator<<(std::ostream& out, const Airspace& s)
     out << "Airspace class:   " << s.getClass() << endl;
     out << "Airspace ceiling: " << s.getCeilingInMeter() << endl;
     out << "Airspace floor:   " << s.getFloorInMeter() << endl;
-    if (s.labels.size() > 0)
+    if ( !s.labels.empty() )
     {
         out << "Airspace label coordinates:" << endl;
         

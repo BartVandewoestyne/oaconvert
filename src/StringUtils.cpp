@@ -22,15 +22,6 @@
 
 using namespace std;
 
-bool StringUtils::startsWith(const string& src, const string& token) const
-{
-    return ( src.substr(0, token.length()) == token );
-
-    // TODO: Check this solution:
-    // strncmp(str, substr, strlen(substr))
-    // which will return 0 if str starts with substr.
-}
-
 void StringUtils::trim(string& str)
 {
 

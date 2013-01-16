@@ -110,7 +110,7 @@ void KMLState::write(std::ostream& stream, const Airspace& airspace) const
         std::vector<Coordinate> coords;
         airspace.getCurvedPolygon().discretize( coords, RESOLUTION );
 
-        if (coords.size() > 0)
+        if ( !coords.empty() )
         {
 
           stream << "  <Placemark>" << endl;
@@ -150,7 +150,7 @@ void KMLState::write(std::ostream& stream, const Airspace& airspace) const
 void KMLState::write(std::ostream& out, const std::vector<Coordinate>& coords, double altitude) const
 {
     std::vector<Coordinate>::const_iterator it;
-    for (it = coords.begin(); it < coords.end(); it++)
+    for (it = coords.begin(); it < coords.end(); ++it)
     {
         out << "          ";
         write(out, *it, altitude);

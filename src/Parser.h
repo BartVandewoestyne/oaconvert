@@ -133,7 +133,7 @@ private:
 
 inline Airspace* Parser::getCurrentAirspace()
 {
-    return airspaces.size() > 0 ? airspaces.back() : 0;
+    return !airspaces.empty() ? airspaces.back() : 0;
 }
 
 #endif /* PARSER_H */

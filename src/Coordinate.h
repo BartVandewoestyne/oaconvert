@@ -46,7 +46,6 @@ public:
     void setLatitude(const Latitude& lat);
     void setLongitude(const Longitude& lon);
 
-    void toPolish(std::ostream& outputStream) const;
     double getDistance(const Coordinate& c) const;
 
     bool operator ==(const Coordinate& other) const;

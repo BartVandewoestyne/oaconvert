@@ -68,11 +68,6 @@ bool Coordinate::operator ==(const Coordinate& other) const
     return ( (lat == other.lat) && (lon == other.lon) );
 }
 
-void Coordinate::toPolish(ostream& outputStream) const
-{
-    outputStream << "(" << lat.getAngle() << "," << lon.getAngle() << ")" << endl;
-}
-
 /**
  * Compute the distance from this coordinate to another coordinate
  * using the 'haversine' formula.  This formula assumes the earth is a

@@ -115,7 +115,6 @@ public:
     bool hasSFCFloor() const;
     bool hasGNDCeiling() const;
     bool hasGNDFloor() const;
-    bool hasFLCeiling() const;
     bool hasFLFloor() const;
     bool hasAbsoluteCeiling() const;
     bool hasAbsoluteFloor() const;

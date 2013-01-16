@@ -19,9 +19,9 @@
 
 #include "OutputWriter.h"
 
+#include <assert.h>
 #include <fstream>
 #include "Airspace.h"
-#include "assert.h"
 #include "PolishState.h"
 #include "GPXState.h"
 
