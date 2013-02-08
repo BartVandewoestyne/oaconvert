@@ -8,9 +8,8 @@ cmake_minimum_required(VERSION 2.6)
 
 project(oaconvert)
 
-add_definitions(-DDEBUG)
-set(CMAKE_CXX_FLAGS "-g -std=c++0x -Wall -Wextra -Weffc++ -Wold-style-cast -Woverloaded-virtual -Wsign-promo -Wabi -Wmissing-declarations -Wconversion -Wcast-align -Wredundant-decls -Werror -Werror -pedantic")
-#set(CMAKE_CXX_FLAGS "-pg")
+set(CMAKE_CXX_FLAGS "-std=c++11")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall -Wextra -Weffc++ -Wold-style-cast -Woverloaded-virtual -Wsign-promo -Wabi -Wmissing-declarations -Wconversion -Wcast-align -Wredundant-decls -Werror -pedantic")
 
 add_subdirectory(src)
 add_subdirectory(test)
