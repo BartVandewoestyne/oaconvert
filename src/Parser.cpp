@@ -36,7 +36,7 @@ using namespace std;
 using namespace Constants;
 
 Parser::Parser()
-    : _writer()
+    : outputWriter()
     , airspaces()
     , currentDirection('+')
     , currentArcCenter()
@@ -46,7 +46,7 @@ Parser::Parser()
 }
 
 Parser::Parser(const std::string& outfile)
-    : _writer( outfile )
+    : outputWriter( outfile )
     , airspaces()
     , currentDirection('+')
     , currentArcCenter()
@@ -59,11 +59,11 @@ Parser::Parser(const std::string& outfile)
     std::string ext = parseFileExtension(outfile);
     if ( ext == "gpx" )
     {
-        _writer.changeState(GPXState::getInstance());
+        outputWriter.changeState(GPXState::getInstance());
     }
     else if ( ext == "kml" )
     {
-        _writer.changeState(KMLState::getInstance());
+        outputWriter.changeState(KMLState::getInstance());
     }
 
 }
@@ -481,18 +481,6 @@ void Parser::handleLine(const std::string& line)
 }
 
 
-void Parser::initialize()
-{
-    _writer.writeHeader();
-}
-
-
-void Parser::finalize()
-{
-    _writer.writeFooter();
-}
-
-
 /**
   * Write out all currently parsed airspaces.
   */
@@ -500,13 +488,19 @@ void Parser::writeAirspaces()
 {
     airspaces.sort(Airspace_ptr_cmp());
 
-    for( std::list<Airspace*>::iterator it = airspaces.begin(); it != airspaces.end(); ++it )
+    outputWriter.writeHeader();
+
+    for ( std::list<Airspace*>::iterator it = airspaces.begin();
+          it != airspaces.end();
+          ++it )
     {
         // TODO: we could check if the airspace is valid before writing
         // it out.  E.g. it must have a valid airspace class and a lower
         // and upper limit.
-        _writer.write(**it);
+        outputWriter.write(**it);
     }
+
+    outputWriter.writeFooter();
 }
 
 

@@ -79,7 +79,7 @@ private:
 private:
     typedef std::pair<ERegex,boost::regex> pairtype;
 
-    OutputWriter _writer; // TODO: rename this with other naming convention.
+    OutputWriter outputWriter;
 
     std::list<Airspace*> airspaces;
 
@@ -121,9 +121,7 @@ public:
     void setCurrentAirspace(const Airspace &s);
     void setCurrentArcCenter(const Coordinate &c);
 
-    void initialize();
     void writeAirspaces();
-    void finalize();
 
 private:
     void initRegexMap();

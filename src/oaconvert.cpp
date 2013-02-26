@@ -166,9 +166,7 @@ int main (int argc, char* argv[])
     }
 
     // Everything is parsed and stored, now write!
-    p->initialize();
     p->writeAirspaces();
-    p->finalize();
 
     // cleanup
     delete p;
