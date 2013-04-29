@@ -22,12 +22,12 @@
 * Remarks:
 *
 *   - Airway L179 (see also AIP Belgium)
-*   - added (TMZ) to name to show Floor on Garmin map
+*   
 
 AC A
 AN Airway L179
 AH FL 195
-AL 4500 ft AMSL
+AL FL 055
 DP 51:42:44.83 N 002:10:01.17 E
 DP 51:25:30.89 N 003:24:18.61 E
 DP 51:16:10.20 N 004:06:50.72 E
@@ -97,6 +97,5 @@ DP 51.353080 N 3.373231 E
 DP 51.357265 N 3.372791 E
 * END Dutch-Belgian border
 DP 51:22:22.76 N 003:21:46.71 E
-DP 51:27:09.31 N 002:31:47.66 E
-DP 51:33:43.49 N 002:02:55.02 E
+DP 51:30:00.00 N 002:00:00.00 E
 DP 51:42:44.83 N 002:10:01.17 E

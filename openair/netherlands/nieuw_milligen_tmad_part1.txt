@@ -8,7 +8,7 @@
 *
 * Last check:
 *
-*   René van den Broek (4 June 2012)
+*   René van den Broek (29 April 2013)
 *
 * Map list:
 *
@@ -22,7 +22,7 @@
 * Remarks:
 *
 *   - See AIP for exeptions
-*   - Parts overlapping CTA South 2, Schiphol TMA 3, Schiphol TMA 4 and Schiphol TMA 5 are excluded.
+*   - Parts overlapping Amsterdam CTA South 2, Eindhoven TMA 1, 2, 3, and 4, Schiphol TMA 3, 4, and 5 are excluded
 *
 
 AC B
