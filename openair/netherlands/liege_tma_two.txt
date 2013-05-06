@@ -19,7 +19,6 @@
 *   MAP WEEKEND_LFAG5  YES
 *   
 *
-* Remarks:
 *
 *   
  
