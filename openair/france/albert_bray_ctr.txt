@@ -19,6 +19,7 @@
 *
 *   Zone coordinates are not described in AIP
 *   Source for coordinates: http://soaringweb.org/SUA/FR
+*   Website: http://www.aeroportalbertpicardie.fr/
 
 AC CTR
 AN Albert Bray CTR
