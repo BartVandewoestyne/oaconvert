@@ -2,10 +2,11 @@
 *
 *   https://www.sia.aviation-civile.gouv.fr/
 *
-*   VAC aérodromes 
-*     VAC AÉRODROMES EN VIGEUR
-*       Par nom d'aérodrome: ALBERT BRAY
-*       Par code OACI: LFAQ
+*   Manuel d'Information Aéronautique (GEN, ENR, AD)
+*     Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*       AERODROMES (AD)
+*         AD 1 AERODROMES / HELISTATIONS INTRODUCTION
+*           AD 1.7 Zones de contrôle (CTR)
 *
 * Last check:
 *
@@ -17,8 +18,10 @@
 *
 * Remarks:
 *
-*   Zone coordinates are not described in AIP
-*   Source for coordinates: http://soaringweb.org/SUA/FR
+*   LUN-VEN sauf JF: 0600-1700
+*   HIV: +1 HR
+*   Extension possible (PPR la veille avant 1700)
+*   Information des usagers sur demande à ALBERT TWR ou LILLE APP.
 *   Website: http://www.aeroportalbertpicardie.fr/
 
 AC CTR
