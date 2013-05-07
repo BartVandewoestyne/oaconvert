@@ -8,7 +8,7 @@
 *
 * Last check:
 *
-*   Bart Vandewoestyne (5 May 2013)
+*   Bart Vandewoestyne (7 May 2013)
 *
 * Map list:
 *
@@ -21,7 +21,6 @@
 * Remarks:
 *
 *   H24
-*   A l’exclusion de la TMA CAMBRAI lorsqu’elle est active.
 
 AC E
 AN Lille TMA 10

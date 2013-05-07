@@ -8,7 +8,7 @@
 *
 * Last check:
 *
-*   Wim Verhoeve (1 March 2012)
+*   Bart Vandewoestyne (7 May 2013)
 *
 * Map list:
 *
@@ -21,9 +21,11 @@
 * Remarks:
 *
 *   H24
-*   ATS SEINE : 0400--2000
-*   HIV : + 1HR
-*   A l’exclusion de la R6A, la TMA 3 SAINT-DIZIER et de la TMA 4.1 SEINE 
+*   ATS SEINE:
+*     ETE: 0400-2030
+*     HIV: 0600-2100
+*
+*   A l’exclusion de la R6A, de la TMA 3 SAINT-DIZIER et de la CTR VATRY
 *   lorsqu’elles sont actives.
 *   Plafond 4500 ft AMSL dans la partie située en dessous de la TMA 5 PARIS
 

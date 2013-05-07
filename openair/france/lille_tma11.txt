@@ -8,22 +8,17 @@
 *
 * Last check:
 *
-*   Wim Verhoeve (1 March 2012)
+*   Bart Vandewoestyne (7 May 2013)
 *
 * Map list:
 *
 *   MAP WEEK           YES
-*   MAP WEEKEND        YES
-*   MAP WEEKEND_LFAG1  YES
-*   MAP WEEKEND_LFAG2  YES
-*   MAP WEEKEND_LFAG5  YES
 *
 * Remarks:
 *
 *   Cette partie n’existe que lorsque la CTR ALBERT BRAY est active.
-*   A l’exclusion de la TMA CAMBRAI lorsqu’elle est active.
 
-AC D
+AC E
 AN Lille TMA 11
 AH 3500 ft AMSL
 AL 1700 ft AMSL
