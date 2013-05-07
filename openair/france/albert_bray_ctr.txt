@@ -2,21 +2,18 @@
 *
 *   https://www.sia.aviation-civile.gouv.fr/
 *
-*   VAC aérodromes en vigueur
-*   AD 2 AERODROMES
-*    AD 2. LFAQ - ALBERT BRAY
+*   VAC aérodromes 
+*     VAC AÉRODROMES EN VIGEUR
+*       Par nom d'aérodrome: ALBERT BRAY
+*       Par code OACI: LFAQ
 *
 * Last check:
 *
-*   Wim Verhoeve (4 March 2012)
+*   Bart Vandewoestyne (7 May 2013)
 *
 * Map list:
 *
 *   MAP WEEK           YES
-*   MAP WEEKEND        YES
-*   MAP WEEKEND_LFAG1  YES
-*   MAP WEEKEND_LFAG2  YES
-*   MAP WEEKEND_LFAG5  YES
 *
 * Remarks:
 *
