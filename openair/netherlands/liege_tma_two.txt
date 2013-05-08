@@ -1,0 +1,44 @@
+* Source:
+*
+*   http://www.ais-netherlands.nl/
+*
+*   AIP Part 2 EN ROUTE (ENR)
+*   ENR 2 AIR TRAFFIC SERVICES AIRSPACE
+*    ENR 2.1 FIR, CTA, TMA
+*
+* Last check:
+*
+*   René van den Broek (29 April 2013)
+*
+* Map list:
+*
+*   MAP WEEK           YES
+*   MAP WEEKEND        YES
+*   MAP WEEKEND_LFAG1  YES
+*   MAP WEEKEND_LFAG2  YES
+*   MAP WEEKEND_LFAG5  YES
+*   
+*
+*
+*   
+ 
+AC C
+AN Liège TMA Two
+AH 2500 ft AMSL
+AL 2000 ft AMSL
+DP 50:47:24.32 N 005:41:45.81 E
+DP 50:46:10.97 N 005:44:46.08 E
+* START Belgium border
+DP 50.762666 N 5.732359 E
+DP 50.762768 N 5.706765 E
+DP 50.758857 N 5.699009 E
+DP 50.758278 N 5.695435 E
+DP 50.761139 N 5.691102 E
+DP 50.763074 N 5.691255 E
+DP 50.768737 N 5.695540 E
+DP 50.776600 N 5.699253 E
+DP 50.781959 N 5.703442 E
+* START Belgium border
+DP 50:47:24.32 N 005:41:45.81 E
+
+
