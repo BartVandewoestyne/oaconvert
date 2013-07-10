@@ -5,7 +5,7 @@
 *
 * Last check:
 *
-*   Wim Verhoeve (19 December 2011)
+*   René van den Broek (10 July 2013)
 *
 * Map List:
 * 
@@ -83,4 +83,4 @@ DP 49.620010 N 6.417174 E
 DP 49.625202 N 6.422410 E
 DP 49.632713 N 6.421680 E
 * END German-Luxembourg border
-P 49:38:08 N 006:25:43 E
+DP 49:38:08 N 006:25:43 E
