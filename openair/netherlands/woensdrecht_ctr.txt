@@ -12,7 +12,7 @@
 *
 * Last check:
 *
-*   René van den Broek (4 June 2012)
+*   René van den Broek (11 October 2013)
 *
 * Map list:
 *
@@ -24,7 +24,7 @@
 *   
 * 
 
-AC C
+AC D
 AN Woensdrecht CTR
 AH 3000 ft AMSL
 AL GND
