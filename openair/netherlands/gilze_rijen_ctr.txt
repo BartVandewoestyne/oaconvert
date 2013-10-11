@@ -9,7 +9,7 @@
 *
 * Last check:
 *
-*   René van den Broek (4 June 2012)
+*   René van den Broek (11 October 2013)
 *
 * Map list:
 *
@@ -20,7 +20,7 @@
 *   MAP WEEKEND_LFAG5  YES
 *   
  
-AC C
+AC D
 AN Gilze-Rijen CTR
 AH 3000 ft AMSL
 AL GND
