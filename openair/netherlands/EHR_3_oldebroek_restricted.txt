@@ -8,7 +8,7 @@
 *
 * Last check:
 *
-*   René van den Broek (20 December 2012)
+*   René van den Broek (2 February 2014)
 *
 * Map list:
 *
@@ -21,7 +21,7 @@
 
 AC P
 AN EHR 3 (Oldebroek)
-AH 1000 ft AMSL
+AH 3000 ft AMSL
 AL GND
 DP 52:23:00.00 N 005:50:00.00 E
 DP 52:21:30.00 N 005:52:30.00 E

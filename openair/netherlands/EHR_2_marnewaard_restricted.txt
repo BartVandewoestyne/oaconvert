@@ -8,7 +8,7 @@
 *
 * Last check:
 *
-*   René van den Broek (4 June 2012)
+*   René van den Broek (2 February 2014)
 *
 * Map list:
 *
@@ -21,7 +21,7 @@
 
 AC R
 AN EHR 2 (Marnewaard)
-AH FL 065
+AH 11700 ft AMSL
 AL MSL
 DP 53:24:41.00 N 006:14:09.00 E 
 DP 53:25:33.00 N 006:14:56.00 E 
