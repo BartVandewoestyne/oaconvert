@@ -8,24 +8,19 @@
 *
 * Last check:
 *
-*   Wim Verhoeve (1 March 2012)
+*   Wim Verhoeve (1 May 2014)
 *
 * Map list:
 *
-*   MAP WEEK           YES
-*   MAP WEEKEND        YES
-*   MAP WEEKEND_LFAG1  YES
-*   MAP WEEKEND_LFAG2  YES
-*   MAP WEEKEND_LFAG5  YES
+*   MAP WEEK           NO
+*   MAP WEEKEND        NO
+*   MAP WEEKEND_LFAG1  NO
+*   MAP WEEKEND_LFAG2  NO
+*   MAP WEEKEND_LFAG5  NO
 *
 * Remarks:
 *
-*   Activable H24.
-*   Procédures CAM/CAG.
-*   Activité connue de RAI 118.525 Mhz, LILLE Info et PARIS ACC/FIC.
-*   A l’exclusion, lorsqu’elles sont actives :
-*   - de la CTR CAMBRAI,
-*   - de la zone LF--R 216 NIERGNIES.
+*   Obsolete. Zone has been removed
 
 AC D
 AN Cambrai TMA 1

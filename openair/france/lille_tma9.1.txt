@@ -1,0 +1,48 @@
+* Source:
+*
+*   https://www.sia.aviation-civile.gouv.fr/
+*
+*   Manuel d:information Aéronautique GEN-ENR-AD en vigueur
+*   ENR 2 ESPACE ATS
+*    ENR 2.3 REGIONS DE CONTROLE TERMINALES (TMA)
+*
+* Last check:
+*
+*   Wim Verhoeve (1 May 2014)
+*
+* Map list:
+*
+*   MAP WEEK           NO
+*   MAP WEEKEND        NO
+*   MAP WEEKEND_LFAG1  NO
+*   MAP WEEKEND_LFAG2  NO
+*   MAP WEEKEND_LFAG5  NO
+*
+* Remarks:
+*
+*   H24
+*	Les services de la CA sont rendus par LILLE
+*	APP dans la partie belge par délégation de
+*	Belgocontrol.
+*	A l:exclusion de la zone EBR 24A KOKSIJDE,
+*	lorsque celle-ci est active.
+*	ATC services are provided by LILLE APP
+*	within belgian part by delegation of
+*	Belgocontrol.
+*	Except for EBR 24A KOKSIJDE area when
+*	active.
+
+AC E
+AN Lille TMA 9
+AH 4500 ft AMSL
+AL 2000 ft AMSL
+DP 50:50:34 N 002:48:20 E
+DP 50:43:02 N 002:55:17 E
+DP 50:41:48 N 002:53:46 E
+* Frontière franco-belge
+DP 50:49:21 N 002:40:10 E
+DP 50:49:19 N 002:40:07 E
+* Frontière franco-belge
+DP 50:49:01 N 002:37:56 E
+DP 50:50:34 N 002:48:20 E
+

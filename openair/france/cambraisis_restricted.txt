@@ -6,11 +6,11 @@
 *
 * Last check:
 *
-*   Wim Verhoeve (4 March 2012)
+*   Wim Verhoeve (1 May 2014)
 *
 * Map list:
 *
-*   MAP WEEK           SEE NOTAM
+*   MAP WEEK           NO
 *   MAP WEEKEND        NO
 *   MAP WEEKEND_LFAG1  NO
 *   MAP WEEKEND_LFAG2  NO
@@ -18,8 +18,7 @@
 *
 * Remarks:
 *
-*   Unable to find the zone in the AIP
-*   Source for this zone: http://soaringweb.org/SUA/FR
+*   Obsolete. Zone has been removed
 
 AC R
 AN R53 A Cambraisis

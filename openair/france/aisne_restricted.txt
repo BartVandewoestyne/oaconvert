@@ -8,11 +8,11 @@
 *
 * Last check:
 *
-*   Bart Vandewoestyne (3 April 2012)
+*   Bart Vandewoestyne (1 May 2014)
 *
 * Map list:
 *
-*   MAP WEEK           SEE NOTAM
+*   MAP WEEK           NO
 *   MAP WEEKEND        NO
 *   MAP WEEKEND_LFAG1  NO
 *   MAP WEEKEND_LFAG2  NO
@@ -20,26 +20,7 @@
 *
 * Remarks:
 *
-*   Sauf JF.
-*   LUN: 0730-1000 et 1130-1500.
-*   MAR, JEU: 0730-1000 et 1130 - 2359
-*   MER: 0000-LS-30, 0730-1000 et CS+30-2359.
-*   VEN: 0000-LS-30 et 0730-1000.
-*   HIV: +1HR.
-*
-*   Entrainement très grande vitesse, très basse altitude.
-*   Le pilote n’assure pas la prévention des collisions
-*
-*   Contournement obligatoire pendant les créneaux d’activation.
-*   Gestionnaire: CDPGE Athis-Mons.
-*   Connaissance des créneaux d’activation par:
-*   - Internet www.sia.aviation--civile.gouv.fr
-*     (rubrique Préparation de vol/Cartes AZBA)
-*   - Tél vert 0880 24 54 66
-*   - CIV
-*   - AD Cambrai et Charleville.
-*   Plafond 1500 AMSL dans les limites latérales de la TMA CAMBRAI.
-*   Altitude maximale du plafond 3200 ft AMSL.
+*   Obsolete. Zone has been removed
 
 AC R
 AN LF R 45 N1 AISNE
