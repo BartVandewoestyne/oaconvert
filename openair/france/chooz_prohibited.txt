@@ -8,7 +8,7 @@
 *
 * Last check:
 *
-*   Bart Vandewoestyne (3 April 2012)
+*   Bart Vandewoestyne (8 May 2013)
 *
 * Map list:
 *
