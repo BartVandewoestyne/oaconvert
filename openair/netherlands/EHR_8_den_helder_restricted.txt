@@ -8,11 +8,11 @@
 *
 * Last check:
 *
-*   René van den Broek (4 June 2012)
+*   René van den Broek (2 February 2014)
 *
 * Map list:
 *
-*   MAP WEEK           SEE NOTAM
+*   MAP WEEK           YES
 *   MAP WEEKEND        SEE NOTAM
 *   MAP WEEKEND_LFAG1  SEE NOTAM
 *   MAP WEEKEND_LFAG2  SEE NOTAM
@@ -21,7 +21,7 @@
 
 AC R
 AN EHR 8 (Den Helder)
-AH FL 055
+AH FL 065
 AL MSL
 DP 52:57:42.00 N 004:44:25.00 E
 DP 52:52:00.00 N 004:43:00.00 E

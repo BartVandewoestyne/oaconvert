@@ -8,7 +8,7 @@
 *
 * Last check:
 *
-*   René van den Broek (4 June 2012)
+*   René van den Broek (2 February 2014)
 *
 * Map list:
 *
@@ -22,7 +22,7 @@
 
 AC R
 AN EHR 9 (Harskamp)
-AH FL 065
+AH 5900 ft AMSL
 AL GND
 DP 52:11:30.00 N 005:47:00.00 E
 DP 52:09:30.00 N 005:52:50.00 E

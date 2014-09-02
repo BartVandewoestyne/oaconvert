@@ -2,21 +2,21 @@
 *
 *   https://www.sia.aviation-civile.gouv.fr/
 *
-*   Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*   Manuel d:information Aéronautique GEN-ENR-AD en vigueur
 *   ENR 2 ESPACE ATS
 *    ENR 2.3 REGIONS DE CONTROLE TERMINALES (TMA)
 *
 * Last check:
 *
-*   Bart Vandewoestyne (7 May 2013)
+*   Wim Verhoeve (1 May 2014)
 *
 * Map list:
 *
-*   MAP WEEK           YES
+*   MAP WEEK           NO
 *
 * Remarks:
 *
-*   Cette partie n’existe que lorsque la CTR ALBERT BRAY est active.
+*   Downgraded to class 'E'
 
 AC E
 AN Lille TMA 11
@@ -33,5 +33,4 @@ DP 49:43:00 N 002:22:30 E
 DP 49:55:19 N 002:22:30 E
 DP 50:00:46 N 002:19:00 E
 DP 50:03:30 N 002:28:00 E
-DP 50:00:41 N 002:35:39 E
 DP 50:04:31 N 002:54:22 E

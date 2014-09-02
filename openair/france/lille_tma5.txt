@@ -2,13 +2,13 @@
 *
 *   https://www.sia.aviation-civile.gouv.fr/
 *
-*   Manuel d'information Aéronautique GEN-ENR-AD en vigueur
+*   Manuel d:information Aéronautique GEN-ENR-AD en vigueur
 *   ENR 2 ESPACE ATS
 *    ENR 2.3 REGIONS DE CONTROLE TERMINALES (TMA)
 *
 * Last check:
 *
-*   Wim Verhoeve (1 March 2012)
+*   Wim Verhoeve (1 May 2014)
 *
 * Map list:
 *
@@ -21,22 +21,24 @@
 * Remarks:
 *
 *   H24
-*   A l’exclusion de la zone EB R 24 A lorsqu’elle est active.
 
 AC D
 AN Lille TMA 5
 AH FL 115
-AL 4500 ft AMSL
-DP 50:48:50 N 002:36:43 E
-DP 50:42:12 N 002:49:42 E
-DP 50:41:38 N 002:53:33 E
-DP 50:39:30 N 002:50:55 E
-DP 50:33:40 N 002:43:42 E
-DP 50:29:09 N 002:40:06 E
-DP 50:23:13 N 002:35:23 E
-DP 50:21:01 N 002:33:38 E
-DP 50:23:30 N 002:17:00 E
-DP 50:25:50 N 002:17:50 E
-DP 50:35:44 N 002:21:23 E
-DP 50:47:22 N 002:34:59 E
-DP 50:48:50 N 002:36:43 E
+AL FL 65
+50:18:58 N 003:41:43 E
+* Frontière franco-belge
+50:18:30 N 003:43:00 E
+50:18:30 N 003:44:24 E
+50:09:38 N 004:00:01 E
+50:00:00 N 003:46:46 E
+50:00:00 N 003:33:30 E
+50:00:00 N 003:07:00 E
+50:00:00 N 002:29:17 E
+50:02:47 N 002:21:42 E
+50:04:40 N 002:20:41 E
+50:05:50 N 002:21:35 E
+50:18:20 N 002:31:30 E
+50:12:53 N 002:46:37 E
+50:12:22 N 003:24:55 E
+50:18:58 N 003:41:43 E

@@ -8,11 +8,11 @@
 *
 * Last check:
 *
-*   René van den Broek (4 June 2012)
+*   René van den Broek (2 February 2014)
 *
 * Map list:
 *
-*   MAP WEEK           SEE NOTAM
+*   MAP WEEK           YES
 *   MAP WEEKEND        SEE NOTAM
 *   MAP WEEKEND_LFAG1  SEE NOTAM
 *   MAP WEEKEND_LFAG2  SEE NOTAM
@@ -22,7 +22,7 @@
 AC R
 AN EHR 3A (Oldebroek)
 AH FL 065
-AL 1000 ft AMSL
+AL 3000 ft AMSL
 DP 52:23:00.00 N 005:50:00.00 E
 DP 52:21:30.00 N 005:52:30.00 E
 DP 52:24:30.00 N 006:01:00.00 E
