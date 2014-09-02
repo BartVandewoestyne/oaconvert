@@ -36,10 +36,10 @@ digraph AirSpaces {
   node [shape=oval label="Start"] start;
   node [shape=oval label="End"] end;
   node [shape=box label="FIR"] FIR;
-  node [shape=box label="NOTAM"] NOTAM;
+  node [shape=box image="icons/notam.png" label="NOTAM"] NOTAM;
   node [shape=box label="AUP"] AUP;
   //node [shape=box label="CTR"] CTR;
-  node [shape=box image="CTR.png" label=""] CTR;
+  node [shape=box image="icons/ctr.png" label=""] CTR;
   node [shape=box image="" label="ATZ"] ATZ;
   node [shape=box image="" label="CTA"] CTA;
   node [shape=box image="" label="LFA"] LFA;
