@@ -35,13 +35,13 @@ To generate the Garmin maps, you need the cgpsmapper command-line tool.  If you
 plan to generate the maps on Windows, you also need the cpreview tool.  You can
 find both at the cGPSmapper website (http://www.cgpsmapper.com/).  Once these
 are properly installed, change into the cgpsmapper directory and run the
-makemaps_individual.sh script:
+create_garmin_maps.sh script:
 
   cd ../cgpsmapper
-  ./makemaps_individual.sh Airspace_chessboard.txt
+  ./create_garmin_maps.sh typ_file_bart_chessboard.txt
 
-The Airspace_chessboard.txt file is a TYP-file where all polygon and line types
-for your Garmin are defined.
+The typ_file_bart_chessboard.txt file is a TYP-file where all polygon and line
+types for your Garmin are defined.
 
 => Under the build directory, you now also have a garmin directory with the
    Garmin maps.
