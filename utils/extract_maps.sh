@@ -11,10 +11,10 @@
 
 # Set the name of the oaconvert binary, depending wether we are on
 # Cygwin or on Linux.
-unamestr=`uname -o`
-if [[ $unamestr =~ .*Cygwin.* ]]; then
+unamestr=`uname -s`
+if [[ $unamestr =~ .*CYGWIN.* ]]; then
   OACONVERT=oaconvert.exe
-elif [[ $unamestr =~ .*Linux.* ]]; then
+elif [[ $unamestr =~ .*(Linux|Darwin).* ]]; then
   OACONVERT=oaconvert
 fi
 
