@@ -20,7 +20,7 @@ Step 1: run cmake
 To generate the Makefiles, run cmake in the root directory.  If necessary,
 remove the CMakeCache.txt file first:
 
-  rm CMakeCache.txt
+  rm -f CMakeCache.txt
   cmake .
 
 Step 2: compile the source
