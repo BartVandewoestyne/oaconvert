@@ -537,13 +537,15 @@ void Parser::initRegexMap()
     //
     // we *do* accept some other ICAO airspace classes as valid input.  We also
     // allow the specification of multiple airspace classes, separated by
-    // forward slashes and without spaces in between).
+    // forward slashes and without spaces in between.
     //
     // Note: 'TMZ' stands for 'Transponder Mandatory Zone' and is an
     //       abbreviation found in the Dutch AIP (Part 2 EN ROUTE, ENR 2.2, 4)
     //       but is not contained in ICAO Doc 8400.
+    //
+    // TODO: use back reference in this regular expression.
     regexMap[REGEX_AIRSPACE_CLASS] =
-        regex("\\s*((?:GP|CTR|TMZ|[ABCDEFGPQRW])(?:/GP|CTR|TMZ|[ABCDEFGPQRW])*)\\s*");
+        regex("\\s*((CTR|TMZ|GP|[ABCDEFGPQRW])(/(CTR|TMZ|GP|[ABCDEFGPQRW])+)*)\\s*");
 
     // Valid DB arc coordinate specifications.
     // TODO: check if we can make this regex shorter...
