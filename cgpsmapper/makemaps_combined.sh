@@ -63,13 +63,13 @@ do
 
 done
 
-unamestr=`uname -o`
-if [[ $unamestr =~ .*Cygwin.* ]]; then
+unamestr=`uname -s`
+if [[ $unamestr =~ .*CYGWIN.* ]]; then
 
   cpreview mypreview_temp.mp
   cgpsmapper ${COMBINED_NAME}.mp
 
-elif [[ $unamestr =~ .*Linux.* ]]; then
+elif [[ $unamestr =~ .*(Linux|Darwin).* ]]; then
 
   # This command generates the extra files:
   #   <COMBINED_NAME>.img
@@ -95,7 +95,7 @@ mv *.img   ../build/garmin/
 mv $COMBINED_NAME.reg ../build/garmin/
 mv $COMBINED_NAME.TDB ../build/garmin/$COMBINED_NAME.tdb
 mv $COMBINED_NAME.TYP ../build/garmin/$COMBINED_NAME.typ
-if [[ $unamestr =~ .*Cygwin.* ]]; then
+if [[ $unamestr =~ .*CYGWIN.* ]]; then
   mv $COMBINED_NAME.MDX ../build/garmin/$COMBINED_NAME.mdx
 fi
 rm -f $COMBINED_NAME.mp

@@ -68,13 +68,13 @@ do
       -e "s/^IMG=.*/IMG=$ID.img/g" \
       -e "s/^FID=.*/FID=$FID/g" mypreview.mp > mypreview_temp.mp
 
-  unamestr=`uname -o`
-  if [[ $unamestr =~ .*Cygwin.* ]]; then
+  unamestr=`uname -s`
+  if [[ $unamestr =~ .*CYGWIN.* ]]; then
   
     cpreview mypreview_temp.mp
     cgpsmapper $MAP_FILENAME.mp
   
-  elif [[ $unamestr =~ .*Linux.* ]]; then
+  elif [[ $unamestr =~ .*(Linux|Darwin).* ]]; then
   
     # This command generates the extra files:
     #   <MAP_FILENAME>.img
@@ -107,7 +107,7 @@ do
   mv $MAP_FILENAME.reg ../build/garmin/
   mv $MAP_FILENAME.TDB ../build/garmin/$MAP_FILENAME.tdb
   mv $ID.TYP ../build/garmin/$ID.typ
-  if [[ $unamestr =~ .*Cygwin.* ]]; then
+  if [[ $unamestr =~ .*CYGWIN.* ]]; then
     mv $MAP_FILENAME.MDX ../build/garmin/$MAP_FILENAME.mdx
   fi
   rm -f $MAP_FILENAME.mp
