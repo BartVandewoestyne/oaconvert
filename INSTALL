@@ -1,3 +1,20 @@
+Prerequisites
+-------------
+
+In order to compile oaconvert and its unit tests, you need to have the following
+software installed:
+
+  cmake
+  a C++ compiler (g++ or clang)
+  Boost
+  CppUnit
+
+To be able to create Garmin maps, you also need this tool to convert files in
+Polish format to Garmin IMG format:
+
+  cgpsmapper (available from http://www.cgpsmapper.com/)
+
+
 Step 1: run cmake
 -----------------
 To generate the Makefiles, run cmake in the root directory.  If necessary,
