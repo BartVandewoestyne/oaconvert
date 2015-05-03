@@ -23,17 +23,4 @@ set(oaconvert_SRCS
 
 add_library(airspace SHARED ${airspace_SRCS})
 add_executable(oaconvert ${oaconvert_SRCS})
-
-# See `cmake --help-module FindBoost` for more info
-# about the things below.
-# See also
-# http://www.cpprocks.com/using-cmake-to-build-a-cross-platform-project-with-a-boost-dependency/
-find_package(Boost REQUIRED regex)
-#message(status "** Boost Include: ${Boost_INCLUDE_DIR}")
-#message(status "** Boost Libraries: ${Boost_LIBRARY_DIRS}")
-#message(status "** Boost Libraries: ${Boost_LIBRARIES}")
-if (Boost_FOUND)
-   include_directories(${Boost_INCLUDE_DIRS})
-   target_link_libraries(airspace ${Boost_REGEX_LIBRARY})
-   target_link_libraries(oaconvert airspace)
-endif()
+target_link_libraries(oaconvert airspace)

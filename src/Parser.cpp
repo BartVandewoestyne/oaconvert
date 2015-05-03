@@ -31,7 +31,6 @@
 #include "GPXState.h"
 #include "KMLState.h"
 
-using namespace boost;
 using namespace std;
 using namespace Constants;
 
@@ -511,25 +510,25 @@ void Parser::initRegexMap()
 {
     // Coordinate specification stuff.
     regexMap[REGEX_DDMMSS] = regex("\\s*(\\d{1,3}):(\\d{1,2}):(\\d{1,2}(?:.\\d+)?)\\s*([NS])[\\s,]+(\\d{1,3}):(\\d{1,2}):(\\d{1,2}(?:.\\d+)?)\\s*([WE]).*",
-                                   boost::regex_constants::icase);
+                                   std::regex_constants::icase);
     regexMap[REGEX_DDMM]   = regex("\\s*(\\d{1,3}):(\\d{1,2}.\\d+)\\s*([NS])[\\s,]+(\\d{1,3}):(\\d{1,2}.\\d+)\\s*([WE]).*",
-                                   boost::regex_constants::icase);
+                                   std::regex_constants::icase);
     regexMap[REGEX_DD]     = regex("\\s*(\\d{1,3}.\\d+)\\s*([NS])[\\s,]+(\\d{1,3}.\\d+)\\s*([WE]).*",
-                                   boost::regex_constants::icase);
+                                   std::regex_constants::icase);
 
     // Altitude specification stuff.
-    regexMap[REGEX_FT]             = regex("\\s*(\\d+)\\s*('|ft)?.*",          boost::regex_constants::icase);
-    regexMap[REGEX_FL]             = regex("\\s*FL\\s*(\\d+).*",               boost::regex_constants::icase);
-    regexMap[REGEX_AGL]            = regex("\\s*(\\d+)\\s*('|ft)?\\s*AGL.*",   boost::regex_constants::icase);
-    regexMap[REGEX_AAL]            = regex("\\s*(\\d+)\\s*('|ft)?\\s*AAL.*",   boost::regex_constants::icase);
-    regexMap[REGEX_AMSL]           = regex("\\s*(\\d+)\\s*('|ft)?\\s*AMSL.*",  boost::regex_constants::icase);
-    regexMap[REGEX_MSL]            = regex("\\s*(\\d*)\\s*('|ft)?\\s*MSL.*",   boost::regex_constants::icase);
+    regexMap[REGEX_FT]             = regex("\\s*(\\d+)\\s*('|ft)?.*",         std::regex_constants::icase);
+    regexMap[REGEX_FL]             = regex("\\s*FL\\s*(\\d+).*",              std::regex_constants::icase);
+    regexMap[REGEX_AGL]            = regex("\\s*(\\d+)\\s*('|ft)?\\s*AGL.*",  std::regex_constants::icase);
+    regexMap[REGEX_AAL]            = regex("\\s*(\\d+)\\s*('|ft)?\\s*AAL.*",  std::regex_constants::icase);
+    regexMap[REGEX_AMSL]           = regex("\\s*(\\d+)\\s*('|ft)?\\s*AMSL.*", std::regex_constants::icase);
+    regexMap[REGEX_MSL]            = regex("\\s*(\\d*)\\s*('|ft)?\\s*MSL.*",  std::regex_constants::icase);
     // TODO: REGEX_SFC incorrectly matches 'ft ASFC'.  If there is 'ft', then there should be a number in front of it!  But simply 'SFC' should also be allowed... probably the same problem for REGEX_MSL...
-    regexMap[REGEX_SFC]            = regex("\\s*(\\d*)\\s*('|ft)?\\s*A?SFC.*", boost::regex_constants::icase);
-    regexMap[REGEX_GND]            = regex("\\s*GND.*",                        boost::regex_constants::icase);
-    regexMap[REGEX_AIRSPACE_FLOOR] = regex("\\s*Airspace\\s*Floor.*",          boost::regex_constants::icase);
-    regexMap[REGEX_UNLIMITED]      = regex("\\s*UNL.*",                        boost::regex_constants::icase);
-    regexMap[REGEX_ASK]            = regex("\\s*Ask.*",                        boost::regex_constants::icase);
+    regexMap[REGEX_SFC]            = regex("\\s*(\\d*)\\s*('|ft)?\\s*A?SFC.*", std::regex_constants::icase);
+    regexMap[REGEX_GND]            = regex("\\s*GND.*",                        std::regex_constants::icase);
+    regexMap[REGEX_AIRSPACE_FLOOR] = regex("\\s*Airspace\\s*Floor.*",          std::regex_constants::icase);
+    regexMap[REGEX_UNLIMITED]      = regex("\\s*UNL.*",                        std::regex_constants::icase);
+    regexMap[REGEX_ASK]            = regex("\\s*Ask.*",                        std::regex_constants::icase);
     regexMap[REGEX_COMMENT]        = "\\s*\\*.*";
 
     // Valid airspace classes.  Although not specified in the OpenAir specs at
@@ -544,7 +543,7 @@ void Parser::initRegexMap()
     //       abbreviation found in the Dutch AIP (Part 2 EN ROUTE, ENR 2.2, 4)
     //       but is not contained in ICAO Doc 8400.
     regexMap[REGEX_AIRSPACE_CLASS] =
-        "\\s*((?:[ABCDEFGPQRW]|GP|CTR|TMZ)(?:/[ABCDEFGPQRW]|GP|CTR|TMZ)*)\\s*";
+        regex("\\s*((?:GP|CTR|TMZ|[ABCDEFGPQRW])(?:/GP|CTR|TMZ|[ABCDEFGPQRW])*)\\s*");
 
     // Valid DB arc coordinate specifications.
     // TODO: check if we can make this regex shorter...

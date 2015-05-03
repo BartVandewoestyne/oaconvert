@@ -10,7 +10,7 @@
 
 
 # Set the name of the oaconvert binary, depending wether we are on
-# Cygwin or on Linux.
+# Cygwin, Linux or Mac OS X.
 unamestr=`uname -s`
 if [[ $unamestr =~ .*CYGWIN.* ]]; then
   OACONVERT=oaconvert.exe

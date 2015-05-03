@@ -21,7 +21,6 @@
 #include <fstream>
 #include <getopt.h>
 #include <strings.h>
-#include <boost/regex.hpp>
 
 #include "Airspace.h"
 #include "Latitude.h"
@@ -29,7 +28,6 @@
 #include "StringUtils.h"
 
 using namespace std;
-using namespace boost;
 
 int main (int argc, char* argv[])
 {

@@ -6,7 +6,6 @@ software installed:
 
   cmake
   a C++ compiler (g++ or clang)
-  Boost
   CppUnit
 
 To be able to create Garmin maps, you also need this tool to convert files in

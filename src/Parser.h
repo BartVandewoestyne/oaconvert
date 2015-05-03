@@ -20,10 +20,10 @@
 #ifndef PARSER_H
 #define PARSER_H
 
-#include <boost/regex.hpp>
 #include <list>
 #include <map>
 #include <memory>
+#include <regex>
 #include <string>
 
 #include "Airspace.h"
@@ -77,7 +77,7 @@ private:
     };
 
 private:
-    typedef std::pair<ERegex,boost::regex> pairtype;
+    typedef std::pair<ERegex,std::regex> pairtype;
 
     OutputWriter outputWriter;
 
@@ -91,7 +91,7 @@ private:
     // and assignment operator.
     std::shared_ptr<Coordinate> currentArcCenter;
 
-    std::map<ERegex,boost::regex> regexMap;
+    std::map<ERegex,std::regex> regexMap;
 
     // To prevent clients from calling these, and to prevent compilers from
     // generating these, we only declare, but do not implement the copy
