@@ -21,6 +21,6 @@ set(oaconvert_SRCS
     oaconvert.cpp
 )
 
-add_library(airspace SHARED ${airspace_SRCS})
+add_library(airspace STATIC ${airspace_SRCS})
 add_executable(oaconvert ${oaconvert_SRCS})
 target_link_libraries(oaconvert airspace)
