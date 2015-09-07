@@ -8,6 +8,9 @@ cmake_minimum_required(VERSION 2.6)
 
 project(oaconvert CXX)
 
+find_program(ASTYLE astyle)
+
+
 if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g")
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall -Wextra -Weffc++ -Wold-style-cast -Woverloaded-virtual -Wsign-promo -Wabi -Wmissing-declarations -Wconversion -Wcast-align -Wredundant-decls -Werror -pedantic")
@@ -25,17 +28,19 @@ endif()
 add_subdirectory(src)
 add_subdirectory(test)
 
-add_custom_target(reformat
-                  astyle --options=astyle_options src/*.cpp src/*.h
-                  COMMENT "Beautifying CPP source files"
-                  VERBATIM)
+if(ASTYLE)
+    add_custom_target(reformat
+                      ${ASTYLE} --options=astyle_options src/*.cpp src/*.h 
+                      COMMENT "Beautifying CPP source files"
+                      WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+                      VERBATIM)
 
-# TODO: this is not working yet, fix it.  The problem is
-#       the quotes around "*.orig" when typing `make origclean`.
-#add_custom_target(origclean
-#                  rm -f *.orig
-#                  COMMENT "Removing astyle backup files"
-#                  WORKING_DIRECTORY src
-#                  VERBATIM)
+    add_custom_target(origclean
+                      rm -f *.orig
+                      COMMENT "Removing astyle backup files"
+                      WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src)
+else()
+    message(WARNING "Could not find astyle. To be able to beautify the source code, install it from http://astyle.sourceforge.net/.")
+endif()
 
 # vim: expandtab
