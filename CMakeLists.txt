@@ -9,6 +9,8 @@ cmake_minimum_required(VERSION 2.6)
 project(oaconvert CXX)
 
 find_program(ASTYLE astyle)
+find_library(CPPUNIT LIBRARY
+    NAMES cppunit)
 
 
 if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
@@ -25,7 +27,15 @@ elseif("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
 endif()
 
 add_subdirectory(src)
-add_subdirectory(test)
+
+# Only compile the unit tests if cppunit is available or if we know that we can
+# compile it ourselves.
+if(CPPUNIT OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+  add_subdirectory(test)
+else()
+  message(WARNING "Cppunit was not found and we could not compile it "
+                  "automatically ourselves. Unit testing will be disabled.")
+endif()
 
 if(ASTYLE)
     add_custom_target(reformat

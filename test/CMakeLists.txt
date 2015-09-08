@@ -1,6 +1,6 @@
-if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
-    # When building with Clang, we need to compile cppunit ourselves or we get
-    # linking errors...
+if(NOT CPPUNIT OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+    # When cppunit was not found, or when building with Clang, we need to
+    # compile cppunit ourselves.
     include(ExternalProject)
     ExternalProject_Add(
         cppunit_external
