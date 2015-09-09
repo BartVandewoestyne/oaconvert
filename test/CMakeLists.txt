@@ -1,4 +1,5 @@
-if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" OR 
+        (NOT CPPUNIT AND NOT "${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC"))
     # When building with Clang, we need to compile cppunit ourselves or we get
     # linking errors...
     include(ExternalProject)
@@ -25,25 +26,30 @@ if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
     set_property(TARGET cppunit PROPERTY IMPORTED_LOCATION ${install_dir}/lib/libcppunit.a)
 endif()
 
-include_directories("../src")
+if(CPPUNIT)
+    include_directories("../src")
 
-set(MainTest_SRCS
-    ArcTest.cpp
-    LatLonTest.cpp
-    LatitudeTest.cpp
-    LongitudeTest.cpp
-    CoordinateTest.cpp
-    MainTester.cpp
-    ParserTest.cpp
-    AirspaceTest.cpp
-)
+    set(MainTest_SRCS
+        ArcTest.cpp
+        LatLonTest.cpp
+        LatitudeTest.cpp
+        LongitudeTest.cpp
+        CoordinateTest.cpp
+        MainTester.cpp
+        ParserTest.cpp
+        AirspaceTest.cpp
+    )
 
-add_executable(MainTest ${MainTest_SRCS})
+    add_executable(MainTest ${MainTest_SRCS})
 
-if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
-    add_dependencies(MainTest cppunit_external)
+    if(TARGET cppunit_external)
+        add_dependencies(MainTest cppunit_external)
+    endif()
+
+    target_link_libraries(MainTest cppunit airspace)
+else()
+  message(WARNING "Cppunit was not found and we could not compile it "
+                  "automatically ourselves. Unit testing will be disabled.")
 endif()
-
-target_link_libraries(MainTest cppunit airspace)
 
 # vim: expandtab

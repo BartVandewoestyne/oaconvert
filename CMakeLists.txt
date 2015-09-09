@@ -28,14 +28,7 @@ endif()
 
 add_subdirectory(src)
 
-# Only compile the unit tests if cppunit is available or if we know that we can
-# compile it ourselves.
-if(CPPUNIT OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
-  add_subdirectory(test)
-else()
-  message(WARNING "Cppunit was not found and we could not compile it "
-                  "automatically ourselves. Unit testing will be disabled.")
-endif()
+add_subdirectory(test)
 
 if(ASTYLE)
     add_custom_target(reformat
