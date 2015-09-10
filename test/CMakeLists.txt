@@ -19,6 +19,7 @@ if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" OR
         LOG_DOWNLOAD ON
         LOG_CONFIGURE ON
         LOG_BUILD ON
+        LOG_INSTALL ON
         )
 
     ExternalProject_Get_Property(cppunit_external install_dir)
