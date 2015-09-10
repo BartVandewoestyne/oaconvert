@@ -24,6 +24,7 @@ if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" OR
     ExternalProject_Get_Property(cppunit_external install_dir)
     add_library(cppunit STATIC IMPORTED)
     set_property(TARGET cppunit PROPERTY IMPORTED_LOCATION ${install_dir}/lib/libcppunit.a)
+    include_directories("${install_dir}/include")
 
     # Flag that cppunit will be available.
     set(CPPUNIT True)
