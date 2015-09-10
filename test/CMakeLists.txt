@@ -25,7 +25,10 @@ if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" OR
     ExternalProject_Get_Property(cppunit_external install_dir)
     add_library(cppunit STATIC IMPORTED)
     set_property(TARGET cppunit PROPERTY IMPORTED_LOCATION ${install_dir}/lib/libcppunit.a)
-    include_directories("${install_dir}/include")
+    # Make sure to put SYSTEM in the following command! It will make the
+    # compiler consider the cppunit headers system headers, which makes them
+    # immune against certain warnings. See http://stackoverflow.com/questions/3371127/use-isystem-instead-of-i-with-cmake
+    include_directories(SYSTEM "${install_dir}/include")
 
     # Flag that cppunit will be available.
     set(CPPUNIT True)
