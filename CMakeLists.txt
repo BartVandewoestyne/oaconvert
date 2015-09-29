@@ -9,9 +9,10 @@ cmake_minimum_required(VERSION 2.6)
 project(oaconvert)
 
 # Uncomment this to use clang for compiling.
-SET (CMAKE_CXX_COMPILER "/usr/bin/clang++-3.5")
+#SET (CMAKE_CXX_COMPILER "/usr/bin/clang++-3.5")
 
-set(CMAKE_CXX_FLAGS "-std=c++14 -stdlib=libc++ -g")
+#set(CMAKE_CXX_FLAGS "-std=c++14 -stdlib=libc++ -g")
+set(CMAKE_CXX_FLAGS "-std=c++14 ")
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall -Wextra -Weffc++ -Wold-style-cast -Woverloaded-virtual -Wsign-promo -Wabi -Wmissing-declarations -Wconversion -Wcast-align -Wredundant-decls -Werror -pedantic")
 
 add_subdirectory(src)
