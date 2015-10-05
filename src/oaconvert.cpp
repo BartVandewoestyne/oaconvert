@@ -19,134 +19,128 @@
 
 #include <iostream>
 #include <fstream>
-#include <getopt.h>
-#include <strings.h>
+#include <string>
 
 #include "Airspace.h"
 #include "Latitude.h"
 #include "Parser.h"
-#include "StringUtils.h"
-
-using namespace std;
 
 int main (int argc, char* argv[])
 {
 
     if (argc < 2)
     {
-        fprintf(stderr,
-                "Usage: %s [-d|--debug level] [-o|--output polish_file.mp] open_air_file.txt\n",
-                argv[0]);
+        std::cerr << "Usage: " << argv[0] << " [-d|--debug level] [-o|--output polish_file.mp] open_air_file.txt" << std::endl;
         exit(EXIT_FAILURE);
     }
 
     // By default, if no output file is given, write to stdout.
-    bool write_to_stdout = true;
     std::string outfilename;
+    std::string infilename;
 
-    static struct option long_options[] =
+    auto getNextParameter = [argc, argv](int index) -> std::string
     {
-        {  "output", required_argument, 0, 'o'},
-        {   "units", required_argument, 0, 'u'},
-        {   "debug", optional_argument, 0, 'd'},
-        {    "help",       no_argument, 0, 'h'},
-        { "version",       no_argument, 0, 'v'},
-        {         0,                 0, 0,  0 }
+        if(index >= argc)
+        {
+            std::cerr << "ERROR: invalid index '" << index << "'. There are only " << argc << " arguments." << std::endl;
+        }
+        if(index + 1 < argc)
+        {
+            return argv[index + 1];
+        }
+        else
+        {
+            std::cerr << "ERROR: Expected argument for " << argv[index] << "." << std::endl;
+            exit(EXIT_FAILURE);
+        }
     };
 
-
-    int opt;
-    int option_index;
-
-    while ( (opt = getopt_long(argc, argv, "d::u:o:hv", long_options, &option_index)) != -1 )
+    for(int i = 1; i < argc; ++i)
     {
+        std::string option = argv[i];
 
-        switch (opt)
+        if(option == "-u" || option == "--units")
         {
-
-        case 0:
-            printf ("option %s", long_options[option_index].name);
-            if (optarg)
-                printf (" with arg %s", optarg);
-            printf ("\n");
-            break;
-
-        case 'u':
-
-            if (!strcasecmp(optarg, "ft"))   // this is counterintuitive...
+            auto units = getNextParameter(++i);
+            if(units == "ft")
             {
-                printf ("TODO: setting output display units to feet.\n");
+                std::cout << "TODO: setting output display units to feet." << std::endl;
             }
-            else if (!strcasecmp(optarg, "m"))     // this is counterintuitive...
+            else if(units == "m")
             {
-                printf ("TODO: setting output display units to meters.\n");
+                std::cout << "TODO: setting output display units to meters." << std::endl;
             }
             else
             {
-                printf("ERROR: display units must be 'ft' (feet) or 'm' (meters).\n");
-                exit(EXIT_FAILURE);
+                std::cout << "ERROR: display units must be 'ft' (feet) or 'm' (meters)." << std::endl;
+                return EXIT_FAILURE;
             }
-            break;
-
-        case 'o':
-            outfilename = optarg;
-            write_to_stdout = false;
-            break;
-
-        case 'd':
-            printf("Requested debug level: %s\n", optarg);
-            printf("WARNING: Debug level output is not implemented yet!\n");
-            break;
-
-        case 'h':
-            printf("TODO: implement help text.\n");
-            exit(EXIT_SUCCESS);
-
-        case 'v':
-            printf("oa2convert <some_version>\n");
-            printf("Copyright (C) 2011 Bart Vandewoestyne, Yves Frederix\n");
-            printf("License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>\n");
-            printf("This is free software: you are free to change and redistribute it.\n");
-            printf("There is NO WARRANTY, to the extent permitted by law.\n");
-            exit(EXIT_SUCCESS);
-
-        default: /* '?' */
-            fprintf(stderr,
-                    "Usage: %s [-d|--debug level] [-o|--output polish_file.mp] open_air_file.txt\n",
-                    argv[0]);
-            exit(EXIT_FAILURE);
         }
 
+        else if(option == "-o" || option == "--output")
+        {
+            outfilename = getNextParameter(i++);
+        }
+
+        else if(option == "-d" || option == "--debug")
+        {
+            auto debuglevel = getNextParameter(i++);
+            std::cout << "Requested debug level: " << debuglevel << std::endl;
+            std::cout << "WARNING: Debug level output is not implemented yet!" << std::endl;
+        }
+
+        else if(option == "-h" || option == "--help")
+        {
+            std::cout << "TODO: implement help text." << std::endl;
+            exit(EXIT_SUCCESS);
+        }
+
+        else if(option == "-v" || option == "--version")
+        {
+            std::cout << "oa2convert <some_version>" << std::endl;
+            std::cout << "Copyright (C) 2011 Bart Vandewoestyne, Yves Frederix" << std::endl;
+            std::cout << "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>" << std::endl;
+            std::cout << "This is free software: you are free to change and redistribute it." << std::endl;
+            std::cout << "There is NO WARRANTY, to the extent permitted by law." << std::endl;
+            exit(EXIT_SUCCESS);
+        }
+
+        else
+        {
+            if(!infilename.empty())
+            {
+                std::cerr << "WARNING: more than one input file given. Ignoring '" << option << "'..." << std::endl;
+            }
+            else
+            {
+                infilename = option;
+            }
+        }
     }
 
-    // At least one non-option argument, i.e., the input file.
-    if (optind >= argc)
+    if (infilename.empty())
     {
-        fprintf(stderr, "ERROR: you must provide an OpenAir file after your options!!!\n");
+        std::cerr << "ERROR: you must provide an OpenAir file after your options!!!" << std::endl;
         exit(EXIT_FAILURE);
     }
 
-    // Read filename of the input file.
-    std::string infilename( argv[optind] );
-
-
     // Setup the parser
-    Parser *p;
+    std::unique_ptr<Parser> p;
 
-    if ( write_to_stdout )
+    if (outfilename.empty())
     {
-        p = new Parser();
+        p = std::unique_ptr<Parser>(new Parser());
     }
     else
     {
-        p = new Parser( outfilename );
+        p = std::unique_ptr<Parser>(new Parser(outfilename));
         //cout << "INFO: output file has extension ." << p->parseFileExtension( outfilename ) << "." << endl;
     }
 
     // Read the input (OpenAir) file.
     std::string infile(infilename);
-    string line;
-    ifstream inStream;
+    std::string line;
+    std::ifstream inStream;
     inStream.open(infile.c_str());
     if (inStream.is_open())
     {
@@ -160,14 +154,12 @@ int main (int argc, char* argv[])
     }
     else
     {
-        cerr << "ERROR: Unable to open file!\n";
+        std::cerr << "ERROR: Unable to open file '" << infilename << "'!" << std::endl;
+        exit(EXIT_FAILURE);
     }
 
     // Everything is parsed and stored, now write!
     p->writeAirspaces();
-
-    // cleanup
-    delete p;
 
     return 0;
 }
