@@ -33,7 +33,7 @@ const int NBPOINTS = 100;
 // TODO: find a good value for RESOLUTION that leads to nice results.  The
 // smallest circle I have encountered so far is EHD 61 from the Netherlands and
 // it has a radius of 300m.
-const double RESOLUTION = 0.5;
+const double RESOLUTION = 20; //0.5;
 }
 
 #endif /* CONSTANTS_H */
