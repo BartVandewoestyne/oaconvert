@@ -12,4 +12,4 @@ compiler:
 script:
   - cmake .
   - cd src
-  - make
+  - make VERBOSE=1
