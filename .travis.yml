@@ -6,3 +6,5 @@ compiler:
 
 script:
   - cmake .
+  - cd src
+  - make
