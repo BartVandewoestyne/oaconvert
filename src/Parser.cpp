@@ -292,6 +292,18 @@ double Parser::parseAltitude(const std::string& s) const
         return -1.0; // TODO: handle 'Ask on...'
     }
 
+    if ( regex_match(s, matches, regexMap.find(REGEX_NOTAM)->second) )
+    {
+        return -1.0; // TODO: handle 'NOTAM ...'
+    }
+
+    if ( regex_match(s, matches, regexMap.find(REGEX_CTA)->second) )
+    {
+        return -1.0; // TODO: handle 'CTA ...'
+    }
+
+
+
     cerr << "ERROR: incorrect altitude specification: " << s << endl;
     exit(EXIT_FAILURE);
 
@@ -529,6 +541,9 @@ void Parser::initRegexMap()
     regexMap[REGEX_AIRSPACE_FLOOR] = regex("\\s*Airspace\\s*Floor.*",          std::regex_constants::icase);
     regexMap[REGEX_UNLIMITED]      = regex("\\s*UNL.*",                        std::regex_constants::icase);
     regexMap[REGEX_ASK]            = regex("\\s*Ask.*",                        std::regex_constants::icase);
+    regexMap[REGEX_NOTAM]          = regex("\\s*NOTAM.*",                      std::regex_constants::icase);
+    regexMap[REGEX_CTA]            = regex("\\s*CTA.*",                      std::regex_constants::icase);
+
     regexMap[REGEX_COMMENT]        = "\\s*\\*.*";
 
     // Valid airspace classes.  Although not specified in the OpenAir specs at
