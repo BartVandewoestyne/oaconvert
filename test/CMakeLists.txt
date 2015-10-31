@@ -35,7 +35,7 @@ if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" OR
 endif()
 
 if(CPPUNIT)
-    include_directories("../src")
+    message(STATUS "Enabling unit testing")
 
     set(MainTest_SRCS
         ArcTest.cpp
@@ -50,11 +50,16 @@ if(CPPUNIT)
 
     add_executable(MainTest ${MainTest_SRCS})
 
+    target_include_directories(MainTest PRIVATE "../src")
+
     if(TARGET cppunit_external)
         add_dependencies(MainTest cppunit_external)
     endif()
 
     target_link_libraries(MainTest cppunit airspace)
+
+    add_test(airspace MainTest)
+
 else()
   message(WARNING "Cppunit was not found and we could not compile it "
                   "automatically ourselves. Unit testing will be disabled.")
