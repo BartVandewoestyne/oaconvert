@@ -1,15 +1,21 @@
-language: cpp
+sudo: required
+dist: trusty
 
-before_install:
-  - sudo apt-get update -qq
-  - sudo apt-get install -y libstdc++6
-  - sudo apt-get install -y libstdc++6-4.4-dev
+language: cpp
 
 compiler:
   - clang
   - gcc
 
+before_install:
+  - if [ "$CC" = "clang" ]; then 
+      sudo apt-get update -qq;
+      sudo apt-get install -y libc++1 libc++-dev; 
+    fi
+
 script:
-  - cmake .
-  - cd src
+  - mkdir build
+  - cd build
+  - cmake --version
+  - cmake ..
   - make VERBOSE=1
