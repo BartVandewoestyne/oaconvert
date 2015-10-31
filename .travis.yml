@@ -18,10 +18,16 @@ matrix:
 
 before_install:
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then
-        if [ "$CC" = "clang" ]; then 
-          sudo apt-get update -qq;
-          sudo apt-get install -y libc++1 libc++-dev; 
-        fi;
+      if [ "$CC" = "clang" ]; then 
+        sudo apt-get update -qq;
+        sudo apt-get install -y libc++1 libc++-dev; 
+      fi;
+      if [ "$CC" = "gcc" ]; then
+        sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y;
+        sudo apt-get update -qq;
+        sudo apt-get install -y g++-5;
+        export CXX="g++-5" CC="gcc-5";
+      fi;
     fi
 
 script:
@@ -31,3 +37,5 @@ script:
   - cmake ..
   - make VERBOSE=1
   - ctest . --output-on-failure
+
+# vim: sw=2 ts=2 sts=2 expandtab
