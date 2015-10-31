@@ -25,3 +25,4 @@ script:
   - cmake --version
   - cmake ..
   - make VERBOSE=1
+  - ctest .
