@@ -11,6 +11,11 @@ os:
   - linux
   - osx
 
+matrix:
+  exclude:
+    - os: osx
+      compiler: gcc
+
 before_install:
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then
         if [ "$CC" = "clang" ]; then 
