@@ -18,7 +18,7 @@ if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR "${CMAKE_CXX_COMPILER_ID}" STREQ
 endif()
 
 if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
-    set(GCC_MIN_VER "4.9")
+    set(GCC_MIN_VER "4.7")
     if(${CMAKE_CXX_COMPILER_VERSION} VERSION_LESS "${GCC_MIN_VER}")
         message(FATAL_ERROR "GCC version should be at least ${GCC_MIN_VER}!")
     endif()
