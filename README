@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/BartVandewoestyne/oaconvert.svg?branch=master)](https://travis-ci.org/BartVandewoestyne/oaconvert)
+
 oaconvert is an Open Source command-line tool to convert airspace files in
 OpenAir format [1] to files in Polish [2], GPX [3] and KML [4] format.
 
