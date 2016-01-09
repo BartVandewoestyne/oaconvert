@@ -5,7 +5,7 @@
 *
 * Last check:
 *
-*   René van den Broek (10 July 2013)
+*   RenÃ© van den Broek (10 July 2013)
 *
 * Map List:
 * 
