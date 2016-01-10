@@ -17,6 +17,7 @@ src/libairspace.dll.a
 src/oaconvert
 src/oaconvert.exe
 test/MainTest
+test/MainTest.exe
 
 # Everything from the build directory can be ignored.
 build/*
