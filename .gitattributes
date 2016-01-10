@@ -1,6 +1,7 @@
 *.txt text
 *.cpp text
 *.h text
+*.sh text
 *.o binary
 *.so binary
 *.dll binary
