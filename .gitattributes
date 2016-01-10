@@ -1,7 +1,7 @@
 *.txt text
 *.cpp text
 *.h text
-*.sh text
+*.sh text eol=lf
 *.o binary
 *.so binary
 *.dll binary
