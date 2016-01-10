@@ -1,3 +1,4 @@
+*.txt text
 *.cpp text
 *.h text
 *.o binary
