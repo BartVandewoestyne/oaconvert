@@ -3,7 +3,7 @@
 !include build\nsis\EnvVarUpdate.nsh
 
 ; HM NIS Edit Wizard helper defines
-!define PRODUCT_NAME "Bart's Fantastic Airspace Maps"
+!define PRODUCT_NAME "oaconvert"
 !define PRODUCT_VERSION "0.1.0"
 !define /date MyTIMESTAMP "%Y%m%d%H%M%S"
 !define PRODUCT_PUBLISHER "Bart Vandewoestyne"
@@ -12,11 +12,11 @@
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
-OutFile "BartsFantasticAirspaceMaps-${MyTIMESTAMP}.exe"
+OutFile "${PRODUCT_NAME}-${PRODUCT_VERSION}-${MyTIMESTAMP}.exe"
 LoadLanguageFile "${NSISDIR}\Contrib\Language files\Dutch.nlf"
 LoadLanguageFile "${NSISDIR}\Contrib\Language files\English.nlf"
 LoadLanguageFile "${NSISDIR}\Contrib\Language files\French.nlf"
-InstallDir "$PROGRAMFILES\Airspace Maps"
+InstallDir "$PROGRAMFILES\${PRODUCT_NAME}"
 Icon "${NSISDIR}\Contrib\Graphics\Icons\modern-install.ico"
 UninstallIcon "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
 DirText "Setup will install $(^Name) in the following folder.$\r$\n$\r$\nTo install in a different folder, click Browse and select another folder."
@@ -107,8 +107,8 @@ SectionEnd
 
 Section -AdditionalIcons
   SetShellVarContext all
-  CreateDirectory "$SMPROGRAMS\Airspace Maps"
-  CreateShortCut "$SMPROGRAMS\Airspace Maps\Uninstall.lnk" "$INSTDIR\uninst.exe"
+  CreateDirectory "$SMPROGRAMS\${PRODUCT_NAME}"
+  CreateShortCut "$SMPROGRAMS\${PRODUCT_NAME}\Uninstall.lnk" "$INSTDIR\uninst.exe"
 SectionEnd
 
 Section -Post
@@ -160,8 +160,8 @@ Section Uninstall
   RMDir "$INSTDIR\openair"
   RMDir "$INSTDIR"
 
-  Delete "$SMPROGRAMS\Airspace Maps\Uninstall.lnk"
-  RMDir "$SMPROGRAMS\Airspace Maps"
+  Delete "$SMPROGRAMS\${PRODUCT_NAME}\Uninstall.lnk"
+  RMDir "$SMPROGRAMS\${PRODUCT_NAME}"
 
   DeleteRegKey ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}"
 
