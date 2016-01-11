@@ -93,10 +93,10 @@ Section "OpenAir files" SEC06
   SetOutPath "$INSTDIR\openair"
   SetOverwrite ifnewer
   File /r "build\openair\*.*"
-  File /r "openair\belgium\*.*"
-  File /r "openair\france\*.*"
-  File /r "openair\germany\*.*"
-  File /r "openair\luxembourg\*.*"
+  File /r "openair\countries\belgium\*.*"
+  File /r "openair\countries\france\*.*"
+  File /r "openair\countries\germany\*.*"
+  File /r "openair\countries\luxembourg\*.*"
 SectionEnd
 
 Section "Polish Format files" SEC07
