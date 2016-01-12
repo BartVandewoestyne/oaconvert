@@ -1,0 +1,3 @@
+[submodule "openair/countries"]
+	path = openair/countries
+	url = git@github.com:BartVandewoestyne/openair.git
