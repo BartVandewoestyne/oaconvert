@@ -7,6 +7,10 @@ compiler:
   - clang
   - gcc
 
+# disable the default submodule logic
+git:
+    submodules: false
+
 os:
   - linux
   - osx
@@ -29,6 +33,11 @@ before_install:
         export CXX="g++-5" CC="gcc-5";
       fi;
     fi
+
+  # Use sed to replace the SSH URL with the public URL, then init and update submodules
+  # See http://stackoverflow.com/questions/15674064/github-submodule-access-rights-travis-ci
+  - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
+  - git submodule update --init --recursive
 
 script:
   - mkdir build
