@@ -40,6 +40,7 @@ public:
 
 private:
 
+    // TODO: store smart pointers inside the vector.
     std::vector<const GeometricShape*> shapes;
 
     // copy-constructor is private and not implemented (yet...)!!!

@@ -78,7 +78,6 @@ private:
         REGEX_CTA
     };
 
-private:
     typedef std::pair<ERegex,std::regex> pairtype;
 
     OutputWriter outputWriter;
@@ -95,12 +94,16 @@ private:
 
     std::map<ERegex,std::regex> regexMap;
 
+    unsigned int currentLineNumber;
+
     // To prevent clients from calling these, and to prevent compilers from
     // generating these, we only declare, but do not implement the copy
     // constructor and assignment operator.  See [Meyers 2005], Item 11, second
     // last paragraph.
     Parser(const Parser& p);
     Parser operator=(const Parser& p); // TODO: the output argument should be ref!
+
+    void unknownAirspaceError(unsigned int lineNumber, const std::string& lineText);
 
 public:
 

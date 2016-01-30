@@ -40,6 +40,7 @@ Parser::Parser()
     , currentDirection('+')
     , currentArcCenter()
     , regexMap()
+    , currentLineNumber(0)
 {
     initRegexMap();
 }
@@ -50,6 +51,7 @@ Parser::Parser(const std::string& outfile)
     , currentDirection('+')
     , currentArcCenter()
     , regexMap()
+    , currentLineNumber(0)
 {
 
     initRegexMap();
@@ -334,6 +336,8 @@ std::string Parser::parseFileExtension(const std::string& fileName) const
 
 void Parser::handleLine(const std::string& line)
 {
+    currentLineNumber++;
+
     smatch matches;
 
     if ( regex_match(line, matches, regexMap.find(REGEX_COMMENT)->second) )
@@ -358,7 +362,16 @@ void Parser::handleLine(const std::string& line)
     if ( regex_match(line, matches, regexMap.find(REGEX_AN)->second) )
     {
         string airspace_name( matches[1].first, matches[1].second );
-        getCurrentAirspace()->setName(airspace_name);
+        Airspace* currentAirspace = getCurrentAirspace();
+        if (currentAirspace)
+        {
+            currentAirspace->setName(airspace_name);
+        }
+        else
+        {
+            cout << "\nERROR (line " << currentLineNumber << ") : assign a class to the airspace before giving it a name." << line << endl;
+            exit(1);
+        }
         return;
     }
 
@@ -388,7 +401,17 @@ void Parser::handleLine(const std::string& line)
     if ( regex_match(line, matches, regexMap.find(REGEX_VX)->second) )
     {
         string matched_text(matches[1].first, matches[1].second);
-        setCurrentArcCenter(parseCoordinate(matched_text));
+
+        Airspace* currentAirspace = getCurrentAirspace();
+        if (currentAirspace)
+        {
+            setCurrentArcCenter(parseCoordinate(matched_text));
+        }
+        else
+        {
+            unknownAirspaceError(currentLineNumber, line);
+            exit(1);
+        }
         return;
     }
 
@@ -399,14 +422,34 @@ void Parser::handleLine(const std::string& line)
         {
             direction_string.assign(matches[i].first, matches[i].second);
         }
-        setCurrentDirection(direction_string[0]);
+        
+        Airspace* currentAirspace = getCurrentAirspace();
+        if (currentAirspace)
+        {
+            setCurrentDirection(direction_string[0]);
+        }
+        else
+        {
+            unknownAirspaceError(currentLineNumber, line);
+            exit(1);
+        }
         return;
     }
 
     if ( regex_match(line, matches, regexMap.find(REGEX_DP)->second) )
     {
         string point_coordinate( matches[1].first, matches[1].second );
-        getCurrentAirspace()->add( new Point(parseCoordinate(point_coordinate)) );
+        
+        Airspace* currentAirspace = getCurrentAirspace();
+        if (currentAirspace)
+        {
+            currentAirspace->add( new Point(parseCoordinate(point_coordinate)) );
+        }
+        else
+        {
+            unknownAirspaceError(currentLineNumber, line);
+            exit(1);
+        }
         return;
     }
 
@@ -420,7 +463,16 @@ void Parser::handleLine(const std::string& line)
         Arc arc( *(getCurrentArcCenter()), atof(radiusNM.c_str()),
                  atof(angleStart.c_str()), atof(angleEnd.c_str()), getCurrentDirection());
 
-        getCurrentAirspace()->add( &arc );
+        Airspace* currentAirspace = getCurrentAirspace();
+        if (currentAirspace)
+        {
+            currentAirspace->add( &arc );
+        }
+        else
+        {
+            unknownAirspaceError(currentLineNumber, line);
+            exit(1);
+        }
         return;
     }
 
@@ -466,13 +518,22 @@ void Parser::handleLine(const std::string& line)
             // Use average of the two radii.
             double radius = ( c1.getDistance(*currentArcCenter) + c2.getDistance(*currentArcCenter) )*0.5;
 
-            // Add the arc points to this space's Polygon.
-            getCurrentAirspace()->add( new Arc(*currentArcCenter,
-                                               radius/1852.0, startAngle, endAngle, getCurrentDirection()) );
+            Airspace* currentAirspace = getCurrentAirspace();
+            if (currentAirspace)
+            {
+                // Add the arc points to this space's Polygon.
+                currentAirspace->add( new Arc(*currentArcCenter,
+                                                radius/1852.0, startAngle, endAngle, getCurrentDirection()) );
+            }
+            else
+            {
+                unknownAirspaceError(currentLineNumber, line);
+                exit(1);
+            }
         }
         else
         {
-            cout << "\nERROR: invalid coordinate string specification in DB-record: " << line << endl;
+            cout << "\nERROR at line " << currentLineNumber << ": invalid coordinate string specification in DB-record: " << line << endl;
             exit(1);
         }
 
@@ -486,7 +547,17 @@ void Parser::handleLine(const std::string& line)
 
         // Add circle to this Airspace.
         Point center(*(getCurrentArcCenter()));
-        getCurrentAirspace()->add(new Circle(center, atof(radiusNM.c_str())));
+
+        Airspace* currentAirspace = getCurrentAirspace();
+        if (currentAirspace)
+        {
+            currentAirspace->add(new Circle(center, atof(radiusNM.c_str())));
+        }
+        else
+        {
+            unknownAirspaceError(currentLineNumber, line);
+            exit(1);
+        }
 
     }
 }
@@ -578,4 +649,11 @@ void Parser::initRegexMap()
     regexMap[REGEX_DA] = "\\s*DA\\s+(\\d+\\.*\\d*)[\\s,]+(\\d+)[\\s,]+(\\d+)(\\*.*)?";
     regexMap[REGEX_DB] = "\\s*DB\\s+(.*)(\\*.*)?";
     regexMap[REGEX_DC] = "\\s*DC\\s+(.*)(\\*.*)?";
+}
+
+void Parser::unknownAirspaceError(unsigned int lineNumber, const std::string& lineText)
+{
+    cout << "\nERROR at line " << lineNumber << ": unknown airspace." << endl << endl;
+    cout << "  " << lineText << endl << endl;
+    cout << "=> First create an airspace with AC, AN, AL and AH records before assigning it a geometry." << endl;
 }

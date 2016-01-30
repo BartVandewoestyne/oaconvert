@@ -53,10 +53,9 @@ void CurvedPolygon::discretize( std::vector<Coordinate>& coords, double resoluti
     std::vector<const GeometricShape*>::const_iterator it;
     for ( it = shapes.begin(); it < shapes.end(); ++it )
     {
-      const GeometricShape *s = *it;
+      const GeometricShape* s = *it;
       s->discretize( coords, resolution );
     }
-
 }
 
 
