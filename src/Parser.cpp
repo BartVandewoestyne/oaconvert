@@ -621,17 +621,13 @@ void Parser::initRegexMap()
     //
     //    http://www.winpilot.com/usersguide/userairspace.asp
     //
-    // we *do* accept some other ICAO airspace classes as valid input.  We also
+    // we *do* accept ICAO airspace classes E, F and G as valid input.  We also
     // allow the specification of multiple airspace classes, separated by
     // forward slashes and without spaces in between.
     //
-    // Note: 'TMZ' stands for 'Transponder Mandatory Zone' and is an
-    //       abbreviation found in the Dutch AIP (Part 2 EN ROUTE, ENR 2.2, 4)
-    //       but is not contained in ICAO Doc 8400.
-    //
     // TODO: use back reference in this regular expression.
     regexMap[REGEX_AIRSPACE_CLASS] =
-        regex("\\s*((CTR|TMZ|GP|[ABCDEFGPQRW])(/(CTR|TMZ|GP|[ABCDEFGPQRW])+)*)\\s*");
+        regex("\\s*((CTR|GP|[ABCDEFGPQRW])(/(CTR|GP|[ABCDEFGPQRW])+)*)\\s*");
 
     // Valid DB arc coordinate specifications.
     // TODO: check if we can make this regex shorter...

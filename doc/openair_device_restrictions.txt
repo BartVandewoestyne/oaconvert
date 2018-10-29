@@ -1,0 +1,8 @@
+This file lists the OpenAir restrictions that certain OpenAir-compatible
+devices have.
+
+Flytec / Bräuniger
+------------------
+* Limits the AN field to 16 (or 24) characters.
+* Omits everything beyond the numbers in the AL and AH fields.
+* Assumes all altitudes are in feet AMSL.
